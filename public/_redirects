@@ -1,0 +1,7 @@
+# Static files — serve directly, never rewrite
+/sitemap.xml    /sitemap.xml    200
+/robots.txt     /robots.txt     200
+/site.webmanifest /site.webmanifest 200
+
+# SPA catch-all — must come last
+/*    /index.html   200

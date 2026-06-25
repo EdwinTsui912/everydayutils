@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#F0FDFA"/>
+    </linearGradient>
+    <linearGradient id="icon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#BFDBFE" stroke-width="0.5"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="120" r="180" fill="#3B82F6" opacity="0.06"/>
+  <circle cx="150" cy="520" r="140" fill="#06B6D4" opacity="0.07"/>
+
+  <!-- Icon badge -->
+  <rect x="540" y="170" width="120" height="120" rx="28" fill="url(#icon)"/>
+  <!-- Zap icon path scaled & centered -->
+  <polygon points="588,200 572,242 596,242 612,214 628,214 612,256 636,256 600,290 616,248 592,248 608,216" fill="white"/>
+
+  <!-- Site name -->
+  <text x="600" y="340" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="700" fill="#111827" text-anchor="middle" letter-spacing="-1">EverydayUtils</text>
+
+  <!-- Tagline -->
+  <text x="600" y="400" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="400" fill="#374151" text-anchor="middle">Free Privacy-First Browser Tools</text>
+
+  <!-- Descriptor pills -->
+  <g transform="translate(600, 455)">
+    <!-- Password Generator pill -->
+    <rect x="-340" y="-18" width="160" height="36" rx="18" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+    <text x="-260" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#1D4ED8" text-anchor="middle">🔑 Passwords</text>
+    <!-- QR pill -->
+    <rect x="-165" y="-18" width="130" height="36" rx="18" fill="#F0FDFA" stroke="#99F6E4" stroke-width="1.5"/>
+    <text x="-100" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#0F766E" text-anchor="middle">📱 QR Codes</text>
+    <!-- Text tools pill -->
+    <rect x="-20" y="-18" width="140" height="36" rx="18" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.5"/>
+    <text x="50" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#C2410C" text-anchor="middle">✏️ Text Tools</text>
+    <!-- Palette pill -->
+    <rect x="135" y="-18" width="130" height="36" rx="18" fill="#FDF4FF" stroke="#E9D5FF" stroke-width="1.5"/>
+    <text x="200" y="6" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="500" fill="#7C3AED" text-anchor="middle">🎨 Palettes</text>
+  </g>
+
+  <!-- Footer strip -->
+  <rect x="0" y="570" width="1200" height="60" fill="#1E40AF" opacity="0.08"/>
+  <text x="600" y="605" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="500" fill="#6B7280" text-anchor="middle">everydayutils.com · No sign-up · No tracking · 100% browser-based</text>
+</svg>
