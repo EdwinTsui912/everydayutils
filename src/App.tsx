@@ -34,6 +34,7 @@ import PomodoroTimerBlogPost from './pages/PomodoroTimerBlogPost';
 import ColorPaletteBlogPost from './pages/ColorPaletteBlogPost';
 import PercentageCalculatorBlogPost from './pages/PercentageCalculatorBlogPost';
 import Base64Page from './pages/Base64Page';
+import ImageConverterPage from './pages/ImageConverterPage';
 
 function PageTracker() {
   const location = useLocation();
@@ -109,6 +110,7 @@ export default function App() {
             <Route path="/blog/color-palette-generator" element={<ColorPaletteBlogPost />} />
             <Route path="/blog/percentage-calculator" element={<PercentageCalculatorBlogPost />} />
             <Route path="/base64" element={<Base64Page />} />
+            <Route path="/image-converter" element={<ImageConverterPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>

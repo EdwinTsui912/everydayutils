@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2 } from 'lucide-react';
+import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon } from 'lucide-react';
 
 const TOOLS = [
   {
@@ -73,6 +73,14 @@ const TOOLS = [
     description: 'Encode and decode Base64 strings instantly. Perfect for APIs and data handling.',
     bg: 'bg-indigo-50 dark:bg-indigo-950/40',
     iconColor: 'text-indigo-600 dark:text-indigo-400',
+  },
+  {
+    path: '/image-converter',
+    icon: ImageIcon,
+    label: 'Image Format Converter',
+    description: 'Convert JPG, PNG, WebP instantly in your browser. Fast and private.',
+    bg: 'bg-purple-50 dark:bg-purple-950/40',
+    iconColor: 'text-purple-600 dark:text-purple-400',
   },
 ];
 

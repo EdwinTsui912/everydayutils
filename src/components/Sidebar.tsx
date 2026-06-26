@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Home, Type, KeyRound, Palette, Percent, QrCode,
-  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2
+  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon
 } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -13,6 +13,7 @@ const TOOLS = [
   { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
   { label: 'Base64', path: '/base64', icon: Code2 },
   { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
+  { label: 'Image Converter', path: '/image-converter', icon: ImageIcon },
   { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
   { label: 'Color Palette', path: '/palette-generator', icon: Palette },
   { label: 'Percentage Calc', path: '/percentage-calculator', icon: Percent, badge: 'Suite' },
