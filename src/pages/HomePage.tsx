@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe } from 'lucide-react';
+import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2 } from 'lucide-react';
 
 const TOOLS = [
   {
@@ -65,6 +65,14 @@ const TOOLS = [
     description: 'Boost focus with timed work and break sessions. Classic 25/5 or Extended 50/10 cycles.',
     bg: 'bg-red-50 dark:bg-red-950/40',
     iconColor: 'text-red-500 dark:text-red-400',
+  },
+  {
+    path: '/base64',
+    icon: Code2,
+    label: 'Base64 Encoder',
+    description: 'Encode and decode Base64 strings instantly. Perfect for APIs and data handling.',
+    bg: 'bg-indigo-50 dark:bg-indigo-950/40',
+    iconColor: 'text-indigo-600 dark:text-indigo-400',
   },
 ];
 

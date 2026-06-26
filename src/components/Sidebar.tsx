@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Home, Type, KeyRound, Palette, Percent, QrCode,
-  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer,
+  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2
 } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -11,11 +11,12 @@ const NAV_ITEMS = [
 const TOOLS = [
   { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
   { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
-  { label: 'Lorem Ipsum', path: '/lorem-ipsum-generator', icon: AlignLeft },
+  { label: 'Base64', path: '/base64', icon: Code2 },
+  { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
+  { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
   { label: 'Color Palette', path: '/palette-generator', icon: Palette },
   { label: 'Percentage Calc', path: '/percentage-calculator', icon: Percent, badge: 'Suite' },
-  { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
-  { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
+  { label: 'Lorem Ipsum', path: '/lorem-ipsum-generator', icon: AlignLeft },
   { label: 'Pomodoro Timer', path: '/pomodoro', icon: Timer },
 ];
 
