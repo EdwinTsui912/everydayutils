@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import TextToolsPage from './pages/TextToolsPage';
 import PasswordGeneratorPage from './pages/PasswordGeneratorPage';
@@ -43,13 +44,25 @@ function PageTracker() {
 
 function Layout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(o => !o)} />
-        <main className="flex-1 overflow-y-auto">
+        <main 
+  className="flex-1 overflow-y-auto" 
+  ref={(el) => {
+    if (el) {
+      el.scrollTop = 0;
+    }
+  }}
+>
           {children}
         </main>
         <Footer />
@@ -64,6 +77,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <PageTracker />
+        <ScrollToTop />   {/* ← Add this line */}
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />

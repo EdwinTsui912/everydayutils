@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import QRCodeGenerator from '../components/QRCodeGenerator';
+import QRCodeGenerator from './QRCodeGenerator';
 
 export default function QRGeneratorPage() {
   return (

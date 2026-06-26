@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import QRCode from 'qrcode';
-import { Copy, Check, RotateCcw, Download, AlertCircle } from 'lucide-react';
+import { Copy, Check, RotateCcw, Download, AlertCircle, QrCode } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
+import QRCode from 'qrcode';
 
 type ECCLevel = 'L' | 'M' | 'Q' | 'H';
 
@@ -108,14 +108,14 @@ export default function QRCodeGenerator() {
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 min-h-screen w-full overflow-y-auto">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 tracking-tight mb-3">
-          QR Code Generator
-        </h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
+           {/* Centered Header with Icon */}
+           <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <QrCode size={32} className="text-white" />
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">QR Code Generator</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
           Generate high-quality QR codes instantly — all processing happens in your browser.
-          No data is ever sent to a server, ensuring complete privacy.
         </p>
       </div>
 

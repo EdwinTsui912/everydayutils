@@ -246,10 +246,13 @@ export default function LoremIpsumGenerator() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="page-title">Lorem Ipsum Generator</h1>
-        <p className="page-subtitle">
+      {/* Centered Header with Icon */}
+      <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <FileText size={32} className="text-white" />
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Lorem Ipsum Generator</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
           Generate placeholder text instantly. Customize paragraph count, length, format, and more.
         </p>
       </div>

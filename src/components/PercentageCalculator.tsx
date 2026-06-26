@@ -203,7 +203,6 @@ function PercentageChange() {
 
   const copyVal = (key: string, val: string) => {
     if (val === '—') return;
-    // Strip sign characters and formatting, keep the raw numeric string
     navigator.clipboard.writeText(val.replace(/[%+\-−,\s]/g, '').trim());
     setCopied(key);
     setTimeout(() => setCopied(null), 1800);
@@ -212,7 +211,6 @@ function PercentageChange() {
   const reset = () => { setOldVal(''); setNewVal(''); };
 
   const pctStr = isFinite(pctChange) && !isNaN(pctChange) ? fmtPct(pctChange) : '—';
-  // Use − (minus sign U+2212) for negative display clarity
   const absStr = isFinite(change) && !isNaN(change)
     ? `${change >= 0 ? '+' : '−'}${fmt(Math.abs(change))}`
     : '—';
@@ -338,7 +336,6 @@ function ReversePercentage() {
   const divisor = mode === 'added' ? 1 + p / 100 : 1 - p / 100;
   const original = isNaN(f) || isNaN(p) || divisor === 0 ? NaN : f / divisor;
 
-  // Use proper minus sign (U+2212) for negative values
   const resultStr = isFinite(original) && !isNaN(original)
     ? `${original < 0 ? '−' : ''}$${fmt(Math.abs(original))}`
     : '—';
@@ -401,7 +398,6 @@ function TipSplitter() {
 
   const b = safe(bill) || 0;
   const t = safe(tipPct) || 0;
-  // Clamp to integer — no fractional people
   const ppl = Math.max(1, Math.floor(parseInt(people) || 1));
 
   const tipAmt = (t / 100) * b;
@@ -485,19 +481,17 @@ export default function PercentageCalculator() {
       <div className="min-h-screen w-full bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 pb-32">
         <div className="max-w-5xl mx-auto py-8 px-4">
 
-          {/* Header */}
-          <div className="text-center mb-10 relative">
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-100 dark:bg-brand-900/40 mb-4 shadow-sm">
-              <Calculator size={26} className="text-brand-600 dark:text-brand-400" />
+          {/* Centered Header with Icon */}
+          <div className="text-center mb-12">
+            <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+              <Calculator size={32} className="text-white" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 tracking-tight mb-3">
-              Percentage Calculator
-            </h1>
+            <h1 className="text-4xl font-bold tracking-tight mb-2">Percentage Calculator</h1>
             <p className="text-base text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Five essential percentage tools in one place — discounts, tip splitting, reverse percentages, and more.
               All calculations run instantly in your browser. No data is ever sent to any server.
             </p>
-            <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-400 dark:text-gray-500 font-medium flex-wrap">
+            <div className="flex items-center justify-center gap-2 mt-6 text-xs text-gray-400 dark:text-gray-500 font-medium flex-wrap">
               <span className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
                 100% Private
@@ -543,9 +537,9 @@ export default function PercentageCalculator() {
               <ul className="list-disc pl-5 mb-6 space-y-1">
                 <li><strong>Percentage of a Number</strong> — "What is 15% of 850?"</li>
                 <li><strong>Percentage Change</strong> — Calculate increase or decrease between two values</li>
-                <li><strong>Discount &amp; Markup Calculator</strong> — Final price after discount or profit margin</li>
+                <li><strong>Discount & Markup Calculator</strong> — Final price after discount or profit margin</li>
                 <li><strong>Reverse Percentage</strong> — Find the original amount before tax or discount</li>
-                <li><strong>Tip Calculator &amp; Bill Splitter</strong></li>
+                <li><strong>Tip Calculator & Bill Splitter</strong></li>
               </ul>
 
               <h3 className="text-lg font-semibold mt-8 mb-2">Why Choose Our 100% Client-Side Percentage Calculator?</h3>

@@ -145,7 +145,6 @@ export default function TextToolsSuite() {
 
   useEffect(() => { trackToolView('text-tools'); }, []);
 
-
   const stats = useMemo(() => computeStats(text), [text]);
 
   function applyTransform(fn: (s: string) => string) {
@@ -230,11 +229,12 @@ export default function TextToolsSuite() {
   return (
     <div className="max-w-5xl mx-auto py-10 px-4 min-h-screen overflow-y-auto">
 
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 tracking-tight mb-3">
-          Text Tools Suite
-        </h1>
+      {/* Centered Header with Icon */}
+      <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <FileText size={32} className="text-white" />
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Text Tools Suite</h1>
         <p className="text-base text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
           Word counter, case converter, and text sanitizer — all in one place.{' '}
           <span className="font-medium text-gray-600 dark:text-gray-300">100% client-side.</span>

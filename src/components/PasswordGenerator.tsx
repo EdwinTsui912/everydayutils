@@ -196,11 +196,12 @@ export default function PasswordGenerator() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
 
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 tracking-tight mb-3">
-          Password Generator
-        </h1>
+      {/* Centered Header with Icon */}
+      <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <span className="text-white text-4xl">🔑</span>
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Password Generator</h1>
         <p className="text-base text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
           Generate cryptographically secure passwords using your browser's built-in Web Crypto API.
           All generation happens locally — nothing is ever transmitted or stored.
@@ -412,7 +413,7 @@ export default function PasswordGenerator() {
       </div>
 
       {/* ── SEO Section ── */}
-<div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
+      <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
         <div className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto px-4 text-sm leading-relaxed">
           <h2 className="text-2xl font-bold mb-6">The Importance of Cryptographically Secure Password Generation</h2>
           <p className="mb-6">In modern cybersecurity, standard pseudo-random number generators (PRNGs) like JavaScript's native Math.random() are fundamentally flawed for security purposes. Because their outputs are mathematically predictable over time, automated scripts can determine patterns and crack generated credentials. This secure Password Generator leverages advanced cryptographic entropy to establish highly complex strings, providing a critical baseline defense against automated brute-force scripts, credential stuffing schemes, and targeted digital breaches.</p>

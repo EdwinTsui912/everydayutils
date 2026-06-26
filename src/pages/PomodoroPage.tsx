@@ -620,11 +620,12 @@ export default function PomodoroPage() {
         </Link>
       </div>
 
-      {/* Page header */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 tracking-tight mb-2">
-          Pomodoro Timer
-        </h1>
+      {/* Page header with icon */}
+      <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <span className="text-white text-4xl">⏱</span>
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Pomodoro Timer</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
           Stay focused with structured work and break intervals. All sessions run locally — nothing is stored.
         </p>

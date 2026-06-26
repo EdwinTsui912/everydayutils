@@ -422,11 +422,12 @@ export default function ColorPaletteGenerator() {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 min-h-screen w-full overflow-y-auto animate-fade-in">
 
-      {/* ── Header ─────────────────────────────────────────────────── */}
-      <div className="text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-50 tracking-tight mb-3">
-          Color Palette Generator
-        </h1>
+      {/* Centered Header with Icon */}
+      <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <span className="text-white text-4xl">🎨</span>
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight mb-2">Color Palette Generator</h1>
         <p className="text-base text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
           Generate harmonious, WCAG-accessible color palettes using pure client-side math.
           Nothing leaves your browser — no tracking, no uploads.

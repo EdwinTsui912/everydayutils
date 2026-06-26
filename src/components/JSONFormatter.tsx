@@ -43,7 +43,6 @@ function collapseJSON(str: string): string {
       result.push(line);
       depth += opens - closes;
       if (depth > 0) {
-        // skip until matching close at depth 0
         i++;
         let inner = depth;
         while (i < lines.length && inner > 0) {
@@ -56,7 +55,6 @@ function collapseJSON(str: string): string {
             const lastResultLine = result[result.length - 1];
             const isObj = closeLine.startsWith('}');
             result[result.length - 1] = lastResultLine + (isObj ? ' {…}' : ' […]');
-            // append trailing comma if original has it
             if (closeLine.endsWith(',')) {
               result[result.length - 1] += ',';
             }
@@ -108,7 +106,6 @@ function validateJSON(text: string): ValidationResult {
     return { valid: true };
   } catch (e: unknown) {
     const msg = (e as Error).message;
-    // Try to extract line/col from error message
     const posMatch = msg.match(/position (\d+)/i);
     if (posMatch) {
       const pos = parseInt(posMatch[1], 10);
@@ -172,7 +169,6 @@ export default function JSONFormatter() {
     } catch { /* already validated */ }
   }, [input, indent, sortKeysEnabled, showToast]);
 
-  // Re-apply indentation immediately when selector changes if output is already in formatted mode
   useEffect(() => {
     if (!lastOpWasFormat || !validation.valid || !input.trim()) return;
     try {
@@ -180,7 +176,6 @@ export default function JSONFormatter() {
       if (sortKeysEnabled) parsed = sortKeys(parsed);
       setOutput(JSON.stringify(parsed, null, indent));
     } catch { /* ignore */ }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [indent]);
 
   const handleMinify = useCallback(() => {
@@ -239,7 +234,6 @@ export default function JSONFormatter() {
     setValidation({ valid: false });
   }, []);
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const mod = e.ctrlKey || e.metaKey;
@@ -260,17 +254,13 @@ export default function JSONFormatter() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
-      {/* Header */}
-      <div>
-        <div className="flex items-center gap-3 mb-1">
-          <div className="w-9 h-9 bg-gradient-to-br from-brand-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-sm">
-            <FileJson size={18} className="text-white" />
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 tracking-tight">
-            JSON Formatter & Validator
-          </h1>
+      {/* Centered Header with Icon */}
+      <div className="text-center mb-12">
+        <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
+          <FileJson size={32} className="text-white" />
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 ml-12">
+        <h1 className="text-4xl font-bold tracking-tight mb-2">JSON Formatter & Validator</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
           Format, validate, minify, and inspect JSON — 100% in your browser.
         </p>
       </div>
