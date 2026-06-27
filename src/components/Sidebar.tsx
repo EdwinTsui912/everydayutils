@@ -11,9 +11,9 @@ const NAV_ITEMS = [
 const TOOLS = [
   { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
   { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
+  { label: 'URL Encoder', path: '/url-encoder', icon: ArrowRightLeft },
   { label: 'Base64', path: '/base64', icon: Code2 },
   { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
-  { label: 'URL Encoder', path: '/url-encoder', icon: ArrowRightLeft },
   { label: 'Image Converter', path: '/image-converter', icon: ImageIcon },
   { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
   { label: 'Color Palette', path: '/palette-generator', icon: Palette },

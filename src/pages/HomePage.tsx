@@ -19,6 +19,46 @@ const TOOLS = [
     iconColor: 'text-emerald-600 dark:text-emerald-400',
   },
   {
+    path: '/url-encoder',
+    icon: ArrowRightLeft,
+    label: 'URL Encoder',
+    description: 'Encode and decode URLs, query strings, and special characters.',
+    bg: 'bg-violet-50 dark:bg-violet-950/40',
+    iconColor: 'text-violet-600 dark:text-violet-400',
+  },
+  {
+    path: '/base64',
+    icon: Code2,
+    label: 'Base64 Encoder',
+    description: 'Encode and decode Base64 strings instantly. Perfect for APIs and data handling.',
+    bg: 'bg-indigo-50 dark:bg-indigo-950/40',
+    iconColor: 'text-indigo-600 dark:text-indigo-400',
+  },
+  {
+    path: '/json-formatter',
+    icon: FileJson,
+    label: 'JSON Formatter',
+    description: 'Format, minify, validate and beautify JSON instantly with real-time validation and error highlighting.',
+    bg: 'bg-teal-50 dark:bg-teal-950/40',
+    iconColor: 'text-teal-600 dark:text-teal-400',
+  },
+  {
+    path: '/image-converter',
+    icon: ImageIcon,
+    label: 'Image Format Converter',
+    description: 'Convert JPG, PNG, WebP instantly in your browser. Fast and private.',
+    bg: 'bg-purple-50 dark:bg-purple-950/40',
+    iconColor: 'text-purple-600 dark:text-purple-400',
+  },
+  {
+    path: '/qr-generator',
+    icon: QrCode,
+    label: 'QR Generator',
+    description: 'Create QR codes for URLs, text, and WiFi networks instantly.',
+    bg: 'bg-cyan-50 dark:bg-cyan-950/40',
+    iconColor: 'text-cyan-600 dark:text-cyan-400',
+  },
+  {
     path: '/palette-generator',
     icon: Palette,
     label: 'Color Palette Generator',
@@ -35,14 +75,6 @@ const TOOLS = [
     iconColor: 'text-amber-600 dark:text-amber-400',
   },
   {
-    path: '/qr-generator',
-    icon: QrCode,
-    label: 'QR Generator',
-    description: 'Create QR codes for URLs, text, and WiFi networks instantly.',
-    bg: 'bg-cyan-50 dark:bg-cyan-950/40',
-    iconColor: 'text-cyan-600 dark:text-cyan-400',
-  },
-  {
     path: '/lorem-ipsum-generator',
     icon: AlignLeft,
     label: 'Lorem Ipsum Generator',
@@ -51,44 +83,12 @@ const TOOLS = [
     iconColor: 'text-violet-600 dark:text-violet-400',
   },
   {
-    path: '/json-formatter',
-    icon: FileJson,
-    label: 'JSON Formatter',
-    description: 'Format, minify, validate and beautify JSON instantly with real-time validation and error highlighting.',
-    bg: 'bg-teal-50 dark:bg-teal-950/40',
-    iconColor: 'text-teal-600 dark:text-teal-400',
-  },
-  {
     path: '/pomodoro',
     icon: Timer,
     label: 'Pomodoro Timer',
     description: 'Boost focus with timed work and break sessions. Classic 25/5 or Extended 50/10 cycles.',
     bg: 'bg-red-50 dark:bg-red-950/40',
     iconColor: 'text-red-500 dark:text-red-400',
-  },
-  {
-    path: '/base64',
-    icon: Code2,
-    label: 'Base64 Encoder',
-    description: 'Encode and decode Base64 strings instantly. Perfect for APIs and data handling.',
-    bg: 'bg-indigo-50 dark:bg-indigo-950/40',
-    iconColor: 'text-indigo-600 dark:text-indigo-400',
-  },
-  {
-    path: '/image-converter',
-    icon: ImageIcon,
-    label: 'Image Format Converter',
-    description: 'Convert JPG, PNG, WebP instantly in your browser. Fast and private.',
-    bg: 'bg-purple-50 dark:bg-purple-950/40',
-    iconColor: 'text-purple-600 dark:text-purple-400',
-  },
-  {
-    path: '/url-encoder',
-    icon: ArrowRightLeft,
-    label: 'URL Encoder',
-    description: 'Encode and decode URLs, query strings, and special characters.',
-    bg: 'bg-violet-50 dark:bg-violet-950/40',
-    iconColor: 'text-violet-600 dark:text-violet-400',
   },
 ];
 
@@ -115,13 +115,9 @@ export default function HomePage() {
         <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
           Fast, useful tools that run 100% in your browser — no sign-up, no tracking, no nonsense.
         </p>
-
-        <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-          From text formatters and password generators to Pomodoro timers, JSON formatters, and color palettes — all tools are processed entirely client-side for maximum speed and privacy.
-        </p>
       </div>
 
-      {/* Tools grid — 2 cols on sm, last card centered on lg when count is odd */}
+      {/* Tools grid */}
       <section className="animate-slide-in">
         <h2 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-5">All Tools</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
