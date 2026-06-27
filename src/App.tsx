@@ -35,6 +35,7 @@ import ColorPaletteBlogPost from './pages/ColorPaletteBlogPost';
 import PercentageCalculatorBlogPost from './pages/PercentageCalculatorBlogPost';
 import Base64Page from './pages/Base64Page';
 import ImageConverterPage from './pages/ImageConverterPage';
+import URLEncoderPage from './pages/URLEncoderPage';
 
 function PageTracker() {
   const location = useLocation();
@@ -111,6 +112,7 @@ export default function App() {
             <Route path="/blog/percentage-calculator" element={<PercentageCalculatorBlogPost />} />
             <Route path="/base64" element={<Base64Page />} />
             <Route path="/image-converter" element={<ImageConverterPage />} />
+            <Route path="/url-encoder" element={<URLEncoderPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>
