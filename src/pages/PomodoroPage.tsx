@@ -84,7 +84,6 @@ function playChime(muted: boolean) {
   if (muted) return;
   try {
     const ctx = new AudioContext();
-    // Three-note ascending bell: A4 → C#5 → E5
     const notes = [
       { freq: 440,    t: 0    },
       { freq: 554.37, t: 0.25 },
@@ -99,7 +98,7 @@ function playChime(muted: boolean) {
       osc.frequency.value = freq;
       const start = ctx.currentTime + t;
       gain.gain.setValueAtTime(0, start);
-      gain.gain.linearRampToValueAtTime(0.55, start + 0.01);  // quick attack, clear volume
+      gain.gain.linearRampToValueAtTime(0.55, start + 0.01);
       gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.4);
       osc.start(start);
       osc.stop(start + 1.4);
@@ -174,7 +173,6 @@ interface SettingsPanelProps {
 function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps) {
   const [draft, setDraft] = useState<Config>(config);
 
-  // Close on Esc key from within the panel
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') { e.stopPropagation(); onClose(); }
@@ -347,46 +345,6 @@ function ToastContainer({ toasts, dismiss }: { toasts: ToastState[]; dismiss: (i
   );
 }
 
-// ─── FAQ Data ─────────────────────────────────────────────────────────────────
-
-const FAQ_ITEMS: { q: string; a: React.ReactNode }[] = [
-  {
-    q: 'What is the EverydayUtils Pomodoro Timer?',
-    a: "It's a free, privacy-first, browser-based timer that helps you stay focused using the classic Pomodoro Technique (25 min work + 5 min break, with longer breaks after every 4 cycles). It also offers an Extended mode (50/10/30).",
-  },
-  {
-    q: 'Can I customize the durations?',
-    a: 'Yes. Choose Classic or Extended presets, or fully customize your work, short break, and long break times in Settings.',
-  },
-  {
-    q: 'Does it work when I switch tabs or go offline?',
-    a: 'Yes. The timer stays accurate even in background tabs and works completely offline once loaded.',
-  },
-  {
-    q: 'Does it play a sound when a session ends?',
-    a: 'Yes. A gentle chime plays at the end of each session. You can mute it in settings.',
-  },
-  {
-    q: 'Are my settings saved between visits?',
-    a: 'Yes. All your preferences are saved locally in your browser.',
-  },
-  {
-    q: 'What keyboard shortcuts does it support?',
-    a: (
-      <ul className="space-y-1 mt-1">
-        <li><kbd className="font-mono text-xs">Space</kbd> → Play / Pause</li>
-        <li><kbd className="font-mono text-xs">R</kbd> → Reset current session</li>
-        <li><kbd className="font-mono text-xs">S</kbd> → Skip to next session</li>
-        <li><kbd className="font-mono text-xs">Esc</kbd> → Close settings</li>
-      </ul>
-    ),
-  },
-  {
-    q: 'Is this tool completely free?',
-    a: 'Yes. 100% free with no ads, no sign-up, and no tracking.',
-  },
-];
-
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function PomodoroPage() {
@@ -478,7 +436,6 @@ export default function PomodoroPage() {
       setSecondsLeft(prev => {
         if (prev > 1) return prev - 1;
 
-        // Session finished — play chime and advance
         playChime(muteSoundRef.current);
         const nextIdx  = (cycleIdxRef.current + 1) % CYCLE.length;
         const nextType = CYCLE[nextIdx];
@@ -523,7 +480,6 @@ export default function PomodoroPage() {
   const handleReset = useCallback(() => {
     takeSnapshot();
     stopTimer();
-    // Re-read from refs so this works with any session type at call time
     const duration = durationFor(CYCLE[cycleIdxRef.current], configRef.current);
     setSecondsLeft(duration);
     showToast('Timer reset', { label: 'Undo', onClick: undoAction });
@@ -544,7 +500,7 @@ export default function PomodoroPage() {
     setRunning(r => !r);
   }, []);
 
-  // Stable refs for keyboard handler (avoids re-registering the listener)
+  // Stable refs for keyboard handler
   const handleResetRef  = useRef(handleReset);
   const handleSkipRef   = useRef(handleSkip);
   const handleToggleRef = useRef(handleToggleRunning);
@@ -552,10 +508,9 @@ export default function PomodoroPage() {
   useEffect(() => { handleSkipRef.current   = handleSkip;         }, [handleSkip]);
   useEffect(() => { handleToggleRef.current = handleToggleRunning; }, [handleToggleRunning]);
 
-  // Global keyboard shortcuts — registered once, reads everything from refs
+  // Global keyboard shortcuts
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      // Allow Esc to always work; for others, skip if a non-toggle interactive element has focus
       const tag = (e.target as HTMLElement).tagName;
       const isInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
       if (isInput) return;
@@ -574,8 +529,6 @@ export default function PomodoroPage() {
           handleSkipRef.current();
           break;
         case 'Escape':
-          // Handled by the SettingsPanel's own listener (capture phase) when open
-          // This is a fallback
           if (settingsOpenRef.current) {
             e.preventDefault();
             setSettingsOpen(false);
@@ -585,7 +538,7 @@ export default function PomodoroPage() {
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []); // empty deps — stable via refs
+  }, []);
 
   const handleSaveConfig = useCallback((newCfg: Config) => {
     saveConfig(newCfg);
@@ -839,26 +792,78 @@ export default function PomodoroPage() {
         <kbd className="font-mono">Esc</kbd> Close settings
       </p>
 
-      {/* FAQ */}
-      <div className="mt-10 space-y-6">
-        {/* Intro */}
-        <div className="card p-6">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-3">Why Use a Pomodoro Timer?</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-            The Pomodoro Technique is a proven productivity method that breaks work into focused intervals. By working in short, concentrated bursts followed by regular breaks, you can maintain higher focus, reduce mental fatigue, and get more done without burnout.
+      {/* SEO Content */}
+      <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
+        <div className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto px-4 text-sm leading-relaxed">
+          <h2 className="text-2xl font-bold mb-6">My Everyday Pomodoro Timer</h2>
+          <p className="mb-6">
+            I created this timer because I needed a simple way to stay focused without distractions or privacy worries. After trying many apps, I decided to build one that runs completely in the browser.
+          </p>
+
+          <h3 className="text-lg font-semibold mt-8 mb-2">How I Use It Every Day</h3>
+          <p className="mb-6">
+            In the morning, I list the 3–5 most important tasks I want to finish. For each task, I decide how many focused 25-minute sessions I think it will take. Then I start working one task at a time.
+          </p>
+          <p className="mb-6">
+            When the timer ends, I step away for 5 minutes — make tea, stretch, or just look out the window. After four rounds, I take a longer break to recharge.
+          </p>
+          <p className="mb-6">
+            This rhythm helps me get into deep work without feeling overwhelmed. The short breaks prevent me from burning out, and seeing the cycle progress keeps me motivated.
+          </p>
+
+          <p className="mt-8">
+            Best of all, everything happens locally in your browser. No accounts, no tracking, no data leaves your device.
           </p>
         </div>
+      </div>
 
-        {/* FAQ list */}
-        <div className="card p-6">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-5">Frequently Asked Questions</h2>
-          <div className="space-y-5">
-            {FAQ_ITEMS.map(({ q, a }) => (
-              <div key={q} className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
-                <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">{q}</p>
-                <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{a}</div>
-              </div>
-            ))}
+      {/* Enhanced FAQ */}
+      <div className="mt-10 card p-6">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-50 mb-5">Frequently Asked Questions</h2>
+        <div className="space-y-5">
+          <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">What is the Pomodoro Technique?</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              The Pomodoro Technique was created by Francesco Cirillo in the late 1980s. It uses a timer to break work into 25-minute focused intervals (called "Pomodoros") separated by short 5-minute breaks. After 4 Pomodoros, you take a longer break.
+            </p>
+          </div>
+
+          <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Why does it help with focus?</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              The short, defined work periods make it easier to start tasks and maintain concentration. The regular breaks prevent mental fatigue and help sustain energy throughout the day.
+            </p>
+          </div>
+
+          <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Can I customize the timer?</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Yes. You can use the Classic (25/5/20) or Extended (50/10/30) presets, or fully customize work, short break, and long break durations in Settings.
+            </p>
+          </div>
+
+          <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Does it work offline?</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Yes. Once loaded, the entire timer works completely offline.
+            </p>
+          </div>
+
+          <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">What keyboard shortcuts are available?</p>
+            <ul className="space-y-1 mt-1 text-sm text-gray-600 dark:text-gray-400">
+              <li><kbd className="font-mono text-xs">Space</kbd> → Play / Pause</li>
+              <li><kbd className="font-mono text-xs">R</kbd> → Reset current session</li>
+              <li><kbd className="font-mono text-xs">S</kbd> → Skip to next session</li>
+              <li><kbd className="font-mono text-xs">Esc</kbd> → Close settings</li>
+            </ul>
+          </div>
+
+          <div className="last:border-0 pb-0">
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Is this tool completely free?</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Yes. 100% free with no ads, no sign-up, and no tracking.
+            </p>
           </div>
         </div>
       </div>
