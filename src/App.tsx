@@ -36,7 +36,7 @@ import PercentageCalculatorBlogPost from './pages/PercentageCalculatorBlogPost';
 import Base64Page from './pages/Base64Page';
 import ImageConverterPage from './pages/ImageConverterPage';
 import URLEncoderPage from './pages/URLEncoderPage';
-
+import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
 function PageTracker() {
   const location = useLocation();
   useEffect(() => {
@@ -113,6 +113,7 @@ export default function App() {
             <Route path="/base64" element={<Base64Page />} />
             <Route path="/image-converter" element={<ImageConverterPage />} />
             <Route path="/url-encoder" element={<URLEncoderPage />} />
+            <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
           </Routes>
         </Layout>
       </BrowserRouter>
