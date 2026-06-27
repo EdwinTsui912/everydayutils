@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft } from 'lucide-react';
+import UrlEncoderBlogPost from './UrlEncoderBlogPost';
 
 const posts = [
+  {
+    title: "Free URL Encoder & Decoder Online – Instant, Private & Client-Side (2026)",
+    date: "June 27, 2026",
+    readTime: "6 min",
+    category: "Developer Tools",
+    slug: "/blog/url-encoder",
+    excerpt: "Encode or decode URLs, query strings, and special characters instantly in your browser. 100% private and client-side.",
+    icon: ArrowRightLeft,
+    tag: "Developer Tools",
+  },
   {
     slug: '/blog/percentage-calculator',
     title: 'Free Percentage Calculator for Discounts, Tax, Tips & More',
