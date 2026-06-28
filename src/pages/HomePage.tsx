@@ -19,6 +19,14 @@ const TOOLS = [
     iconColor: 'text-emerald-600 dark:text-emerald-400',
   },
   {
+    path: '/username-generator',           // ← NEW
+    icon: ArrowRightLeft,
+    label: 'Username Generator',
+    description: 'Create cool, unique usernames for gaming, Twitch, Discord, YouTube & more.',
+    bg: 'bg-teal-50 dark:bg-teal-950/40',
+    iconColor: 'text-teal-600 dark:text-teal-400',
+  },
+  {
     path: '/url-encoder',
     icon: ArrowRightLeft,
     label: 'URL Encoder',

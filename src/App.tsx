@@ -37,6 +37,8 @@ import Base64Page from './pages/Base64Page';
 import ImageConverterPage from './pages/ImageConverterPage';
 import URLEncoderPage from './pages/URLEncoderPage';
 import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
+import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
+
 function PageTracker() {
   const location = useLocation();
   useEffect(() => {
@@ -114,6 +116,7 @@ export default function App() {
             <Route path="/image-converter" element={<ImageConverterPage />} />
             <Route path="/url-encoder" element={<URLEncoderPage />} />
             <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
+            <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>
