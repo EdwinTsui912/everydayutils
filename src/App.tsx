@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { trackPageView } from './lib/analytics';
 import { ThemeProvider } from './context/ThemeContext';
 import Sidebar from './components/Sidebar';
@@ -39,6 +39,7 @@ import URLEncoderPage from './pages/URLEncoderPage';
 import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
 import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
 import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
+import { Helmet } from 'react-helmet-async';
 
 function PageTracker() {
   const location = useLocation();
@@ -62,13 +63,13 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(o => !o)} />
         <main 
-  className="flex-1 overflow-y-auto" 
-  ref={(el) => {
-    if (el) {
-      el.scrollTop = 0;
-    }
-  }}
->
+          className="flex-1 overflow-y-auto" 
+          ref={(el) => {
+            if (el) {
+              el.scrollTop = 0;
+            }
+          }}
+        >
           {children}
         </main>
         <Footer />
@@ -79,49 +80,62 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useEffect(() => {
+    console.log("✅ App level useEffect running");
+    
+    const setTitle = () => {
+      document.title = "EverydayUtils - Free Privacy-First Online Tools";
+    };
+  
+    setTitle();                    // immediate
+    setTimeout(setTitle, 100);     // short delay
+    setTimeout(setTitle, 500);     // medium delay
+    setTimeout(setTitle, 1000);    // longer delay
+  
+  }, []);
+
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <PageTracker />
-        <ScrollToTop />   {/* ← Add this line */}
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/text-tools" element={<TextToolsPage />} />
-            <Route path="/password-generator" element={<PasswordGeneratorPage />} />
-            <Route path="/palette-generator" element={<PaletteGeneratorPage />} />
-            <Route path="/percentage-calculator" element={<PercentageCalculatorPage />} />
-            <Route path="/qr-generator" element={<QRGeneratorPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-use" element={<TermsOfUsePage />} />
-            <Route path="/blog" element={<BlogIndexPage />} />
-            <Route path="/blog/how-to-create-wifi-qr-code" element={<WifiQRCodeBlogPost />} />
-            <Route path="/wifi-qr-guide" element={<WifiQRGuidePage />} />
-            <Route path="/wifi-qr-code-guide" element={<WifiQRCodeGuidePage />} />
-            <Route path="/blog/how-to-create-strong-passwords" element={<StrongPasswordsBlogPost />} />
-            <Route path="/blog/pdf-copy-paste-fixer" element={<PdfCopyPasteFixerBlogPost />} />
-            <Route path="/blog/word-counter-text-sanitizer-guide" element={<WordCounterGuideBlogPost />} />
-            <Route path="/blog/lorem-ipsum-generator-free-private" element={<LoremIpsumBlogPost />} />
-            <Route path="/blog/best-free-password-generator-2026" element={<BestFreePasswordGenerator2026BlogPost />} />
-            <Route path="/lorem-ipsum-generator" element={<LoremIpsumGeneratorPage />} />
-            <Route path="/json-formatter" element={<JSONFormatterPage />} />
-            <Route path="/blog/json-formatter-guide" element={<JsonFormatterGuideBlogPost />} />
-            <Route path="/pomodoro" element={<PomodoroPage />} />
-            <Route path="/blog/pomodoro-timer-free-online" element={<PomodoroTimerBlogPost />} />
-            <Route path="/blog/color-palette-generator-tailwind" element={<ColorPaletteBlogPost />} />
-            <Route path="/blog/color-palette-generator" element={<ColorPaletteBlogPost />} />
-            <Route path="/blog/percentage-calculator" element={<PercentageCalculatorBlogPost />} />
-            <Route path="/base64" element={<Base64Page />} />
-            <Route path="/image-converter" element={<ImageConverterPage />} />
-            <Route path="/url-encoder" element={<URLEncoderPage />} />
-            <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
-            <Route path="/username-generator" element={<UsernameGeneratorPage />} />
-            <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+      
+      <PageTracker />
+      <ScrollToTop />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/text-tools" element={<TextToolsPage />} />
+          <Route path="/password-generator" element={<PasswordGeneratorPage />} />
+          <Route path="/palette-generator" element={<PaletteGeneratorPage />} />
+          <Route path="/percentage-calculator" element={<PercentageCalculatorPage />} />
+          <Route path="/qr-generator" element={<QRGeneratorPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+          <Route path="/blog" element={<BlogIndexPage />} />
+          <Route path="/blog/how-to-create-wifi-qr-code" element={<WifiQRCodeBlogPost />} />
+          <Route path="/wifi-qr-guide" element={<WifiQRGuidePage />} />
+          <Route path="/wifi-qr-code-guide" element={<WifiQRCodeGuidePage />} />
+          <Route path="/blog/how-to-create-strong-passwords" element={<StrongPasswordsBlogPost />} />
+          <Route path="/blog/pdf-copy-paste-fixer" element={<PdfCopyPasteFixerBlogPost />} />
+          <Route path="/blog/word-counter-text-sanitizer-guide" element={<WordCounterGuideBlogPost />} />
+          <Route path="/blog/lorem-ipsum-generator-free-private" element={<LoremIpsumBlogPost />} />
+          <Route path="/blog/best-free-password-generator-2026" element={<BestFreePasswordGenerator2026BlogPost />} />
+          <Route path="/lorem-ipsum-generator" element={<LoremIpsumGeneratorPage />} />
+          <Route path="/json-formatter" element={<JSONFormatterPage />} />
+          <Route path="/blog/json-formatter-guide" element={<JsonFormatterGuideBlogPost />} />
+          <Route path="/pomodoro" element={<PomodoroPage />} />
+          <Route path="/blog/pomodoro-timer-free-online" element={<PomodoroTimerBlogPost />} />
+          <Route path="/blog/color-palette-generator-tailwind" element={<ColorPaletteBlogPost />} />
+          <Route path="/blog/color-palette-generator" element={<ColorPaletteBlogPost />} />
+          <Route path="/blog/percentage-calculator" element={<PercentageCalculatorBlogPost />} />
+          <Route path="/base64" element={<Base64Page />} />
+          <Route path="/image-converter" element={<ImageConverterPage />} />
+          <Route path="/url-encoder" element={<URLEncoderPage />} />
+          <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
+          <Route path="/username-generator" element={<UsernameGeneratorPage />} />
+          <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
+        </Routes>
+      </Layout>
     </ThemeProvider>
   );
 }

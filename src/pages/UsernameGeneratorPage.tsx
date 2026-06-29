@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Copy, Check, Heart, ArrowRightLeft, RefreshCw, X, Trash2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const WORD_POOLS = {
   gaming: { adjectives: ['Epic','Blaze','Shadow','Neon','Frost','Thunder','Void','Chaos','Storm','Night','Rogue','Cyber','Phantom','Titan'], prefixes: ['Shadow','Neo','Dark','Fire','Ghost','Dragon','Blade','Vortex','Rogue','Knight','Steel','Iron'], suffixes: ['Rider','Hunter','Forge','Vortex','Wolf','Slayer','Master','Breaker','Warrior','Ghost','King','Lord'] },
@@ -109,6 +110,13 @@ export default function UsernameGeneratorPage() {
   };
 
   return (
+    <>
+      <SEO 
+        title="Best Free Username Generator 2026 - Gaming & Aesthetic Names"
+        description="Generate cool, unique, and creative usernames instantly for Roblox, Discord, Instagram, TikTok, Minecraft, Twitch and more. 100% free & private."
+        keywords="username generator, gaming usernames, roblox usernames, aesthetic usernames, discord names, free username generator 2026"
+        url="https://everydayutils.com/username-generator"
+      />
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
       {/* SEO Header */}
       <div className="text-center space-y-6">
@@ -247,5 +255,6 @@ export default function UsernameGeneratorPage() {
         All usernames are generated locally in your browser. Nothing is saved or sent anywhere.
       </p>
     </div>
+    </>
   );
 }
