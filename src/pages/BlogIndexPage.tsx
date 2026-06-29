@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User } from 'lucide-react';
 import UrlEncoderBlogPost from './UrlEncoderBlogPost';
 
 const posts = [
+  {
+    title: "Best Free Username Generator 2026 – Cool, Aesthetic & Gaming Names Instantly",
+    date: "June 29, 2026",
+    readTime: "7 min",
+    category: "Gaming & Social",
+    slug: "/blog/best-free-username-generator-2026",
+    excerpt: "Instantly generate cool, aesthetic, tryhard, and gaming usernames for Roblox, Discord, Instagram, TikTok and more. Free, private, no sign-up required.",
+    icon: User,           // ← Make sure to import User if not already
+    tag: "Gaming & Social",
+  },
   {
     title: "Free URL Encoder & Decoder Online – Instant, Private & Client-Side (2026)",
     date: "June 27, 2026",

@@ -32,6 +32,7 @@ export default defineConfig({
         '/blog/word-counter-text-sanitizer-guide',
         '/blog/pdf-copy-paste-fixer',
         '/blog/how-to-create-strong-passwords',
+        '/blog/best-free-username-generator-2026',
       ],
       changefreq: 'weekly',
       priority: 0.8,

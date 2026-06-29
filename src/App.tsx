@@ -38,6 +38,7 @@ import ImageConverterPage from './pages/ImageConverterPage';
 import URLEncoderPage from './pages/URLEncoderPage';
 import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
 import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
+import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
 
 function PageTracker() {
   const location = useLocation();
@@ -117,6 +118,7 @@ export default function App() {
             <Route path="/url-encoder" element={<URLEncoderPage />} />
             <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
             <Route path="/username-generator" element={<UsernameGeneratorPage />} />
+            <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
           </Routes>
         </Layout>
       </BrowserRouter>
