@@ -37,9 +37,11 @@ import Base64Page from './pages/Base64Page';
 import ImageConverterPage from './pages/ImageConverterPage';
 import URLEncoderPage from './pages/URLEncoderPage';
 import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
+import ImageConverterBlogPost from './pages/ImageConverterBlogPost';
 import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
 import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
 import { Helmet } from 'react-helmet-async';
+
 
 function PageTracker() {
   const location = useLocation();
@@ -132,6 +134,7 @@ export default function App() {
           <Route path="/image-converter" element={<ImageConverterPage />} />
           <Route path="/url-encoder" element={<URLEncoderPage />} />
           <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
+          <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
         </Routes>

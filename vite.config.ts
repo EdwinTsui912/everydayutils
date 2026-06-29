@@ -23,6 +23,7 @@ export default defineConfig({
         '/wifi-qr-guide',
         // Blog Posts
         '/blog/url-encoder',
+        '/blog/image-converter',
         '/blog/percentage-calculator',
         '/blog/color-palette-generator-tailwind',
         '/blog/pomodoro-timer-free-online',

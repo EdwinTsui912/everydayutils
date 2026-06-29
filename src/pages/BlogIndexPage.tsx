@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon } from 'lucide-react';
 import UrlEncoderBlogPost from './UrlEncoderBlogPost';
 
 const posts = [
+  {
+    title: "Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)",
+    date: "June 29, 2026",
+    readTime: "5 min",
+    category: "Utility Tools",
+    slug: "/blog/image-converter",
+    excerpt: "Convert images instantly between JPG, PNG, and WebP directly in your browser. 100% private, no uploads, no sign-up. Fast and secure local image conversion.",
+    icon: ImageIcon,           // ← You need to import this
+    tag: "Utility Tools",
+  },
   {
     title: "Best Free Username Generator 2026 – Cool, Aesthetic & Gaming Names Instantly",
     date: "June 29, 2026",
