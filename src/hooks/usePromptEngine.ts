@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { PROMPT_FRAMEWORKS } from '../data/frameworks';
 import { MODEL_AFFINITIES } from '../data/modelAffinities';
@@ -9,9 +9,28 @@ import { saveToHistory, getHistory, deleteFromHistory } from '../lib/history';
 import type { PromptState, QualityScore } from '../types/promptforge';
 
 export const usePromptEngine = () => {
-  const [frameworkId, setFrameworkId] = useState<string>('costar');
-  const [modelId, setModelId] = useState<string>('chatgpt');
-  const [fields, setFields] = useState<Record<string, string>>({});
+  const urlLoadedRef = useRef(false);
+  const isFirstRenderRef = useRef(true);
+
+  const [frameworkId, setFrameworkId] = useState<string>(() => {
+    const urlState = readStateFromUrl();
+    if (urlState) {
+      urlLoadedRef.current = true;
+      return urlState.frameworkId;
+    }
+    return 'costar';
+  });
+
+  const [modelId, setModelId] = useState<string>(() => {
+    const urlState = readStateFromUrl();
+    return urlState?.modelId || 'chatgpt';
+  });
+
+  const [fields, setFields] = useState<Record<string, string>>(() => {
+    const urlState = readStateFromUrl();
+    return urlState?.fields || {};
+  });
+
   const [history, setHistory] = useState<PromptState[]>([]);
 
   const currentFramework = useMemo(() => 
@@ -24,25 +43,23 @@ export const usePromptEngine = () => {
     [modelId]
   );
 
-  // Load from URL on mount
+  // Reset fields only when framework changes by user action
   useEffect(() => {
-    const initialState = readStateFromUrl();
-    if (initialState) {
-      setFrameworkId(initialState.frameworkId);
-      setModelId(initialState.modelId);
-      setFields(initialState.fields);
+    if (isFirstRenderRef.current) {
+      isFirstRenderRef.current = false;
+      return;
     }
-  }, []);
 
-  // Reset fields ONLY if they are empty
-  useEffect(() => {
-    if (Object.keys(fields).length === 0) {
-      const defaultFields: Record<string, string> = {};
-      currentFramework.fields.forEach(field => {
-        defaultFields[field.id] = field.defaultValue || '';
-      });
-      setFields(defaultFields);
+    if (urlLoadedRef.current) {
+      urlLoadedRef.current = false;
+      return;
     }
+
+    const defaultFields: Record<string, string> = {};
+    currentFramework.fields.forEach(field => {
+      defaultFields[field.id] = field.defaultValue || '';
+    });
+    setFields(defaultFields);
   }, [currentFramework]);
 
   const basePrompt = useMemo(() => currentFramework.templateString(fields), [currentFramework, fields]);
@@ -53,7 +70,7 @@ export const usePromptEngine = () => {
 
   // Auto update URL hash
   useEffect(() => {
-    const timeout = setTimeout(() => pushStateToUrl({ frameworkId, modelId, fields }), 600);
+    const timeout = setTimeout(() => pushStateToUrl({ frameworkId, modelId, fields }), 700);
     return () => clearTimeout(timeout);
   }, [frameworkId, modelId, fields]);
 
@@ -94,6 +111,7 @@ export const usePromptEngine = () => {
     setFrameworkId(state.frameworkId);
     setModelId(state.modelId);
     setFields(state.fields);
+    urlLoadedRef.current = true;
   }, []);
 
   const deleteHistoryItem = useCallback((savedAt: number) => {
@@ -179,6 +197,7 @@ export const usePromptEngine = () => {
       setFrameworkId(exampleFrameworkId);
       setModelId(example.modelId || 'chatgpt');
       setFields(example.fields);
+      urlLoadedRef.current = true;
     }
   }, []);
 
@@ -186,6 +205,7 @@ export const usePromptEngine = () => {
     setFrameworkId('costar');
     setModelId('chatgpt');
     setFields({});
+    urlLoadedRef.current = false;
   }, []);
 
   return {

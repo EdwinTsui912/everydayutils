@@ -2,13 +2,18 @@ import type { PromptState } from '../types/promptforge';
 
 const HASH_PREFIX = 'pf=';
 
+const toBase64Url = (str: string): string => 
+  btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+
+const fromBase64Url = (str: string): string => 
+  atob(str.replace(/-/g, '+').replace(/_/g, '/'));
+
 export const encodeStateToHash = (state: PromptState): string => {
   try {
-    const { frameworkId, modelId, fields } = state;
-    const payload = JSON.stringify({ frameworkId, modelId, fields });
-    const encoded = btoa(unescape(encodeURIComponent(payload)));
+    const encoded = toBase64Url(encodeURIComponent(JSON.stringify(state)));
     return `${HASH_PREFIX}${encoded}`;
-  } catch {
+  } catch (e) {
+    console.error('Encode failed:', e);
     return '';
   }
 };
@@ -19,17 +24,16 @@ export const decodeHashToState = (hash: string): PromptState | null => {
     if (!raw.startsWith(HASH_PREFIX)) return null;
 
     const encoded = raw.slice(HASH_PREFIX.length);
-    const payload = decodeURIComponent(escape(atob(encoded)));
-    const parsed = JSON.parse(payload);
+    const decodedStr = decodeURIComponent(fromBase64Url(encoded));
+    const parsed = JSON.parse(decodedStr);
 
-    if (typeof parsed.frameworkId !== 'string' || 
-        typeof parsed.modelId !== 'string' || 
-        typeof parsed.fields !== 'object') {
+    if (typeof parsed.frameworkId !== 'string' || typeof parsed.modelId !== 'string') {
       return null;
     }
 
     return parsed as PromptState;
-  } catch {
+  } catch (e) {
+    console.error('Decode failed:', e);
     return null;
   }
 };
