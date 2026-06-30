@@ -21,6 +21,7 @@ export default defineConfig({
         '/privacy-policy',
         '/terms-of-use',
         '/wifi-qr-guide',
+        '/promptforge',
         // Blog Posts
         '/blog/url-encoder',
         '/blog/image-converter',

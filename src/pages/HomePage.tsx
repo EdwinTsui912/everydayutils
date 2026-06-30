@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft } from 'lucide-react';
+import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Helmet } from 'react-helmet-async';
 
@@ -29,6 +29,14 @@ const TOOLS = [
     iconColor: 'text-teal-600 dark:text-teal-400',
   },
   {
+    path: '/promptforge',
+    icon: Wand2,
+    label: 'PromptForge',
+    description: 'Build high-quality AI prompts with frameworks, live preview, and model optimization — 100% private.',
+    bg: 'bg-violet-50 dark:bg-violet-950/40',
+    iconColor: 'text-violet-600 dark:text-violet-400',
+  },
+  {
     path: '/url-encoder',
     icon: ArrowRightLeft,
     label: 'URL Encoder',
@@ -48,7 +56,7 @@ const TOOLS = [
     path: '/json-formatter',
     icon: FileJson,
     label: 'JSON Formatter',
-    description: 'Format, minify, validate and beautify JSON instantly with real-time validation and error highlighting.',
+    description: 'Format, minify, validate and beautify JSON instantly.',
     bg: 'bg-teal-50 dark:bg-teal-950/40',
     iconColor: 'text-teal-600 dark:text-teal-400',
   },
@@ -56,7 +64,7 @@ const TOOLS = [
     path: '/image-converter',
     icon: ImageIcon,
     label: 'Image Format Converter',
-    description: 'Convert JPG, PNG, WebP instantly in your browser. Fast and private.',
+    description: 'Convert JPG, PNG, WebP instantly in your browser.',
     bg: 'bg-purple-50 dark:bg-purple-950/40',
     iconColor: 'text-purple-600 dark:text-purple-400',
   },
@@ -88,7 +96,7 @@ const TOOLS = [
     path: '/lorem-ipsum-generator',
     icon: AlignLeft,
     label: 'Lorem Ipsum Generator',
-    description: 'Generate placeholder text with custom paragraph count, length, and HTML output.',
+    description: 'Generate placeholder text with custom paragraph count and HTML output.',
     bg: 'bg-violet-50 dark:bg-violet-950/40',
     iconColor: 'text-violet-600 dark:text-violet-400',
   },
@@ -96,7 +104,7 @@ const TOOLS = [
     path: '/pomodoro',
     icon: Timer,
     label: 'Pomodoro Timer',
-    description: 'Boost focus with timed work and break sessions. Classic 25/5 or Extended 50/10 cycles.',
+    description: 'Boost focus with timed work and break sessions.',
     bg: 'bg-red-50 dark:bg-red-950/40',
     iconColor: 'text-red-500 dark:text-red-400',
   },

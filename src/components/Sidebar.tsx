@@ -12,6 +12,7 @@ const TOOLS = [
   { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
   { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
   { label: 'Username Generator', path: '/username-generator', icon: ArrowRightLeft },   // ← ADD THIS
+  { label: 'PromptForge', path: '/promptforge', icon: Zap },
   { label: 'URL Encoder', path: '/url-encoder', icon: ArrowRightLeft },
   { label: 'Base64', path: '/base64', icon: Code2 },
   { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },

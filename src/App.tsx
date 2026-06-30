@@ -40,8 +40,12 @@ import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
 import ImageConverterBlogPost from './pages/ImageConverterBlogPost';
 import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
 import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
-import { Helmet } from 'react-helmet-async';
+import { Toaster } from 'react-hot-toast';
 
+// NEW IMPORT
+import PromptForge from './components/PromptForge/PromptForge';
+
+import { Helmet } from 'react-helmet-async';
 
 function PageTracker() {
   const location = useLocation();
@@ -89,16 +93,14 @@ export default function App() {
       document.title = "EverydayUtils - Free Privacy-First Online Tools";
     };
   
-    setTitle();                    // immediate
-    setTimeout(setTitle, 100);     // short delay
-    setTimeout(setTitle, 500);     // medium delay
-    setTimeout(setTitle, 1000);    // longer delay
-  
+    setTitle();
+    setTimeout(setTitle, 100);
+    setTimeout(setTitle, 500);
+    setTimeout(setTitle, 1000);
   }, []);
 
   return (
     <ThemeProvider>
-      
       <PageTracker />
       <ScrollToTop />
       <Layout>
@@ -137,8 +139,17 @@ export default function App() {
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
+
+          {/* NEW ROUTE FOR PROMPTFORGE */}
+          <Route path="/promptforge" element={<PromptForge />} />
         </Routes>
       </Layout>
+
+      <Toaster 
+        position="top-center" 
+        richColors 
+        closeButton 
+      />
     </ThemeProvider>
   );
 }
