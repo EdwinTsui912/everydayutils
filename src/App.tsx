@@ -41,6 +41,7 @@ import ImageConverterBlogPost from './pages/ImageConverterBlogPost';
 import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
 import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
 import { Toaster } from 'react-hot-toast';
+import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -136,6 +137,7 @@ export default function App() {
           <Route path="/image-converter" element={<ImageConverterPage />} />
           <Route path="/url-encoder" element={<URLEncoderPage />} />
           <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
+          <Route path="/blog/promptforge-launch" element={<PromptForgeBlogPost />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 

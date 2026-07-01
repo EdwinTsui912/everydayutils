@@ -23,6 +23,7 @@ export default defineConfig({
         '/wifi-qr-guide',
         '/promptforge',
         // Blog Posts
+        '/blog/promptforge-launch',
         '/blog/url-encoder',
         '/blog/image-converter',
         '/blog/percentage-calculator',

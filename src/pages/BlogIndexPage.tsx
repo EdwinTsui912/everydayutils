@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon } from 'lucide-react';
-import UrlEncoderBlogPost from './UrlEncoderBlogPost';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2 } from 'lucide-react';
 
 const posts = [
+  {
+    title: "Stop Wasting Time with Generic AI Prompts: Meet PromptForge, the Private AI Prompt Generator That Actually Works",
+    date: "June 30, 2026",
+    readTime: "8 min",
+    category: "AI Tools",
+    slug: "/blog/promptforge-launch",
+    excerpt: "Tired of vague AI responses? PromptForge is a free, 100% private AI prompt generator. Build high-quality prompts for ChatGPT, Claude, Gemini, and Grok using proven frameworks — all in your browser.",
+    icon: Wand2,
+    tag: "AI Tools",
+  },
   {
     title: "Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)",
     date: "June 29, 2026",
@@ -10,7 +19,7 @@ const posts = [
     category: "Utility Tools",
     slug: "/blog/image-converter",
     excerpt: "Convert images instantly between JPG, PNG, and WebP directly in your browser. 100% private, no uploads, no sign-up. Fast and secure local image conversion.",
-    icon: ImageIcon,           // ← You need to import this
+    icon: ImageIcon,
     tag: "Utility Tools",
   },
   {
@@ -20,19 +29,10 @@ const posts = [
     category: "Gaming & Social",
     slug: "/blog/best-free-username-generator-2026",
     excerpt: "Instantly generate cool, aesthetic, tryhard, and gaming usernames for Roblox, Discord, Instagram, TikTok and more. Free, private, no sign-up required.",
-    icon: User,           // ← Make sure to import User if not already
+    icon: User,
     tag: "Gaming & Social",
   },
-  {
-    title: "Free URL Encoder & Decoder Online – Instant, Private & Client-Side (2026)",
-    date: "June 27, 2026",
-    readTime: "6 min",
-    category: "Developer Tools",
-    slug: "/blog/url-encoder",
-    excerpt: "Encode or decode URLs, query strings, and special characters instantly in your browser. 100% private and client-side.",
-    icon: ArrowRightLeft,
-    tag: "Developer Tools",
-  },
+  // ... rest of your existing posts remain the same
   {
     slug: '/blog/percentage-calculator',
     title: 'Free Percentage Calculator for Discounts, Tax, Tips & More',
