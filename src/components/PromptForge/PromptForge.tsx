@@ -33,22 +33,6 @@ export default function PromptForge() {
         <meta name="description" content="Build high-quality, model-optimized prompts for ChatGPT, Claude, Gemini, Grok. 100% private, client-side, no tracking." />
         <meta name="keywords" content="ai prompt generator, free prompt generator, prompt engineering tool, claude prompt, chatgpt prompt builder, promptforge" />
         <meta name="robots" content="index, follow" />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "PromptForge",
-            "description": "Free AI Prompt Generator - Build high-quality prompts for ChatGPT, Claude, Gemini, Grok. 100% private and client-side.",
-            "url": "https://everydayutils.com/promptforge",
-            "applicationCategory": "ProductivityApplication",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          })}
-        </script>
       </Helmet>
 
       {/* Back Button */}
@@ -59,17 +43,17 @@ export default function PromptForge() {
         </Link>
       </div>
 
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      {/* Improved Mobile-Friendly Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div className="flex items-center gap-3">
-          <Wand2 className="w-8 h-8 text-violet-600" />
+          <Wand2 className="w-8 h-8 text-violet-600 flex-shrink-0" />
           <div>
-            <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">PromptForge</h1>
+            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">PromptForge</h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">100% Private • Client-Side AI Prompt Generator</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <select value={engine.frameworkId} onChange={(e) => engine.selectFramework(e.target.value)} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500">
             {PROMPT_FRAMEWORKS.map(fw => <option key={fw.id} value={fw.id}>{fw.name}</option>)}
           </select>
@@ -78,11 +62,11 @@ export default function PromptForge() {
             {MODEL_AFFINITIES.map(m => <option key={m.id} value={m.id}>{m.shortName}</option>)}
           </select>
 
-          <button onClick={engine.resetToDefaults} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl">
+          <button onClick={engine.resetToDefaults} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl whitespace-nowrap">
             <RotateCcw className="w-4 h-4" /> Reset
           </button>
 
-          <button onClick={() => setShowHistory(!showHistory)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl">
+          <button onClick={() => setShowHistory(!showHistory)} className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl whitespace-nowrap">
             <Clock className="w-4 h-4" /> History ({engine.history.length})
           </button>
         </div>
