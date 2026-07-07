@@ -22,6 +22,7 @@ export default defineConfig({
         '/terms-of-use',
         '/wifi-qr-guide',
         '/promptforge',
+        '/youtube-thumbnail', 
         // Blog Posts
         '/blog/promptforge-launch',
         '/blog/url-encoder',

@@ -37,6 +37,14 @@ const TOOLS = [
     iconColor: 'text-violet-600 dark:text-violet-400',
   },
   {
+    path: '/youtube-thumbnail',
+    icon: ImageIcon,
+    label: 'YouTube Thumbnail Generator',
+    description: 'Create high-CTR YouTube thumbnails with text, templates, and effects — 100% browser-based.',
+    bg: 'bg-red-50 dark:bg-red-950/40',
+    iconColor: 'text-red-600 dark:text-red-400',
+  }, 
+  {
     path: '/url-encoder',
     icon: ArrowRightLeft,
     label: 'URL Encoder',

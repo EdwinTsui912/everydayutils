@@ -39,6 +39,7 @@ import URLEncoderPage from './pages/URLEncoderPage';
 import UrlEncoderBlogPost from './pages/UrlEncoderBlogPost';
 import ImageConverterBlogPost from './pages/ImageConverterBlogPost';
 import UsernameGeneratorPage from './pages/UsernameGeneratorPage';
+import YouTubeThumbnailPage from './pages/YouTubeThumbnailPage';
 import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
 import { Toaster } from 'react-hot-toast';
 import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
@@ -138,6 +139,7 @@ export default function App() {
           <Route path="/url-encoder" element={<URLEncoderPage />} />
           <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
           <Route path="/blog/promptforge-launch" element={<PromptForgeBlogPost />} />
+          <Route path="/youtube-thumbnail" element={<YouTubeThumbnailPage />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
