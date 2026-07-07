@@ -25,6 +25,7 @@ export default defineConfig({
         '/youtube-thumbnail', 
         // Blog Posts
         '/blog/promptforge-launch',
+        '/blog/youtube-thumbnail-generator',
         '/blog/url-encoder',
         '/blog/image-converter',
         '/blog/percentage-calculator',

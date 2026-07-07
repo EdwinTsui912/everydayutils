@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    title: 'Free YouTube Thumbnail Generator – Create Clickable Thumbnails Fast (No Sign-Up, No Watermark)',
+    date: 'July 7, 2026',
+    readTime: '6 min read',
+    category: 'Creator Tools',
+    slug: '/blog/youtube-thumbnail-generator',
+    excerpt: 'Create professional YouTube thumbnails in seconds with a free browser-based thumbnail generator. No sign-up, no watermark, and everything stays on your device.',
+    icon: ImageIcon,
+    tag: 'Creator Tools',
+  },
+  {
     title: "Stop Wasting Time with Generic AI Prompts: Meet PromptForge, the Private AI Prompt Generator That Actually Works",
     date: "June 30, 2026",
     readTime: "8 min",
