@@ -15,7 +15,7 @@ export default function YoutubeThumbnailBlogPost() {
 
         <article className="prose prose-zinc dark:prose-invert prose-lg max-w-prose mx-auto prose-p:!leading-8 prose-p:!mb-7 prose-headings:scroll-mt-24 prose-h2:!mt-16 prose-h2:!mb-6 prose-h3:!mt-10 prose-h3:!mb-4 prose-ul:!my-6 prose-ol:!my-6 prose-li:!my-2 [&>p]:!leading-8 [&>p]:!mb-7">
           <header className="not-prose mb-14">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-300 mb-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 mb-5">
               <ImageIcon className="w-4 h-4" />
               Free browser-based thumbnail tool
             </div>
@@ -35,13 +35,13 @@ export default function YoutubeThumbnailBlogPost() {
             <div className="flex items-start justify-between gap-4 flex-col sm:flex-row sm:items-center">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-5 h-5 text-blue-300" />
+                  <Sparkles className="w-5 h-5 text-blue-700 dark:text-blue-300" />
                 </div>
                 <div>
-                  <h2 className="text-base font-semibold text-white mb-1">
+                  <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-1">
                     Try it now - Free and Private
                   </h2>
-                  <p className="text-sm text-blue-100/80">
+                  <p className="text-sm text-gray-700 dark:text-blue-100/80">
                     No account needed. Runs 100% in your browser.
                   </p>
                 </div>
@@ -49,7 +49,7 @@ export default function YoutubeThumbnailBlogPost() {
 
               <Link
                 to="/youtube-thumbnail"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500 text-white text-sm font-medium hover:bg-blue-400 transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 dark:bg-blue-500 text-white text-sm font-medium hover:bg-blue-700 dark:hover:bg-blue-400 transition-colors whitespace-nowrap"
               >
                 Open YouTube Thumbnail Generator
                 <ChevronRight className="w-4 h-4" />
@@ -99,7 +99,7 @@ export default function YoutubeThumbnailBlogPost() {
             make it smoother. That is the idea here.
           </p>
 
-          <ul className="list-disc pl-6 space-y-3 marker:text-blue-400">
+          <ul className="list-disc pl-6 space-y-3 marker:text-blue-500 dark:marker:text-blue-400">
             <li>Start from a blank canvas or upload a screenshot instantly.</li>
             <li>Add bold text, shadows, outlines, and stronger contrast.</li>
             <li>Build in the correct YouTube thumbnail format.</li>
@@ -118,7 +118,7 @@ export default function YoutubeThumbnailBlogPost() {
             This tool works well for creators who need better thumbnails without extra friction.
           </p>
 
-          <ul className="list-disc pl-6 space-y-3 marker:text-blue-400">
+          <ul className="list-disc pl-6 space-y-3 marker:text-blue-500 dark:marker:text-blue-400">
             <li>YouTubers and Shorts creators.</li>
             <li>Educators and course creators.</li>
             <li>Gamers and streamers.</li>
@@ -150,8 +150,10 @@ export default function YoutubeThumbnailBlogPost() {
           </p>
 
           <div className="not-prose rounded-2xl border border-border bg-card/70 p-5 my-12">
-            <h3 className="text-base font-semibold text-foreground mb-3">Quick workflow</h3>
-            <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground leading-7">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
+              Quick workflow
+            </h3>
+            <ol className="list-decimal pl-5 space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-7">
               <li>Open the thumbnail generator.</li>
               <li>Upload an image or start with a blank canvas.</li>
               <li>Add text and make the main message obvious.</li>
@@ -168,7 +170,7 @@ export default function YoutubeThumbnailBlogPost() {
             learn by clicking.
           </p>
 
-          <ul className="list-disc pl-6 space-y-3 marker:text-blue-400">
+          <ul className="list-disc pl-6 space-y-3 marker:text-blue-500 dark:marker:text-blue-400">
             <li>Keep the message short.</li>
             <li>Use strong contrast.</li>
             <li>Make the subject easy to recognize on mobile.</li>
@@ -206,8 +208,8 @@ export default function YoutubeThumbnailBlogPost() {
 
           <div className="not-prose rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-5 my-12">
             <div className="flex items-start gap-3">
-              <Shield className="w-5 h-5 text-emerald-400 mt-0.5 shrink-0" />
-              <p className="text-sm text-emerald-100/90 leading-7 m-0">
+              <Shield className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
+              <p className="text-sm text-gray-700 dark:text-emerald-100/90 leading-7 m-0">
                 Privacy First: All editing happens locally in your browser. Your images never leave
                 your device.
               </p>
@@ -247,7 +249,7 @@ export default function YoutubeThumbnailBlogPost() {
 
           <h2>Related tools on EverydayUtils</h2>
 
-          <ul className="list-disc pl-6 space-y-3 marker:text-blue-400">
+          <ul className="list-disc pl-6 space-y-3 marker:text-blue-500 dark:marker:text-blue-400">
             <li>PromptForge for titles, hooks, and content ideas.</li>
             <li>Image Format Converter for preparing source images.</li>
             <li>Color Palette Generator for cleaner branded thumbnail colors.</li>
@@ -277,23 +279,23 @@ export default function YoutubeThumbnailBlogPost() {
           </p>
 
           <div className="not-prose rounded-2xl border border-blue-500/20 bg-gradient-to-r from-blue-500/15 via-sky-500/10 to-blue-500/15 p-6 mt-14">
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Ready to create a better thumbnail?
             </h3>
-            <p className="text-blue-100/80 mb-4 leading-7">
+            <p className="text-gray-700 dark:text-blue-100/80 mb-4 leading-7">
               No sign-up. No watermark. Just fast, browser-based thumbnail creation.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/youtube-thumbnail"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-500 text-white text-sm font-medium hover:bg-blue-400 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 dark:bg-blue-500 text-white text-sm font-medium hover:bg-blue-700 dark:hover:bg-blue-400 transition-colors"
               >
                 Open YouTube Thumbnail Generator
                 <ChevronRight className="w-4 h-4" />
               </Link>
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/15 text-white text-sm font-medium hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300 dark:border-white/15 text-gray-900 dark:text-white text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
                 Browse More Guides
               </Link>
