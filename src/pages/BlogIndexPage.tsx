@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/free-developer-utilities',
+    title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
+    excerpt:
+      'Small repetitive tasks break development flow more than they should. Here are four free browser-based developer utilities I use often for JSON, Base64, URL encoding, and placeholder text.',
+    date: 'July 8, 2026',
+    readTime: '5 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
     title: 'Free YouTube Thumbnail Generator – Create Clickable Thumbnails Fast (No Sign-Up, No Watermark)',
     date: 'July 7, 2026',
     readTime: '6 min read',

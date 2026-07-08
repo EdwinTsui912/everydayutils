@@ -26,6 +26,7 @@ export default defineConfig({
         // Blog Posts
         '/blog/promptforge-launch',
         '/blog/youtube-thumbnail-generator',
+        '/blog/free-developer-utilities',
         '/blog/url-encoder',
         '/blog/image-converter',
         '/blog/percentage-calculator',

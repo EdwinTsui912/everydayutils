@@ -44,6 +44,7 @@ import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-
 import { Toaster } from 'react-hot-toast';
 import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
 import YoutubeThumbnailBlogPost from './pages/YoutubeThumbnailBlogPost';
+import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -139,6 +140,7 @@ export default function App() {
           <Route path="/image-converter" element={<ImageConverterPage />} />
           <Route path="/url-encoder" element={<URLEncoderPage />} />
           <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
+          <Route path="/blog/free-developer-utilities" element={<DeveloperUtilitiesBlogPost />} />
           <Route path="/blog/promptforge-launch" element={<PromptForgeBlogPost />} />
           <Route path="/blog/youtube-thumbnail-generator" element={<YoutubeThumbnailBlogPost />} />
           <Route path="/youtube-thumbnail" element={<YouTubeThumbnailPage />} />
