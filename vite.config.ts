@@ -39,6 +39,7 @@ export default defineConfig({
         '/blog/pdf-copy-paste-fixer',
         '/blog/how-to-create-strong-passwords',
         '/blog/best-free-username-generator-2026',
+        '/blog/free-qr-code-generator-wifi-url-text',
       ],
       changefreq: 'weekly',
       priority: 0.8,

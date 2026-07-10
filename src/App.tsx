@@ -45,6 +45,7 @@ import { Toaster } from 'react-hot-toast';
 import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
 import YoutubeThumbnailBlogPost from './pages/YoutubeThumbnailBlogPost';
 import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
+import FreeQRCodeGeneratorBlogPost from './pages/FreeQRCodeGeneratorBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -146,6 +147,7 @@ export default function App() {
           <Route path="/youtube-thumbnail" element={<YouTubeThumbnailPage />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
+          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<FreeQRCodeGeneratorBlogPost />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
 
           {/* NEW ROUTE FOR PROMPTFORGE */}

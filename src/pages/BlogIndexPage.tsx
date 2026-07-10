@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/free-qr-code-generator-wifi-url-text',
+    title: 'Free QR Code Generator for WiFi, URLs, and Text — Private & No Sign-Up',
+    excerpt:
+      'Create QR codes instantly for WiFi networks, URLs, and plain text. Fast, 100% private, browser-based generator with no sign-up, no tracking, and instant PNG download.',
+    date: 'July 10, 2026',
+    readTime: '4 min read',
+    icon: QrCode,
+    tag: 'QR Codes',
+  },
+  {
     slug: '/blog/free-developer-utilities',
     title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
     excerpt:
