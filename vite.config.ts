@@ -14,6 +14,7 @@ export default defineConfig({
         '/username-generator', 
         '/qr-generator',
         '/color-palette-generator',
+        '/favicon-generator',
         '/text-tools',
         '/percentage-calculator',
         '/lorem-ipsum-generator',

@@ -77,6 +77,14 @@ const TOOLS = [
     iconColor: 'text-purple-600 dark:text-purple-400',
   },
   {
+    path: '/favicon-generator',
+    icon: ImageIcon,
+    label: 'Favicon Generator',
+    description: 'Generate all standard favicon sizes from one image instantly.',
+    bg: 'bg-orange-50 dark:bg-orange-950/40',
+    iconColor: 'text-orange-600 dark:text-orange-400',
+  },
+  {
     path: '/qr-generator',
     icon: QrCode,
     label: 'QR Generator',
