@@ -11,10 +11,14 @@ const NAV_ITEMS = [
 const TOOLS = [
   { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
   { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
+  { label: 'Username Generator', path: '/username-generator', icon: ArrowRightLeft },   // ← ADD THIS
+  { label: 'PromptForge', path: '/promptforge', icon: Zap },
+  { label: 'YouTube Thumbnail', path: '/youtube-thumbnail', icon: ImageIcon },
+  { label: 'URL Encoder', path: '/url-encoder', icon: ArrowRightLeft },
   { label: 'Base64', path: '/base64', icon: Code2 },
   { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
   { label: 'Image Converter', path: '/image-converter', icon: ImageIcon },
-  { label: 'Favicon Generator', path: '/favicon-generator', icon: ImageIcon },   
+  { label: 'Favicon Generator', path: '/favicon-generator', icon: ImageIcon },
   { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
   { label: 'Color Palette', path: '/palette-generator', icon: Palette },
   { label: 'Percentage Calc', path: '/percentage-calculator', icon: Percent, badge: 'Suite' },

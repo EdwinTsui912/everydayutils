@@ -46,6 +46,7 @@ import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
 import YoutubeThumbnailBlogPost from './pages/YoutubeThumbnailBlogPost';
 import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 import FreeQRCodeGeneratorBlogPost from './pages/FreeQRCodeGeneratorBlogPost';
+import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -116,6 +117,7 @@ export default function App() {
           <Route path="/palette-generator" element={<PaletteGeneratorPage />} />
           <Route path="/percentage-calculator" element={<PercentageCalculatorPage />} />
           <Route path="/qr-generator" element={<QRGeneratorPage />} />
+          <Route path="/favicon-generator" element={<FaviconGeneratorPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
