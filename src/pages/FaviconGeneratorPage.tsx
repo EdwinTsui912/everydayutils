@@ -107,7 +107,7 @@ export default function FaviconGeneratorPage() {
       });
     }
 
-    // favicon.ico (fallback)
+    // favicon.ico fallback
     const ico32 = newIcons.find(i => i.size === 32);
     if (ico32) {
       newIcons.push({
@@ -281,6 +281,16 @@ export default function FaviconGeneratorPage() {
           <p className="mb-6">
             Generate a complete set of favicons including favicon.ico and apple-touch-icon.png from one uploaded image. Private, no upload required.
           </p>
+
+          <h3 className="text-lg font-semibold mt-8 mb-2">Why Use This Tool?</h3>
+          <ul className="list-disc pl-5 mb-6 space-y-1">
+            <li>One upload → all standard favicon sizes</li>
+            <li>Includes apple-touch-icon.png for iOS devices</li>
+            <li>Supports transparent images with custom background</li>
+            <li>Download as ZIP with installation guide</li>
+          </ul>
+
+          <p className="mt-8">All processing happens locally in your browser. Your images never leave your device.</p>
         </div>
       </div>
     </div>
