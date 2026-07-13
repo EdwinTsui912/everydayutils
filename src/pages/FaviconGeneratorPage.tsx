@@ -96,6 +96,28 @@ export default function FaviconGeneratorPage() {
       });
     }
 
+    // Apple Touch Icon
+    const apple180 = newIcons.find(i => i.size === 180);
+    if (apple180) {
+      newIcons.push({
+        size: 180,
+        url: apple180.url,
+        blob: apple180.blob,
+        filename: 'apple-touch-icon.png'
+      });
+    }
+
+    // favicon.ico (fallback)
+    const ico32 = newIcons.find(i => i.size === 32);
+    if (ico32) {
+      newIcons.push({
+        size: 0,
+        url: ico32.url,
+        blob: ico32.blob,
+        filename: 'favicon.ico'
+      });
+    }
+
     setIcons(newIcons);
     setIsGenerating(false);
   }, [image, backgroundColor]);
@@ -119,10 +141,12 @@ export default function FaviconGeneratorPage() {
 </head>
 <body>
   <h1>✅ Your Favicons are Ready</h1>
-  <p>Extract this ZIP and upload the files to your website root.</p>
-  <h2>Recommended HTML Code</h2>
-  <pre><code>&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
-&lt;link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png"&gt;
+  <p>Extract this ZIP and upload the files to your website root folder.</p>
+  
+  <h2>Recommended HTML Code (add to &lt;head&gt; section)</h2>
+  <pre><code>&lt;link rel="icon" href="/favicon.ico" sizes="any"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
 &lt;link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"&gt;</code></pre>
 </body>
 </html>`;
@@ -235,11 +259,11 @@ export default function FaviconGeneratorPage() {
 
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
                 {icons.map((icon) => (
-                  <div key={icon.size} className="text-center group">
+                  <div key={icon.filename} className="text-center group">
                     <div className="mx-auto border border-gray-200 dark:border-gray-700 rounded-xl p-3 bg-white dark:bg-gray-900 mb-3">
-                      <img src={icon.url} alt={`${icon.size}x${icon.size}`} className="mx-auto" />
+                      <img src={icon.url} alt={icon.filename} className="mx-auto" />
                     </div>
-                    <p className="text-sm font-mono text-gray-500">{icon.size}×{icon.size}</p>
+                    <p className="text-sm font-mono text-gray-500">{icon.filename}</p>
                   </div>
                 ))}
               </div>
@@ -253,20 +277,10 @@ export default function FaviconGeneratorPage() {
       {/* SEO Content */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
         <div className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto px-4 text-sm leading-relaxed">
-          <h2 className="text-2xl font-bold mb-6">Free Favicon Generator - Create All Sizes Instantly</h2>
+          <h2 className="text-2xl font-bold mb-6">Free Favicon Generator from Image – Create All Sizes Instantly</h2>
           <p className="mb-6">
-            Generate a complete set of favicons and app icons from one image. Perfect for websites, PWAs, and mobile apps. 100% private.
+            Generate a complete set of favicons including favicon.ico and apple-touch-icon.png from one uploaded image. Private, no upload required.
           </p>
-
-          <h3 className="text-lg font-semibold mt-8 mb-2">Why Use This Tool?</h3>
-          <ul className="list-disc pl-5 mb-6 space-y-1">
-            <li>One upload → all standard favicon sizes</li>
-            <li>Supports transparent images with custom background</li>
-            <li>Ready for Apple, Android, and desktop browsers</li>
-            <li>Download as ZIP with installation guide</li>
-          </ul>
-
-          <p className="mt-8">All processing happens locally in your browser. Your images never leave your device.</p>
         </div>
       </div>
     </div>
