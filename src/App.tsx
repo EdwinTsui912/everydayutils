@@ -47,6 +47,7 @@ import YoutubeThumbnailBlogPost from './pages/YoutubeThumbnailBlogPost';
 import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 import FreeQRCodeGeneratorBlogPost from './pages/FreeQRCodeGeneratorBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
+import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -147,6 +148,7 @@ export default function App() {
           <Route path="/blog/promptforge-launch" element={<PromptForgeBlogPost />} />
           <Route path="/blog/youtube-thumbnail-generator" element={<YoutubeThumbnailBlogPost />} />
           <Route path="/youtube-thumbnail" element={<YouTubeThumbnailPage />} />
+          <Route path="/blog/favicon-generator" element={<FaviconGeneratorBlogPost />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<FreeQRCodeGeneratorBlogPost />} />

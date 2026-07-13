@@ -3,6 +3,15 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/favicon-generator',
+    title: 'Free Favicon Generator — Create All Sizes Instantly (PNG + ZIP)',
+    excerpt: 'Generate a complete set of favicons and app icons from one image. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
+    date: 'July 12, 2026',
+    readTime: '4 min read',
+    icon: ImageIcon,
+    tag: 'Design Tools',
+  },
+  {
     slug: '/blog/free-qr-code-generator-wifi-url-text',
     title: 'Free QR Code Generator for WiFi, URLs, and Text — Private & No Sign-Up',
     excerpt:

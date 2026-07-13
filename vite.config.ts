@@ -41,6 +41,7 @@ export default defineConfig({
         '/blog/how-to-create-strong-passwords',
         '/blog/best-free-username-generator-2026',
         '/blog/free-qr-code-generator-wifi-url-text',
+        '/blog/favicon-generator',
       ],
       changefreq: 'weekly',
       priority: 0.8,
