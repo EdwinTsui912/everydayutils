@@ -42,6 +42,7 @@ export default defineConfig({
         '/blog/best-free-username-generator-2026',
         '/blog/free-qr-code-generator-wifi-url-text',
         '/blog/favicon-generator',
+        '/blog/who-is-json',
       ],
       changefreq: 'weekly',
       priority: 0.8,

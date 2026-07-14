@@ -48,6 +48,7 @@ import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 import FreeQRCodeGeneratorBlogPost from './pages/FreeQRCodeGeneratorBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
+import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -141,6 +142,7 @@ export default function App() {
           <Route path="/blog/color-palette-generator" element={<ColorPaletteBlogPost />} />
           <Route path="/blog/percentage-calculator" element={<PercentageCalculatorBlogPost />} />
           <Route path="/base64" element={<Base64Page />} />
+          <Route path="/blog/who-is-json" element={<WhoIsJsonBlogPost />} />
           <Route path="/image-converter" element={<ImageConverterPage />} />
           <Route path="/url-encoder" element={<URLEncoderPage />} />
           <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />

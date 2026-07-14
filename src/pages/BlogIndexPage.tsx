@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/who-is-json',
+    title: 'Who Is JSON! What It Is, Why Developers Use It, and How to Work With It',
+    excerpt:
+      'What is JSON and how is it used in development? A practical, human-friendly guide to JSON in APIs, config files, frontend work, and debugging — plus how to format and validate it more easily.',
+    date: 'July 14, 2026',
+    readTime: '6 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
     slug: '/blog/favicon-generator',
     title: 'Free Favicon Generator — Create All Sizes Instantly (PNG + ZIP)',
     excerpt: 'Generate a complete set of favicons and app icons from one image. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
