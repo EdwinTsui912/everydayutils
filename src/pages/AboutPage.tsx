@@ -88,14 +88,11 @@ export default function AboutPage() {
           <h2 className="text-base font-bold text-gray-900 dark:text-gray-100">The person behind it</h2>
         </div>
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-          Hi — I'm <strong className="text-gray-800 dark:text-gray-200 font-semibold">Edwin</strong>, based in
-          Hong Kong. EverydayUtils started as a personal project: I kept opening different websites to do basic
-          tasks and wanted everything in one fast, clean place. I built it for myself, then put it online
-          in case it's useful to others too.
+          Hi — I'm Edwin, based in Hong Kong. I work as a software developer and built EverydayUtils as a side project because I was tired of using cluttered online tools full of ads and trackers. 
+          I wanted simple, fast, and truly private utilities — so I created them myself.
         </p>
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-          It's a side project, not a startup. There's no team, no investor deck, no growth targets —
-          just a developer who wanted better tools and thought you might too.
+          It's a side project, not a startup. There's no team, no investor deck, no growth targets — just a developer who wanted better tools and thought you might too.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 pt-2 border-t border-gray-100 dark:border-gray-800">
           <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">

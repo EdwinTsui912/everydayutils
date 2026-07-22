@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
           </div>
           <h1 className="page-title">Privacy Policy</h1>
         </div>
-        <p className="text-sm text-gray-400 dark:text-gray-500">Last updated: June 2026</p>
+        <p className="text-sm text-gray-400 dark:text-gray-500">Last updated: July 2026</p>
       </div>
 
       <div className="p-4 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-900 rounded-2xl">
@@ -31,35 +31,39 @@ export default function PrivacyPolicyPage() {
 
       <div className="card p-6 sm:p-8 space-y-6">
         <Section title="1. No Data Collection">
-          <p>EverydayUtils does not collect, store, transmit, or process any personal data. We do not have user accounts, analytics tracking, advertising networks, or any data collection mechanisms.</p>
-          <p>When you use any tool on this site, all computation happens entirely within your web browser on your device. No information is sent to EverydayUtils servers or any third-party servers.</p>
+          <p>EverydayUtils does not collect, store, or transmit any personal data from tool usage. We do not have user accounts or tracking mechanisms for the tools themselves.</p>
         </Section>
 
-        <Section title="2. Client-Side Processing">
-          <p>Every tool — including the text tools, password generator, color palette generator, QR code generator, and percentage calculators — processes all data locally using JavaScript running in your browser.</p>
-          <p>Your passwords are generated locally. Your text is analyzed locally. Your QR codes are created locally. None of this data ever leaves your device.</p>
+        <Section title="2. Client-Side Only">
+          <p>All tools process data entirely in your browser on your own device. Nothing is sent to our servers or any third party.</p>
         </Section>
 
-        <Section title="3. Cookies & Local Storage">
-          <p>We use browser <strong className="text-gray-800 dark:text-gray-200">localStorage</strong> solely to remember your dark/light mode preference. This data stays on your device and is never transmitted anywhere.</p>
-          <p>We do not use cookies for tracking, advertising, or analytics.</p>
+        <Section title="3. Local Storage">
+          <p>We use browser localStorage only to remember your dark/light mode preference. This data stays on your device and is never transmitted anywhere.</p>
         </Section>
 
         <Section title="4. Contact Form">
-          <p>If you use the <Link to="/contact" className="text-brand-600 dark:text-brand-400 hover:underline">Contact form</Link>, the name, email, and message you submit are stored securely in our database solely for the purpose of replying to you. This data is not shared with any third party.</p>
+          <p>If you send us a message through the <Link to="/contact" className="text-brand-600 dark:text-brand-400 hover:underline">Contact page</Link>, your name, email, and message are stored securely only for the purpose of replying to you.</p>
         </Section>
 
-        <Section title="5. Third-Party Services">
-          <p>We use Google Fonts to load typography. This request may include your IP address as part of a standard web request. We do not control Google's data practices; please see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-600 dark:text-brand-400 hover:underline">Google's Privacy Policy</a> for more information.</p>
-          <p>No advertising networks, no analytics platforms, no social media pixels.</p>
+        <Section title="5. Advertising">
+          <p>At this time we do not display advertising. If we enable advertising in the future (for example through Google AdSense), third-party vendors may use cookies to serve ads based on your prior visits. You can manage personalized advertising through Google Ads Settings. This Privacy Policy will be updated if advertising is introduced.</p>
         </Section>
 
-        <Section title="6. Changes to This Policy">
-          <p>If we update this Privacy Policy, we will update the "Last updated" date at the top of this page. We will never introduce data collection without clearly updating this policy.</p>
+        <Section title="6. Children’s Privacy">
+          <p>This site is not directed at children under 13, and we do not knowingly collect information from children.</p>
         </Section>
 
-        <Section title="7. Contact">
-          <p>If you have questions about this privacy policy, you can reach out via the <Link to="/contact" className="text-brand-600 dark:text-brand-400 hover:underline">Contact page</Link> or email <a href="mailto:everydayutils.contact@gmail.com" className="text-brand-600 dark:text-brand-400 hover:underline">everydayutils.contact@gmail.com</a>.</p>
+        <Section title="7. Third-Party Services">
+          <p>We use Google Fonts to load typography. This may involve a standard web request to Google. We do not control Google’s data practices.</p>
+        </Section>
+
+        <Section title="8. Changes to This Policy">
+          <p>If we update this Privacy Policy, we will update the "Last updated" date. We will never introduce data collection without clearly updating this policy.</p>
+        </Section>
+
+        <Section title="9. Contact">
+          <p>If you have questions, you can reach out via the <Link to="/contact" className="text-brand-600 dark:text-brand-400 hover:underline">Contact page</Link> or email <a href="mailto:everydayutils.contact@gmail.com" className="text-brand-600 dark:text-brand-400 hover:underline">everydayutils.contact@gmail.com</a>.</p>
         </Section>
       </div>
     </div>
