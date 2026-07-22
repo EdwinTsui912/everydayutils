@@ -153,7 +153,7 @@ export default function App() {
           <Route path="/blog/favicon-generator" element={<FaviconGeneratorBlogPost />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
-          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<FreeQRCodeGeneratorBlogPost />} />
+          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<WifiQRCodeBlogPost />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
 
           {/* NEW ROUTE FOR PROMPTFORGE */}

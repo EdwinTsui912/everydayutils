@@ -27,7 +27,7 @@ const posts = [
     excerpt:
       'Create QR codes instantly for WiFi networks, URLs, and plain text. Fast, 100% private, browser-based generator with no sign-up, no tracking, and instant PNG download.',
     date: 'July 10, 2026',
-    readTime: '4 min read',
+    readTime: '6 min read',
     icon: QrCode,
     tag: 'QR Codes',
   },
@@ -39,6 +39,16 @@ const posts = [
     date: 'July 8, 2026',
     readTime: '5 min read',
     icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/url-encoder',
+    title: 'Free URL Encoder & Decoder Online — Instant, Private & Client-Side (2026)',
+    excerpt:
+      'Encode or decode URLs, query strings, and special characters instantly in your browser. 100% private, no sign-up, no tracking.',
+    date: 'July 22, 2026',
+    readTime: '6 min read',
+    icon: ArrowRightLeft,
     tag: 'Developer Tools',
   },
   {
@@ -81,7 +91,6 @@ const posts = [
     icon: User,
     tag: "Gaming & Social",
   },
-  // ... rest of your existing posts remain the same
   {
     slug: '/blog/percentage-calculator',
     title: 'Free Percentage Calculator for Discounts, Tax, Tips & More',

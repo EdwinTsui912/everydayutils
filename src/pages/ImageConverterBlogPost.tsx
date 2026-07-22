@@ -23,18 +23,15 @@ export default function ImageConverterBlogPost() {
           </span>
           <span className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500">
             <Clock size={11} />
-            5 min read
+            7 min read
           </span>
-          <span className="text-xs text-gray-400 dark:text-gray-500">June 29, 2026</span>
+          <span className="text-xs text-gray-400 dark:text-gray-500">July 22, 2026</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
-          Free Private Image Converter: Convert JPG, PNG &amp; WebP Locally (No Upload)
+          Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)
         </h1>
-        <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
-          Ever tried uploading an image only to be told the format isn’t supported? Or needed to convert a PNG to WebP for faster website loading but didn’t want to use heavy software?
-        </p>
         <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-          That’s exactly why we built this clean, privacy-first image converter that works entirely in your browser.
+          Convert images between popular formats instantly in your browser. No sign-up, no uploads, no data collection — everything stays on your device.
         </p>
       </header>
 
@@ -59,38 +56,14 @@ export default function ImageConverterBlogPost() {
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            Why Most Online Image Converters Are Problematic
-          </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            Many popular converters require you to upload files to their servers. This creates privacy risks and adds unnecessary upload/download time.
-          </p>
-          <ul className="space-y-3">
-            {[
-              'Your images are sent to third-party servers',
-              'Potential data leaks or misuse',
-              'Slower performance due to network delays',
-              'Annoying ads and premium upsells',
-              'File size restrictions',
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <CheckCircle size={16} className="text-red-400 flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            What Makes Our Image Converter Different
+            Why Convert Images?
           </h2>
           <ul className="space-y-3">
             {[
-              '100% client-side processing — nothing is uploaded',
-              'Convert between JPG, PNG, and WebP instantly',
-              'No file size limits (limited only by your device)',
-              'Clean, fast, and mobile-friendly interface',
-              'Completely free with no sign-up or ads',
+              'Optimize for web (WebP is much smaller than PNG/JPG)',
+              'Preserve transparency (PNG)',
+              'Reduce file size for faster loading',
+              'Compatibility with different platforms and social media',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <CheckCircle size={16} className="text-brand-500 flex-shrink-0 mt-0.5" />
@@ -102,83 +75,49 @@ export default function ImageConverterBlogPost() {
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            Which Format Should You Choose?
+            Supported Formats
           </h2>
-          <ul className="space-y-4">
-            <li>
-              <strong className="text-gray-800 dark:text-gray-200">WebP</strong> — Best for websites. Smaller file size with excellent quality. Great for improving page speed.
-            </li>
-            <li>
-              <strong className="text-gray-800 dark:text-gray-200">JPG</strong> — Ideal for photographs and realistic images.
-            </li>
-            <li>
-              <strong className="text-gray-800 dark:text-gray-200">PNG</strong> — Perfect when you need transparency (logos, graphics, mockups).
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            How to Use the Image Converter
-          </h2>
-          <ol className="space-y-3">
-            {[
-              'Open the Image Converter tool',
-              'Drag & drop your image or click to upload',
-              'Select target format (JPG, PNG, or WebP)',
-              'Click Convert and download instantly',
-            ].map((step, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-500/10 dark:bg-brand-500/20 text-brand-500 text-xs font-bold flex items-center justify-center mt-0.5">
-                  {i + 1}
-                </span>
-                <span className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{step}</span>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-6">
-            <Link to="/image-converter" className="btn-primary inline-flex items-center gap-2">
-              Open Image Converter Now
-              <ChevronRight size={15} />
-            </Link>
-          </div>
-        </section>
-
-        {/* Privacy Note */}
-        <div className="flex items-start gap-3 p-5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
-          <Shield size={18} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
-            <span className="font-semibold">Privacy First:</span> All conversions happen locally in your browser. Your images never leave your device.
+          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            JPG, PNG, WebP (and more coming soon). Convert in both directions with quality control.
           </p>
-        </div>
+        </section>
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            Privacy First
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            All conversion happens locally using your browser. Your images are never uploaded to any server.
+          </p>
+        </section>
+
+        {/* FAQ */}
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-5">
+          <div className="space-y-4">
             {[
               {
-                q: 'Is my image data safe?',
-                a: 'Yes. Everything runs locally in your browser. No images are uploaded to any server.',
+                q: 'Is this image converter really free?',
+                a: 'Yes. Completely free with no limits, no sign-up, and no premium version.',
               },
               {
-                q: 'Are there file size limits?',
-                a: 'No server-imposed limits. You can convert files as large as your device’s memory allows.',
+                q: 'How private is it?',
+                a: 'Extremely private. All processing runs locally in your browser. Your images never leave your device.',
               },
               {
-                q: 'Does converting reduce image quality?',
-                a: 'Quality loss is usually minimal. Converting to WebP often gives excellent results with much smaller file sizes.',
+                q: 'Does it support transparency?',
+                a: 'Yes. Converting to PNG preserves transparency. Converting to JPG will use a white background by default.',
               },
               {
                 q: 'Can I convert multiple images?',
-                a: 'Currently optimized for fast single-image conversion. Bulk conversion is planned for the future.',
+                a: 'Yes. The tool supports batch conversion and ZIP download (coming in next update).',
               },
-            ].map((faq) => (
-              <div key={faq.q} className="card p-5">
-                <p className="font-semibold text-sm text-gray-800 dark:text-gray-200 mb-2">{faq.q}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{faq.a}</p>
+            ].map((item) => (
+              <div key={item.q} className="card p-5">
+                <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">{item.q}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -187,8 +126,10 @@ export default function ImageConverterBlogPost() {
         {/* Bottom CTA */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
           <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
-            <p className="font-bold text-gray-900 dark:text-gray-100 mb-2">Ready to convert your images privately?</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">No sign-up. No uploads. Instant results.</p>
+            <p className="font-bold text-gray-900 dark:text-gray-100 mb-2">Ready to convert your images?</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+              Fast, private, and completely local.
+            </p>
             <Link to="/image-converter" className="btn-primary inline-flex items-center gap-2">
               Open Image Converter Now
               <ChevronRight size={15} />
