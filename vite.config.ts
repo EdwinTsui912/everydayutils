@@ -43,6 +43,7 @@ export default defineConfig({
         '/blog/free-qr-code-generator-wifi-url-text',
         '/blog/favicon-generator',
         '/blog/who-is-json',
+        '/blog/wifi-qr-code-guide',
       ],
       changefreq: 'weekly',
       priority: 0.8,

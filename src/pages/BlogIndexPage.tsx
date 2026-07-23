@@ -3,6 +3,15 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/wifi-qr-code-guide',
+    title: 'I Was Embarrassed Every Time Guests Asked for My WiFi Password — Until I Did This',
+    excerpt: 'Sharing WiFi passwords is awkward and error-prone. Here’s the simple solution I now use every time — generate a scannable QR code in seconds.',
+    date: 'July 23, 2026',
+    readTime: '7 min read',
+    icon: QrCode,
+    tag: 'QR Codes',
+  },
+  {
     slug: '/blog/who-is-json',
     title: 'Who Is JSON! What It Is, Why Developers Use It, and How to Work With It',
     excerpt:

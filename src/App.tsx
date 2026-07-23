@@ -49,6 +49,7 @@ import FreeQRCodeGeneratorBlogPost from './pages/FreeQRCodeGeneratorBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
+import WifiQRCodeBlogPostUpdated from './pages/WifiQRCodeBlogPostUpdated';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -155,6 +156,7 @@ export default function App() {
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<WifiQRCodeBlogPost />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
+          <Route path="/blog/wifi-qr-code-guide" element={<WifiQRCodeBlogPostUpdated />} />
 
           {/* NEW ROUTE FOR PROMPTFORGE */}
           <Route path="/promptforge" element={<PromptForge />} />
