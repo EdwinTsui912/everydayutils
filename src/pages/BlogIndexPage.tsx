@@ -3,6 +3,55 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/free-developer-utilities',
+    title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
+    excerpt:
+      'Small repetitive tasks break development flow more than they should. Here are four free browser-based utilities I use often — JSON formatting with precise error locations, Base64 encoding, URL encoding, and placeholder text generation.',
+    date: 'July 8, 2026',
+    readTime: '5 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/url-encoder',
+    title: 'Free URL Encoder / Decoder — Fix Broken Links and Query Strings Instantly',
+    excerpt:
+      "Encode or decode URLs and query strings the moment you paste them in, with proper error messages when something's actually broken — all running privately in your browser.",
+    date: 'July 23, 2026',
+    readTime: '5 min read',
+    icon: ArrowRightLeft,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/favicon-generator',
+    title: 'Free Favicon Generator — Create Every Size You Need From One Image',
+    excerpt: 'Turn any logo into a complete favicon set — all standard sizes plus apple-touch-icon and a favicon.ico fallback. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
+    date: 'July 23, 2026',
+    readTime: '6 min read',
+    icon: ImageIcon,
+    tag: 'Design Tools',
+  },
+  {
+    slug: '/blog/color-palette-generator-tailwind',
+    title: 'I Kept Rebuilding the Same Tailwind Color Config — So I Built a Tool With Real Color Theory Behind It',
+    excerpt:
+      'Five real color-harmony algorithms, live WCAG 2.2 contrast checking, swatch locking, and one-click Tailwind config export — all computed locally in your browser with no sign-up needed.',
+    date: 'July 23, 2026',
+    readTime: '6 min read',
+    icon: Palette,
+    tag: 'Design Tools',
+  },
+  {
+    title: "Every Good Username I Wanted Was Taken — So I Built a Generator That Actually Fixes That",
+    date: "July 23, 2026",
+    readTime: "7 min",
+    category: "Gaming & Social",
+    slug: "/blog/best-free-username-generator-2026",
+    excerpt: "Instantly generate Gaming, Kawaii, Fantasy, Professional, or Random-style usernames for Roblox, Discord, Instagram, and more — or seed your own keywords. Free, private, no sign-up required.",
+    icon: User,
+    tag: "Gaming & Social",
+  },
+  {
     slug: '/blog/pomodoro-timer-free-online',
     title: "I Couldn't Focus for More Than 12 Minutes — This Simple Timer Changed Everything",
     excerpt:
@@ -22,15 +71,6 @@ const posts = [
     tag: 'QR Codes',
   },
   {
-    slug: '/blog/favicon-generator',
-    title: 'Free Favicon Generator — Create All Sizes Instantly (PNG + ZIP)',
-    excerpt: 'Generate a complete set of favicons and app icons from one image. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
-    date: 'July 22, 2026',
-    readTime: '7 min read',
-    icon: ImageIcon,
-    tag: 'Design Tools',
-  },
-  {
     slug: '/blog/free-qr-code-generator-wifi-url-text',
     title: 'Free QR Code Generator for WiFi, URLs, and Text — Private & No Sign-Up',
     excerpt:
@@ -39,16 +79,6 @@ const posts = [
     readTime: '6 min read',
     icon: QrCode,
     tag: 'QR Codes',
-  },
-  {
-    slug: '/blog/url-encoder',
-    title: 'Free URL Encoder & Decoder Online — Instant, Private & Client-Side (2026)',
-    excerpt:
-      'Encode or decode URLs, query strings, and special characters instantly in your browser. 100% private, no sign-up, no tracking.',
-    date: 'July 22, 2026',
-    readTime: '6 min read',
-    icon: ArrowRightLeft,
-    tag: 'Developer Tools',
   },
   {
     title: 'Free YouTube Thumbnail Generator – Create Clickable Thumbnails Fast (No Sign-Up, No Watermark)',
@@ -121,16 +151,6 @@ const posts = [
     tag: 'Developer Tools',
   },
   {
-    slug: '/blog/free-developer-utilities',
-    title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
-    excerpt:
-      'Small repetitive tasks break development flow more than they should. Here are four free browser-based developer utilities I use often for JSON, Base64, URL encoding, and placeholder text.',
-    date: 'July 8, 2026',
-    readTime: '5 min read',
-    icon: Braces,
-    tag: 'Developer Tools',
-  },
-  {
     title: "Stop Wasting Time with Generic AI Prompts: Meet PromptForge, the Private AI Prompt Generator That Actually Works",
     date: "June 30, 2026",
     readTime: "8 min",
@@ -141,16 +161,6 @@ const posts = [
     tag: "AI Tools",
   },
   {
-    title: "Best Free Username Generator 2026 – Cool, Aesthetic & Gaming Names Instantly",
-    date: "June 29, 2026",
-    readTime: "7 min",
-    category: "Gaming & Social",
-    slug: "/blog/best-free-username-generator-2026",
-    excerpt: "Instantly generate cool, aesthetic, tryhard, and gaming usernames for Roblox, Discord, Instagram, TikTok and more. Free, private, no sign-up required.",
-    icon: User,
-    tag: "Gaming & Social",
-  },
-  {
     slug: '/blog/percentage-calculator',
     title: 'Free Percentage Calculator for Discounts, Tax, Tips & More',
     excerpt:
@@ -159,16 +169,6 @@ const posts = [
     readTime: '3 min read',
     icon: Percent,
     tag: 'Calculators',
-  },
-  {
-    slug: '/blog/color-palette-generator-tailwind',
-    title: 'Free Tailwind CSS Color Palette Generator – Instant, Private & No Sign-Up (2026)',
-    excerpt:
-      'Stop manually picking colors for every project. Generate harmonious Tailwind CSS palettes in one click — export HEX, RGB, HSL, and ready-to-paste config code. 100% client-side, no account needed.',
-    date: 'June 24, 2026',
-    readTime: '3 min read',
-    icon: Palette,
-    tag: 'Design Tools',
   },
   {
     slug: '/blog/pdf-copy-paste-fixer',
