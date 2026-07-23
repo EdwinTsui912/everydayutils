@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/pomodoro-timer-free-online',
+    title: "I Couldn't Focus for More Than 12 Minutes — This Simple Timer Changed Everything",
+    excerpt:
+      "Distraction wasn't a discipline problem — it was a structure problem. Here's the simple, private Pomodoro timer setup that finally fixed my focus.",
+    date: 'July 23, 2026',
+    readTime: '8 min read',
+    icon: Timer,
+    tag: 'Productivity',
+  },
+  {
     slug: '/blog/wifi-qr-code-guide',
     title: 'I Was Embarrassed Every Time Guests Asked for My WiFi Password — Until I Did This',
     excerpt: 'Sharing WiFi passwords is awkward and error-prone. Here’s the simple solution I now use every time — generate a scannable QR code in seconds.',
@@ -119,16 +129,6 @@ const posts = [
     readTime: '3 min read',
     icon: Palette,
     tag: 'Design Tools',
-  },
-  {
-    slug: '/blog/pomodoro-timer-free-online',
-    title: 'Free Pomodoro Timer Online – Accurate, Private & Mobile-Friendly Focus Tool (2026)',
-    excerpt:
-      'A clean, 100% client-side Pomodoro timer that works offline, stays accurate in background tabs, and keeps your phone screen awake. No sign-up, no tracking.',
-    date: 'June 23, 2026',
-    readTime: '4 min read',
-    icon: Timer,
-    tag: 'Productivity',
   },
   {
     slug: '/blog/json-formatter-guide',
