@@ -28,6 +28,7 @@ export default defineConfig({
 
         // Legal / Info
         '/about',
+        '/contact',
         '/privacy-policy',
         '/terms-of-use',
 
@@ -50,7 +51,6 @@ export default defineConfig({
         '/blog/favicon-generator',
         '/blog/who-is-json',
         '/blog/wifi-qr-code-guide',
-        '/blog/free-qr-code-generator-wifi-url-text',
       ],
       changefreq: 'weekly',
       priority: 0.8,
