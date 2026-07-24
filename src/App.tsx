@@ -47,13 +47,10 @@ import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
 
-
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
 
-
 import { Helmet } from 'react-helmet-async';
-
 
 function PageTracker() {
   const location = useLocation();
@@ -63,16 +60,13 @@ function PageTracker() {
   return null;
 }
 
-
 function Layout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -96,23 +90,19 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-
 export default function App() {
   useEffect(() => {
     console.log("App level useEffect running");
 
-
     const setTitle = () => {
       document.title = "EverydayUtils - Free Privacy-First Online Tools";
     };
-
 
     setTitle();
     setTimeout(setTitle, 100);
     setTimeout(setTitle, 500);
     setTimeout(setTitle, 1000);
   }, []);
-
 
   return (
     <ThemeProvider>
@@ -123,7 +113,12 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/text-tools" element={<TextToolsPage />} />
           <Route path="/password-generator" element={<PasswordGeneratorPage />} />
-          <Route path="/palette-generator" element={<PaletteGeneratorPage />} />
+
+          {/* Canonical Color Palette route */}
+          <Route path="/color-palette-generator" element={<PaletteGeneratorPage />} />
+          {/* Redirect old path */}
+          <Route path="/palette-generator" element={<Navigate to="/color-palette-generator" replace />} />
+
           <Route path="/percentage-calculator" element={<PercentageCalculatorPage />} />
           <Route path="/qr-generator" element={<QRGeneratorPage />} />
           <Route path="/favicon-generator" element={<FaviconGeneratorPage />} />
@@ -133,7 +128,6 @@ export default function App() {
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/blog" element={<BlogIndexPage />} />
 
-
           {/* Canonical WiFi QR post — single source of truth */}
           <Route path="/blog/wifi-qr-code-guide" element={<WifiQRCodeBlogPostUpdated />} />
 
@@ -141,7 +135,6 @@ export default function App() {
           <Route path="/blog/how-to-create-wifi-qr-code" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
           <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
           <Route path="/wifi-qr-guide" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
-
 
           <Route path="/blog/how-to-create-strong-passwords" element={<StrongPasswordsBlogPost />} />
           <Route path="/blog/pdf-copy-paste-fixer" element={<PdfCopyPasteFixerBlogPost />} />
@@ -170,12 +163,10 @@ export default function App() {
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
 
-
           {/* NEW ROUTE FOR PROMPTFORGE */}
           <Route path="/promptforge" element={<PromptForge />} />
         </Routes>
       </Layout>
-
 
       <Toaster
         position="top-center"
