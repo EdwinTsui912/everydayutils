@@ -2,8 +2,11 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Copy, Check, RotateCcw, Download, AlertCircle, QrCode } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
 import QRCode from 'qrcode';
+import SEO from '../components/SEO';
+
 
 type ECCLevel = 'L' | 'M' | 'Q' | 'H';
+
 
 const ECC_OPTIONS: { value: ECCLevel; label: string; desc: string }[] = [
   { value: 'L', label: 'L — Low',     desc: '~7% recovery'  },
@@ -12,7 +15,9 @@ const ECC_OPTIONS: { value: ECCLevel; label: string; desc: string }[] = [
   { value: 'H', label: 'H — High',    desc: '~30% recovery' },
 ];
 
+
 const DEFAULT_TEXT = 'https://everydayutils.com';
+
 
 export default function QRCodeGenerator() {
   const [text, setText]       = useState(DEFAULT_TEXT);
@@ -24,9 +29,12 @@ export default function QRCodeGenerator() {
   const [copied, setCopied]   = useState(false);
   const [downloaded, setDownloaded] = useState(false);
 
+
   useEffect(() => { trackToolView('qr-generator'); }, []);
 
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
 
   const renderQR = useCallback(async (
     content: string,
@@ -49,11 +57,13 @@ export default function QRCodeGenerator() {
     }
   }, []);
 
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     renderQR(text, canvas, size, ecc, fgColor, bgColor);
   }, [text, size, ecc, fgColor, bgColor, renderQR]);
+
 
   async function getDataUrl(): Promise<string | null> {
     try {
@@ -69,6 +79,7 @@ export default function QRCodeGenerator() {
     }
   }
 
+
   async function handleDownload() {
     const dataUrl = await getDataUrl();
     if (!dataUrl) return;
@@ -80,6 +91,7 @@ export default function QRCodeGenerator() {
     setDownloaded(true);
     setTimeout(() => setDownloaded(false), 2000);
   }
+
 
   async function handleCopy() {
     const dataUrl = await getDataUrl();
@@ -97,6 +109,7 @@ export default function QRCodeGenerator() {
     }
   }
 
+
   function handleReset() {
     setText(DEFAULT_TEXT);
     setSize(320);
@@ -106,8 +119,15 @@ export default function QRCodeGenerator() {
     setError(null);
   }
 
+
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 min-h-screen w-full overflow-y-auto">
+      <SEO
+        title="Free QR Code Generator Online — Private, No Sign-Up | EverydayUtils"
+        description="Generate high-quality QR codes for URLs, WiFi, text, and vCards instantly. Adjustable size, colors, and error correction — 100% client-side and private."
+        keywords="qr code generator, free qr code generator, wifi qr code, qr code maker online, custom qr code generator"
+        url="https://everydayutils.com/qr-generator"
+      />
            {/* Centered Header with Icon */}
            <div className="text-center mb-12">
         <div className="mx-auto w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
@@ -118,6 +138,7 @@ export default function QRCodeGenerator() {
           Generate high-quality QR codes instantly — all processing happens in your browser.
         </p>
       </div>
+
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-start">
         {/* Controls */}
@@ -140,9 +161,11 @@ export default function QRCodeGenerator() {
             </p>
           </div>
 
+
           {/* Appearance */}
           <div className="card p-5 space-y-5">
             <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Appearance</p>
+
 
             {/* Size slider */}
             <div className="space-y-2">
@@ -163,6 +186,7 @@ export default function QRCodeGenerator() {
               </div>
             </div>
 
+
             {/* ECC Level */}
             <div className="space-y-2">
               <label className="label">Error Correction Level</label>
@@ -178,6 +202,7 @@ export default function QRCodeGenerator() {
                 ))}
               </select>
             </div>
+
 
             {/* Color pickers */}
             <div className="grid grid-cols-2 gap-4">
@@ -211,6 +236,7 @@ export default function QRCodeGenerator() {
             </div>
           </div>
 
+
           {/* Action buttons */}
           <div className="flex flex-wrap gap-3">
             <button onClick={handleDownload} className="btn-primary flex-1 min-w-[140px]">
@@ -225,6 +251,7 @@ export default function QRCodeGenerator() {
             </button>
           </div>
 
+
           {error && (
             <div className="flex items-start gap-2.5 p-3.5 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl">
               <AlertCircle size={14} className="text-red-500 mt-0.5 shrink-0" />
@@ -232,6 +259,7 @@ export default function QRCodeGenerator() {
             </div>
           )}
         </div>
+
 
         {/* Preview */}
         <div className="flex flex-col items-center gap-4 lg:sticky lg:top-8">
@@ -251,6 +279,7 @@ export default function QRCodeGenerator() {
             </p>
           </div>
 
+
           <div className="card p-4 space-y-2 w-full">
             <p className="text-xs font-semibold text-gray-700 dark:text-gray-300">Tips</p>
             <ul className="space-y-1.5 text-xs text-gray-500 dark:text-gray-400 list-disc list-inside">
@@ -263,20 +292,25 @@ export default function QRCodeGenerator() {
         </div>
       </div>
 
+
       {/* SEO Section */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
         <div className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto px-4 text-sm leading-relaxed">
           <h2 className="text-2xl font-bold mb-6">The Purpose of QR Codes in Modern Digital Workflows</h2>
           <p className="mb-6">Quick Response (QR) codes serve as essential two-dimensional data matrices bridging physical media with digital infrastructure. They enable instant mobile camera access to web links, structured text, vCard contact configurations, and wireless network credentials without manual typing. Digital designers, growth marketers, and application developers rely heavily on secure matrix generation to optimize user experiences across physical products, digital restaurant menus, retail packaging, and corporate print collateral.</p>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">What Is a QR Code and Who Invented It?</h3>
           <p className="mb-6">The QR code matrix layout was originally invented in 1994 by Masahiro Hara from the Japanese engineering firm Denso Wave, a prominent subsidiary of Toyota. Developed initially to track automotive components across complex manufacturing assembly lines, the technology evolved rapidly due to its open-source nature. Unlike traditional linear barcodes that only read data along a horizontal axis, a 2D QR matrix stores data both vertically and horizontally. This architectural shift allows a single code module to hold up to 7,089 numeric digits or 4,296 alphanumeric characters with exceptionally high processing speed.</p>
+
 
           <h3 className="text-lg font-semibold mt-8 mb-2">Why Use a Client-Side QR Code Generator?</h3>
           <p className="mb-6">Our QR Code Generator on EverydayUtils.com operates <strong>100% client-side</strong> utilizing native browser execution. While many commercial web platforms route your raw data strings through external cloud databases to track consumer metrics and IP logs, this browser-based utility processes the generation script instantly using local JavaScript. Your inputs, destination links, or sensitive credentials never cross a network interface, providing total security against third-party analytics trackers, surveillance risks, or system downtime. The platform functions entirely offline, rendering high-resolution output files instantly on demand.</p>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Demystifying Reed-Solomon Error Correction Levels</h3>
           <p className="mb-6">A primary advantage of the QR standard is its integration of Reed-Solomon error correction codes (ECC). This math engine generates backup data bits within the square grid pattern, ensuring your code remains perfectly scannable even if the printed graphic is partially stained, torn, or obscured by environmental wear. Choosing the correct ECC configuration ensures optimal scannability across diverse camera optics and low-light environments.</p>
+
 
           <div className="overflow-x-auto my-6">
             <table className="w-full border-collapse border border-gray-300 dark:border-gray-700 text-left">
@@ -317,8 +351,10 @@ export default function QRCodeGenerator() {
             </table>
           </div>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Essential Best Practices for Scan Optimization</h3>
           <p className="mb-6">To avoid optical scan failures, ensure your design retains a high contrast ratio between the foreground modules and background color blocks. Darker foreground hex keys paired with stark background canvases yield the fastest hardware capture times. Additionally, maintain a clean margin or 'quiet zone' surrounding the outer perimeter of the matrix. If you need to sanitize or strip raw text variables prior to generating your layout, you can quickly route to our local <a href="/text-tools" className="text-blue-600 dark:text-blue-400 hover:underline">Text Tools Suite</a> to structure parameters instantaneously client-side without data logging hazards.</p>
+
 
           <p className="mt-8">This client-side QR Code Generator combines speed, security, and reliability, making it the preferred choice for privacy-conscious users and professionals who need trustworthy, instantly scannable codes.</p>
         </div>

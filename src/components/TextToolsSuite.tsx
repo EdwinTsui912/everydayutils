@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Copy, Check, RotateCcw, Trash2, FileText, Type, Scissors, Clock, Hash } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
+import SEO from '../components/SEO';
+
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface TextStats {
@@ -12,7 +14,9 @@ interface TextStats {
   readTime: string;
 }
 
+
 type Tab = 'counter' | 'sanitizer' | 'case';
+
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 function countCjk(text: string): number {
@@ -23,6 +27,7 @@ function countCjk(text: string): number {
   ).length;
 }
 
+
 function countWords(text: string): number {
   if (!text.trim()) return 0;
   const matches = text.match(
@@ -30,6 +35,7 @@ function countWords(text: string): number {
   );
   return matches ? matches.length : 0;
 }
+
 
 function formatReadingTime(words: number, cjkChars: number): string {
   const nonCjkWords = words - cjkChars;
@@ -41,6 +47,7 @@ function formatReadingTime(words: number, cjkChars: number): string {
   if (s === 0) return `${m} min`;
   return `${m} min ${s}s`;
 }
+
 
 function computeStats(text: string): TextStats {
   const trimmed = text.trim();
@@ -56,10 +63,12 @@ function computeStats(text: string): TextStats {
   };
 }
 
+
 const TITLE_MINOR = new Set([
   'a','an','the','and','but','or','nor','for','so','yet',
   'at','by','in','of','on','to','up','as','is',
 ]);
+
 
 function toTitleCase(s: string): string {
   return s.replace(/\S+/g, (word, offset, str) => {
@@ -70,9 +79,11 @@ function toTitleCase(s: string): string {
   });
 }
 
+
 function toSentenceCase(s: string): string {
   return s.toLowerCase().replace(/(^|[.!?]\s+)([a-z])/g, (_, p, c) => p + c.toUpperCase());
 }
+
 
 function toToggleCase(s: string): string {
   return Array.from(s).map(c => {
@@ -82,6 +93,7 @@ function toToggleCase(s: string): string {
     return c === up ? lo : up;
   }).join('');
 }
+
 
 // ── Sub-components ─────────────────────────────────────────────────────────
 function CopyButton({ text }: { text: string }) {
@@ -108,12 +120,14 @@ function CopyButton({ text }: { text: string }) {
   );
 }
 
+
 interface StatCardProps {
   label: string;
   value: string | number;
   icon: React.ElementType;
   accent?: string;
 }
+
 
 function StatCard({ label, value, icon: Icon, accent = 'blue' }: StatCardProps) {
   const accentMap: Record<string, string> = {
@@ -137,20 +151,25 @@ function StatCard({ label, value, icon: Icon, accent = 'blue' }: StatCardProps) 
   );
 }
 
+
 // ── Main Component ─────────────────────────────────────────────────────────
 export default function TextToolsSuite() {
   const [text, setText] = useState('');
   const [original, setOriginal] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<Tab>('counter');
 
+
   useEffect(() => { trackToolView('text-tools'); }, []);
 
+
   const stats = useMemo(() => computeStats(text), [text]);
+
 
   function applyTransform(fn: (s: string) => string) {
     setOriginal(prev => (prev === null ? text : prev));
     setText(fn(text));
   }
+
 
   function restoreOriginal() {
     if (original !== null) {
@@ -159,15 +178,18 @@ export default function TextToolsSuite() {
     }
   }
 
+
   function clearAll() {
     setText('');
     setOriginal(null);
   }
 
+
   function handleUserEdit(value: string) {
     setText(value);
     setOriginal(null);
   }
+
 
   // Case Converter handlers
   const handleUpperCase    = () => applyTransform(s => s.toUpperCase());
@@ -175,6 +197,7 @@ export default function TextToolsSuite() {
   const handleTitleCase    = () => applyTransform(toTitleCase);
   const handleSentenceCase = () => applyTransform(toSentenceCase);
   const handleToggleCase   = () => applyTransform(toToggleCase);
+
 
   // Sanitizer handlers
   const handleRemoveExtraSpaces = () =>
@@ -202,13 +225,16 @@ export default function TextToolsSuite() {
        .trim()
     );
 
+
   const canUndo = original !== null;
+
 
   const tabs: { id: Tab; label: string; icon: React.ElementType }[] = [
     { id: 'counter',   label: 'Word Counter',   icon: FileText },
     { id: 'sanitizer', label: 'Sanitizer',       icon: Scissors },
     { id: 'case',      label: 'Case Converter',  icon: Type },
   ];
+
 
   const caseButtons = [
     { label: 'UPPERCASE',     sub: 'ALL CAPS',                       handler: handleUpperCase },
@@ -218,6 +244,7 @@ export default function TextToolsSuite() {
     { label: 'tOGGLE cASE',   sub: 'Invert every character',         handler: handleToggleCase },
   ] as const;
 
+
   const sanitizerButtons = [
     { label: 'Remove Extra Spaces',  sub: 'Collapse multiple spaces and tabs',    handler: handleRemoveExtraSpaces },
     { label: 'Strip Line Breaks',    sub: 'Flatten all lines into one paragraph', handler: handleStripLineBreaks },
@@ -226,8 +253,18 @@ export default function TextToolsSuite() {
     { label: 'Strip Special Chars',  sub: 'Remove !@#$%^&* and similar',          handler: handleStripSpecialChars },
   ] as const;
 
+
   return (
     <div className="max-w-5xl mx-auto py-10 px-4 min-h-screen overflow-y-auto">
+
+
+      <SEO
+        title="Free Text Tools Suite — Word Counter, Case Converter, Sanitizer | EverydayUtils"
+        description="Count words and characters, convert text case, and clean up messy text instantly in your browser. Supports English and CJK languages. 100% private, no sign-up."
+        keywords="word counter, character counter, case converter, text sanitizer, online text tools"
+        url="https://everydayutils.com/text-tools"
+      />
+
 
       {/* Centered Header with Icon */}
       <div className="text-center mb-12">
@@ -241,8 +278,10 @@ export default function TextToolsSuite() {
         </p>
       </div>
 
+
       {/* Main card */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-md overflow-hidden">
+
 
         {/* Tab bar */}
         <div className="flex items-center gap-0 border-b border-gray-200 dark:border-gray-800 px-6 pt-5">
@@ -268,7 +307,9 @@ export default function TextToolsSuite() {
           })}
         </div>
 
+
         <div className="p-6 space-y-6">
+
 
           {/* Textarea */}
           <div className="relative">
@@ -291,6 +332,7 @@ export default function TextToolsSuite() {
             )}
           </div>
 
+
           {/* Tab content */}
           {activeTab === 'counter' && (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -302,6 +344,7 @@ export default function TextToolsSuite() {
               <StatCard label="Read Time"    value={stats.readTime}        icon={Clock}    accent="rose"    />
             </div>
           )}
+
 
           {activeTab === 'sanitizer' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -332,6 +375,7 @@ export default function TextToolsSuite() {
             </div>
           )}
 
+
           {activeTab === 'case' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {caseButtons.map(({ label, sub, handler }) => (
@@ -361,9 +405,11 @@ export default function TextToolsSuite() {
             </div>
           )}
 
+
           {/* Action bar */}
           <div className="flex items-center gap-3 flex-wrap pt-2 border-t border-gray-100 dark:border-gray-800">
             <CopyButton text={text} />
+
 
             {canUndo && (
               <button
@@ -379,6 +425,7 @@ export default function TextToolsSuite() {
               </button>
             )}
 
+
             {text && (
               <button
                 onClick={clearAll}
@@ -393,13 +440,16 @@ export default function TextToolsSuite() {
               </button>
             )}
 
+
             <span className="ml-auto text-xs text-gray-400 dark:text-gray-600 hidden sm:block">
               All transforms are undoable via Restore Original
             </span>
           </div>
 
+
         </div>
       </div>
+
 
       {/* SEO Section */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
@@ -407,11 +457,14 @@ export default function TextToolsSuite() {
           <h2 className="text-2xl font-bold mb-6">The Power of a Complete Client-Side Text Tools Suite</h2>
           <p className="mb-6">In content creation, software development, and daily productivity, efficiently processing text is crucial. Our Text Tools Suite brings together a powerful Word Counter, Character Counter, Case Converter, and Text Sanitizer into one fast, unified, privacy-first workspace.</p>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Advanced Text Metrics and Multilingual Support</h3>
           <p className="mb-6">Our smart analytics engine provides real-time insights including word count, character count (with/without spaces), sentence and paragraph counts, and estimated reading time. It intelligently handles both Western languages and CJK (Chinese, Japanese, Korean) text — counting each character as one semantic unit where appropriate.</p>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Powerful Case Conversion &amp; Text Sanitization</h3>
           <p className="mb-6">Transform text instantly with one-click case converters (UPPERCASE, lowercase, Title Case, Sentence case, Toggle Case). The built-in sanitizer cleans messy input by removing extra spaces, line breaks, duplicate lines, and unwanted special characters — perfect for preparing content for websites, documents, or code.</p>
+
 
           <div className="overflow-x-auto my-6">
             <table className="w-full border-collapse border border-gray-300 dark:border-gray-700 text-left">
@@ -442,12 +495,15 @@ export default function TextToolsSuite() {
             </table>
           </div>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Why 100% Client-Side?</h3>
           <p className="mb-6">Every operation runs locally in your browser. Your text, documents, or code never leave your device — ensuring maximum privacy and lightning-fast performance even offline.</p>
+
 
           <p className="mt-8">Whether you're a writer, developer, student, or marketer, the Text Tools Suite on EverydayUtils.com delivers professional-grade text processing with complete peace of mind.</p>
         </div>
       </div>
+
 
     </div>
   );
