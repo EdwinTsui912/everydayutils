@@ -1,9 +1,12 @@
 'use client';
 
+
 import React, { useState, useRef, useCallback } from 'react';
 import { Upload, Download, RotateCcw, Image as ImageIcon, Trash2 } from 'lucide-react';
 import { trackToolView } from '../lib/analytics';
 import JSZip from 'jszip';
+import SEO from '../components/SEO';
+
 
 interface GeneratedIcon {
   size: number;
@@ -11,6 +14,7 @@ interface GeneratedIcon {
   blob: Blob;
   filename: string;
 }
+
 
 export default function FaviconGeneratorPage() {
   const [image, setImage] = useState<HTMLImageElement | null>(null);
@@ -20,12 +24,15 @@ export default function FaviconGeneratorPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
+
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
 
   React.useEffect(() => {
     trackToolView('favicon-generator');
   }, []);
+
 
   const resetAll = () => {
     setImage(null);
@@ -34,11 +41,13 @@ export default function FaviconGeneratorPage() {
     setBackgroundColor('#ffffff');
   };
 
+
   const handleImageUpload = (file: File) => {
     if (!file.type.startsWith('image/')) {
       alert('Please upload an image file (PNG or JPG recommended)');
       return;
     }
+
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -53,39 +62,49 @@ export default function FaviconGeneratorPage() {
     reader.readAsDataURL(file);
   };
 
+
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const file = e.dataTransfer.files[0];
     if (file) handleImageUpload(file);
   };
 
+
   const generateIcons = useCallback(async () => {
     if (!image || !canvasRef.current) return;
+
 
     setIsGenerating(true);
     const newIcons: GeneratedIcon[] = [];
     const sizes = [16, 32, 48, 180, 192, 512];
 
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) return;
+
 
     for (const size of sizes) {
       canvas.width = size;
       canvas.height = size;
 
+
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(0, 0, size, size);
+
 
       const scale = Math.min(size / image.width, size / image.height);
       const x = (size - image.width * scale) / 2;
       const y = (size - image.height * scale) / 2;
 
+
       ctx.drawImage(image, x, y, image.width * scale, image.height * scale);
+
 
       const blob = await new Promise<Blob>((resolve) => 
         canvas.toBlob((b) => resolve(b!), 'image/png', 1.0)
       );
+
 
       const url = URL.createObjectURL(blob);
       newIcons.push({
@@ -95,6 +114,7 @@ export default function FaviconGeneratorPage() {
         filename: `favicon-${size}x${size}.png`
       });
     }
+
 
     // Apple Touch Icon
     const apple180 = newIcons.find(i => i.size === 180);
@@ -107,6 +127,7 @@ export default function FaviconGeneratorPage() {
       });
     }
 
+
     // favicon.ico fallback
     const ico32 = newIcons.find(i => i.size === 32);
     if (ico32) {
@@ -118,19 +139,24 @@ export default function FaviconGeneratorPage() {
       });
     }
 
+
     setIcons(newIcons);
     setIsGenerating(false);
   }, [image, backgroundColor]);
 
+
   const downloadAll = async () => {
     if (icons.length === 0) return;
+
 
     setIsDownloading(true);
     const zip = new JSZip();
 
+
     icons.forEach(icon => {
       zip.file(icon.filename, icon.blob);
     });
+
 
     const htmlSnippet = `<!DOCTYPE html>
 <html lang="en">
@@ -151,7 +177,9 @@ export default function FaviconGeneratorPage() {
 </body>
 </html>`;
 
+
     zip.file("README.html", htmlSnippet);
+
 
     const content = await zip.generateAsync({ type: "blob" });
     const link = document.createElement('a');
@@ -159,11 +187,21 @@ export default function FaviconGeneratorPage() {
     link.download = 'favicons.zip';
     link.click();
 
+
     setIsDownloading(false);
   };
 
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
+
+      <SEO
+        title="Free Favicon Generator from Image — All Sizes Instantly | EverydayUtils"
+        description="Generate a complete set of favicons including favicon.ico and apple-touch-icon.png from one image. Private, browser-based, no upload to any server required."
+        keywords="favicon generator, favicon.ico generator, apple touch icon generator, image to favicon, free favicon maker"
+        url="https://everydayutils.com/favicon-generator"
+      />
+
       <div className="text-center mb-10">
         <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-4">
           <ImageIcon size={32} className="text-white" />
@@ -173,6 +211,7 @@ export default function FaviconGeneratorPage() {
           Turn any image into a complete set of favicons and app icons instantly
         </p>
       </div>
+
 
       {!previewUrl && (
         <div 
@@ -199,6 +238,7 @@ export default function FaviconGeneratorPage() {
         </div>
       )}
 
+
       {previewUrl && (
         <div className="space-y-10">
           <div className="card p-8">
@@ -213,10 +253,12 @@ export default function FaviconGeneratorPage() {
               </button>
             </div>
 
+
             <div className="flex flex-col lg:flex-row gap-8">
               <div className="flex-1">
                 <img src={previewUrl} alt="Original" className="max-h-80 w-full object-contain rounded-2xl border border-gray-200 dark:border-gray-700" />
               </div>
+
 
               <div className="w-full lg:w-72 space-y-6">
                 <div>
@@ -232,6 +274,7 @@ export default function FaviconGeneratorPage() {
                   </div>
                 </div>
 
+
                 <button 
                   onClick={generateIcons}
                   disabled={isGenerating}
@@ -242,6 +285,7 @@ export default function FaviconGeneratorPage() {
               </div>
             </div>
           </div>
+
 
           {icons.length > 0 && (
             <div className="card p-8">
@@ -256,6 +300,7 @@ export default function FaviconGeneratorPage() {
                   {isDownloading ? 'Creating ZIP...' : 'Download All as ZIP'}
                 </button>
               </div>
+
 
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
                 {icons.map((icon) => (
@@ -272,7 +317,9 @@ export default function FaviconGeneratorPage() {
         </div>
       )}
 
+
       <canvas ref={canvasRef} className="hidden" />
+
 
       {/* SEO Content */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
@@ -282,6 +329,7 @@ export default function FaviconGeneratorPage() {
             Generate a complete set of favicons including favicon.ico and apple-touch-icon.png from one uploaded image. Private, no upload required.
           </p>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Why Use This Tool?</h3>
           <ul className="list-disc pl-5 mb-6 space-y-1">
             <li>One upload → all standard favicon sizes</li>
@@ -289,6 +337,7 @@ export default function FaviconGeneratorPage() {
             <li>Supports transparent images with custom background</li>
             <li>Download as ZIP with installation guide</li>
           </ul>
+
 
           <p className="mt-8">All processing happens locally in your browser. Your images never leave your device.</p>
         </div>

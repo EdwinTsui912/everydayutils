@@ -1,5 +1,17 @@
 import LoremIpsumGenerator from '../components/LoremIpsumGenerator';
+import SEO from '../components/SEO';
+
 
 export default function LoremIpsumGeneratorPage() {
-  return <LoremIpsumGenerator />;
+  return (
+    <>
+      <SEO
+        title="Free Lorem Ipsum Generator Online — No Sign-Up | EverydayUtils"
+        description="Generate placeholder Lorem Ipsum text instantly — choose paragraphs, sentences, or words. Free, fast, and 100% private in your browser."
+        keywords="lorem ipsum generator, placeholder text generator, dummy text, filler text online"
+        url="https://everydayutils.com/lorem-ipsum-generator"
+      />
+      <LoremIpsumGenerator />
+    </>
+  );
 }

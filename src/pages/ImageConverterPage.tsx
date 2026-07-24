@@ -1,8 +1,11 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Upload, Download, RotateCcw, Image as ImageIcon, X, CheckCircle } from 'lucide-react';
 import { trackToolView, trackButtonClick } from '../lib/analytics';
+import SEO from '../components/SEO';
+
 
 type OutputFormat = 'image/png' | 'image/jpeg' | 'image/webp';
+
 
 export default function ImageConverterPage() {
   const [files, setFiles] = useState<File[]>([]);
@@ -14,13 +17,17 @@ export default function ImageConverterPage() {
   const [showComplete, setShowComplete] = useState(false);
   const [error, setError] = useState('');
 
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+
   useEffect(() => { trackToolView('image-converter'); }, []);
+
 
   useEffect(() => {
     return () => convertedUrls.forEach(url => URL.revokeObjectURL(url));
   }, [convertedUrls]);
+
 
   const handleFiles = (newFiles: FileList | File[]) => {
     const validFiles = Array.from(newFiles).filter(file => file.type.startsWith('image/'));
@@ -30,9 +37,11 @@ export default function ImageConverterPage() {
     setShowComplete(false);
   };
 
+
   const removeFile = (index: number) => {
     setFiles(prev => prev.filter((_, i) => i !== index));
   };
+
 
   const convertImage = useCallback(async (file: File, index: number): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -43,12 +52,15 @@ export default function ImageConverterPage() {
         canvas.height = img.height;
         const ctx = canvas.getContext('2d')!;
 
+
         if (format === 'image/jpeg') {
           ctx.fillStyle = '#FFFFFF';
           ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
+
         ctx.drawImage(img, 0, 0);
+
 
         canvas.toBlob((blob) => {
           if (blob) resolve(URL.createObjectURL(blob));
@@ -60,13 +72,16 @@ export default function ImageConverterPage() {
     });
   }, [format, quality]);
 
+
   const convertAll = async () => {
     if (files.length === 0) return;
+
 
     setIsConverting(true);
     setProgress(0);
     setError('');
     setShowComplete(false);
+
 
     try {
       const urls: string[] = [];
@@ -86,6 +101,7 @@ export default function ImageConverterPage() {
     }
   };
 
+
   const clearAll = () => {
     convertedUrls.forEach(url => URL.revokeObjectURL(url));
     setFiles([]);
@@ -94,8 +110,17 @@ export default function ImageConverterPage() {
     setShowComplete(false);
   };
 
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 min-h-screen">
+
+      <SEO
+        title="Free Image Format Converter — JPG, PNG, WebP Online | EverydayUtils"
+        description="Convert between JPG, PNG, and WebP instantly in your browser. No sign-up, no data upload, and complete privacy — perfect for optimizing images for the web."
+        keywords="image converter, jpg to png, png to webp, image format converter online, convert images free"
+        url="https://everydayutils.com/image-converter"
+      />
+
       <div className="text-center mb-12">
         <div className="mx-auto w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
           <ImageIcon size={32} className="text-white" />
@@ -105,6 +130,7 @@ export default function ImageConverterPage() {
           Convert JPG, PNG, WebP instantly in your browser. No upload, no tracking, 100% private.
         </p>
       </div>
+
 
       <div className="card p-6 space-y-8">
         {/* Upload Area */}
@@ -130,9 +156,11 @@ export default function ImageConverterPage() {
           />
         </div>
 
+
         <p className="text-xs text-center text-emerald-600 dark:text-emerald-400 font-medium">
           All processing happens locally in your browser. Your images never leave your device.
         </p>
+
 
         {/* Uploaded Files */}
         {files.length > 0 && (
@@ -160,6 +188,7 @@ export default function ImageConverterPage() {
           </div>
         )}
 
+
         {files.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
@@ -171,12 +200,14 @@ export default function ImageConverterPage() {
               </select>
             </div>
 
+
             {(format === 'image/jpeg' || format === 'image/webp') && (
               <div>
                 <label className="label">Quality: {quality}%</label>
                 <input type="range" min={10} max={100} value={quality} onChange={(e) => setQuality(Number(e.target.value))} className="w-full" />
               </div>
             )}
+
 
             <div className="flex items-end">
               <button onClick={convertAll} disabled={isConverting} className="btn-primary w-full">
@@ -186,6 +217,7 @@ export default function ImageConverterPage() {
           </div>
         )}
 
+
         {/* Conversion Complete Message */}
         {showComplete && (
           <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 py-3">
@@ -193,6 +225,7 @@ export default function ImageConverterPage() {
             <span className="font-medium">Conversion Complete!</span>
           </div>
         )}
+
 
         {/* Converted Results */}
         {convertedUrls.length > 0 && (
@@ -221,6 +254,7 @@ export default function ImageConverterPage() {
           </div>
         )}
 
+
         {error && <p className="text-red-600 text-center">{error}</p>}
       </div>
             {/* SEO Content */}
@@ -231,6 +265,7 @@ export default function ImageConverterPage() {
             Convert between popular image formats instantly in your browser. No sign-up, no data upload, complete privacy.
           </p>
 
+
           <h3 className="text-lg font-semibold mt-8 mb-2">Why Convert Images?</h3>
           <ul className="list-disc pl-5 mb-6 space-y-1">
             <li>Optimize for web performance (WebP)</li>
@@ -238,6 +273,7 @@ export default function ImageConverterPage() {
             <li>Reduce file size for faster loading</li>
             <li>Compatibility with different platforms</li>
           </ul>
+
 
           <p className="mt-8">All conversions happen locally. Your images stay on your device.</p>
         </div>
