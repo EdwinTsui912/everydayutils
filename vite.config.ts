@@ -24,6 +24,11 @@ export default defineConfig({
         '/terms-of-use',
         '/promptforge',
         '/youtube-thumbnail', 
+        '/base64',
+        '/url-encoder',
+        '/image-converter',
+        '/pomodoro',
+        '/json-formatter',
         // Blog Posts
         '/blog/promptforge-launch',
         '/blog/youtube-thumbnail-generator',
