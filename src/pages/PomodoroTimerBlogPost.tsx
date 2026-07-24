@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Clock, Timer, CheckCircle, Shield } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const relatedPosts = [
   { title: 'Free Developer Utilities That Save Time', slug: '/blog/free-developer-utilities' },
   { title: 'The Word Counter & Text Sanitizer I Actually Use Every Day', slug: '/blog/word-counter-text-sanitizer-guide' },
   { title: 'Why I Built a Free, Private Lorem Ipsum Generator', slug: '/blog/lorem-ipsum-generator-free-private' },
 ];
+
 
 const stickyDetails = [
   'A visible dot indicator for each session in the cycle, so progress feels real instead of abstract',
@@ -14,12 +17,14 @@ const stickyDetails = [
   'A screen wake lock while running, so the display doesn\u2019t dim mid-session',
 ];
 
+
 const dayStructure = [
   'Morning: list the 3\u20135 most important tasks, and estimate how many focused sessions each will take',
   'Work one task at a time, using the Classic 25-minute preset for most tasks',
   'Step away for the 5-minute short break \u2014 make tea, stretch, or just look out the window',
   'After four rounds, take the longer break to actually recharge instead of pushing through',
 ];
+
 
 const faqs = [
   {
@@ -44,9 +49,17 @@ const faqs = [
   },
 ];
 
+
 export default function PomodoroTimerBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free Pomodoro Timer Online — Private & Works Offline | EverydayUtils"
+        description="A simple, distraction-free Pomodoro timer with Classic and Extended presets, custom durations, and full privacy. No sign-up, works offline once loaded."
+        keywords="pomodoro timer online, free pomodoro timer, focus timer app, pomodoro technique timer, productivity timer"
+        url="https://everydayutils.com/blog/pomodoro-timer-focus-technique"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -55,6 +68,7 @@ export default function PomodoroTimerBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Productivity</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -65,6 +79,7 @@ export default function PomodoroTimerBlogPost() {
           I Couldn't Focus for More Than 12 Minutes — This Simple Timer Changed Everything
         </h1>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -81,7 +96,9 @@ export default function PomodoroTimerBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
@@ -98,12 +115,14 @@ export default function PomodoroTimerBlogPost() {
           </p>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why I Switched to a Structured Timer</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             I started using a Pomodoro-style timer — structured work intervals followed by short breaks, with a longer break after a few rounds. The version I use runs entirely in the browser, requires no account, and works offline once the page has loaded, so a spotty connection never interrupts a session.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">What Made It Stick</h2>
@@ -123,6 +142,7 @@ export default function PomodoroTimerBlogPost() {
           </p>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How I Structure a Working Day</h2>
           <ol className="space-y-2 list-decimal list-inside">
@@ -132,12 +152,14 @@ export default function PomodoroTimerBlogPost() {
           </ol>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Presets and Custom Durations</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             The default 25/5/20 split (the Classic preset) works for most tasks, but the tool also includes an Extended preset (50/10/30) for deeper, less interruption-tolerant work like writing or coding — pairs well with the Word Counter if you're tracking long writing sessions. Every duration can also be adjusted individually in Settings if neither preset fits.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Where the Pomodoro Technique Comes From</h2>
@@ -149,12 +171,14 @@ export default function PomodoroTimerBlogPost() {
           </p>
         </section>
 
+
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
             <strong className="font-semibold">Privacy Note:</strong> Everything runs locally in your browser. No account, no tracking, and no data about your sessions is ever collected or sent anywhere.
           </p>
         </div>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -167,6 +191,7 @@ export default function PomodoroTimerBlogPost() {
             ))}
           </div>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Reading</h2>
@@ -181,7 +206,9 @@ export default function PomodoroTimerBlogPost() {
           </ul>
         </section>
 
+
       </div>
+
 
       <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-10">
         <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -193,6 +220,7 @@ export default function PomodoroTimerBlogPost() {
           </Link>
         </div>
       </div>
+
 
     </div>
   );

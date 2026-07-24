@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, Image as ImageIcon, LayoutTemplate, Wand2, RotateCw } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const whyFeatures = [
   { icon: LayoutTemplate, title: 'Locked 1280\u00d7720 Canvas', detail: "The canvas is fixed to YouTube's exact thumbnail dimensions, so there's no resizing or guessing about aspect ratio." },
@@ -8,12 +10,14 @@ const whyFeatures = [
   { icon: RotateCw, title: 'Undo & Redo', detail: 'Up to seven steps of history, so experimenting with color and text changes never risks losing your progress.' },
 ];
 
+
 const steps = [
   { title: 'Upload', detail: 'Drag and drop a background image or screenshot onto the canvas, or use the file picker.' },
   { title: 'Add & Style Text', detail: 'Click Add Text to create a layer, then adjust font size, color, bold, italic, shadow, and outline thickness for each one individually.' },
   { title: 'Position', detail: 'Click and drag any text layer directly on the canvas to move it exactly where you want.' },
   { title: 'Export', detail: 'Download the finished thumbnail as a PNG or JPG file, ready to upload to YouTube.' },
 ];
+
 
 const faqs = [
   {
@@ -38,9 +42,17 @@ const faqs = [
   },
 ];
 
+
 export default function YoutubeThumbnailBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free YouTube Thumbnail Generator — No Sign-Up, No Watermark | EverydayUtils"
+        description="Create clickable YouTube thumbnails at the exact 1280x720 size, with drag-and-drop text layers, templates, and full privacy. Free, fast, no watermark."
+        keywords="youtube thumbnail generator, youtube thumbnail maker, free thumbnail creator, thumbnail maker no watermark, 1280x720 thumbnail"
+        url="https://everydayutils.com/blog/free-youtube-thumbnail-generator"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -49,6 +61,7 @@ export default function YoutubeThumbnailBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Creator Tools</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -62,6 +75,7 @@ export default function YoutubeThumbnailBlogPost() {
           Thumbnails are the first thing viewers see. A strong thumbnail can dramatically increase click-through rates and help your videos stand out in search and recommendations — here's how to build one entirely in your browser.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -78,7 +92,9 @@ export default function YoutubeThumbnailBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why Use This Tool</h2>
@@ -98,6 +114,7 @@ export default function YoutubeThumbnailBlogPost() {
           </div>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How to Build Your Thumbnail</h2>
           <div className="space-y-4">
@@ -114,6 +131,7 @@ export default function YoutubeThumbnailBlogPost() {
             ))}
           </div>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Fine-Tuning Each Text Layer</h2>
@@ -136,12 +154,14 @@ export default function YoutubeThumbnailBlogPost() {
           </ul>
         </section>
 
+
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
             <strong className="font-semibold">Privacy Note:</strong> Your images and designs never leave your device. No data is collected or sent to any server.
           </p>
         </div>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -155,7 +175,9 @@ export default function YoutubeThumbnailBlogPost() {
           </div>
         </section>
 
+
       </div>
+
 
       <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-10">
         <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -167,6 +189,7 @@ export default function YoutubeThumbnailBlogPost() {
           </Link>
         </div>
       </div>
+
 
     </div>
   );

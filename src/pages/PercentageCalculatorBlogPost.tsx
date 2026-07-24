@@ -1,10 +1,19 @@
 import React from 'react';
 import { ArrowLeft, CheckCircle, Shield, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+
 
 export default function PercentageCalculatorBlogPost() {
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 animate-fade-in">
+      <SEO
+        title="Free Percentage Calculator for Discounts, Tax & Tips | EverydayUtils"
+        description="Instant, private percentage calculations for discounts, sales tax, tips, and markups. No sign-up, no ads — 100% client-side and free."
+        keywords="percentage calculator, discount calculator, tax calculator, tip calculator, percentage off calculator"
+        url="https://everydayutils.com/blog/free-percentage-calculator"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
         <Link to="/blog" className="hover:text-brand-600 transition-colors flex items-center gap-1.5">
@@ -12,13 +21,16 @@ export default function PercentageCalculatorBlogPost() {
         </Link>
       </nav>
 
+
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
         Free Percentage Calculator for Discounts, Tax, Tips & More
       </h1>
 
+
       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
         Instant, private calculations — no sign-up, no ads.
       </p>
+
 
       <section className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">
@@ -28,6 +40,7 @@ export default function PercentageCalculatorBlogPost() {
           Percentage calculations appear constantly in daily life and business: shopping discounts, sales tax, restaurant tips, investment returns, salary increases, and more.
         </p>
       </section>
+
 
       <section className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -48,6 +61,7 @@ export default function PercentageCalculatorBlogPost() {
         </ul>
       </section>
 
+
       <section className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">
           How to Use the Percentage Calculator
@@ -58,8 +72,10 @@ export default function PercentageCalculatorBlogPost() {
           <li>Enter your numbers — results update instantly</li>
         </ol>
 
+
         <p className="mt-4 text-sm"><strong>Example:</strong> A jacket costs $120 with 30% off. Enter 120 and 30 → the tool instantly shows $36 saved and a final price of $84.</p>
       </section>
+
 
       <div className="p-5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 mb-8">
         <Shield size={18} className="inline text-emerald-600 dark:text-emerald-400 mr-2" />
@@ -67,6 +83,7 @@ export default function PercentageCalculatorBlogPost() {
           Privacy: Everything runs 100% in your browser. No data is sent anywhere.
         </span>
       </div>
+
 
       <section className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -86,6 +103,7 @@ export default function PercentageCalculatorBlogPost() {
           ))}
         </div>
       </section>
+
 
       <div className="p-6 rounded-2xl bg-brand-500/5 dark:bg-brand-500/10 border border-brand-500/20 text-center">
         <p className="text-lg font-medium mb-3">Ready to calculate?</p>

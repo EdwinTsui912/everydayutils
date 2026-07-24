@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, AlertTriangle, ChevronRight, KeyRound } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const mistakes = [
   'Reusing the same password on multiple sites (one breach can expose everything)',
@@ -8,6 +10,7 @@ const mistakes = [
   'Using predictable substitutions like P@ssw0rd or July2025!',
   'Saving passwords in unsecured notes or spreadsheets',
 ];
+
 
 const faqs = [
   {
@@ -28,13 +31,22 @@ const faqs = [
   },
 ];
 
+
 export default function StrongPasswordsBlogPost() {
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10 animate-fade-in">
+      <SEO
+        title="How to Create Strong Passwords in 2026 | EverydayUtils"
+        description="Learn what makes a password truly strong in 2026, common mistakes to avoid, and how to generate and manage secure passwords without memorizing them."
+        keywords="strong password guide, how to create strong password, password best practices 2026, password manager tips, secure password generator"
+        url="https://everydayutils.com/blog/how-to-create-strong-passwords-2026"
+      />
+
 
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-4">
         How to Create Strong Passwords in 2026 (That You Don't Have to Memorize)
       </h1>
+
 
       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-2">
         Weak passwords remain one of the easiest ways hackers gain access to accounts in 2026.
@@ -46,6 +58,7 @@ export default function StrongPasswordsBlogPost() {
         This guide shows you how to create truly strong passwords the smart way — and more
         importantly, how to manage them without trying to memorize long random strings.
       </p>
+
 
       {/* Why most passwords are easy to crack */}
       <section className="mb-8">
@@ -71,6 +84,7 @@ export default function StrongPasswordsBlogPost() {
         </p>
       </section>
 
+
       {/* What makes a password strong */}
       <section className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">
@@ -93,6 +107,7 @@ export default function StrongPasswordsBlogPost() {
           ))}
         </ul>
       </section>
+
 
       {/* How to use the generator */}
       <section className="mb-8">
@@ -120,6 +135,7 @@ export default function StrongPasswordsBlogPost() {
           ))}
         </ol>
 
+
         <div className="mt-5 flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={15} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
@@ -127,6 +143,7 @@ export default function StrongPasswordsBlogPost() {
             browser. No data is sent to any server.
           </p>
         </div>
+
 
         <div className="mt-4">
           <Link to="/password-generator" className="btn-primary inline-flex items-center gap-2 text-sm">
@@ -136,6 +153,7 @@ export default function StrongPasswordsBlogPost() {
           </Link>
         </div>
       </section>
+
 
       {/* How to manage passwords */}
       <section className="mb-8">
@@ -147,6 +165,7 @@ export default function StrongPasswordsBlogPost() {
           Here's what actually works:
         </p>
 
+
         <div className="space-y-4">
           <div className="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
             <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">Best Option: Use a Password Manager</p>
@@ -156,6 +175,7 @@ export default function StrongPasswordsBlogPost() {
               password.
             </p>
           </div>
+
 
           <div className="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700">
             <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">Good Alternative: Passphrases</p>
@@ -172,6 +192,7 @@ export default function StrongPasswordsBlogPost() {
         </div>
       </section>
 
+
       {/* Common mistakes */}
       <section className="mb-8">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">
@@ -186,6 +207,7 @@ export default function StrongPasswordsBlogPost() {
           ))}
         </ul>
       </section>
+
 
       {/* FAQ */}
       <section className="mb-8">
@@ -202,6 +224,7 @@ export default function StrongPasswordsBlogPost() {
         </div>
       </section>
 
+
       {/* CTA */}
       <section className="mb-8 p-5 rounded-xl bg-brand-500/5 dark:bg-brand-500/10 border border-brand-500/20 dark:border-brand-500/20">
         <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">Ready to upgrade your security?</p>
@@ -212,6 +235,7 @@ export default function StrongPasswordsBlogPost() {
           <ChevronRight size={14} />
         </Link>
       </section>
+
 
       {/* Related tools */}
       <section className="mb-2">
@@ -227,6 +251,7 @@ export default function StrongPasswordsBlogPost() {
           </Link>
         </div>
       </section>
+
 
       <p className="mt-8 text-xs text-gray-400 dark:text-gray-600 border-t border-gray-100 dark:border-gray-800 pt-6 leading-relaxed">
         EverydayUtils is built with one core principle: useful tools that respect your privacy.

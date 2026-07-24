@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, QrCode } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const relatedPosts = [
   { title: 'Free QR Code Generator for WiFi, URLs, and Text', slug: '/blog/free-qr-code-generator-wifi-url-text' },
@@ -7,9 +9,17 @@ const relatedPosts = [
   { title: 'Free Developer Utilities That Save Time', slug: '/blog/free-developer-utilities' },
 ];
 
+
 export default function WifiQRCodeBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="How to Create a WiFi QR Code for Guests | EverydayUtils"
+        description="Stop reading out WiFi passwords. Generate a free, private WiFi QR code so guests can scan and connect instantly — no typing, no mistakes."
+        keywords="wifi qr code generator, wifi qr code, share wifi password qr code, create wifi qr code, wifi qr code airbnb"
+        url="https://everydayutils.com/blog/how-to-create-wifi-qr-code"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -19,6 +29,7 @@ export default function WifiQRCodeBlogPost() {
         <span className="text-gray-600 dark:text-gray-400">QR Code Guide</span>
       </nav>
 
+
       <img
         src="/images/wifi-qr-hero.jpg"
         alt="Smartphone scanning a printed WiFi QR code card next to a router"
@@ -27,6 +38,7 @@ export default function WifiQRCodeBlogPost() {
         width={1200}
         height={675}
       />
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -41,6 +53,7 @@ export default function WifiQRCodeBlogPost() {
           Sharing WiFi passwords is more awkward than it should be. Here's the simple solution I now use every time.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -57,7 +70,9 @@ export default function WifiQRCodeBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Awkward Moment We All Know</h2>
@@ -73,6 +88,7 @@ export default function WifiQRCodeBlogPost() {
           </p>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why Typing WiFi Passwords Is Getting Harder</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -80,12 +96,14 @@ export default function WifiQRCodeBlogPost() {
           </p>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Simple Solution</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             Generate a QR code for your WiFi network. Guests just scan and connect instantly — no typing, no mistakes, no repeating the password for the third time. It takes under a minute to create, and it works for every guest after that.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">What's Actually Inside the QR Code</h2>
@@ -103,6 +121,7 @@ export default function WifiQRCodeBlogPost() {
           </pre>
         </section>
 
+
         <img
           src="/images/wifi-qr-tool-screenshot.png"
           alt="QR code generator content box showing the WiFi network string with live preview"
@@ -111,6 +130,7 @@ export default function WifiQRCodeBlogPost() {
           width={1200}
           height={800}
         />
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How to Do It in Seconds</h2>
@@ -123,6 +143,7 @@ export default function WifiQRCodeBlogPost() {
           </ol>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Where This Works Best</h2>
           <ul className="space-y-2 list-disc pl-5 text-sm text-gray-600 dark:text-gray-400">
@@ -134,6 +155,7 @@ export default function WifiQRCodeBlogPost() {
           </ul>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Privacy First</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -141,12 +163,14 @@ export default function WifiQRCodeBlogPost() {
           </p>
         </section>
 
+
         <div className="text-center">
           <Link to="/qr-generator" className="btn-primary inline-flex items-center gap-2 text-base px-8 py-3">
             Create Your WiFi QR Code Now
             <ChevronRight size={18} />
           </Link>
         </div>
+
 
         <section className="mt-16">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">You May Also Like</h2>
@@ -168,6 +192,7 @@ export default function WifiQRCodeBlogPost() {
             ))}
           </div>
         </section>
+
 
       </div>
     </div>

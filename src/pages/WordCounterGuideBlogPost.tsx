@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, Type, FileText, Hash, Scissors } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const stats = [
   { label: 'Words', detail: 'Counted using a CJK-aware matcher, not a simple space-split, so mixed English + Chinese text is counted correctly' },
@@ -10,6 +12,7 @@ const stats = [
   { label: 'Read Time', detail: 'Estimated using separate reading speeds for CJK characters and non-CJK words, so the estimate stays realistic for mixed content' },
 ];
 
+
 const sanitizerButtons = [
   { label: 'Remove Extra Spaces', detail: 'collapses multiple spaces and tabs into one' },
   { label: 'Strip Line Breaks', detail: 'flattens all lines into one continuous paragraph' },
@@ -18,6 +21,7 @@ const sanitizerButtons = [
   { label: 'Strip Special Chars', detail: 'removes stubborn punctuation-style artifact characters' },
 ];
 
+
 const caseButtons = [
   { label: 'UPPERCASE', detail: 'ALL CAPS' },
   { label: 'lowercase', detail: 'all lowercase' },
@@ -25,6 +29,7 @@ const caseButtons = [
   { label: 'Sentence case', detail: 'First letter only' },
   { label: 'tOGGLE cASE', detail: 'Inverts every character' },
 ];
+
 
 const faqs = [
   {
@@ -49,9 +54,17 @@ const faqs = [
   },
 ];
 
+
 export default function WordCounterGuideBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Word Counter & Text Sanitizer for Chinese + English | EverydayUtils"
+        description="A word counter that actually understands mixed Chinese and English text, plus a text sanitizer and case converter — all free, private, and browser-based."
+        keywords="word counter chinese english, cjk word counter, text sanitizer online, case converter tool, character counter mixed language"
+        url="https://everydayutils.com/blog/word-counter-text-sanitizer-guide"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -60,6 +73,7 @@ export default function WordCounterGuideBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Text Tools</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -73,6 +87,7 @@ export default function WordCounterGuideBlogPost() {
           English word counters rely on spaces. Chinese doesn't use spaces between words. This causes many tools to either count every character as a word or completely break on mixed content — here's how a properly bilingual-aware counter actually works.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -89,7 +104,9 @@ export default function WordCounterGuideBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why English-Only Word Counters Fail on Chinese</h2>
@@ -100,6 +117,7 @@ export default function WordCounterGuideBlogPost() {
             The Text Tools Suite handles this by detecting CJK characters separately from Latin-script words. Each CJK character is counted as its own semantic unit, while English words are still counted by spacing — so a paragraph mixing both languages gets a count that actually reflects both halves correctly.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Six Real-Time Stats</h2>
@@ -119,6 +137,7 @@ export default function WordCounterGuideBlogPost() {
           </div>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Sanitizer Tab</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
@@ -136,6 +155,7 @@ export default function WordCounterGuideBlogPost() {
             ))}
           </div>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Case Converter Tab</h2>
@@ -155,6 +175,7 @@ export default function WordCounterGuideBlogPost() {
           </div>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">One Shared Workspace, One Undo Button</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -162,12 +183,14 @@ export default function WordCounterGuideBlogPost() {
           </p>
         </section>
 
+
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
             <strong className="font-semibold">Privacy Note:</strong> Everything — counting, sanitizing, and case conversion — runs locally in your browser. Your text is never uploaded, logged, or tracked.
           </p>
         </div>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -181,7 +204,9 @@ export default function WordCounterGuideBlogPost() {
           </div>
         </section>
 
+
       </div>
+
 
       <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-10">
         <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -193,6 +218,7 @@ export default function WordCounterGuideBlogPost() {
           </Link>
         </div>
       </div>
+
 
     </div>
   );

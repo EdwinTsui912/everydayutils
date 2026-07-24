@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, AlignLeft } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 export default function LoremIpsumBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free Private Lorem Ipsum Generator — No Ads, No Signup | EverydayUtils"
+        description="Generate clean placeholder text instantly. Live preview, HTML or plain text output, and 100% client-side privacy — no ads, no tracking, no signup."
+        keywords="lorem ipsum generator, placeholder text generator, free lorem ipsum, lorem ipsum html, dummy text generator"
+        url="https://everydayutils.com/blog/free-private-lorem-ipsum-generator"
+      />
+
 
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
@@ -14,6 +23,7 @@ export default function LoremIpsumBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Lorem Ipsum Guide</span>
       </nav>
+
 
       {/* Article header */}
       <header className="mb-8">
@@ -35,6 +45,7 @@ export default function LoremIpsumBlogPost() {
         </p>
       </header>
 
+
       {/* Top CTA */}
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -51,8 +62,10 @@ export default function LoremIpsumBlogPost() {
         </Link>
       </div>
 
+
       {/* Article body */}
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -62,6 +75,7 @@ export default function LoremIpsumBlogPost() {
             Lorem Ipsum is placeholder text derived from a 45 BC Latin text by Cicero. It has been used in the design industry since the 1960s because it mimics natural language rhythm without using real words that could distract from evaluating layout and typography.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -85,6 +99,7 @@ export default function LoremIpsumBlogPost() {
           </ul>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             When to Use Placeholder Text
@@ -93,6 +108,7 @@ export default function LoremIpsumBlogPost() {
             Use Lorem Ipsum during early design phases to focus on typography, spacing, and layout. Switch to real content only when the visual structure is finalized.
           </p>
         </section>
+
 
         {/* FAQ */}
         <section>
@@ -122,6 +138,7 @@ export default function LoremIpsumBlogPost() {
           </div>
         </section>
 
+
         {/* Bottom CTA */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
           <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -135,6 +152,7 @@ export default function LoremIpsumBlogPost() {
             </Link>
           </div>
         </div>
+
 
       </div>
     </div>

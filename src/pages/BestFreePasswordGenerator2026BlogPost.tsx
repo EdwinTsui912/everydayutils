@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, KeyRound } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 export default function BestFreePasswordGenerator2026BlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Best Free Password Generator in 2026 (Tested & Private) | EverydayUtils"
+        description="Weak passwords are still the easiest way hackers get in. See why a truly private, cryptographically secure password generator beats every other free tool in 2026."
+        keywords="best password generator 2026, free password generator, secure password generator, strong password generator online, private password tool"
+        url="https://everydayutils.com/blog/best-free-password-generator-2026"
+      />
+
 
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
@@ -14,6 +23,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Password Generator Guide</span>
       </nav>
+
 
       {/* Article header */}
       <header className="mb-8">
@@ -35,6 +45,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
         </p>
       </header>
 
+
       {/* Top CTA */}
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -51,8 +62,10 @@ export default function BestFreePasswordGenerator2026BlogPost() {
         </Link>
       </div>
 
+
       {/* Article body */}
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -77,6 +90,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
           </ul>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             What Makes a Password Strong in 2026?
@@ -96,16 +110,18 @@ export default function BestFreePasswordGenerator2026BlogPost() {
           </ul>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             How EverydayUtils Password Generator Works
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            This tool uses the browser’s Web Crypto API (crypto.getRandomValues) for true cryptographic randomness.
+            This tool uses the browser's Web Crypto API (crypto.getRandomValues) for true cryptographic randomness.
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             Everything runs locally in your browser — no data is sent to any server. You control length, character types, and can exclude ambiguous characters.
           </p>
+
 
           <div className="mt-6 flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
             <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -114,6 +130,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
             </p>
           </div>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -135,6 +152,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
           </ul>
         </section>
 
+
         {/* FAQ */}
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">
@@ -155,7 +173,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
                 a: 'Aim for at least 16 characters. For banking or email, 20+ characters is recommended.',
               },
               {
-                q: 'Should I trust my browser’s built-in password manager?',
+                q: 'Should I trust my browser\'s built-in password manager?',
                 a: 'Yes. Modern browsers use strong encryption and are much safer than reusing weak passwords.',
               },
             ].map((item) => (
@@ -166,6 +184,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
             ))}
           </div>
         </section>
+
 
         {/* Bottom CTA */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
@@ -180,6 +199,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
             </Link>
           </div>
         </div>
+
 
       </div>
     </div>

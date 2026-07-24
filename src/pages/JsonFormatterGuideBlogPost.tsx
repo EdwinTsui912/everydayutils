@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, Braces } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 export default function JsonFormatterGuideBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Best Free JSON Formatter & Validator in 2026 | EverydayUtils"
+        description="Format, validate, and minify JSON with real-time error reporting and full privacy. No sign-up, no data uploads, no ads — 100% client-side."
+        keywords="json formatter, json validator, json minifier online, free json formatter, json pretty print"
+        url="https://everydayutils.com/blog/best-free-json-formatter-2026"
+      />
+
 
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
@@ -14,6 +23,7 @@ export default function JsonFormatterGuideBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">JSON Formatter Guide</span>
       </nav>
+
 
       {/* Article header */}
       <header className="mb-8">
@@ -38,6 +48,7 @@ export default function JsonFormatterGuideBlogPost() {
         </p>
       </header>
 
+
       {/* Top CTA */}
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -54,8 +65,10 @@ export default function JsonFormatterGuideBlogPost() {
         </Link>
       </div>
 
+
       {/* Article body */}
       <div className="space-y-10">
+
 
         {/* Why frustrating section */}
         <section>
@@ -86,6 +99,7 @@ export default function JsonFormatterGuideBlogPost() {
           </p>
         </section>
 
+
         {/* What makes a great tool */}
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -109,6 +123,7 @@ export default function JsonFormatterGuideBlogPost() {
             ))}
           </ul>
         </section>
+
 
         {/* How it works */}
         <section>
@@ -136,6 +151,7 @@ export default function JsonFormatterGuideBlogPost() {
             ))}
           </ul>
 
+
           {/* Privacy callout */}
           <div className="mt-6 flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
             <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -144,6 +160,7 @@ export default function JsonFormatterGuideBlogPost() {
             </p>
           </div>
 
+
           <div className="mt-5">
             <Link to="/json-formatter" className="inline-flex items-center gap-2 text-sm font-medium text-brand-500 hover:underline">
               <ChevronRight size={15} />
@@ -151,6 +168,7 @@ export default function JsonFormatterGuideBlogPost() {
             </Link>
           </div>
         </section>
+
 
         {/* Use cases */}
         <section>
@@ -173,6 +191,7 @@ export default function JsonFormatterGuideBlogPost() {
             ))}
           </div>
         </section>
+
 
         {/* FAQ */}
         <section>
@@ -214,6 +233,7 @@ export default function JsonFormatterGuideBlogPost() {
           </div>
         </section>
 
+
         {/* Bottom CTA */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
           <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -227,6 +247,7 @@ export default function JsonFormatterGuideBlogPost() {
             </Link>
           </div>
         </div>
+
 
       </div>
     </div>

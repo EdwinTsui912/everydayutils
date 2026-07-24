@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Clock, ArrowRightLeft, CheckCircle, Shield } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const features = [
   { label: 'Instant encode and decode', detail: 'Toggle between modes and see the result update automatically as you type, with no manual submit button needed.' },
@@ -9,6 +11,7 @@ const features = [
   { label: 'Clear error handling', detail: "Malformed percent-sequences during decoding show a specific error message instead of silently failing or crashing." },
   { label: '100% client-side & private', detail: "Everything runs through the browser's built-in encodeURIComponent and decodeURIComponent. Nothing is sent to a server." },
 ];
+
 
 const faqs = [
   {
@@ -37,9 +40,17 @@ const faqs = [
   },
 ];
 
+
 export default function URLEncoderBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free URL Encoder / Decoder — Fix Query Strings Instantly | EverydayUtils"
+        description="Encode or decode URLs and query strings instantly with clear error messages, prettify formatting, and plus-as-space handling. 100% private and client-side."
+        keywords="url encoder decoder, percent encoding tool, encode url online, decode url online, query string decoder"
+        url="https://everydayutils.com/blog/free-url-encoder-decoder"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -48,6 +59,7 @@ export default function URLEncoderBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Developer Tools</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -62,6 +74,7 @@ export default function URLEncoderBlogPost() {
           Encode or decode URLs and query strings the moment you paste them in, with proper error messages when something's actually broken — all running privately in your browser.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -78,7 +91,9 @@ export default function URLEncoderBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why URL Encoding Still Trips People Up</h2>
@@ -89,6 +104,7 @@ export default function URLEncoderBlogPost() {
             Most of the time you don't need a deep explanation of percent-encoding rules — you just need to paste a string, see it converted correctly, and get an actual explanation when something's malformed instead of a blank result.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">What This Tool Actually Does</h2>
@@ -104,6 +120,7 @@ export default function URLEncoderBlogPost() {
             ))}
           </ul>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How I Actually Use It</h2>
@@ -131,12 +148,14 @@ export default function URLEncoderBlogPost() {
           </div>
         </section>
 
+
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
             <strong className="font-semibold">Privacy Note:</strong> Encoding and decoding happen entirely in your browser using native JavaScript functions. Nothing you paste is ever sent to a server.
           </p>
         </div>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -149,6 +168,7 @@ export default function URLEncoderBlogPost() {
             ))}
           </div>
         </section>
+
 
         <section>
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">Related Tools</h2>
@@ -163,6 +183,7 @@ export default function URLEncoderBlogPost() {
             </Link>
           </div>
         </section>
+
 
       </div>
     </div>

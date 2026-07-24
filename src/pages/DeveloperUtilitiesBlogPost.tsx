@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Clock, Braces, Binary, Link2, AlignLeft, CheckCircle, Shield } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const tools = [
   { title: 'JSON Formatter & Validator', desc: 'Format messy JSON, validate syntax with exact line/column errors, collapse or expand output, and sort keys alphabetically.', href: '/json-formatter', cta: 'Open JSON Formatter', icon: Braces },
@@ -8,12 +10,14 @@ const tools = [
   { title: 'Lorem Ipsum Generator', desc: 'Generate placeholder text instantly for layouts, components, landing pages, and mockups.', href: '/lorem-ipsum-generator', cta: 'Open Lorem Ipsum Generator', icon: AlignLeft },
 ];
 
+
 const benefits = [
   'JSON Formatter & Validator for readable API data, precise syntax error locations, and key sorting',
   'Base64 Encoder / Decoder for tokens, embedded assets, and encoded payloads',
   'URL Encoder / Decoder for fixing query strings, callbacks, and special characters',
   'Lorem Ipsum Generator for placeholder text in layouts, mockups, and components',
 ];
+
 
 const faqs = [
   { q: 'What is a JSON formatter and validator?', a: "It formats JSON into a readable structure and checks whether the syntax is valid, pointing to the exact line and column when it isn't." },
@@ -22,9 +26,17 @@ const faqs = [
   { q: 'Why use Lorem Ipsum for mockups?', a: 'It gives you quick placeholder text so you can focus on layout and spacing during design work.' },
 ];
 
+
 export default function DeveloperUtilitiesBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free Developer Utilities: JSON, Base64, URL Encoder & More | EverydayUtils"
+        description="Four free browser-based developer tools that remove daily friction: JSON Formatter, Base64 Encoder/Decoder, URL Encoder/Decoder, and Lorem Ipsum Generator."
+        keywords="developer utilities, json formatter, base64 encoder decoder, url encoder decoder, lorem ipsum generator, free dev tools"
+        url="https://everydayutils.com/blog/free-developer-utilities"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -33,6 +45,7 @@ export default function DeveloperUtilitiesBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Developer Tools</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -47,6 +60,7 @@ export default function DeveloperUtilitiesBlogPost() {
           As a developer, I waste more time than I would like on small repetitive tasks that interrupt my flow — so I keep four free browser-based utilities on hand to remove the friction.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -63,7 +77,9 @@ export default function DeveloperUtilitiesBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Friction I Kept Running Into</h2>
@@ -74,6 +90,7 @@ export default function DeveloperUtilitiesBlogPost() {
             These are tiny tasks, but they add friction when you have to jump between random websites, browser tabs, or desktop apps just to finish something simple. That's why I keep a few free browser-based developer utilities handy — they run locally, so the workflow stays quick and lightweight.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Four Tools I Reach For Often</h2>
@@ -98,6 +115,7 @@ export default function DeveloperUtilitiesBlogPost() {
           </div>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why I Use Them</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
@@ -112,6 +130,7 @@ export default function DeveloperUtilitiesBlogPost() {
             ))}
           </ul>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">A Typical Workflow</h2>
@@ -135,12 +154,14 @@ export default function DeveloperUtilitiesBlogPost() {
           </p>
         </section>
 
+
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
             <strong className="font-semibold">Privacy First:</strong> These tools run locally in the browser, which keeps common developer tasks fast, lightweight, and more private.
           </p>
         </div>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -154,7 +175,9 @@ export default function DeveloperUtilitiesBlogPost() {
           </div>
         </section>
 
+
       </div>
+
 
       <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-10">
         <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -171,6 +194,7 @@ export default function DeveloperUtilitiesBlogPost() {
           </div>
         </div>
       </div>
+
 
     </div>
   );

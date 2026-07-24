@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Clock, Palette, CheckCircle, Shield } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const differentiators = [
   { label: 'Five harmony algorithms', detail: 'Choose Random, Monochromatic, Analogous, Complementary, or Triadic — each computed from real color-wheel math, not just random hex values.' },
@@ -9,6 +11,7 @@ const differentiators = [
   { label: 'Multiple export formats', detail: 'Copy as CSS custom properties, a ready-to-paste Tailwind config block, or a plain HEX list, plus a one-click SVG download of the strip itself.' },
   { label: '100% client-side & private', detail: 'All the color math runs locally in your browser. Nothing is sent to any server.' },
 ];
+
 
 const faqs = [
   {
@@ -37,9 +40,17 @@ const faqs = [
   },
 ];
 
+
 export default function ColorPaletteBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free Color Palette Generator with Color Theory | EverydayUtils"
+        description="Generate harmonious color palettes using real color theory — five harmony types, WCAG contrast checks, and instant Tailwind CSS export. 100% free and private."
+        keywords="color palette generator, tailwind color palette, color harmony generator, wcag contrast checker, css color palette export"
+        url="https://everydayutils.com/blog/color-palette-generator-tailwind"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -48,6 +59,7 @@ export default function ColorPaletteBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Design Tools</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -62,6 +74,7 @@ export default function ColorPaletteBlogPost() {
           Picking colors that actually work together, checking they're readable, then hand-typing them into a Tailwind config — this free tool handles all three steps at once.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -78,7 +91,9 @@ export default function ColorPaletteBlogPost() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Problem That Kept Repeating Itself</h2>
@@ -89,6 +104,7 @@ export default function ColorPaletteBlogPost() {
             So I built a tool that treats color choice as actual color theory rather than guesswork — pick a harmony rule, get a mathematically consistent palette, see instantly whether it passes accessibility standards, and export it in whatever format the project needs.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Five Ways to Build a Palette</h2>
@@ -111,6 +127,7 @@ export default function ColorPaletteBlogPost() {
           </ul>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">What Makes This Generator Different</h2>
           <ul className="space-y-3">
@@ -125,6 +142,7 @@ export default function ColorPaletteBlogPost() {
             ))}
           </ul>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How I Actually Use It</h2>
@@ -152,12 +170,14 @@ export default function ColorPaletteBlogPost() {
           </div>
         </section>
 
+
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={15} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
             <strong className="font-semibold">Privacy Note:</strong> All palette generation and contrast math happens entirely in your browser. No color data, no settings, and no usage is ever sent to any server.
           </p>
         </div>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -170,6 +190,7 @@ export default function ColorPaletteBlogPost() {
             ))}
           </div>
         </section>
+
 
         <section>
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">Related Articles</h2>
@@ -188,6 +209,7 @@ export default function ColorPaletteBlogPost() {
             </Link>
           </div>
         </section>
+
 
       </div>
     </div>

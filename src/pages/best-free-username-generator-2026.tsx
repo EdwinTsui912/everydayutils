@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Clock, User, Sparkles } from 'lucide-react';
+import SEO from '../components/SEO';
+
 
 const styleExamples = [
   {
@@ -24,6 +26,7 @@ const styleExamples = [
   },
 ];
 
+
 const faqs = [
   {
     q: 'Is the username generator actually free, or is there a paid tier hidden somewhere?',
@@ -47,9 +50,17 @@ const faqs = [
   },
 ];
 
+
 export default function BestFreeUsernameGenerator2026() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <SEO
+        title="Free Username Generator for Gaming, Discord & Instagram | EverydayUtils"
+        description="Every good username taken? Generate unique gaming, kawaii, fantasy, and professional usernames instantly. 100% free and private — no sign-up required."
+        keywords="username generator, discord username generator, gaming usernames, roblox username ideas, instagram username generator"
+        url="https://everydayutils.com/blog/best-free-username-generator-2026"
+      />
+
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -58,6 +69,7 @@ export default function BestFreeUsernameGenerator2026() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Gaming &amp; Social</span>
       </nav>
+
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -72,6 +84,7 @@ export default function BestFreeUsernameGenerator2026() {
           "Username taken" is the most annoying wall on the internet. Here's the free, private tool I made to stop hitting it, and how I use it across Roblox, Discord, and Instagram.
         </p>
       </header>
+
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -88,7 +101,9 @@ export default function BestFreeUsernameGenerator2026() {
         </Link>
       </div>
 
+
       <div className="space-y-10">
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Problem With Picking a Username Today</h2>
@@ -100,6 +115,7 @@ export default function BestFreeUsernameGenerator2026() {
           </p>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why Your Username Actually Matters</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
@@ -109,6 +125,7 @@ export default function BestFreeUsernameGenerator2026() {
             The same logic applies on the social side. A soft, aesthetic handle tells a very different story than a name that's clearly a default account number, and that story shapes whether someone taps follow or scrolls past. A username is a tiny piece of branding, whether you're trying to build an audience or just look put-together in a group chat.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Styles Built Into the Generator</h2>
@@ -132,6 +149,7 @@ export default function BestFreeUsernameGenerator2026() {
             There's also a Random style that mixes elements from a broader general pool, and a Keywords field where you can type your own words to guide the output instead of using a fixed style at all.
           </p>
         </section>
+
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How I Actually Use It</h2>
@@ -159,6 +177,7 @@ export default function BestFreeUsernameGenerator2026() {
           </div>
         </section>
 
+
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
           <div className="space-y-5">
@@ -170,6 +189,7 @@ export default function BestFreeUsernameGenerator2026() {
             ))}
           </div>
         </section>
+
 
         <section>
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">Related Tools</h2>
@@ -184,6 +204,7 @@ export default function BestFreeUsernameGenerator2026() {
             </Link>
           </div>
         </section>
+
 
       </div>
     </div>
