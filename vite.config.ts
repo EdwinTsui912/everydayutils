@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
 
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -21,7 +22,6 @@ export default defineConfig({
         '/about',
         '/privacy-policy',
         '/terms-of-use',
-        '/wifi-qr-guide',
         '/promptforge',
         '/youtube-thumbnail', 
         // Blog Posts
@@ -40,7 +40,6 @@ export default defineConfig({
         '/blog/pdf-copy-paste-fixer',
         '/blog/how-to-create-strong-passwords',
         '/blog/best-free-username-generator-2026',
-        '/blog/free-qr-code-generator-wifi-url-text',
         '/blog/favicon-generator',
         '/blog/who-is-json',
         '/blog/wifi-qr-code-guide',

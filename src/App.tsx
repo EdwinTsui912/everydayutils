@@ -18,8 +18,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import ContactPage from './pages/ContactPage';
 import BlogIndexPage from './pages/BlogIndexPage';
-import WifiQRCodeBlogPost from './pages/WifiQRCodeBlogPost';
-import WifiQRGuidePage from './pages/WifiQRGuidePage';
+import WifiQRCodeBlogPostUpdated from './pages/WifiQRCodeBlogPostUpdated';
 import StrongPasswordsBlogPost from './pages/StrongPasswordsBlogPost';
 import PdfCopyPasteFixerBlogPost from './pages/PdfCopyPasteFixerBlogPost';
 import WordCounterGuideBlogPost from './pages/WordCounterGuideBlogPost';
@@ -47,12 +46,14 @@ import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
-import WifiQRCodeBlogPostUpdated from './pages/WifiQRCodeBlogPostUpdated';
+
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
 
+
 import { Helmet } from 'react-helmet-async';
+
 
 function PageTracker() {
   const location = useLocation();
@@ -62,13 +63,16 @@ function PageTracker() {
   return null;
 }
 
+
 function Layout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -92,19 +96,23 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+
 export default function App() {
   useEffect(() => {
     console.log("App level useEffect running");
 
+
     const setTitle = () => {
       document.title = "EverydayUtils - Free Privacy-First Online Tools";
     };
+
 
     setTitle();
     setTimeout(setTitle, 100);
     setTimeout(setTitle, 500);
     setTimeout(setTitle, 1000);
   }, []);
+
 
   return (
     <ThemeProvider>
@@ -125,17 +133,15 @@ export default function App() {
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/blog" element={<BlogIndexPage />} />
 
-          {/* Canonical WiFi QR post — kept as-is */}
-          <Route path="/blog/how-to-create-wifi-qr-code" element={<WifiQRCodeBlogPost />} />
-          {/* Old duplicate URL now redirects to the canonical post above (fixes duplicate content) */}
-          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<Navigate to="/blog/how-to-create-wifi-qr-code" replace />} />
 
-          {/* Second, distinct WiFi QR post — kept as its own canonical page */}
+          {/* Canonical WiFi QR post — single source of truth */}
           <Route path="/blog/wifi-qr-code-guide" element={<WifiQRCodeBlogPostUpdated />} />
-          {/* Retired inaccurate page — redirected instead of left as 404 or duplicate */}
-          <Route path="/wifi-qr-code-guide" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
 
-          <Route path="/wifi-qr-guide" element={<WifiQRGuidePage />} />
+          {/* Retired duplicate WiFi QR pages — all redirect to the canonical post above */}
+          <Route path="/blog/how-to-create-wifi-qr-code" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
+          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
+          <Route path="/wifi-qr-guide" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
+
 
           <Route path="/blog/how-to-create-strong-passwords" element={<StrongPasswordsBlogPost />} />
           <Route path="/blog/pdf-copy-paste-fixer" element={<PdfCopyPasteFixerBlogPost />} />
@@ -164,10 +170,12 @@ export default function App() {
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
 
+
           {/* NEW ROUTE FOR PROMPTFORGE */}
           <Route path="/promptforge" element={<PromptForge />} />
         </Routes>
       </Layout>
+
 
       <Toaster
         position="top-center"

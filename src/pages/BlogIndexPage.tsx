@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2 } from 'lucide-react';
 
+
 const posts = [
   {
     slug: '/blog/free-developer-utilities',
@@ -67,16 +68,6 @@ const posts = [
     excerpt: 'Sharing WiFi passwords is awkward and error-prone. Here’s the simple solution I now use every time — generate a scannable QR code in seconds.',
     date: 'July 23, 2026',
     readTime: '7 min read',
-    icon: QrCode,
-    tag: 'QR Codes',
-  },
-  {
-    slug: '/blog/how-to-create-wifi-qr-code',
-    title: 'Free QR Code Generator for WiFi, URLs, and Text — Private & No Sign-Up',
-    excerpt:
-      'Create QR codes instantly for WiFi networks, URLs, and plain text. Fast, 100% private, browser-based generator with no sign-up, no tracking, and instant PNG download.',
-    date: 'July 22, 2026',
-    readTime: '6 min read',
     icon: QrCode,
     tag: 'QR Codes',
   },
@@ -190,17 +181,8 @@ const posts = [
     icon: KeyRound,
     tag: 'Security',
   },
-  {
-    slug: '/wifi-qr-guide',
-    title: 'How to Create a WiFi QR Code for Guests (Free & No App Needed)',
-    excerpt:
-      'Let guests connect to your network instantly with a single scan — no typing long passwords, no mistakes. Generate yours in under 60 seconds.',
-    date: 'June 3, 2026',
-    readTime: '3 min read',
-    icon: QrCode,
-    tag: 'QR Codes',
-  },
 ];
+
 
 export default function BlogIndexPage() {
   return (
@@ -217,6 +199,7 @@ export default function BlogIndexPage() {
           Practical how-to guides for the tools you use every day.
         </p>
       </div>
+
 
       <div className="space-y-5">
         {posts.map((post) => {
