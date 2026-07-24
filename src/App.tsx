@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { trackPageView } from './lib/analytics';
 import { ThemeProvider } from './context/ThemeContext';
 import Sidebar from './components/Sidebar';
@@ -20,7 +20,6 @@ import ContactPage from './pages/ContactPage';
 import BlogIndexPage from './pages/BlogIndexPage';
 import WifiQRCodeBlogPost from './pages/WifiQRCodeBlogPost';
 import WifiQRGuidePage from './pages/WifiQRGuidePage';
-import WifiQRCodeGuidePage from './pages/WifiQRCodeGuidePage';
 import StrongPasswordsBlogPost from './pages/StrongPasswordsBlogPost';
 import PdfCopyPasteFixerBlogPost from './pages/PdfCopyPasteFixerBlogPost';
 import WordCounterGuideBlogPost from './pages/WordCounterGuideBlogPost';
@@ -45,7 +44,6 @@ import { Toaster } from 'react-hot-toast';
 import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
 import YoutubeThumbnailBlogPost from './pages/YoutubeThumbnailBlogPost';
 import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
-import FreeQRCodeGeneratorBlogPost from './pages/FreeQRCodeGeneratorBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
@@ -77,8 +75,8 @@ function Layout({ children }: { children: React.ReactNode }) {
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Header onMenuClick={() => setSidebarOpen(o => !o)} />
-        <main 
-          className="flex-1 overflow-y-auto" 
+        <main
+          className="flex-1 overflow-y-auto"
           ref={(el) => {
             if (el) {
               el.scrollTop = 0;
@@ -96,12 +94,12 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   useEffect(() => {
-    console.log("✅ App level useEffect running");
-    
+    console.log("App level useEffect running");
+
     const setTitle = () => {
       document.title = "EverydayUtils - Free Privacy-First Online Tools";
     };
-  
+
     setTitle();
     setTimeout(setTitle, 100);
     setTimeout(setTitle, 500);
@@ -126,9 +124,19 @@ export default function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/blog" element={<BlogIndexPage />} />
+
+          {/* Canonical WiFi QR post — kept as-is */}
           <Route path="/blog/how-to-create-wifi-qr-code" element={<WifiQRCodeBlogPost />} />
+          {/* Old duplicate URL now redirects to the canonical post above (fixes duplicate content) */}
+          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<Navigate to="/blog/how-to-create-wifi-qr-code" replace />} />
+
+          {/* Second, distinct WiFi QR post — kept as its own canonical page */}
+          <Route path="/blog/wifi-qr-code-guide" element={<WifiQRCodeBlogPostUpdated />} />
+          {/* Retired inaccurate page — redirected instead of left as 404 or duplicate */}
+          <Route path="/wifi-qr-code-guide" element={<Navigate to="/blog/wifi-qr-code-guide" replace />} />
+
           <Route path="/wifi-qr-guide" element={<WifiQRGuidePage />} />
-          <Route path="/wifi-qr-code-guide" element={<WifiQRCodeGuidePage />} />
+
           <Route path="/blog/how-to-create-strong-passwords" element={<StrongPasswordsBlogPost />} />
           <Route path="/blog/pdf-copy-paste-fixer" element={<PdfCopyPasteFixerBlogPost />} />
           <Route path="/blog/word-counter-text-sanitizer-guide" element={<WordCounterGuideBlogPost />} />
@@ -154,19 +162,17 @@ export default function App() {
           <Route path="/blog/favicon-generator" element={<FaviconGeneratorBlogPost />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
-          <Route path="/blog/free-qr-code-generator-wifi-url-text" element={<WifiQRCodeBlogPost />} />
-          <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} /> 
-          <Route path="/blog/wifi-qr-code-guide" element={<WifiQRCodeBlogPostUpdated />} />
+          <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
 
           {/* NEW ROUTE FOR PROMPTFORGE */}
           <Route path="/promptforge" element={<PromptForge />} />
         </Routes>
       </Layout>
 
-      <Toaster 
-        position="top-center" 
-        richColors 
-        closeButton 
+      <Toaster
+        position="top-center"
+        richColors
+        closeButton
       />
     </ThemeProvider>
   );

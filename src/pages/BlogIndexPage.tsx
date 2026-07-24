@@ -71,7 +71,7 @@ const posts = [
     tag: 'QR Codes',
   },
   {
-    slug: '/blog/free-qr-code-generator-wifi-url-text',
+    slug: '/blog/how-to-create-wifi-qr-code',
     title: 'Free QR Code Generator for WiFi, URLs, and Text — Private & No Sign-Up',
     excerpt:
       'Create QR codes instantly for WiFi networks, URLs, and plain text. Fast, 100% private, browser-based generator with no sign-up, no tracking, and instant PNG download.',
