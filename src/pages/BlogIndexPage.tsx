@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2 } from 'lucide-react';
-
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles } from 'lucide-react';
 
 const posts = [
+  {
+    slug: '/blog/15-tools-18-posts-milestone',
+    title: '18 Blog Posts, 15 Tools, and Everything I Learned Building EverydayUtils',
+    excerpt:
+      "A behind-the-scenes recap of building EverydayUtils — what worked, what broke, and the real lessons from shipping 15 privacy-first tools and 18 guides.",
+    date: 'July 25, 2026',
+    readTime: '9 min read',
+    icon: Sparkles,
+    tag: 'Site Update',
+  },
   {
     slug: '/blog/url-encoder',
     title: 'Free URL Encoder / Decoder — Fix Broken Links and Query Strings Instantly',
@@ -183,7 +192,6 @@ const posts = [
   },
 ];
 
-
 export default function BlogIndexPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
@@ -199,7 +207,6 @@ export default function BlogIndexPage() {
           Practical how-to guides for the tools you use every day.
         </p>
       </div>
-
 
       <div className="space-y-5">
         {posts.map((post) => {

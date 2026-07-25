@@ -51,6 +51,7 @@ export default defineConfig({
         '/blog/favicon-generator',
         '/blog/who-is-json',
         '/blog/wifi-qr-code-guide',
+        '/blog/15-tools-18-posts-milestone',
       ],
       changefreq: 'weekly',
       priority: 0.8,

@@ -46,6 +46,7 @@ import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
+import MilestoneBlogPost from './pages/MilestoneBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -162,6 +163,9 @@ export default function App() {
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
+
+          {/* Milestone post — 15 tools, 18 posts recap */}
+          <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />
 
           {/* NEW ROUTE FOR PROMPTFORGE */}
           <Route path="/promptforge" element={<PromptForge />} />
