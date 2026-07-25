@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import {
   Copy, Check, Download, Trash2, ClipboardPaste, FileJson,
   ChevronDown, ChevronUp, Shield, AlertCircle, CheckCircle2,
@@ -246,8 +246,19 @@ export default function JSONFormatter() {
 
   const isLarge = input.length > 200_000;
   const inputLines = input ? input.split('\n').length : 0;
-  const formattedSize = validation.valid ? byteSize(JSON.stringify(JSON.parse(input), null, indent)) : 0;
-  const minifiedSize = validation.valid ? byteSize(JSON.stringify(JSON.parse(input))) : 0;
+
+  const { formattedSize, minifiedSize } = useMemo(() => {
+    if (!validation.valid) return { formattedSize: 0, minifiedSize: 0 };
+    try {
+      const parsed = JSON.parse(input);
+      return {
+        formattedSize: byteSize(JSON.stringify(parsed, null, indent)),
+        minifiedSize: byteSize(JSON.stringify(parsed)),
+      };
+    } catch {
+      return { formattedSize: 0, minifiedSize: 0 };
+    }
+  }, [input, indent, validation.valid]);
 
   const displayOutput = collapsed && output ? collapseJSON(output) : output;
   const highlighted = displayOutput ? highlightJSON(displayOutput) : '';
@@ -265,7 +276,6 @@ export default function JSONFormatter() {
         </p>
       </div>
 
-      {/* Large file warning */}
       {isLarge && (
         <div className="flex items-center gap-2 px-4 py-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-xl text-sm text-amber-700 dark:text-amber-400">
           <AlertCircle size={15} className="shrink-0" />
@@ -273,13 +283,10 @@ export default function JSONFormatter() {
         </div>
       )}
 
-      {/* Two-column layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-        {/* ── Left Panel ── */}
         <div className="flex flex-col gap-4">
           <div className="card p-0 overflow-hidden">
-            {/* Input header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
               <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Input</span>
               <div className="flex items-center gap-2">
@@ -306,7 +313,6 @@ export default function JSONFormatter() {
               style={{ fontFamily: "'JetBrains Mono','Fira Code',ui-monospace,monospace" }}
             />
 
-            {/* Error message */}
             {input.trim() && !validation.valid && validation.error && (
               <div className="px-4 py-2.5 border-t border-red-100 dark:border-red-900/40 bg-red-50 dark:bg-red-950/30">
                 <p className="text-xs text-red-600 dark:text-red-400 font-mono leading-relaxed">
@@ -317,7 +323,6 @@ export default function JSONFormatter() {
               </div>
             )}
 
-            {/* Stats */}
             {validation.valid && input.trim() && (
               <div className="px-4 py-2.5 border-t border-gray-100 dark:border-gray-800 flex flex-wrap gap-x-5 gap-y-1">
                 {[
@@ -334,7 +339,6 @@ export default function JSONFormatter() {
             )}
           </div>
 
-          {/* Controls row */}
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handlePaste}
@@ -380,7 +384,6 @@ export default function JSONFormatter() {
             <p className="text-xs text-red-500 dark:text-red-400">{pasteError}</p>
           )}
 
-          {/* Privacy badge */}
           <div className="flex items-start gap-2 p-3 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-900 rounded-xl">
             <Shield size={13} className="text-green-600 dark:text-green-400 mt-0.5 shrink-0" />
             <p className="text-xs text-green-700 dark:text-green-400 leading-relaxed">
@@ -389,14 +392,11 @@ export default function JSONFormatter() {
           </div>
         </div>
 
-        {/* ── Right Panel ── */}
         <div className="flex flex-col gap-4">
           <div className="card p-0 overflow-hidden flex flex-col">
-            {/* Output header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800 flex-wrap gap-2">
               <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Output</span>
               <div className="flex items-center gap-2">
-                {/* Indent selector */}
                 <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5">
                   {([2, 4] as const).map(n => (
                     <button
@@ -412,7 +412,6 @@ export default function JSONFormatter() {
                     </button>
                   ))}
                 </div>
-                {/* Collapse/Expand */}
                 {output && (
                   <button
                     onClick={() => { trackButtonClick('json-formatter', 'collapse'); setCollapsed(v => !v); }}
@@ -425,7 +424,6 @@ export default function JSONFormatter() {
               </div>
             </div>
 
-            {/* Syntax-highlighted output */}
             <div className="flex-1 overflow-auto" style={{ minHeight: '17rem', maxHeight: '28rem' }}>
               {output ? (
                 <pre
@@ -441,7 +439,6 @@ export default function JSONFormatter() {
             </div>
           </div>
 
-          {/* Action buttons */}
           <div className="flex flex-wrap gap-2">
             <button
               onClick={handleFormat}
@@ -481,14 +478,12 @@ export default function JSONFormatter() {
         </div>
       </div>
 
-      {/* Toast */}
       {toast && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-xl shadow-lg pointer-events-none select-none animate-fade-in">
           {toast}
         </div>
       )}
 
-      {/* FAQ / SEO section */}
       <div className="divider" />
       <div className="prose prose-sm max-w-none text-gray-600 dark:text-gray-400 space-y-6">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">

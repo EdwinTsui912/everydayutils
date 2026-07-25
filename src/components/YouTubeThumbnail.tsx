@@ -53,6 +53,10 @@ const historyReducer = (state: HistoryState, action: Action): HistoryState => {
   switch (action.type) {
     case 'SET': {
       const newPresent = { ...state.present, ...action.payload };
+      const changed = (Object.keys(newPresent) as (keyof ThumbnailState)[]).some(
+        key => newPresent[key] !== state.present[key]
+      );
+      if (!changed) return state;
       return {
         past: [...state.past.slice(-7), state.present],
         present: newPresent,

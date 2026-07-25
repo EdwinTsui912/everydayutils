@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle, Shield, AlertTriangle, ChevronRight, FileText, Lightbulb } from 'lucide-react';
+import { CheckCircle, Shield, AlertTriangle, ChevronRight, FileText } from 'lucide-react';
 import SEO from '../components/SEO';
-
 
 const problems = [
   'Hard line breaks in the middle of sentences',
@@ -10,7 +9,6 @@ const problems = [
   'Broken character encoding (especially with Traditional Chinese or mixed-language content)',
   'Hidden artifacts from scanned or older PDFs',
 ];
-
 
 const audiences = [
   {
@@ -31,7 +29,6 @@ const audiences = [
   },
 ];
 
-
 const faqs = [
   {
     q: 'Does it work well with Chinese text?',
@@ -51,7 +48,6 @@ const faqs = [
   },
 ];
 
-
 const steps = [
   'Copy the messy text from your PDF.',
   <>Go to the <Link to="/text-tools" className="text-blue-600 dark:text-blue-400 hover:underline">EverydayUtils Text Tools Suite</Link>.</>,
@@ -60,7 +56,6 @@ const steps = [
   'Copy the clean text and paste it wherever you need.',
 ];
 
-
 const buttons = [
   { label: 'Remove Extra Spaces', detail: 'collapses multiple spaces and tabs into one' },
   { label: 'Strip Line Breaks', detail: 'flattens all lines into one continuous paragraph' },
@@ -68,7 +63,6 @@ const buttons = [
   { label: 'Remove Duplicates', detail: 'deletes repeated lines, useful for messy OCR output' },
   { label: 'Strip Special Chars', detail: 'removes stubborn artifact characters left behind by scanning' },
 ];
-
 
 export default function PdfCopyPasteFixerBlogPost() {
   return (
@@ -79,7 +73,6 @@ export default function PdfCopyPasteFixerBlogPost() {
         keywords="fix pdf copy paste text, clean pdf text online, remove line breaks from text, pdf text sanitizer, remove extra spaces text"
         url="https://everydayutils.com/blog/pdf-copy-paste-fixer"
       />
-
 
       <header className="mb-8">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -92,7 +85,6 @@ export default function PdfCopyPasteFixerBlogPost() {
           If you've ever copied text from a PDF, you know exactly how frustrating it can be. One moment you're pulling a clean paragraph from a report or research paper — the next, you're looking at a jumbled mess of random line breaks, extra spaces, stray hyphens, and weird formatting that makes the text almost unusable.
         </p>
       </header>
-
 
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -109,9 +101,7 @@ export default function PdfCopyPasteFixerBlogPost() {
         </Link>
       </div>
 
-
       <div className="space-y-10">
-
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why This Happens</h2>
@@ -130,7 +120,6 @@ export default function PdfCopyPasteFixerBlogPost() {
           <p className="text-sm text-gray-500 dark:text-gray-500 leading-relaxed mt-4">This isn't your fault — it's just how PDFs work.</p>
         </section>
 
-
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">How to Fix It in Under 15 Seconds</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
@@ -142,7 +131,6 @@ export default function PdfCopyPasteFixerBlogPost() {
             ))}
           </ol>
         </section>
-
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">The Five Cleanup Buttons</h2>
@@ -165,7 +153,6 @@ export default function PdfCopyPasteFixerBlogPost() {
           </p>
         </section>
 
-
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Who This Helps Most</h2>
           <div className="space-y-4">
@@ -178,7 +165,6 @@ export default function PdfCopyPasteFixerBlogPost() {
           </div>
         </section>
 
-
         <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50">
           <Shield size={16} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
           <p className="text-sm text-emerald-800 dark:text-emerald-300 leading-relaxed">
@@ -187,7 +173,6 @@ export default function PdfCopyPasteFixerBlogPost() {
             <Link to="/blog/how-to-create-wifi-qr-code" className="underline">WiFi QR Code tool</Link>.
           </p>
         </div>
-
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">Frequently Asked Questions</h2>
@@ -201,9 +186,7 @@ export default function PdfCopyPasteFixerBlogPost() {
           </div>
         </section>
 
-
       </div>
-
 
       <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-10">
         <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -215,7 +198,6 @@ export default function PdfCopyPasteFixerBlogPost() {
           </Link>
         </div>
       </div>
-
 
     </div>
   );

@@ -6,10 +6,10 @@ export default function YouTubeThumbnailPage() {
   return (
     <>
       <SEO
-        title="Free YouTube Thumbnail Downloader Online — No Sign-Up | EverydayUtils"
-        description="Download YouTube video thumbnails in all resolutions instantly. Just paste a video URL — free, fast, and 100% private in your browser."
-        keywords="youtube thumbnail downloader, download youtube thumbnail, youtube thumbnail grabber, get youtube thumbnail online"
-        url="https://everydayutils.com/youtube-thumbnail-downloader"
+        title="Free YouTube Thumbnail Generator Online — No Sign-Up | EverydayUtils"
+        description="Design professional YouTube thumbnails instantly. Upload an image, add bold text and templates, then export as PNG or JPG — 100% free and private in your browser."
+        keywords="youtube thumbnail generator, youtube thumbnail maker, custom youtube thumbnail, thumbnail creator online"
+        url="https://everydayutils.com/youtube-thumbnail"
       />
       <YouTubeThumbnail />
     </>

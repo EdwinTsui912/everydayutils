@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Shield, CheckCircle, ChevronRight, Clock, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, CheckCircle, ChevronRight, Clock, Image as ImageIcon } from 'lucide-react';
 import SEO from '../components/SEO';
-
 
 export default function ImageConverterBlogPost() {
   return (
@@ -13,7 +12,6 @@ export default function ImageConverterBlogPost() {
         url="https://everydayutils.com/blog/free-private-image-converter"
       />
 
-
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">
         <Link to="/blog" className="hover:text-brand-500 transition-colors flex items-center gap-1.5">
@@ -23,7 +21,6 @@ export default function ImageConverterBlogPost() {
         <ChevronRight size={12} />
         <span className="text-gray-600 dark:text-gray-400">Image Converter Guide</span>
       </nav>
-
 
       {/* Article header */}
       <header className="mb-8">
@@ -45,7 +42,6 @@ export default function ImageConverterBlogPost() {
         </p>
       </header>
 
-
       {/* Top CTA */}
       <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-5 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -62,10 +58,8 @@ export default function ImageConverterBlogPost() {
         </Link>
       </div>
 
-
       {/* Article body */}
       <div className="space-y-10">
-
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -86,7 +80,6 @@ export default function ImageConverterBlogPost() {
           </ul>
         </section>
 
-
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             Supported Formats
@@ -96,7 +89,6 @@ export default function ImageConverterBlogPost() {
           </p>
         </section>
 
-
         <section>
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">
             Privacy First
@@ -105,7 +97,6 @@ export default function ImageConverterBlogPost() {
             All conversion happens locally using your browser. Your images are never uploaded to any server.
           </p>
         </section>
-
 
         {/* FAQ */}
         <section>
@@ -139,7 +130,6 @@ export default function ImageConverterBlogPost() {
           </div>
         </section>
 
-
         {/* Bottom CTA */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
           <div className="card border-brand-500/20 bg-gradient-to-r from-brand-500/5 to-cyan-500/5 dark:from-brand-500/10 dark:to-cyan-500/10 p-6 text-center">
@@ -153,7 +143,6 @@ export default function ImageConverterBlogPost() {
             </Link>
           </div>
         </div>
-
 
       </div>
     </div>

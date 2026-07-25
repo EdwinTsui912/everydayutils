@@ -11,7 +11,7 @@ export default function PaletteGeneratorPage() {
         title="Free Color Palette Generator Online — No Sign-Up | EverydayUtils"
         description="Generate beautiful color palettes instantly for your design projects. Explore harmonies, shades, and export codes — 100% free and private in your browser."
         keywords="color palette generator, color scheme generator, color picker, hex color palette, design colors online"
-        url="https://everydayutils.com/palette-generator"
+        url="https://everydayutils.com/color-palette-generator"
       />
       <div className="max-w-4xl mx-auto px-4 pt-6">
         <div className="mb-6">

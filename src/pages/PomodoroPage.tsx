@@ -6,12 +6,9 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 
-
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-
 type SessionType = 'work' | 'short' | 'long';
-
 
 interface Config {
   workMin: number;
@@ -21,27 +18,21 @@ interface Config {
   muteSound: boolean;
 }
 
-
 interface Preset {
   label: string;
   config: Omit<Config, 'autoStart' | 'muteSound'>;
 }
 
-
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-
 const STORAGE_KEY = 'everydayutils-pomodoro-v1';
-
 
 const PRESETS: Preset[] = [
   { label: 'Classic',  config: { workMin: 25, shortMin: 5,  longMin: 20 } },
   { label: 'Extended', config: { workMin: 50, shortMin: 10, longMin: 30 } },
 ];
 
-
 const DEFAULT_CONFIG: Config = { ...PRESETS[0].config, autoStart: false, muteSound: false };
-
 
 const SESSION_META: Record<SessionType, { label: string; color: string; ring: string; bg: string }> = {
   work:  { label: 'Work',        color: '#e05252', ring: '#e05252', bg: 'bg-red-500/10'     },
@@ -49,18 +40,14 @@ const SESSION_META: Record<SessionType, { label: string; color: string; ring: st
   long:  { label: 'Long Break',  color: '#5591c7', ring: '#5591c7', bg: 'bg-blue-500/10'    },
 };
 
-
 const CYCLE: SessionType[] = ['work', 'short', 'work', 'short', 'work', 'short', 'work', 'long'];
-
 
 const RING_R = 108;
 const RING_SIZE = 260;
 const RING_CENTER = RING_SIZE / 2;
 const RING_CIRCUM = 2 * Math.PI * RING_R;
 
-
 // ─── Helpers ─────────────────────────────────────────────────────────────────
-
 
 function loadConfig(): Config {
   try {
@@ -70,11 +57,9 @@ function loadConfig(): Config {
   return DEFAULT_CONFIG;
 }
 
-
 function saveConfig(cfg: Config) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg)); } catch { /* ignore */ }
 }
-
 
 function fmt(sec: number): string {
   const m = Math.floor(sec / 60).toString().padStart(2, '0');
@@ -82,13 +67,11 @@ function fmt(sec: number): string {
   return `${m}:${s}`;
 }
 
-
 function durationFor(type: SessionType, cfg: Config): number {
   if (type === 'work')  return cfg.workMin  * 60;
   if (type === 'short') return cfg.shortMin * 60;
   return cfg.longMin * 60;
 }
-
 
 function matchesPreset(cfg: Config, preset: Preset): boolean {
   return cfg.workMin === preset.config.workMin
@@ -96,9 +79,7 @@ function matchesPreset(cfg: Config, preset: Preset): boolean {
     && cfg.longMin  === preset.config.longMin;
 }
 
-
 // ─── Audio ───────────────────────────────────────────────────────────────────
-
 
 function playChime(muted: boolean) {
   if (muted) return;
@@ -127,15 +108,12 @@ function playChime(muted: boolean) {
   } catch { /* AudioContext unavailable */ }
 }
 
-
 // ─── Toast ───────────────────────────────────────────────────────────────────
-
 
 interface ToastAction {
   label: string;
   onClick: () => void;
 }
-
 
 interface ToastState {
   id: number;
@@ -143,21 +121,17 @@ interface ToastState {
   action?: ToastAction;
 }
 
-
 let toastCounter = 0;
-
 
 function useToast() {
   const [toasts, setToasts] = useState<ToastState[]>([]);
   const timersRef = useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
-
 
   const dismiss = useCallback((id: number) => {
     const t = timersRef.current.get(id);
     if (t) { clearTimeout(t); timersRef.current.delete(id); }
     setToasts(prev => prev.filter(t => t.id !== id));
   }, []);
-
 
   const show = useCallback((message: string, action?: ToastAction) => {
     const id = ++toastCounter;
@@ -167,13 +141,10 @@ function useToast() {
     return id;
   }, [dismiss]);
 
-
   return { toasts, show, dismiss };
 }
 
-
 // ─── Toggle ───────────────────────────────────────────────────────────────────
-
 
 function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) => void }) {
   return (
@@ -191,9 +162,7 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
   );
 }
 
-
 // ─── Settings Panel ───────────────────────────────────────────────────────────
-
 
 interface SettingsPanelProps {
   config: Config;
@@ -202,10 +171,8 @@ interface SettingsPanelProps {
   isMobile: boolean;
 }
 
-
 function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps) {
   const [draft, setDraft] = useState<Config>(config);
-
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -215,22 +182,18 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
     return () => window.removeEventListener('keydown', onKey, true);
   }, [onClose]);
 
-
   function setField(key: keyof Config, value: number | boolean) {
     setDraft(prev => ({ ...prev, [key]: value }));
   }
-
 
   function applyPreset(preset: Preset) {
     setDraft(prev => ({ ...preset.config, autoStart: prev.autoStart, muteSound: prev.muteSound }));
   }
 
-
   function handleSave() {
     onSave(draft);
     onClose();
   }
-
 
   const content = (
     <div className="flex flex-col" style={{ maxHeight: 'inherit', height: '100%' }}>
@@ -243,7 +206,6 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
           <X size={16} />
         </button>
       </div>
-
 
       <div className="flex-1 overflow-y-auto px-5 py-5 space-y-6 min-h-0">
         {/* Presets */}
@@ -268,7 +230,6 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
             ))}
           </div>
         </div>
-
 
         {/* Durations */}
         <div>
@@ -302,7 +263,6 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
           </div>
         </div>
 
-
         {/* Behavior toggles */}
         <div>
           <p className="label mb-3">Behavior</p>
@@ -322,7 +282,6 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
         </div>
       </div>
 
-
       <div className="px-5 py-4 border-t border-gray-200 dark:border-gray-800 shrink-0">
         <button onClick={handleSave} className="w-full btn-primary">
           <Check size={15} />
@@ -331,7 +290,6 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
       </div>
     </div>
   );
-
 
   if (isMobile) {
     return (
@@ -347,7 +305,6 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
     );
   }
 
-
   return (
     <>
       <div className="fixed inset-0 z-30" onClick={onClose} />
@@ -361,9 +318,7 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
   );
 }
 
-
 // ─── Toast Container ──────────────────────────────────────────────────────────
-
 
 function ToastContainer({ toasts, dismiss }: { toasts: ToastState[]; dismiss: (id: number) => void }) {
   return (
@@ -391,9 +346,7 @@ function ToastContainer({ toasts, dismiss }: { toasts: ToastState[]; dismiss: (i
   );
 }
 
-
 // ─── Main Component ───────────────────────────────────────────────────────────
-
 
 export default function PomodoroPage() {
   const [config, setConfig] = useState<Config>(loadConfig);
@@ -404,7 +357,6 @@ export default function PomodoroPage() {
   const [isMobile, setIsMobile] = useState(false);
   const { toasts, show: showToast, dismiss } = useToast();
 
-
   const intervalRef      = useRef<ReturnType<typeof setInterval> | null>(null);
   const autoStartRef     = useRef(config.autoStart);
   const muteSoundRef     = useRef(config.muteSound);
@@ -414,8 +366,6 @@ export default function PomodoroPage() {
   const runningRef       = useRef(running);
   const settingsOpenRef  = useRef(settingsOpen);
   const wakeLockRef      = useRef<WakeLockSentinel | null>(null);
-  const snapshotRef      = useRef<{ cycleIdx: number; secondsLeft: number } | null>(null);
-
 
   // Keep all refs in sync with state
   useEffect(() => { autoStartRef.current  = config.autoStart; },  [config.autoStart]);
@@ -426,13 +376,11 @@ export default function PomodoroPage() {
   useEffect(() => { runningRef.current    = running; },           [running]);
   useEffect(() => { settingsOpenRef.current = settingsOpen; },    [settingsOpen]);
 
-
   const sessionType = CYCLE[cycleIdx];
   const meta        = SESSION_META[sessionType];
   const totalSec    = durationFor(sessionType, config);
   const progress    = totalSec > 0 ? (totalSec - secondsLeft) / totalSec : 0;
   const strokeDashoffset = RING_CIRCUM * (1 - progress);
-
 
   // Mobile detection
   useEffect(() => {
@@ -441,7 +389,6 @@ export default function PomodoroPage() {
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
-
 
   // Screen Wake Lock
   useEffect(() => {
@@ -460,7 +407,6 @@ export default function PomodoroPage() {
     };
   }, [running]);
 
-
   // Re-acquire wake lock after tab becomes visible
   useEffect(() => {
     function onVisibility() {
@@ -474,7 +420,6 @@ export default function PomodoroPage() {
     return () => document.removeEventListener('visibilitychange', onVisibility);
   }, []);
 
-
   // Core countdown
   useEffect(() => {
     if (!running) {
@@ -485,13 +430,11 @@ export default function PomodoroPage() {
       setSecondsLeft(prev => {
         if (prev > 1) return prev - 1;
 
-
         playChime(muteSoundRef.current);
         const nextIdx  = (cycleIdxRef.current + 1) % CYCLE.length;
         const nextType = CYCLE[nextIdx];
         const nextSecs = durationFor(nextType, configRef.current);
         setCycleIdx(nextIdx);
-
 
         if (autoStartRef.current) {
           return nextSecs;
@@ -505,59 +448,46 @@ export default function PomodoroPage() {
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
   }, [running]);
 
-
   // ── Core actions (stable — never re-created, read everything from refs) ──────
-
 
   const stopTimer = useCallback(() => {
     if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
     setRunning(false);
   }, []);
 
+  const takeSnapshot = useCallback(() => ({
+    cycleIdx: cycleIdxRef.current,
+    secondsLeft: secondsRef.current,
+  }), []);
 
-  const takeSnapshot = useCallback(() => {
-    snapshotRef.current = {
-      cycleIdx:    cycleIdxRef.current,
-      secondsLeft: secondsRef.current,
-    };
-  }, []);
-
-
-  const undoAction = useCallback(() => {
-    const snap = snapshotRef.current;
-    if (!snap) return;
+  const undoAction = useCallback((snap: { cycleIdx: number; secondsLeft: number }) => {
     stopTimer();
     setCycleIdx(snap.cycleIdx);
     setSecondsLeft(snap.secondsLeft);
-    snapshotRef.current = null;
   }, [stopTimer]);
 
-
   const handleReset = useCallback(() => {
-    takeSnapshot();
+    const snap = takeSnapshot();
     stopTimer();
     const duration = durationFor(CYCLE[cycleIdxRef.current], configRef.current);
     setSecondsLeft(duration);
-    showToast('Timer reset', { label: 'Undo', onClick: undoAction });
+    showToast('Timer reset', { label: 'Undo', onClick: () => undoAction(snap) });
   }, [takeSnapshot, stopTimer, undoAction, showToast]);
 
-
   const handleSkip = useCallback(() => {
-    takeSnapshot();
+    const snap = takeSnapshot();
     stopTimer();
     setCycleIdx(ci => {
       const nextIdx = (ci + 1) % CYCLE.length;
       setSecondsLeft(durationFor(CYCLE[nextIdx], configRef.current));
       return nextIdx;
     });
-    showToast('Skipped to next session', { label: 'Undo', onClick: undoAction });
+    showToast('Skipped to next session', { label: 'Undo', onClick: () => undoAction(snap) });
   }, [takeSnapshot, stopTimer, undoAction, showToast]);
-
 
   const handleToggleRunning = useCallback(() => {
     setRunning(r => !r);
   }, []);
-
 
   // Stable refs for keyboard handler
   const handleResetRef  = useRef(handleReset);
@@ -567,14 +497,12 @@ export default function PomodoroPage() {
   useEffect(() => { handleSkipRef.current   = handleSkip;         }, [handleSkip]);
   useEffect(() => { handleToggleRef.current = handleToggleRunning; }, [handleToggleRunning]);
 
-
   // Global keyboard shortcuts
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const tag = (e.target as HTMLElement).tagName;
       const isInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
       if (isInput) return;
-
 
       switch (e.code) {
         case 'Space':
@@ -601,7 +529,6 @@ export default function PomodoroPage() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-
   const handleSaveConfig = useCallback((newCfg: Config) => {
     saveConfig(newCfg);
     autoStartRef.current = newCfg.autoStart;
@@ -612,12 +539,10 @@ export default function PomodoroPage() {
     stopTimer();
   }, [stopTimer]);
 
-
   function handlePresetClick(preset: Preset) {
     const newCfg: Config = { ...preset.config, autoStart: config.autoStart, muteSound: config.muteSound };
     handleSaveConfig(newCfg);
   }
-
 
   function handleMuteToggle() {
     const newCfg = { ...config, muteSound: !config.muteSound };
@@ -625,7 +550,6 @@ export default function PomodoroPage() {
     muteSoundRef.current = newCfg.muteSound;
     setConfig(newCfg);
   }
-
 
   return (
     <div className="max-w-xl mx-auto px-4 sm:px-6 py-10 animate-fade-in">
@@ -645,7 +569,6 @@ export default function PomodoroPage() {
         </Link>
       </div>
 
-
       {/* Page header with icon */}
       <div className="text-center mb-12">
         <div className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
@@ -657,15 +580,12 @@ export default function PomodoroPage() {
         </p>
       </div>
 
-
       {/* Timer card */}
       <div className="card shadow-md p-6 sm:p-8 flex flex-col items-center gap-6">
-
 
         {/* Top row: session badge + settings */}
         <div className="w-full flex items-center justify-between">
           <div className="w-9" />
-
 
           <div
             className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wide transition-all duration-500 ${meta.bg}`}
@@ -673,7 +593,6 @@ export default function PomodoroPage() {
           >
             {meta.label}
           </div>
-
 
           <div className="relative">
             <button
@@ -697,7 +616,6 @@ export default function PomodoroPage() {
             )}
           </div>
         </div>
-
 
         {/* Ring + timer */}
         <div
@@ -734,7 +652,6 @@ export default function PomodoroPage() {
             />
           </svg>
 
-
           <div className="relative z-10 text-center">
             <div
               className="font-mono text-5xl sm:text-6xl font-bold tabular-nums tracking-tight text-gray-900 dark:text-gray-50 leading-none"
@@ -748,7 +665,6 @@ export default function PomodoroPage() {
             </div>
           </div>
         </div>
-
 
         {/* Cycle indicator */}
         <div className="flex items-center gap-2" aria-label="Session cycle progress">
@@ -770,7 +686,6 @@ export default function PomodoroPage() {
           })}
         </div>
 
-
         {/* Controls */}
         <div className="flex items-center gap-3">
           <button
@@ -780,7 +695,6 @@ export default function PomodoroPage() {
           >
             <RotateCcw size={16} />
           </button>
-
 
           <button
             onClick={handleToggleRunning}
@@ -795,7 +709,6 @@ export default function PomodoroPage() {
             {running ? 'Pause' : 'Start'}
           </button>
 
-
           <button
             onClick={handleSkip}
             aria-label="Skip to next session"
@@ -804,7 +717,6 @@ export default function PomodoroPage() {
             <SkipForward size={16} />
           </button>
         </div>
-
 
         {/* Mute + Presets row */}
         <div className="w-full pt-2">
@@ -837,7 +749,6 @@ export default function PomodoroPage() {
         </div>
       </div>
 
-
       {/* Session guide */}
       <div className="mt-6 card p-5">
         <p className="label mb-3">Session Cycle</p>
@@ -868,7 +779,6 @@ export default function PomodoroPage() {
         </div>
       </div>
 
-
       {/* Keyboard shortcuts hint */}
       <p className="mt-5 text-center text-xs text-gray-400 dark:text-gray-600 leading-relaxed select-none">
         Keyboard shortcuts:&nbsp;
@@ -878,7 +788,6 @@ export default function PomodoroPage() {
         <kbd className="font-mono">Esc</kbd> Close settings
       </p>
 
-
       {/* SEO Content */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
         <div className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto px-4 text-sm leading-relaxed">
@@ -886,7 +795,6 @@ export default function PomodoroPage() {
           <p className="mb-6">
             I created this timer because I needed a simple way to stay focused without distractions or privacy worries. After trying many apps, I decided to build one that runs completely in the browser.
           </p>
-
 
           <h3 className="text-lg font-semibold mt-8 mb-2">How I Use It Every Day</h3>
           <p className="mb-6">
@@ -899,13 +807,11 @@ export default function PomodoroPage() {
             This rhythm helps me get into deep work without feeling overwhelmed. The short breaks prevent me from burning out, and seeing the cycle progress keeps me motivated.
           </p>
 
-
           <p className="mt-8">
             Best of all, everything happens locally in your browser. No accounts, no tracking, no data leaves your device.
           </p>
         </div>
       </div>
-
 
       {/* Enhanced FAQ */}
       <div className="mt-10 card p-6">
@@ -918,14 +824,12 @@ export default function PomodoroPage() {
             </p>
           </div>
 
-
           <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
             <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Why does it help with focus?</p>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
               The short, defined work periods make it easier to start tasks and maintain concentration. The regular breaks prevent mental fatigue and help sustain energy throughout the day.
             </p>
           </div>
-
 
           <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
             <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Can I customize the timer?</p>
@@ -934,14 +838,12 @@ export default function PomodoroPage() {
             </p>
           </div>
 
-
           <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
             <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Does it work offline?</p>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
               Yes. Once loaded, the entire timer works completely offline.
             </p>
           </div>
-
 
           <div className="border-b border-gray-100 dark:border-gray-800 last:border-0 pb-5 last:pb-0">
             <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">What keyboard shortcuts are available?</p>
@@ -953,7 +855,6 @@ export default function PomodoroPage() {
             </ul>
           </div>
 
-
           <div className="last:border-0 pb-0">
             <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1.5">Is this tool completely free?</p>
             <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -962,7 +863,6 @@ export default function PomodoroPage() {
           </div>
         </div>
       </div>
-
 
       <ToastContainer toasts={toasts} dismiss={dismiss} />
     </div>

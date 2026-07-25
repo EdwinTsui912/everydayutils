@@ -4,9 +4,7 @@ import { Copy, Check, RotateCcw, ArrowLeft, ArrowRightLeft } from 'lucide-react'
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
 import SEO from '../components/SEO';
 
-
 type Mode = 'encode' | 'decode';
-
 
 function URLEncoderPage() {
   const [mode, setMode] = useState<Mode>('encode');
@@ -17,9 +15,7 @@ function URLEncoderPage() {
   const [prettify, setPrettify] = useState(false);
   const [decodePlusAsSpace, setDecodePlusAsSpace] = useState(false);
 
-
   useEffect(() => { trackToolView('url-encoder'); }, []);
-
 
   const transform = useCallback((text: string, currentMode: Mode, plusAsSpace: boolean) => {
     if (!text) {
@@ -27,7 +23,6 @@ function URLEncoderPage() {
       setError('');
       return;
     }
-
 
     try {
       if (currentMode === 'encode') {
@@ -40,12 +35,11 @@ function URLEncoderPage() {
       }
     } catch (e) {
       setOutput('');
-      setError(currentMode === 'decode' 
-        ? 'Invalid encoded input. Check for malformed % sequences.' 
+      setError(currentMode === 'decode'
+        ? 'Invalid encoded input. Check for malformed % sequences.'
         : 'Encoding error.');
     }
   }, []);
-
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,24 +48,23 @@ function URLEncoderPage() {
     return () => clearTimeout(timeout);
   }, [input, mode, decodePlusAsSpace, transform]);
 
-
-  const displayOutput = prettify && mode === 'decode' 
+  const displayOutput = prettify && mode === 'decode'
     ? output.replace(/\?/g, '\n?').replace(/&/g, '\n&').replace(/#/g, '\n#')
     : output;
-
 
   const handleCopy = async () => {
     if (!output) return;
     try {
       await navigator.clipboard.writeText(output);
+      trackButtonClick('url-encoder', 'copy');
       trackCopySuccess('url-encoder');
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {}
   };
 
-
   const handleSwap = () => {
+    trackButtonClick('url-encoder', 'swap');
     const newMode = mode === 'encode' ? 'decode' : 'encode';
     setMode(newMode);
     setInput(output);
@@ -80,19 +73,18 @@ function URLEncoderPage() {
     setPrettify(false);
   };
 
-
   const handleClear = () => {
+    trackButtonClick('url-encoder', 'clear');
     setInput('');
     setOutput('');
     setError('');
     setPrettify(false);
   };
 
-
   const handlePrettify = () => {
+    trackButtonClick('url-encoder', 'prettify');
     setPrettify(!prettify);
   };
-
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 min-h-screen">
@@ -109,7 +101,6 @@ function URLEncoderPage() {
         </Link>
       </div>
 
-
       <div className="text-center mb-12">
         <div className="mx-auto w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-md">
           <ArrowRightLeft size={32} className="text-white" />
@@ -120,7 +111,6 @@ function URLEncoderPage() {
         </p>
       </div>
 
-
       <div className="card p-6">
         <div className="flex justify-center mb-8">
           <div className="inline-flex bg-gray-100 dark:bg-gray-800 rounded-2xl p-1">
@@ -128,7 +118,6 @@ function URLEncoderPage() {
             <button onClick={() => setMode('decode')} className={`px-6 py-2 rounded-xl text-sm font-medium transition-all ${mode === 'decode' ? 'bg-white dark:bg-gray-900 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}>Decode</button>
           </div>
         </div>
-
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
@@ -146,7 +135,6 @@ function URLEncoderPage() {
               className="input min-h-[260px] resize-y font-mono text-sm"
             />
           </div>
-
 
           <div>
             <div className="flex items-center justify-between mb-2">
@@ -169,7 +157,6 @@ function URLEncoderPage() {
           </div>
         </div>
 
-
         <div className="flex flex-wrap gap-3 mt-6">
           <button onClick={handleSwap} className="btn-secondary flex items-center gap-2">
             <ArrowRightLeft size={16} /> Swap
@@ -181,7 +168,6 @@ function URLEncoderPage() {
             <RotateCcw size={16} /> Clear All
           </button>
         </div>
-
 
         {mode === 'decode' && (
           <div className="mt-4 flex items-center gap-2">
@@ -198,10 +184,8 @@ function URLEncoderPage() {
           </div>
         )}
 
-
         {error && <p className="text-red-600 dark:text-red-400 text-sm mt-4">{error}</p>}
       </div>
-
 
       {/* SEO Content */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
@@ -211,7 +195,6 @@ function URLEncoderPage() {
             Encode or decode URLs, query strings, and special characters instantly in your browser. No sign-up, no data upload, complete privacy.
           </p>
 
-
           <h3 className="text-lg font-semibold mt-8 mb-2">Why Use URL Encoding?</h3>
           <ul className="list-disc pl-5 mb-6 space-y-1">
             <li>URLs cannot contain spaces or certain special characters</li>
@@ -219,7 +202,6 @@ function URLEncoderPage() {
             <li>Debugging broken links and form data</li>
             <li>Handling international characters safely</li>
           </ul>
-
 
           <h3 className="text-lg font-semibold mt-8 mb-2">Frequently Asked Questions</h3>
           <div className="space-y-6">
@@ -237,13 +219,11 @@ function URLEncoderPage() {
             </div>
           </div>
 
-
           <p className="mt-8">Whether you're a developer debugging APIs or cleaning up links, our tool makes URL encoding simple and secure.</p>
         </div>
       </div>
     </div>
   );
 }
-
 
 export default URLEncoderPage;

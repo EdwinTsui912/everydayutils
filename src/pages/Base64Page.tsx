@@ -1,8 +1,7 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, ChangeEvent } from 'react';
 import { Copy, Check, RotateCcw, Download, Upload, Code2, Trash2 } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
 import SEO from '../components/SEO';
-
 
 export default function Base64Page() {
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
@@ -12,9 +11,7 @@ export default function Base64Page() {
   const [copied, setCopied] = useState(false);
   const [fileName, setFileName] = useState('');
 
-
   useEffect(() => { trackToolView('base64'); }, []);
-
 
   const encode = useCallback((text: string) => {
     try {
@@ -29,7 +26,6 @@ export default function Base64Page() {
     }
   }, []);
 
-
   const decode = useCallback((text: string) => {
     try {
       const cleaned = text.replace(/\s+/g, '');
@@ -43,7 +39,6 @@ export default function Base64Page() {
     }
   }, []);
 
-
   useEffect(() => {
     if (!input.trim()) {
       setOutput('');
@@ -51,14 +46,12 @@ export default function Base64Page() {
       return;
     }
 
-
     if (mode === 'encode') {
       encode(input);
     } else {
       decode(input);
     }
   }, [input, mode, encode, decode]);
-
 
   const handleCopy = () => {
     if (!output) return;
@@ -69,11 +62,10 @@ export default function Base64Page() {
     setTimeout(() => setCopied(false), 1800);
   };
 
-
   const handleDownload = () => {
     if (!output) return;
     trackButtonClick('base64', 'download');
-    const ext = mode === 'encode' ? 'txt' : 'txt';
+    const ext = 'txt';
     const blob = new Blob([output], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -83,8 +75,7 @@ export default function Base64Page() {
     URL.revokeObjectURL(url);
   };
 
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setFileName(file.name);
@@ -96,14 +87,12 @@ export default function Base64Page() {
     reader.readAsText(file);
   };
 
-
   const clearAll = () => {
     setInput('');
     setOutput('');
     setError('');
     setFileName('');
   };
-
 
   const swapMode = () => {
     setMode(mode === 'encode' ? 'decode' : 'encode');
@@ -112,11 +101,9 @@ export default function Base64Page() {
     setError('');
   };
 
-
   const inputLength = input.length;
   const outputLength = output.length;
   const base64Size = Math.ceil(inputLength * 4 / 3);
-
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 min-h-screen">
@@ -139,9 +126,7 @@ export default function Base64Page() {
         </p>
       </div>
 
-
       <div className="card p-6 space-y-6">
-
 
         {/* Mode Toggle */}
         <div className="flex justify-center mb-2">
@@ -169,7 +154,6 @@ export default function Base64Page() {
           </div>
         </div>
 
-
         {/* Input */}
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -182,7 +166,6 @@ export default function Base64Page() {
             </div>
           </div>
 
-
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -193,13 +176,11 @@ export default function Base64Page() {
             className="input w-full resize-y font-mono"
           />
 
-
           {mode === 'decode' && (
             <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
               Paste valid Base64 string here
             </p>
           )}
-
 
           {/* File Upload */}
           {mode === 'encode' && (
@@ -221,7 +202,6 @@ export default function Base64Page() {
           )}
         </div>
 
-
         {/* Prominent Swap Button */}
         <div className="flex justify-center">
           <button
@@ -232,7 +212,6 @@ export default function Base64Page() {
           </button>
         </div>
 
-
         {/* Output */}
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -242,7 +221,6 @@ export default function Base64Page() {
             </div>
           </div>
 
-
           <textarea
             value={output}
             readOnly
@@ -250,14 +228,12 @@ export default function Base64Page() {
             className="input w-full font-mono resize-y bg-gray-50 dark:bg-gray-800/50"
           />
 
-
           {error && (
             <div className="mt-3 px-4 py-3 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm">
               {error}
             </div>
           )}
         </div>
-
 
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-3 pt-4">
@@ -270,7 +246,6 @@ export default function Base64Page() {
             {copied ? 'Copied!' : 'Copy Result'}
           </button>
 
-
           <button
             onClick={handleDownload}
             disabled={!output}
@@ -278,7 +253,6 @@ export default function Base64Page() {
           >
             <Download size={16} /> Download
           </button>
-
 
           <button
             onClick={clearAll}
@@ -289,13 +263,11 @@ export default function Base64Page() {
         </div>
       </div>
 
-
       {/* SEO Section */}
       <div className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-12">
         <div className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto px-4 text-sm leading-relaxed">
           <h2 className="text-2xl font-bold mb-6">Base64 Encoder & Decoder — Fast, Private & Reliable</h2>
           <p className="mb-6">Base64 is the standard way to safely transmit binary data as text. Our tool lets you encode and decode instantly in your browser — perfect for API testing, embedding images, or handling configuration files.</p>
-
 
           <h3 className="text-lg font-semibold mt-8 mb-2">Why Use This Tool?</h3>
           <ul className="list-disc pl-5 mb-6 space-y-1">
@@ -305,7 +277,6 @@ export default function Base64Page() {
             <li>Download result as .txt file</li>
             <li>Clean, modern interface matching EverydayUtils design</li>
           </ul>
-
 
           <p className="mt-8">Whether you're debugging APIs, preparing data for URLs, or working with embedded assets, this Base64 tool gives you fast, secure conversion with complete privacy.</p>
         </div>
