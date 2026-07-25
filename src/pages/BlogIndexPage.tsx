@@ -4,16 +4,6 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
-    slug: '/blog/free-developer-utilities',
-    title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
-    excerpt:
-      'Small repetitive tasks break development flow more than they should. Here are four free browser-based utilities I use often — JSON formatting with precise error locations, Base64 encoding, URL encoding, and placeholder text generation.',
-    date: 'July 8, 2026',
-    readTime: '5 min read',
-    icon: Braces,
-    tag: 'Developer Tools',
-  },
-  {
     slug: '/blog/url-encoder',
     title: 'Free URL Encoder / Decoder — Fix Broken Links and Query Strings Instantly',
     excerpt:
@@ -138,6 +128,16 @@ const posts = [
       'What is JSON and how is it used in development? A practical, human-friendly guide to JSON in APIs, config files, frontend work, and debugging — plus how to format and validate it more easily.',
     date: 'July 14, 2026',
     readTime: '6 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/free-developer-utilities',
+    title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
+    excerpt:
+      'Small repetitive tasks break development flow more than they should. Here are four free browser-based utilities I use often — JSON formatting with precise error locations, Base64 encoding, URL encoding, and placeholder text generation.',
+    date: 'July 8, 2026',
+    readTime: '5 min read',
     icon: Braces,
     tag: 'Developer Tools',
   },
