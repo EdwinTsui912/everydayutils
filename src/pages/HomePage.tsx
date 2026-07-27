@@ -1,136 +1,172 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2 } from 'lucide-react';
+import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Helmet } from 'react-helmet-async';
 
-const TOOLS = [
+
+const TOOL_GROUPS = [
   {
-    path: '/text-tools',
-    icon: Type,
-    label: 'Text Tools Suite',
-    description: 'Word counter, text sanitizer, and case converter — all in one place.',
-    bg: 'bg-blue-50 dark:bg-blue-950/40',
-    iconColor: 'text-blue-600 dark:text-blue-400',
+    label: 'Developer Tools',
+    items: [
+      {
+        path: '/url-encoder',
+        icon: ArrowRightLeft,
+        label: 'URL Encoder',
+        description: 'Encode and decode URLs, query strings, and special characters.',
+        bg: 'bg-violet-50 dark:bg-violet-950/40',
+        iconColor: 'text-violet-600 dark:text-violet-400',
+      },
+      {
+        path: '/base64',
+        icon: Code2,
+        label: 'Base64 Encoder',
+        description: 'Encode and decode Base64 strings instantly. Perfect for APIs and data handling.',
+        bg: 'bg-indigo-50 dark:bg-indigo-950/40',
+        iconColor: 'text-indigo-600 dark:text-indigo-400',
+      },
+      {
+        path: '/json-formatter',
+        icon: FileJson,
+        label: 'JSON Formatter',
+        description: 'Format, minify, validate and beautify JSON instantly.',
+        bg: 'bg-teal-50 dark:bg-teal-950/40',
+        iconColor: 'text-teal-600 dark:text-teal-400',
+      },
+      {
+        path: '/timestamp-converter',
+        icon: Clock,
+        label: 'Timestamp Converter',
+        description: 'Convert Unix timestamps to human-readable dates and back — supports ISO 8601, RFC 2822, and relative time.',
+        bg: 'bg-sky-50 dark:bg-sky-950/40',
+        iconColor: 'text-sky-600 dark:text-sky-400',
+      },
+    ],
   },
   {
-    path: '/password-generator',
-    icon: KeyRound,
-    label: 'Password Generator',
-    description: 'Generate strong passwords with strength meter and crack-time estimation.',
-    bg: 'bg-emerald-50 dark:bg-emerald-950/40',
-    iconColor: 'text-emerald-600 dark:text-emerald-400',
+    label: 'Generators',
+    items: [
+      {
+        path: '/password-generator',
+        icon: KeyRound,
+        label: 'Password Generator',
+        description: 'Generate strong passwords with strength meter and crack-time estimation.',
+        bg: 'bg-emerald-50 dark:bg-emerald-950/40',
+        iconColor: 'text-emerald-600 dark:text-emerald-400',
+      },
+      {
+        path: '/username-generator',
+        icon: ArrowRightLeft,
+        label: 'Username Generator',
+        description: 'Create cool, unique usernames for gaming, Twitch, Discord, YouTube & more.',
+        bg: 'bg-teal-50 dark:bg-teal-950/40',
+        iconColor: 'text-teal-600 dark:text-teal-400',
+      },
+      {
+        path: '/promptforge',
+        icon: Wand2,
+        label: 'PromptForge',
+        description: 'Build high-quality AI prompts with frameworks, live preview, and model optimization — 100% private.',
+        bg: 'bg-violet-50 dark:bg-violet-950/40',
+        iconColor: 'text-violet-600 dark:text-violet-400',
+      },
+      {
+        path: '/qr-generator',
+        icon: QrCode,
+        label: 'QR Generator',
+        description: 'Create QR codes for URLs, text, and WiFi networks instantly.',
+        bg: 'bg-cyan-50 dark:bg-cyan-950/40',
+        iconColor: 'text-cyan-600 dark:text-cyan-400',
+      },
+      {
+        path: '/favicon-generator',
+        icon: ImageIcon,
+        label: 'Favicon Generator',
+        description: 'Generate all standard favicon sizes from one image instantly.',
+        bg: 'bg-orange-50 dark:bg-orange-950/40',
+        iconColor: 'text-orange-600 dark:text-orange-400',
+      },
+    ],
   },
   {
-    path: '/username-generator',
-    icon: ArrowRightLeft,
-    label: 'Username Generator',
-    description: 'Create cool, unique usernames for gaming, Twitch, Discord, YouTube & more.',
-    bg: 'bg-teal-50 dark:bg-teal-950/40',
-    iconColor: 'text-teal-600 dark:text-teal-400',
+    label: 'Text & Writing',
+    items: [
+      {
+        path: '/text-tools',
+        icon: Type,
+        label: 'Text Tools Suite',
+        description: 'Word counter, text sanitizer, and case converter — all in one place.',
+        bg: 'bg-blue-50 dark:bg-blue-950/40',
+        iconColor: 'text-blue-600 dark:text-blue-400',
+      },
+      {
+        path: '/lorem-ipsum-generator',
+        icon: AlignLeft,
+        label: 'Lorem Ipsum Generator',
+        description: 'Generate placeholder text with custom paragraph count and HTML output.',
+        bg: 'bg-violet-50 dark:bg-violet-950/40',
+        iconColor: 'text-violet-600 dark:text-violet-400',
+      },
+    ],
   },
   {
-    path: '/promptforge',
-    icon: Wand2,
-    label: 'PromptForge',
-    description: 'Build high-quality AI prompts with frameworks, live preview, and model optimization — 100% private.',
-    bg: 'bg-violet-50 dark:bg-violet-950/40',
-    iconColor: 'text-violet-600 dark:text-violet-400',
+    label: 'Design & Media',
+    items: [
+      {
+        path: '/palette-generator',
+        icon: Palette,
+        label: 'Color Palette Generator',
+        description: 'Instant harmonious palettes with HEX, RGB, HSL and Tailwind/CSS export.',
+        bg: 'bg-rose-50 dark:bg-rose-950/40',
+        iconColor: 'text-rose-600 dark:text-rose-400',
+      },
+      {
+        path: '/image-converter',
+        icon: ImageIcon,
+        label: 'Image Format Converter',
+        description: 'Convert JPG, PNG, WebP instantly in your browser.',
+        bg: 'bg-purple-50 dark:bg-purple-950/40',
+        iconColor: 'text-purple-600 dark:text-purple-400',
+      },
+      {
+        path: '/youtube-thumbnail',
+        icon: ImageIcon,
+        label: 'YouTube Thumbnail Generator',
+        description: 'Create high-CTR YouTube thumbnails with text, templates, and effects — 100% browser-based.',
+        bg: 'bg-red-50 dark:bg-red-950/40',
+        iconColor: 'text-red-600 dark:text-red-400',
+      },
+    ],
   },
   {
-    path: '/youtube-thumbnail',
-    icon: ImageIcon,
-    label: 'YouTube Thumbnail Generator',
-    description: 'Create high-CTR YouTube thumbnails with text, templates, and effects — 100% browser-based.',
-    bg: 'bg-red-50 dark:bg-red-950/40',
-    iconColor: 'text-red-600 dark:text-red-400',
-  }, 
-  {
-    path: '/url-encoder',
-    icon: ArrowRightLeft,
-    label: 'URL Encoder',
-    description: 'Encode and decode URLs, query strings, and special characters.',
-    bg: 'bg-violet-50 dark:bg-violet-950/40',
-    iconColor: 'text-violet-600 dark:text-violet-400',
-  },
-  {
-    path: '/base64',
-    icon: Code2,
-    label: 'Base64 Encoder',
-    description: 'Encode and decode Base64 strings instantly. Perfect for APIs and data handling.',
-    bg: 'bg-indigo-50 dark:bg-indigo-950/40',
-    iconColor: 'text-indigo-600 dark:text-indigo-400',
-  },
-  {
-    path: '/json-formatter',
-    icon: FileJson,
-    label: 'JSON Formatter',
-    description: 'Format, minify, validate and beautify JSON instantly.',
-    bg: 'bg-teal-50 dark:bg-teal-950/40',
-    iconColor: 'text-teal-600 dark:text-teal-400',
-  },
-  {
-    path: '/image-converter',
-    icon: ImageIcon,
-    label: 'Image Format Converter',
-    description: 'Convert JPG, PNG, WebP instantly in your browser.',
-    bg: 'bg-purple-50 dark:bg-purple-950/40',
-    iconColor: 'text-purple-600 dark:text-purple-400',
-  },
-  {
-    path: '/favicon-generator',
-    icon: ImageIcon,
-    label: 'Favicon Generator',
-    description: 'Generate all standard favicon sizes from one image instantly.',
-    bg: 'bg-orange-50 dark:bg-orange-950/40',
-    iconColor: 'text-orange-600 dark:text-orange-400',
-  },
-  {
-    path: '/qr-generator',
-    icon: QrCode,
-    label: 'QR Generator',
-    description: 'Create QR codes for URLs, text, and WiFi networks instantly.',
-    bg: 'bg-cyan-50 dark:bg-cyan-950/40',
-    iconColor: 'text-cyan-600 dark:text-cyan-400',
-  },
-  {
-    path: '/palette-generator',
-    icon: Palette,
-    label: 'Color Palette Generator',
-    description: 'Instant harmonious palettes with HEX, RGB, HSL and Tailwind/CSS export.',
-    bg: 'bg-rose-50 dark:bg-rose-950/40',
-    iconColor: 'text-rose-600 dark:text-rose-400',
-  },
-  {
-    path: '/percentage-calculator',
-    icon: Percent,
-    label: 'Percentage Calculator',
-    description: 'Discounts, tips, bill splitting, percentage changes and more.',
-    bg: 'bg-amber-50 dark:bg-amber-950/40',
-    iconColor: 'text-amber-600 dark:text-amber-400',
-  },
-  {
-    path: '/lorem-ipsum-generator',
-    icon: AlignLeft,
-    label: 'Lorem Ipsum Generator',
-    description: 'Generate placeholder text with custom paragraph count and HTML output.',
-    bg: 'bg-violet-50 dark:bg-violet-950/40',
-    iconColor: 'text-violet-600 dark:text-violet-400',
-  },
-  {
-    path: '/pomodoro',
-    icon: Timer,
-    label: 'Pomodoro Timer',
-    description: 'Boost focus with timed work and break sessions.',
-    bg: 'bg-red-50 dark:bg-red-950/40',
-    iconColor: 'text-red-500 dark:text-red-400',
+    label: 'Calculators & Productivity',
+    items: [
+      {
+        path: '/percentage-calculator',
+        icon: Percent,
+        label: 'Percentage Calculator',
+        description: 'Discounts, tips, bill splitting, percentage changes and more.',
+        bg: 'bg-amber-50 dark:bg-amber-950/40',
+        iconColor: 'text-amber-600 dark:text-amber-400',
+      },
+      {
+        path: '/pomodoro',
+        icon: Timer,
+        label: 'Pomodoro Timer',
+        description: 'Boost focus with timed work and break sessions.',
+        bg: 'bg-red-50 dark:bg-red-950/40',
+        iconColor: 'text-red-500 dark:text-red-400',
+      },
+    ],
   },
 ];
+
 
 const FEATURES = [
   { icon: Zap,    label: 'Instant & Fast',  desc: 'All tools process data instantly with no loading spinners.' },
   { icon: Shield, label: '100% Private',    desc: 'Nothing ever leaves your browser. Zero tracking, zero data collection.' },
   { icon: Globe,  label: 'Works Offline',   desc: 'Once loaded, all tools work without an internet connection.' },
 ];
+
 
 export default function HomePage() {
   return (
@@ -139,12 +175,14 @@ export default function HomePage() {
         <title>EverydayUtils - Free Privacy-First Online Tools</title>
       </Helmet>
 
+
       <SEO 
         title="EverydayUtils - Free Privacy-First Online Tools"
         description="Fast, private, client-side web utilities: Password Generator, Username Generator, QR Code, Color Palette, Text Tools, JSON Formatter and more. No tracking, no sign-up."
         keywords="free online tools, password generator, username generator, qr code, color palette, json formatter, text tools, privacy first tools"
         url="https://everydayutils.com"
       />
+
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-14 animate-fade-in">
         {/* Hero Section */}
@@ -154,39 +192,47 @@ export default function HomePage() {
             Privacy-first · Client-side only
           </div>
 
+
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-50 tracking-tight leading-tight">
             Free Online Web Utilities & Privacy-First Browser Tools
           </h1>
+
 
           <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             Fast, useful tools that run 100% in your browser — no sign-up, no tracking, no nonsense.
           </p>
         </div>
 
-        {/* Tools grid */}
-        <section className="animate-slide-in">
-          <h2 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-5">All Tools</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {TOOLS.map((tool) => (
-              <Link
-                key={tool.path}
-                to={tool.path}
-                className="card-hover group p-5 flex flex-col gap-3 min-w-0"
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <div className={`p-2.5 rounded-xl shrink-0 ${tool.bg}`}>
-                    <tool.icon size={20} className={tool.iconColor} />
+
+        {/* Tools grid, grouped by category */}
+        {TOOL_GROUPS.map((group, idx) => (
+          <section key={group.label} className={idx === 0 ? 'animate-slide-in' : ''}>
+            <h2 className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-5">
+              {group.label}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {group.items.map((tool) => (
+                <Link
+                  key={tool.path}
+                  to={tool.path}
+                  className="card-hover group p-5 flex flex-col gap-3 min-w-0"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className={`p-2.5 rounded-xl shrink-0 ${tool.bg}`}>
+                      <tool.icon size={20} className={tool.iconColor} />
+                    </div>
+                    <ArrowRight size={15} className="text-gray-300 dark:text-gray-600 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all mt-1 shrink-0" />
                   </div>
-                  <ArrowRight size={15} className="text-gray-300 dark:text-gray-600 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all mt-1 shrink-0" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1 break-words">{tool.label}</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed break-words">{tool.description}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1 break-words">{tool.label}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed break-words">{tool.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
+
 
         {/* Features */}
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">

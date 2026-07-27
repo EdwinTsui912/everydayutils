@@ -47,6 +47,7 @@ import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
 import MilestoneBlogPost from './pages/MilestoneBlogPost';
+import TimestampConverterPage from './pages/TimestampConverterPage';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -166,6 +167,9 @@ export default function App() {
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />
+
+          {/* Timestamp Converter */}
+          <Route path="/timestamp-converter" element={<TimestampConverterPage />} />
 
           {/* NEW ROUTE FOR PROMPTFORGE */}
           <Route path="/promptforge" element={<PromptForge />} />

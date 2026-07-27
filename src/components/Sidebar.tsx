@@ -1,30 +1,59 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Home, Type, KeyRound, Palette, Percent, QrCode,
-  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon, ArrowRightLeft
+  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon, ArrowRightLeft, Clock, Wand2
 } from 'lucide-react';
+
 
 const NAV_ITEMS = [
   { label: 'Home', path: '/', icon: Home, exact: true },
 ];
 
-const TOOLS = [
-  { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
-  { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
-  { label: 'Username Generator', path: '/username-generator', icon: ArrowRightLeft },   // ← ADD THIS
-  { label: 'PromptForge', path: '/promptforge', icon: Zap },
-  { label: 'YouTube Thumbnail', path: '/youtube-thumbnail', icon: ImageIcon },
-  { label: 'URL Encoder', path: '/url-encoder', icon: ArrowRightLeft },
-  { label: 'Base64', path: '/base64', icon: Code2 },
-  { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
-  { label: 'Image Converter', path: '/image-converter', icon: ImageIcon },
-  { label: 'Favicon Generator', path: '/favicon-generator', icon: ImageIcon },
-  { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
-  { label: 'Color Palette', path: '/palette-generator', icon: Palette },
-  { label: 'Percentage Calc', path: '/percentage-calculator', icon: Percent, badge: 'Suite' },
-  { label: 'Lorem Ipsum', path: '/lorem-ipsum-generator', icon: AlignLeft },
-  { label: 'Pomodoro Timer', path: '/pomodoro', icon: Timer },
+
+const TOOL_GROUPS = [
+  {
+    label: 'Developer Tools',
+    items: [
+      { label: 'URL Encoder', path: '/url-encoder', icon: ArrowRightLeft },
+      { label: 'Base64', path: '/base64', icon: Code2 },
+      { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
+      { label: 'Timestamp Converter', path: '/timestamp-converter', icon: Clock },
+    ],
+  },
+  {
+    label: 'Generators',
+    items: [
+      { label: 'Password Generator', path: '/password-generator', icon: KeyRound },
+      { label: 'Username Generator', path: '/username-generator', icon: ArrowRightLeft },
+      { label: 'PromptForge', path: '/promptforge', icon: Wand2 },
+      { label: 'QR Generator', path: '/qr-generator', icon: QrCode },
+      { label: 'Favicon Generator', path: '/favicon-generator', icon: ImageIcon },
+    ],
+  },
+  {
+    label: 'Text & Writing',
+    items: [
+      { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
+      { label: 'Lorem Ipsum', path: '/lorem-ipsum-generator', icon: AlignLeft },
+    ],
+  },
+  {
+    label: 'Design & Media',
+    items: [
+      { label: 'Color Palette', path: '/palette-generator', icon: Palette },
+      { label: 'Image Converter', path: '/image-converter', icon: ImageIcon },
+      { label: 'YouTube Thumbnail', path: '/youtube-thumbnail', icon: ImageIcon },
+    ],
+  },
+  {
+    label: 'Calculators & Productivity',
+    items: [
+      { label: 'Percentage Calc', path: '/percentage-calculator', icon: Percent, badge: 'Suite' },
+      { label: 'Pomodoro Timer', path: '/pomodoro', icon: Timer },
+    ],
+  },
 ];
+
 
 const LEGAL = [
   { label: 'Blog', path: '/blog', icon: BookOpen },
@@ -34,10 +63,12 @@ const LEGAL = [
   { label: 'Terms of Use', path: '/terms-of-use', icon: FileText },
 ];
 
+
 interface SidebarProps {
   open: boolean;
   onClose: () => void;
 }
+
 
 function NavItem({ path, icon: Icon, label, badge, onClick }: {
   path: string; icon: React.ElementType; label: string; badge?: string; onClick?: () => void;
@@ -48,7 +79,6 @@ function NavItem({ path, icon: Icon, label, badge, onClick }: {
       end={path === '/'}
       onClick={() => {
         onClick?.();
-        // Force scroll to top
         setTimeout(() => {
           window.scrollTo(0, 0);
         }, 10);
@@ -72,6 +102,7 @@ function NavItem({ path, icon: Icon, label, badge, onClick }: {
   );
 }
 
+
 export default function Sidebar({ open, onClose }: SidebarProps) {
   return (
     <>
@@ -82,6 +113,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           onClick={onClose}
         />
       )}
+
 
       {/* Sidebar panel */}
       <aside
@@ -108,6 +140,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </button>
         </div>
 
+
         {/* Nav */}
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-6">
           <div className="space-y-1">
@@ -116,14 +149,18 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             ))}
           </div>
 
-          <div>
-            <p className="label px-3 mb-2">Tools</p>
-            <div className="space-y-0.5">
-              {TOOLS.map(item => (
-                <NavItem key={item.path} {...item} onClick={onClose} />
-              ))}
+
+          {TOOL_GROUPS.map(group => (
+            <div key={group.label}>
+              <p className="label px-3 mb-2">{group.label}</p>
+              <div className="space-y-0.5">
+                {group.items.map(item => (
+                  <NavItem key={item.path} {...item} onClick={onClose} />
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
+
 
           <div>
             <p className="label px-3 mb-2">Info</p>
@@ -134,6 +171,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             </div>
           </div>
         </nav>
+
 
         {/* Privacy badge */}
         <div className="px-4 py-4 border-t border-gray-100 dark:border-gray-800">
