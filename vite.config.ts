@@ -2,7 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
 
-// https://vitejs.dev/config/
+
+// [https://vitejs.dev/config/](https://vitejs.dev/config/)
 export default defineConfig({
   plugins: [
     react(),
@@ -25,12 +26,15 @@ export default defineConfig({
         '/json-formatter',
         '/promptforge',
         '/youtube-thumbnail',
+        '/timestamp-converter',
+
 
         // Legal / Info
         '/about',
         '/contact',
         '/privacy-policy',
         '/terms-of-use',
+
 
         // Blog Posts
         '/blog/promptforge-launch',
