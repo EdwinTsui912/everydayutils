@@ -56,6 +56,7 @@ export default defineConfig({
         '/blog/who-is-json',
         '/blog/wifi-qr-code-guide',
         '/blog/15-tools-18-posts-milestone',
+        '/blog/unix-timestamp-converter-guide',
       ],
       changefreq: 'weekly',
       priority: 0.8,

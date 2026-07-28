@@ -48,6 +48,7 @@ import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
 import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
 import MilestoneBlogPost from './pages/MilestoneBlogPost';
 import TimestampConverterPage from './pages/TimestampConverterPage';
+import UnixTimestampConverterGuide from './pages/UnixTimestampConverterGuide';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -164,6 +165,7 @@ export default function App() {
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
+          <Route path="/blog/unix-timestamp-converter-guide" element={<UnixTimestampConverterGuide />} />
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />

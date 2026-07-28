@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Clock, Copy, Check, RotateCcw, AlertTriangle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import SEO from '../components/SEO';
 
+
 type TimestampUnit = 'seconds' | 'milliseconds';
+
 
 const TIMEZONES = [
   'UTC',
@@ -17,16 +20,47 @@ const TIMEZONES = [
   'Australia/Sydney',
 ];
 
+
+const FAQ_ITEMS = [
+  {
+    q: "What's the difference between Unix timestamp seconds and milliseconds?",
+    a: "Seconds count elapsed time since the epoch in whole seconds; milliseconds multiply that by 1,000 for finer precision. Most Unix/Linux systems and databases use seconds, while JavaScript's Date.now() defaults to milliseconds — mixing the two up is the most common timestamp bug.",
+  },
+  {
+    q: 'Can you convert dates before 1970 with a Unix timestamp?',
+    a: 'Yes — negative Unix timestamps represent dates before the January 1, 1970 epoch, and this converter fully supports them in both directions.',
+  },
+  {
+    q: 'Why does my date show an unusual timezone offset for very old dates?',
+    a: 'Dates before global time zone standardization (pre-1900s) use historical Local Mean Time rather than a modern fixed offset. This is accurate browser behavior, not a bug.',
+  },
+  {
+    q: 'Why was my date rejected as invalid?',
+    a: 'The tool checks for real calendar dates, so inputs like February 30 or February 29 in a non-leap year are rejected with a clear error. This prevents silent miscalculations that could shift your result by a day or more without warning.',
+  },
+  {
+    q: 'Does this tool store or send my data anywhere?',
+    a: 'No. All conversion happens locally in your browser using JavaScript, and no timestamps or dates are ever transmitted to a server, logged, or stored.',
+  },
+  {
+    q: "What does 'unusually far from today' mean when I see that warning?",
+    a: "This warning appears when your converted date falls hundreds or thousands of years in the past or future, which usually means seconds and milliseconds were mixed up. It's a safety check, not an error.",
+  },
+];
+
+
 function detectUnit(value: string): TimestampUnit {
   const digits = value.replace(/[^0-9]/g, '').length;
   return digits >= 13 ? 'milliseconds' : 'seconds';
 }
+
 
 function getRelativeTime(date: Date): string {
   const diffMs = date.getTime() - Date.now();
   const diffSec = Math.round(diffMs / 1000);
   const absSec = Math.abs(diffSec);
   const isPast = diffSec < 0;
+
 
   const YEAR_SEC = 365.25 * 24 * 60 * 60;
   const MONTH_SEC = YEAR_SEC / 12;
@@ -35,10 +69,13 @@ function getRelativeTime(date: Date): string {
   const HOUR_SEC = 60 * 60;
   const MINUTE_SEC = 60;
 
+
   const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+
 
   let value: number;
   let unit: Intl.RelativeTimeFormatUnit;
+
 
   if (absSec >= YEAR_SEC * 0.96) {
     value = Math.round(absSec / YEAR_SEC);
@@ -63,8 +100,10 @@ function getRelativeTime(date: Date): string {
     unit = 'second';
   }
 
+
   return rtf.format(isPast ? -value : value, unit);
 }
+
 
 function formatInTimezone(date: Date, timezone: string): string {
   try {
@@ -84,9 +123,11 @@ function formatInTimezone(date: Date, timezone: string): string {
   }
 }
 
+
 function parseStrictDate(input: string): Date | null {
   const parsed = new Date(input);
   if (isNaN(parsed.getTime())) return null;
+
 
   // Guard against silent rollover (e.g. "Feb 30" -> "Mar 1")
   const numericMatch = input.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
@@ -101,6 +142,7 @@ function parseStrictDate(input: string): Date | null {
     }
   }
 
+
   const namedMonthMatch = input.match(/([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})/);
   if (namedMonthMatch) {
     const [, , d, y] = namedMonthMatch;
@@ -109,11 +151,14 @@ function parseStrictDate(input: string): Date | null {
     }
   }
 
+
   return parsed;
 }
 
+
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
+
 
   const handleCopy = useCallback(async () => {
     try {
@@ -124,6 +169,7 @@ function CopyButton({ text }: { text: string }) {
       setCopied(false);
     }
   }, [text]);
+
 
   return (
     <button
@@ -137,6 +183,7 @@ function CopyButton({ text }: { text: string }) {
   );
 }
 
+
 function OutputRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-3 py-2 border-b border-gray-100 dark:border-gray-800 last:border-0">
@@ -148,6 +195,7 @@ function OutputRow({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
+
 
 export default function TimestampConverterPage() {
   const [timestampInput, setTimestampInput] = useState('');
@@ -161,8 +209,10 @@ export default function TimestampConverterPage() {
   const [dateError, setDateError] = useState('');
   const [rangeWarning, setRangeWarning] = useState('');
 
+
   const [convertedFromTimestamp, setConvertedFromTimestamp] = useState<Date | null>(null);
   const [convertedFromDate, setConvertedFromDate] = useState<{ seconds: string; milliseconds: string } | null>(null);
+
 
   useEffect(() => {
     if (!timestampInput.trim()) {
@@ -172,6 +222,7 @@ export default function TimestampConverterPage() {
       return;
     }
 
+
     const cleaned = timestampInput.trim().replace(/,/g, '');
     if (!/^-?\d+$/.test(cleaned)) {
       setTimestampError('Timestamp must be a whole number');
@@ -180,12 +231,15 @@ export default function TimestampConverterPage() {
       return;
     }
 
+
     const effectiveUnit = autoUnit ? detectUnit(cleaned) : unit;
     if (autoUnit) setUnit(effectiveUnit);
+
 
     const num = parseInt(cleaned, 10);
     const ms = effectiveUnit === 'seconds' ? num * 1000 : num;
     const date = new Date(ms);
+
 
     if (isNaN(date.getTime()) || date.getFullYear() > 9999 || date.getFullYear() < -270000) {
       setTimestampError('Timestamp is out of valid range');
@@ -194,8 +248,10 @@ export default function TimestampConverterPage() {
       return;
     }
 
+
     setTimestampError('');
     setConvertedFromTimestamp(date);
+
 
     if (date.getFullYear() < 1900 || date.getFullYear() > 2200) {
       setRangeWarning('This date is unusually far from today — double check you selected the right unit (seconds vs milliseconds).');
@@ -203,6 +259,7 @@ export default function TimestampConverterPage() {
       setRangeWarning('');
     }
   }, [timestampInput, autoUnit, unit]);
+
 
   useEffect(() => {
     const source = pickerInput || dateInput;
@@ -212,12 +269,14 @@ export default function TimestampConverterPage() {
       return;
     }
 
+
     const parsed = parseStrictDate(source);
     if (!parsed) {
       setDateError('Enter a valid date (e.g. 2026-07-27 10:08 or July 27, 2026)');
       setConvertedFromDate(null);
       return;
     }
+
 
     setDateError('');
     setConvertedFromDate({
@@ -226,11 +285,13 @@ export default function TimestampConverterPage() {
     });
   }, [dateInput, pickerInput]);
 
+
   const handleNow = () => {
     const now = new Date();
     setTimestampInput(Math.floor(now.getTime() / 1000).toString());
     setAutoUnit(true);
   };
+
 
   const handleReset = () => {
     setTimestampInput('');
@@ -241,6 +302,7 @@ export default function TimestampConverterPage() {
     setRangeWarning('');
   };
 
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
       <SEO
@@ -249,6 +311,25 @@ export default function TimestampConverterPage() {
         keywords="unix timestamp converter, epoch converter, timestamp to date, convert unix time, epoch time converter"
         url="https://everydayutils.com/timestamp-converter"
       />
+
+
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: FAQ_ITEMS.map((item) => ({
+              '@type': 'Question',
+              name: item.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.a,
+              },
+            })),
+          })}
+        </script>
+      </Helmet>
+
 
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
@@ -262,6 +343,7 @@ export default function TimestampConverterPage() {
           Convert Unix timestamps to human-readable dates and back — instantly, privately, no sign-up.
         </p>
       </div>
+
 
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <button onClick={handleNow} className="btn-primary inline-flex items-center gap-2" type="button">
@@ -277,6 +359,7 @@ export default function TimestampConverterPage() {
           Reset
         </button>
 
+
         <div className="flex items-center gap-2 ml-auto">
           <label className="text-xs text-gray-400 dark:text-gray-500">Timezone</label>
           <select
@@ -290,6 +373,7 @@ export default function TimestampConverterPage() {
           </select>
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="card p-5">
@@ -316,6 +400,7 @@ export default function TimestampConverterPage() {
             </label>
           </div>
 
+
           {!autoUnit && (
             <div className="flex gap-2 mb-3">
               <button
@@ -339,11 +424,13 @@ export default function TimestampConverterPage() {
             </div>
           )}
 
+
           {timestampError && (
             <p id="timestamp-error" role="alert" className="text-xs text-red-500 mb-3">
               {timestampError}
             </p>
           )}
+
 
           {rangeWarning && !timestampError && (
             <p className="flex items-start gap-1.5 text-xs text-amber-500 mb-3">
@@ -351,6 +438,7 @@ export default function TimestampConverterPage() {
               {rangeWarning}
             </p>
           )}
+
 
           {convertedFromTimestamp && !timestampError && (
             <div className="mt-2">
@@ -362,10 +450,12 @@ export default function TimestampConverterPage() {
           )}
         </div>
 
+
         <div className="card p-5">
           <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">
             Date → Timestamp
           </h2>
+
 
           <label className="block text-xs text-gray-400 dark:text-gray-500 mb-1">
             Pick a date and time
@@ -384,6 +474,7 @@ export default function TimestampConverterPage() {
             Interpreted in your local timezone.
           </p>
 
+
           <button
             type="button"
             onClick={() => setShowAdvanced((v) => !v)}
@@ -391,6 +482,7 @@ export default function TimestampConverterPage() {
           >
             {showAdvanced ? 'Hide advanced text input' : 'Or type a date manually'}
           </button>
+
 
           {showAdvanced && (
             <>
@@ -412,11 +504,13 @@ export default function TimestampConverterPage() {
             </>
           )}
 
+
           {dateError && (
             <p id="date-error" role="alert" className="text-xs text-red-500 mb-3">
               {dateError}
             </p>
           )}
+
 
           {convertedFromDate && !dateError && (
             <div className="mt-2">
@@ -427,6 +521,7 @@ export default function TimestampConverterPage() {
         </div>
       </div>
 
+
       <div className="mt-12 prose prose-zinc dark:prose-invert max-w-none">
         <h2 className="font-semibold mt-8 mb-2">What Is a Unix Timestamp?</h2>
         <p>
@@ -434,6 +529,7 @@ export default function TimestampConverterPage() {
           elapsed since January 1, 1970, 00:00:00 UTC. It's the standard way computers track
           time internally, since it's a single number rather than a formatted date string.
         </p>
+
 
         <h2 className="font-semibold mt-8 mb-2">Seconds vs Milliseconds</h2>
         <p>
@@ -443,6 +539,7 @@ export default function TimestampConverterPage() {
           you can manually override it if your data is ambiguous.
         </p>
 
+
         <h2 className="font-semibold mt-8 mb-2">Common Timestamp Debugging Scenarios</h2>
         <p>
           Developers most often reach for a timestamp converter when reading server logs,
@@ -451,6 +548,23 @@ export default function TimestampConverterPage() {
           entirely in your browser, none of that data — including production timestamps — is
           ever sent to a server.
         </p>
+
+
+        <h2 className="font-semibold mt-8 mb-2">Frequently Asked Questions</h2>
+      </div>
+
+
+      <div className="not-prose space-y-4 mt-4">
+        {FAQ_ITEMS.map((item) => (
+          <div key={item.q} className="card p-4">
+            <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-1.5">
+              {item.q}
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              {item.a}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

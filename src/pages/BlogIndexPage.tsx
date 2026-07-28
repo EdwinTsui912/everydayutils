@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/unix-timestamp-converter-guide',
+    title: 'Convert Unix Timestamp to Date Online (Free, No Sign-Up)',
+    excerpt:
+      'A practical guide to converting Unix timestamps to human-readable dates and back — covering seconds vs milliseconds, timezones, ISO 8601, RFC 2822, and common debugging scenarios.',
+    date: 'July 28, 2026',
+    readTime: '6 min read',
+    icon: Clock,
+    tag: 'Developer Tools',
+  },
+  {
     slug: '/blog/15-tools-18-posts-milestone',
     title: '18 Blog Posts, 15 Tools, and Everything I Learned Building EverydayUtils',
     excerpt:
