@@ -18,6 +18,7 @@ const TOOL_GROUPS = [
       { label: 'Base64', path: '/base64', icon: Code2 },
       { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
       { label: 'Timestamp Converter', path: '/timestamp-converter', icon: Clock },
+      { label: 'UUID Generator', path: '/uuid-generator', icon: Code2 },
     ],
   },
   {

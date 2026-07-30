@@ -49,6 +49,10 @@ import WhoIsJsonBlogPost from './pages/WhoIsJsonBlogPost';
 import MilestoneBlogPost from './pages/MilestoneBlogPost';
 import TimestampConverterPage from './pages/TimestampConverterPage';
 import UnixTimestampConverterGuide from './pages/UnixTimestampConverterGuide';
+import ImageCompressorPage from './pages/ImageCompressorPage';
+import UUIDGeneratorPage from './pages/UUIDGeneratorPage';
+import UuidGeneratorBlogPost from './pages/UuidGeneratorBlogPost';
+
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -166,6 +170,8 @@ export default function App() {
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
           <Route path="/blog/unix-timestamp-converter-guide" element={<UnixTimestampConverterGuide />} />
+          <Route path="/uuid-generator" element={<UUIDGeneratorPage />} />"
+          <Route path="/blog/uuid-generator" element={<UuidGeneratorBlogPost />} />
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />

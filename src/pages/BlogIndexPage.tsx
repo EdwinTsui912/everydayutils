@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2 } from 'lucide-react';
 
 const posts = [
+  {
+    slug: '/blog/uuid-generator',
+    title: 'Fast UUID Generator for API Testing, Database Seeding, and Local Dev',
+    excerpt:
+      'Generate UUID v4 and v7 in bulk for API testing, database seeding, and local dev. Export in plain text, CSV, JSON, and SQL-ready format — 100% browser-based and privacy-first.',
+    date: 'July 30, 2026',
+    readTime: '8 min read',
+    icon: Code2,
+    tag: 'Developer Tools',
+  },
   {
     slug: '/blog/unix-timestamp-converter-guide',
     title: 'Convert Unix Timestamp to Date Online (Free, No Sign-Up)',

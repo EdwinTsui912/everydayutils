@@ -40,6 +40,14 @@ const TOOL_GROUPS = [
         bg: 'bg-sky-50 dark:bg-sky-950/40',
         iconColor: 'text-sky-600 dark:text-sky-400',
       },
+      {
+        path: '/uuid-generator',
+        icon: Code2,
+        label: 'UUID Generator',
+        description: 'Generate UUID v4 and v7 in bulk and export in plain text, CSV, JSON, or SQL-ready format — 100% browser-based.',
+        bg: 'bg-emerald-50 dark:bg-emerald-950/40',
+        iconColor: 'text-emerald-600 dark:text-emerald-400',
+      },
     ],
   },
   {
@@ -178,7 +186,7 @@ export default function HomePage() {
 
       <SEO 
         title="EverydayUtils - Free Privacy-First Online Tools"
-        description="Fast, private, client-side web utilities: Password Generator, Username Generator, QR Code, Color Palette, Text Tools, JSON Formatter and more. No tracking, no sign-up."
+        description="Fast, private, client-side web utilities: UUID Generator,Password Generator, Username Generator, QR Code, Color Palette, Text Tools, JSON Formatter and more. No tracking, no sign-up."
         keywords="free online tools, password generator, username generator, qr code, color palette, json formatter, text tools, privacy first tools"
         url="https://everydayutils.com"
       />

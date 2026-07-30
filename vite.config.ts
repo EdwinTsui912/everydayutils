@@ -27,6 +27,7 @@ export default defineConfig({
         '/promptforge',
         '/youtube-thumbnail',
         '/timestamp-converter',
+        '/uuid-generator',
 
 
         // Legal / Info
@@ -57,6 +58,7 @@ export default defineConfig({
         '/blog/wifi-qr-code-guide',
         '/blog/15-tools-18-posts-milestone',
         '/blog/unix-timestamp-converter-guide',
+        '/blog/uuid-generator',
       ],
       changefreq: 'weekly',
       priority: 0.8,
