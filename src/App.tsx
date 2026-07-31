@@ -54,6 +54,7 @@ import UUIDGeneratorPage from './pages/UUIDGeneratorPage';
 import UuidGeneratorBlogPost from './pages/UuidGeneratorBlogPost';
 import CssEffectsGeneratorPage from './pages/CssEffectsGeneratorPage';
 import CssEffectsGeneratorBlogPost from './pages/CssEffectsGeneratorBlogPost';
+import BreathingTimerPage from './pages/BreathingTimerPage';
 
 
 // NEW IMPORT
@@ -176,6 +177,7 @@ export default function App() {
           <Route path="/blog/uuid-generator" element={<UuidGeneratorBlogPost />} />
           <Route path="/css-effects" element={<CssEffectsGeneratorPage />} />
           <Route path="/blog/css-effects-generator" element={<CssEffectsGeneratorBlogPost />} />
+          <Route path="/breathing-timer" element={<BreathingTimerPage />} />
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />

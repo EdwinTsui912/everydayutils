@@ -29,6 +29,7 @@ export default defineConfig({
         '/timestamp-converter',
         '/uuid-generator',
         '/css-effects',
+        'breathing-timer',
 
 
         // Legal / Info

@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Home, Type, KeyRound, Palette, Percent, QrCode,
-  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon, ArrowRightLeft, Clock, Wand2, Sliders
+  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon, ArrowRightLeft, Clock, Wand2, Sliders, Wind
 } from 'lucide-react';
 
 
@@ -52,6 +52,7 @@ const TOOL_GROUPS = [
     items: [
       { label: 'Percentage Calc', path: '/percentage-calculator', icon: Percent, badge: 'Suite' },
       { label: 'Pomodoro Timer', path: '/pomodoro', icon: Timer },
+      { label: 'Breathing Timer', path: '/breathing-timer', icon:  Wind},
     ],
   },
 ];

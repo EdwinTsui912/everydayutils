@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2, Clock, Sliders } from 'lucide-react';
+import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2, Clock, Sliders, Wind } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Helmet } from 'react-helmet-async';
 
@@ -171,6 +171,14 @@ const TOOL_GROUPS = [
         description: 'Boost focus with timed work and break sessions.',
         bg: 'bg-red-50 dark:bg-red-950/40',
         iconColor: 'text-red-500 dark:text-red-400',
+      },
+      {
+        path: '/breathing-timer',
+        icon: Wind, 
+        label: 'Breathing Timer',
+        description: 'Guided 4-7-8, box, coherent, and focus breathing patterns to reset your mind between tasks.',
+        bg: 'bg-slate-50 dark:bg-slate-950/40',
+        iconColor: 'text-slate-600 dark:text-slate-400',
       },
     ],
   },
