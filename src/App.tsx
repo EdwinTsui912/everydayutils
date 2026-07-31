@@ -52,6 +52,7 @@ import UnixTimestampConverterGuide from './pages/UnixTimestampConverterGuide';
 import ImageCompressorPage from './pages/ImageCompressorPage';
 import UUIDGeneratorPage from './pages/UUIDGeneratorPage';
 import UuidGeneratorBlogPost from './pages/UuidGeneratorBlogPost';
+import CssEffectsGeneratorPage from './pages/CssEffectsGeneratorPage';
 
 
 // NEW IMPORT
@@ -172,6 +173,7 @@ export default function App() {
           <Route path="/blog/unix-timestamp-converter-guide" element={<UnixTimestampConverterGuide />} />
           <Route path="/uuid-generator" element={<UUIDGeneratorPage />} />"
           <Route path="/blog/uuid-generator" element={<UuidGeneratorBlogPost />} />
+          <Route path="/css-effects" element={<CssEffectsGeneratorPage />} />
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />

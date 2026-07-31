@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2, Clock } from 'lucide-react';
+import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2, Clock, Sliders } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Helmet } from 'react-helmet-async';
 
@@ -126,6 +126,14 @@ const TOOL_GROUPS = [
         description: 'Instant harmonious palettes with HEX, RGB, HSL and Tailwind/CSS export.',
         bg: 'bg-rose-50 dark:bg-rose-950/40',
         iconColor: 'text-rose-600 dark:text-rose-400',
+      },
+      {
+        path: '/css-effects',
+        icon: Sliders,
+        label: 'CSS Effects Generator',
+        description: 'Build gradients, glassmorphism cards, and box shadows tuned to your color palette.',
+        bg: 'bg-slate-50 dark:bg-slate-950/40',
+        iconColor: 'text-slate-600 dark:text-slate-400',
       },
       {
         path: '/image-converter',

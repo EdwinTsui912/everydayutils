@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Copy, Check, RotateCcw, Download, Lock, Unlock, AlertCircle, Sliders } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -306,6 +308,8 @@ export default function ColorPaletteGenerator() {
   const [exportCopied, setExportCopied] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const isInitialized = useRef(false);
+  
+  const navigate = useNavigate();
 
   useEffect(() => { trackToolView('palette-generator'); }, []);
 
@@ -353,6 +357,19 @@ export default function ColorPaletteGenerator() {
         locked: prev[i]?.locked ?? false,
       }));
     });
+  }
+
+  function openCssEffects() {
+    if (!swatches.length) {
+      // If no palette yet, just open the effects page with no params
+      navigate('/css-effects');
+      return;
+    }
+
+    // Use current hex values as URL parameters
+    const params = new URLSearchParams();
+    swatches.forEach((s, i) => params.set(`c${i + 1}`, s.hex.toUpperCase()));
+    navigate(`/css-effects?${params.toString()}`);
   }
 
   function handleHarmonyChange(h: HarmonyType) {
@@ -469,6 +486,15 @@ export default function ColorPaletteGenerator() {
             <Download size={13} />
             SVG
           </button>
+
+          <button
+            onClick={openCssEffects}
+            className="btn-secondary text-xs"
+          >
+            <Sliders size={13} />
+            Open CSS Effects Generator
+          </button>
+
           <button
             onClick={generateNew}
             className="btn-primary text-sm"

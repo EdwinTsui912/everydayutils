@@ -28,6 +28,7 @@ export default defineConfig({
         '/youtube-thumbnail',
         '/timestamp-converter',
         '/uuid-generator',
+        '/css-effects',
 
 
         // Legal / Info

@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import {
   Home, Type, KeyRound, Palette, Percent, QrCode,
-  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon, ArrowRightLeft, Clock, Wand2
+  Info, Shield, FileText, X, Zap, Mail, BookOpen, AlignLeft, FileJson, Timer, Code2, ImageIcon, ArrowRightLeft, Clock, Wand2, Sliders
 } from 'lucide-react';
 
 
@@ -42,6 +42,7 @@ const TOOL_GROUPS = [
     label: 'Design & Media',
     items: [
       { label: 'Color Palette', path: '/palette-generator', icon: Palette },
+      { label: 'CSS Effects Generator', path: '/css-effects', icon: Sliders },
       { label: 'Image Converter', path: '/image-converter', icon: ImageIcon },
       { label: 'YouTube Thumbnail', path: '/youtube-thumbnail', icon: ImageIcon },
     ],
