@@ -60,6 +60,8 @@ export default defineConfig({
         '/blog/15-tools-18-posts-milestone',
         '/blog/unix-timestamp-converter-guide',
         '/blog/uuid-generator',
+        'blog/css-effects-generator',
+        
       ],
       changefreq: 'weekly',
       priority: 0.8,

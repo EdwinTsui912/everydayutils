@@ -3,6 +3,17 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/css-effects-generator',
+    title:
+      'I Was Tired of Fighting Gradients and Box Shadows — So I Built a CSS Effects Generator',
+    excerpt:
+      'Build hero gradients, glassmorphism cards, and soft box shadows from your brand palette. A free CSS effects generator that feels like design, not guesswork.',
+    date: 'July 31, 2026',
+    readTime: '8 min read',
+    icon: Sparkles,
+    tag: 'Design Tools',
+  },
+  {
     slug: '/blog/uuid-generator',
     title: 'Fast UUID Generator for API Testing, Database Seeding, and Local Dev',
     excerpt:
