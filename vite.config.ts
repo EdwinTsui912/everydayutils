@@ -29,7 +29,7 @@ export default defineConfig({
         '/timestamp-converter',
         '/uuid-generator',
         '/css-effects',
-        'breathing-timer',
+        '/breathing-timer',
 
 
         // Legal / Info
@@ -61,7 +61,8 @@ export default defineConfig({
         '/blog/15-tools-18-posts-milestone',
         '/blog/unix-timestamp-converter-guide',
         '/blog/uuid-generator',
-        'blog/css-effects-generator',
+        '/blog/css-effects-generator',
+        /blog/breathing-timer-focus-stress-sleep',
         
       ],
       changefreq: 'weekly',
