@@ -56,6 +56,7 @@ import CssEffectsGeneratorPage from './pages/CssEffectsGeneratorPage';
 import CssEffectsGeneratorBlogPost from './pages/CssEffectsGeneratorBlogPost';
 import BreathingTimerPage from './pages/BreathingTimerPage';
 import BreathingTimerBlogPage from './pages/BreathingTimerBlogPage';
+import WriterDiffCheckerPage from './pages/WriterDiffCheckerPage';
 
 
 // NEW IMPORT
@@ -174,12 +175,13 @@ export default function App() {
           <Route path="/username-generator" element={<UsernameGeneratorPage />} />
           <Route path="/blog/best-free-username-generator-2026" element={<BestFreeUsernameGenerator2026 />} />
           <Route path="/blog/unix-timestamp-converter-guide" element={<UnixTimestampConverterGuide />} />
-          <Route path="/uuid-generator" element={<UUIDGeneratorPage />} />"
+          <Route path="/uuid-generator" element={<UUIDGeneratorPage />} />
           <Route path="/blog/uuid-generator" element={<UuidGeneratorBlogPost />} />
           <Route path="/css-effects" element={<CssEffectsGeneratorPage />} />
           <Route path="/blog/css-effects-generator" element={<CssEffectsGeneratorBlogPost />} />
           <Route path="/breathing-timer" element={<BreathingTimerPage />} />
           <Route path="/blog/breathing-timer-focus-stress-sleep" element={<BreathingTimerBlogPage />} />
+          <Route path="/writer-diff-checker" element={<WriterDiffCheckerPage />} />
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />

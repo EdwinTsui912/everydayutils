@@ -62,7 +62,7 @@ export default defineConfig({
         '/blog/unix-timestamp-converter-guide',
         '/blog/uuid-generator',
         '/blog/css-effects-generator',
-        /blog/breathing-timer-focus-stress-sleep',
+        '/blog/breathing-timer-focus-stress-sleep',
         
       ],
       changefreq: 'weekly',
