@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2 } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind } from 'lucide-react';
 
 const posts = [
+  {
+    slug: '/blog/breathing-timer-focus-stress-sleep',
+    title: 'How a Simple Breathing Timer Quietly Fixes Your Focus, Stress, and Sleep',
+    excerpt:
+      'Four science-backed breathing patterns, real workday use cases, and a simple way to stack them with your Pomodoro timer for better focus, less stress, and easier sleep.',
+    date: 'August 1, 2026',
+    readTime: '8 min read',
+    icon: Wind,
+    tag: 'Productivity',
+  },
   {
     slug: '/blog/css-effects-generator',
     title:

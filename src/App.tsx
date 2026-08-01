@@ -55,6 +55,7 @@ import UuidGeneratorBlogPost from './pages/UuidGeneratorBlogPost';
 import CssEffectsGeneratorPage from './pages/CssEffectsGeneratorPage';
 import CssEffectsGeneratorBlogPost from './pages/CssEffectsGeneratorBlogPost';
 import BreathingTimerPage from './pages/BreathingTimerPage';
+import BreathingTimerBlogPage from './pages/BreathingTimerBlogPage';
 
 
 // NEW IMPORT
@@ -178,6 +179,7 @@ export default function App() {
           <Route path="/css-effects" element={<CssEffectsGeneratorPage />} />
           <Route path="/blog/css-effects-generator" element={<CssEffectsGeneratorBlogPost />} />
           <Route path="/breathing-timer" element={<BreathingTimerPage />} />
+          <Route path="/blog/breathing-timer-focus-stress-sleep" element={<BreathingTimerBlogPage />} />
 
           {/* Milestone post — 15 tools, 18 posts recap */}
           <Route path="/blog/15-tools-18-posts-milestone" element={<MilestoneBlogPost />} />
