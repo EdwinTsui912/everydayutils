@@ -57,6 +57,7 @@ import BreathingTimerPage from './pages/BreathingTimerPage';
 import BreathingTimerBlogPage from './pages/BreathingTimerBlogPage';
 import WriterDiffCheckerPage from './pages/WriterDiffCheckerPage';
 import WriterDiffCheckerBlogPost from './pages/WriterDiffCheckerBlogPost';
+import YouTubeThumbnailCheatSheet from './pages/YouTubeThumbnailCheatSheet'
 
 
 // NEW IMPORT
@@ -168,7 +169,7 @@ export default function App() {
           <Route path="/blog/url-encoder" element={<UrlEncoderBlogPost />} />
           <Route path="/blog/free-developer-utilities" element={<DeveloperUtilitiesBlogPost />} />
           <Route path="/blog/promptforge-launch" element={<PromptForgeBlogPost />} />
-          <Route path="/blog/youtube-thumbnail-generator" element={<YoutubeThumbnailBlogPost />} />
+          <Route path="/blog/youtube-thumbnail-generator" element={<YouTubeThumbnailCheatSheet />} />
           <Route path="/youtube-thumbnail" element={<YouTubeThumbnailPage />} />
           <Route path="/blog/favicon-generator" element={<FaviconGeneratorBlogPost />} />
           <Route path="/blog/image-converter" element={<ImageConverterBlogPost />} />
@@ -183,6 +184,8 @@ export default function App() {
           <Route path="/blog/breathing-timer-focus-stress-sleep" element={<BreathingTimerBlogPage />} />
           <Route path="/writer-diff-checker" element={<WriterDiffCheckerPage />} />
           <Route path="/blog/writer-diff-checker" element={<WriterDiffCheckerBlogPost />} />
+
+
 
 
           {/* Milestone post — 15 tools, 18 posts recap */}

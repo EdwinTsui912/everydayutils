@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/youtube-thumbnail-generator',
+    title: 'Stop Fighting Canva. Make Better YouTube Thumbnails in Under a Minute.',
+    excerpt:
+      'Create high‑CTR thumbnails in under 60 seconds with a focused, private tool. Learn a simple 6‑step cheat sheet to make attractive YouTube thumbnails without fighting Canva or Photoshop.',
+    date: 'August 2, 2026',
+    readTime: '6 min read',
+    icon: ImageIcon,
+    tag: 'Creator Tools',
+  },
+  {
     slug: '/blog/writer-diff-checker',
     title: 'The Writer Diff Checker I Actually Needed (Not Another Developer Diff Tool in Disguise)',
     excerpt:
@@ -120,16 +130,6 @@ const posts = [
     readTime: '7 min read',
     icon: QrCode,
     tag: 'QR Codes',
-  },
-  {
-    title: 'Free YouTube Thumbnail Generator – Create Clickable Thumbnails Fast (No Sign-Up, No Watermark)',
-    date: 'July 22, 2026',
-    readTime: '6 min read',
-    category: 'Creator Tools',
-    slug: '/blog/youtube-thumbnail-generator',
-    excerpt: 'Create professional YouTube thumbnails in seconds with a free browser-based thumbnail generator. No sign-up, no watermark, and everything stays on your device.',
-    icon: ImageIcon,
-    tag: 'Creator Tools',
   },
   {
     title: "Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)",
