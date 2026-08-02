@@ -6,6 +6,8 @@ import { Upload, Download, RotateCcw, Image as ImageIcon, Trash2 } from 'lucide-
 import { trackToolView } from '../lib/analytics';
 import JSZip from 'jszip';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
+
 
 
 interface GeneratedIcon {
@@ -342,6 +344,9 @@ export default function FaviconGeneratorPage() {
           <p className="mt-8">All processing happens locally in your browser. Your images never leave your device.</p>
         </div>
       </div>
+
+      
+      <RelatedToolsBlock currentPath="/favicon-generator" />
     </div>
   );
 }

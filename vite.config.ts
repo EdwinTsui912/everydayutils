@@ -30,6 +30,7 @@ export default defineConfig({
         '/uuid-generator',
         '/css-effects',
         '/breathing-timer',
+        '/writer-diff-checker',
 
 
         // Legal / Info
@@ -63,6 +64,7 @@ export default defineConfig({
         '/blog/uuid-generator',
         '/blog/css-effects-generator',
         '/blog/breathing-timer-focus-stress-sleep',
+        '/blog/writer-diff-checker',
         
       ],
       changefreq: 'weekly',

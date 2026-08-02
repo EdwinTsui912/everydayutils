@@ -35,6 +35,7 @@ const TOOL_GROUPS = [
     label: 'Text & Writing',
     items: [
       { label: 'Text Tools', path: '/text-tools', icon: Type, badge: 'Suite' },
+      { label: 'Writer Diff Checker', path: '/writer-diff-checker', icon: FileText },
       { label: 'Lorem Ipsum', path: '/lorem-ipsum-generator', icon: AlignLeft },
     ],
   },

@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, ChangeEvent } from 'react';
 import { Copy, Check, RotateCcw, Download, Upload, Code2, Trash2 } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 export default function Base64Page() {
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
@@ -281,6 +282,12 @@ export default function Base64Page() {
           <p className="mt-8">Whether you're debugging APIs, preparing data for URLs, or working with embedded assets, this Base64 tool gives you fast, secure conversion with complete privacy.</p>
         </div>
       </div>
+
+
+      <RelatedToolsBlock currentPath="/base64" />
     </div>
+
+
+
   );
 }

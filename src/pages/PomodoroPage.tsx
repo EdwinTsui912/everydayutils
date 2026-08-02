@@ -5,6 +5,7 @@ import {
   Volume2, VolumeX, ArrowLeft,
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -865,6 +866,9 @@ export default function PomodoroPage() {
       </div>
 
       <ToastContainer toasts={toasts} dismiss={dismiss} />
+
+      
+      <RelatedToolsBlock currentPath="/pomodoro" />
     </div>
   );
 }

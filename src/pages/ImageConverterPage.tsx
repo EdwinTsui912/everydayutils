@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { Upload, Download, RotateCcw, Image as ImageIcon, X, CheckCircle } from 'lucide-react';
 import { trackToolView, trackButtonClick } from '../lib/analytics';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 
 type OutputFormat = 'image/png' | 'image/jpeg' | 'image/webp';
@@ -278,6 +279,10 @@ export default function ImageConverterPage() {
           <p className="mt-8">All conversions happen locally. Your images stay on your device.</p>
         </div>
       </div>
+
+      
+
+      <RelatedToolsBlock currentPath="/image-converter" />
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import YouTubeThumbnail from '../components/YouTubeThumbnail';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
+
+
+
 
 
 export default function YouTubeThumbnailPage() {
@@ -12,6 +16,9 @@ export default function YouTubeThumbnailPage() {
         url="https://everydayutils.com/youtube-thumbnail"
       />
       <YouTubeThumbnail />
+
+
+      <RelatedToolsBlock currentPath="/youtube-thumbnail" />
     </>
   );
 }

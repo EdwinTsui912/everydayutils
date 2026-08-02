@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import PasswordGenerator from '../components/PasswordGenerator';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 
 export default function PasswordGeneratorPage() {
@@ -22,6 +23,8 @@ export default function PasswordGeneratorPage() {
         </div>
       </div>
       <PasswordGenerator />
+
+      <RelatedToolsBlock currentPath="/password-generator" />
     </>
   );
 }

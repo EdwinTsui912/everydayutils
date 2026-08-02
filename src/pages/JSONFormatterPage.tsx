@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import JSONFormatter from '../components/JSONFormatter';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 
 export default function JSONFormatterPage() {
@@ -22,6 +23,9 @@ export default function JSONFormatterPage() {
         </div>
       </div>
       <JSONFormatter />
+
+
+      <RelatedToolsBlock currentPath="/json-formatter" />
     </>
   );
 }

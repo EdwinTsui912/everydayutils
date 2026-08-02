@@ -107,6 +107,14 @@ const TOOL_GROUPS = [
         iconColor: 'text-blue-600 dark:text-blue-400',
       },
       {
+        path: '/writer-diff-checker',
+        icon: FileJson, // or FileText if you prefer; update icon import accordingly
+        label: 'Writer Diff Checker',
+        description: 'Compare draft vs edited copy, see inline changes, and track similarity — all in your browser.',
+        bg: 'bg-teal-50 dark:bg-teal-950/40',
+        iconColor: 'text-teal-600 dark:text-teal-400',
+      },
+      {
         path: '/lorem-ipsum-generator',
         icon: AlignLeft,
         label: 'Lorem Ipsum Generator',

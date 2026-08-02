@@ -7,6 +7,12 @@ import { usePromptEngine } from '../../hooks/usePromptEngine';
 import { PROMPT_FRAMEWORKS } from '../../data/frameworks';
 import { MODEL_AFFINITIES } from '../../data/modelAffinities';
 import FormField from './FormField';
+import RelatedToolsBlock from '../seo/RelatedToolsBlock';
+
+
+
+
+
 
 export default function PromptForge() {
   const engine = usePromptEngine();
@@ -233,6 +239,8 @@ export default function PromptForge() {
           </div>
         </div>
       </div>
+
+      <RelatedToolsBlock currentPath="/promptforge" />
     </div>
   );
 }

@@ -11,6 +11,7 @@ import {
   Maximize2,
   Minimize2,
 } from 'lucide-react';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 type BreathingPhase = 'inhale' | 'hold' | 'exhale' | 'secondHold';
 type BreathingModeId = '478' | 'box' | 'coherent' | 'focus46';
@@ -1017,6 +1018,9 @@ export default function BreathingTimerPage() {
           4–6 Focus). Breathing should feel calming, not like a performance test.
         </p>
       </section>
+
+      
+      <RelatedToolsBlock currentPath="/breathing-timer" />
     </div>
   );
 }

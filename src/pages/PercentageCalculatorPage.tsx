@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import PercentageCalculator from '../components/PercentageCalculator';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 
 export default function PercentageCalculatorPage() {
@@ -22,6 +23,8 @@ export default function PercentageCalculatorPage() {
         </div>
       </div>
       <PercentageCalculator />
+
+      <RelatedToolsBlock currentPath="/percentage-calculator" />
     </>
   );
 }

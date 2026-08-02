@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { Copy, Check, RotateCcw, ArrowLeft, ArrowRightLeft } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
+
+
+
 
 type Mode = 'encode' | 'decode';
 
@@ -222,6 +226,9 @@ function URLEncoderPage() {
           <p className="mt-8">Whether you're a developer debugging APIs or cleaning up links, our tool makes URL encoding simple and secure.</p>
         </div>
       </div>
+
+
+      <RelatedToolsBlock currentPath="/url-encoder" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Copy, Check, Heart, ArrowRightLeft, RefreshCw, X, Trash2 } from 'lucide-react';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 const WORD_POOLS = {
   gaming: { adjectives: ['Epic','Blaze','Shadow','Neon','Frost','Thunder','Void','Chaos','Storm','Night','Rogue','Cyber','Phantom','Titan'], prefixes: ['Shadow','Neo','Dark','Fire','Ghost','Dragon','Blade','Vortex','Rogue','Knight','Steel','Iron'], suffixes: ['Rider','Hunter','Forge','Vortex','Wolf','Slayer','Master','Breaker','Warrior','Ghost','King','Lord'] },
@@ -254,6 +255,8 @@ export default function UsernameGeneratorPage() {
       <p className="text-center text-sm text-gray-500 dark:text-gray-400">
         All usernames are generated locally in your browser. Nothing is saved or sent anywhere.
       </p>
+
+      <RelatedToolsBlock currentPath="/username-generator" />
     </div>
     </>
   );

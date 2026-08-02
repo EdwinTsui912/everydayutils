@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/writer-diff-checker',
+    title: 'The Writer Diff Checker I Actually Needed (Not Another Developer Diff Tool in Disguise)',
+    excerpt:
+      'A word-level, privacy-first diff tool built for writers and editors — see exactly what changed between drafts, filter out noise, and review AI-assisted copy safely.',
+    date: 'August 2, 2026',
+    readTime: '8 min read',
+    icon: FileText,
+    tag: 'Text Tools',
+  },
+  {
     slug: '/blog/breathing-timer-focus-stress-sleep',
     title: 'How a Simple Breathing Timer Quietly Fixes Your Focus, Stress, and Sleep',
     excerpt:

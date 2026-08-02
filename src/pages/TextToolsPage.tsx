@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import TextToolsSuite from '../components/TextToolsSuite';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
+
 
 
 export default function TextToolsPage() {
@@ -22,6 +24,9 @@ export default function TextToolsPage() {
         </div>
       </div>
       <TextToolsSuite />
+
+      
+      <RelatedToolsBlock currentPath="/text-tools" />
     </>
   );
 }

@@ -12,6 +12,9 @@ import {
   Settings,
 } from 'lucide-react';
 import { trackToolView, trackButtonClick, trackCopySuccess } from '../lib/analytics';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
+
+
 
 function hexToRgb(hex: string) {
   const clean = hex.replace('#', '');
@@ -509,6 +512,8 @@ background-color: ${neutral};`;
           </p>
         </div>
       </section>
+
+      <RelatedToolsBlock currentPath="/css-effects" />
     </div>
   );
 }

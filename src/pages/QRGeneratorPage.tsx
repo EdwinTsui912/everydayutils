@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import QRCodeGenerator from './QRCodeGenerator';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 
 export default function QRGeneratorPage() {
@@ -22,6 +23,8 @@ export default function QRGeneratorPage() {
         </div>
       </div>
       <QRCodeGenerator />
+
+      <RelatedToolsBlock currentPath="/qr-generator" />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import LoremIpsumGenerator from '../components/LoremIpsumGenerator';
 import SEO from '../components/SEO';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 
 export default function LoremIpsumGeneratorPage() {
@@ -12,6 +13,8 @@ export default function LoremIpsumGeneratorPage() {
         url="https://everydayutils.com/lorem-ipsum-generator"
       />
       <LoremIpsumGenerator />
+
+      <RelatedToolsBlock currentPath="/lorem-ipsum-generator" />
     </>
   );
 }

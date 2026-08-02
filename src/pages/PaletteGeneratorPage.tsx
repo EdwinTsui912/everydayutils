@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import ColorPaletteGenerator from '../components/ColorPaletteGenerator';
 import SEO from '../components/SEO';
-
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
 
 export default function PaletteGeneratorPage() {
   return (
@@ -22,6 +22,8 @@ export default function PaletteGeneratorPage() {
         </div>
       </div>
       <ColorPaletteGenerator />
+
+      <RelatedToolsBlock currentPath="/color-palette-generator" />
     </>
   );
 }

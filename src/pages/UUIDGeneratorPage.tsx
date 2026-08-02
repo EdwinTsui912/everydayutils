@@ -4,6 +4,11 @@ import { Helmet } from 'react-helmet-async';
 import { v7 as uuidv7 } from 'uuid';
 import SEO from '../components/SEO';
 import { trackToolView, trackButtonClick } from '../lib/analytics';
+import RelatedToolsBlock from '../components/seo/RelatedToolsBlock';
+
+
+
+
 
 type UuidVersion = 'v4' | 'v7';
 type OutputFormat = 'plain' | 'csv' | 'json' | 'sql';
@@ -446,6 +451,10 @@ export default function UUIDGeneratorPage() {
           </div>
         </div>
       </div>
+
+
+      <RelatedToolsBlock currentPath="/uuid-generator" />
+
     </div>
   );
 }
