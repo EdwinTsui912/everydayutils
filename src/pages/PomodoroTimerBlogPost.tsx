@@ -54,9 +54,9 @@ export default function PomodoroTimerBlogPost() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
       <SEO
-        title="Free Pomodoro Timer Online — Private & Works Offline | EverydayUtils"
-        description="A simple, distraction-free Pomodoro timer with Classic and Extended presets, custom durations, and full privacy. No sign-up, works offline once loaded."
-        keywords="pomodoro timer online, free pomodoro timer, focus timer app, pomodoro technique timer, productivity timer"
+        title="Pomodoro Online Timer — How I Use It to Fix My Focus | EverydayUtils"
+        description="Looking for a reliable pomodoro online timer? This guide explains the Pomodoro Technique, shows real focus workflows, and links to a free browser-based timer with Classic 25/5 and Extended 50/10/30 presets, offline mode, and no sign-up."
+        keywords="pomodoro online, pomodoro online timer, free pomodoro timer, focus timer app, pomodoro technique timer, productivity timer"
         url="https://everydayutils.com/blog/pomodoro-timer-focus-technique"
       />
 

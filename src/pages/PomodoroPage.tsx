@@ -29,16 +29,16 @@ interface Preset {
 const STORAGE_KEY = 'everydayutils-pomodoro-v1';
 
 const PRESETS: Preset[] = [
-  { label: 'Classic',  config: { workMin: 25, shortMin: 5,  longMin: 20 } },
+  { label: 'Classic', config: { workMin: 25, shortMin: 5, longMin: 20 } },
   { label: 'Extended', config: { workMin: 50, shortMin: 10, longMin: 30 } },
 ];
 
 const DEFAULT_CONFIG: Config = { ...PRESETS[0].config, autoStart: false, muteSound: false };
 
 const SESSION_META: Record<SessionType, { label: string; color: string; ring: string; bg: string }> = {
-  work:  { label: 'Work',        color: '#e05252', ring: '#e05252', bg: 'bg-red-500/10'     },
+  work: { label: 'Work', color: '#e05252', ring: '#e05252', bg: 'bg-red-500/10' },
   short: { label: 'Short Break', color: '#4caf82', ring: '#4caf82', bg: 'bg-emerald-500/10' },
-  long:  { label: 'Long Break',  color: '#5591c7', ring: '#5591c7', bg: 'bg-blue-500/10'    },
+  long: { label: 'Long Break', color: '#5591c7', ring: '#5591c7', bg: 'bg-blue-500/10' },
 };
 
 const CYCLE: SessionType[] = ['work', 'short', 'work', 'short', 'work', 'short', 'work', 'long'];
@@ -69,7 +69,7 @@ function fmt(sec: number): string {
 }
 
 function durationFor(type: SessionType, cfg: Config): number {
-  if (type === 'work')  return cfg.workMin  * 60;
+  if (type === 'work') return cfg.workMin * 60;
   if (type === 'short') return cfg.shortMin * 60;
   return cfg.longMin * 60;
 }
@@ -77,7 +77,7 @@ function durationFor(type: SessionType, cfg: Config): number {
 function matchesPreset(cfg: Config, preset: Preset): boolean {
   return cfg.workMin === preset.config.workMin
     && cfg.shortMin === preset.config.shortMin
-    && cfg.longMin  === preset.config.longMin;
+    && cfg.longMin === preset.config.longMin;
 }
 
 // ─── Audio ───────────────────────────────────────────────────────────────────
@@ -87,12 +87,12 @@ function playChime(muted: boolean) {
   try {
     const ctx = new AudioContext();
     const notes = [
-      { freq: 440,    t: 0    },
+      { freq: 440, t: 0 },
       { freq: 554.37, t: 0.25 },
       { freq: 659.25, t: 0.50 },
     ];
     notes.forEach(({ freq, t }) => {
-      const osc  = ctx.createOscillator();
+      const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.connect(gain);
       gain.connect(ctx.destination);
@@ -217,11 +217,10 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
               <button
                 key={p.label}
                 onClick={() => applyPreset(p)}
-                className={`flex-1 py-2 text-sm font-medium rounded-xl border transition-all duration-150 ${
-                  matchesPreset(draft, p)
+                className={`flex-1 py-2 text-sm font-medium rounded-xl border transition-all duration-150 ${matchesPreset(draft, p)
                     ? 'bg-brand-600 dark:bg-brand-500 text-white border-transparent'
                     : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
-                }`}
+                  }`}
               >
                 {p.label}
                 <span className="block text-xs opacity-70 mt-0.5">
@@ -237,9 +236,9 @@ function SettingsPanel({ config, onSave, onClose, isMobile }: SettingsPanelProps
           <p className="label mb-3">Durations (minutes)</p>
           <div className="space-y-3">
             {([
-              { key: 'workMin'  as const, label: 'Work',        color: SESSION_META.work.color  },
+              { key: 'workMin' as const, label: 'Work', color: SESSION_META.work.color },
               { key: 'shortMin' as const, label: 'Short Break', color: SESSION_META.short.color },
-              { key: 'longMin'  as const, label: 'Long Break',  color: SESSION_META.long.color  },
+              { key: 'longMin' as const, label: 'Long Break', color: SESSION_META.long.color },
             ]).map(({ key, label, color }) => (
               <div key={key} className="flex items-center justify-between gap-4 p-3.5 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-2.5">
@@ -358,29 +357,29 @@ export default function PomodoroPage() {
   const [isMobile, setIsMobile] = useState(false);
   const { toasts, show: showToast, dismiss } = useToast();
 
-  const intervalRef      = useRef<ReturnType<typeof setInterval> | null>(null);
-  const autoStartRef     = useRef(config.autoStart);
-  const muteSoundRef     = useRef(config.muteSound);
-  const configRef        = useRef(config);
-  const cycleIdxRef      = useRef(cycleIdx);
-  const secondsRef       = useRef(secondsLeft);
-  const runningRef       = useRef(running);
-  const settingsOpenRef  = useRef(settingsOpen);
-  const wakeLockRef      = useRef<WakeLockSentinel | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const autoStartRef = useRef(config.autoStart);
+  const muteSoundRef = useRef(config.muteSound);
+  const configRef = useRef(config);
+  const cycleIdxRef = useRef(cycleIdx);
+  const secondsRef = useRef(secondsLeft);
+  const runningRef = useRef(running);
+  const settingsOpenRef = useRef(settingsOpen);
+  const wakeLockRef = useRef<WakeLockSentinel | null>(null);
 
   // Keep all refs in sync with state
-  useEffect(() => { autoStartRef.current  = config.autoStart; },  [config.autoStart]);
-  useEffect(() => { muteSoundRef.current  = config.muteSound; },  [config.muteSound]);
-  useEffect(() => { configRef.current     = config; },            [config]);
-  useEffect(() => { cycleIdxRef.current   = cycleIdx; },          [cycleIdx]);
-  useEffect(() => { secondsRef.current    = secondsLeft; },       [secondsLeft]);
-  useEffect(() => { runningRef.current    = running; },           [running]);
-  useEffect(() => { settingsOpenRef.current = settingsOpen; },    [settingsOpen]);
+  useEffect(() => { autoStartRef.current = config.autoStart; }, [config.autoStart]);
+  useEffect(() => { muteSoundRef.current = config.muteSound; }, [config.muteSound]);
+  useEffect(() => { configRef.current = config; }, [config]);
+  useEffect(() => { cycleIdxRef.current = cycleIdx; }, [cycleIdx]);
+  useEffect(() => { secondsRef.current = secondsLeft; }, [secondsLeft]);
+  useEffect(() => { runningRef.current = running; }, [running]);
+  useEffect(() => { settingsOpenRef.current = settingsOpen; }, [settingsOpen]);
 
   const sessionType = CYCLE[cycleIdx];
-  const meta        = SESSION_META[sessionType];
-  const totalSec    = durationFor(sessionType, config);
-  const progress    = totalSec > 0 ? (totalSec - secondsLeft) / totalSec : 0;
+  const meta = SESSION_META[sessionType];
+  const totalSec = durationFor(sessionType, config);
+  const progress = totalSec > 0 ? (totalSec - secondsLeft) / totalSec : 0;
   const strokeDashoffset = RING_CIRCUM * (1 - progress);
 
   // Mobile detection
@@ -397,13 +396,13 @@ export default function PomodoroPage() {
     if (running) {
       navigator.wakeLock.request('screen')
         .then(lock => { wakeLockRef.current = lock; })
-        .catch(() => {});
+        .catch(() => { });
     } else {
-      wakeLockRef.current?.release().catch(() => {});
+      wakeLockRef.current?.release().catch(() => { });
       wakeLockRef.current = null;
     }
     return () => {
-      wakeLockRef.current?.release().catch(() => {});
+      wakeLockRef.current?.release().catch(() => { });
       wakeLockRef.current = null;
     };
   }, [running]);
@@ -414,7 +413,7 @@ export default function PomodoroPage() {
       if (document.visibilityState === 'visible' && runningRef.current && 'wakeLock' in navigator) {
         navigator.wakeLock.request('screen')
           .then(lock => { wakeLockRef.current = lock; })
-          .catch(() => {});
+          .catch(() => { });
       }
     }
     document.addEventListener('visibilitychange', onVisibility);
@@ -432,7 +431,7 @@ export default function PomodoroPage() {
         if (prev > 1) return prev - 1;
 
         playChime(muteSoundRef.current);
-        const nextIdx  = (cycleIdxRef.current + 1) % CYCLE.length;
+        const nextIdx = (cycleIdxRef.current + 1) % CYCLE.length;
         const nextType = CYCLE[nextIdx];
         const nextSecs = durationFor(nextType, configRef.current);
         setCycleIdx(nextIdx);
@@ -491,11 +490,11 @@ export default function PomodoroPage() {
   }, []);
 
   // Stable refs for keyboard handler
-  const handleResetRef  = useRef(handleReset);
-  const handleSkipRef   = useRef(handleSkip);
+  const handleResetRef = useRef(handleReset);
+  const handleSkipRef = useRef(handleSkip);
   const handleToggleRef = useRef(handleToggleRunning);
-  useEffect(() => { handleResetRef.current  = handleReset;        }, [handleReset]);
-  useEffect(() => { handleSkipRef.current   = handleSkip;         }, [handleSkip]);
+  useEffect(() => { handleResetRef.current = handleReset; }, [handleReset]);
+  useEffect(() => { handleSkipRef.current = handleSkip; }, [handleSkip]);
   useEffect(() => { handleToggleRef.current = handleToggleRunning; }, [handleToggleRunning]);
 
   // Global keyboard shortcuts
@@ -556,9 +555,9 @@ export default function PomodoroPage() {
     <div className="max-w-xl mx-auto px-4 sm:px-6 py-10 animate-fade-in">
 
       <SEO
-        title="Free Pomodoro Timer Online — No Sign-Up, Works Offline | EverydayUtils"
-        description="A free, private Pomodoro timer that runs entirely in your browser. Customizable work and break intervals, keyboard shortcuts, and zero tracking. No sign-up needed."
-        keywords="pomodoro timer online, free pomodoro timer, focus timer, productivity timer, pomodoro technique"
+        title="Pomodoro Online Timer — Free, Works Offline, No Sign-Up | EverydayUtils"
+        description="Free pomodoro online timer with Classic 25/5 and Extended 50/10/30 presets. Runs entirely in your browser with keyboard shortcuts, wake-lock support, offline mode, and zero tracking. No sign-up, no accounts."
+        keywords="pomodoro online, pomodoro online timer, free pomodoro timer, focus timer, productivity timer, pomodoro technique"
         url="https://everydayutils.com/pomodoro"
       />
 
@@ -577,7 +576,7 @@ export default function PomodoroPage() {
         </div>
         <h1 className="text-4xl font-bold tracking-tight mb-2">Pomodoro Timer</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed">
-          Stay focused with structured work and break intervals. All sessions run locally — nothing is stored.
+          A free pomodoro online timer with structured work and break intervals. All sessions run locally in your browser — nothing is stored, no account required.
         </p>
       </div>
 
@@ -599,11 +598,10 @@ export default function PomodoroPage() {
             <button
               onClick={() => setSettingsOpen(o => !o)}
               aria-label="Open settings"
-              className={`p-2 rounded-xl border transition-colors duration-150 ${
-                settingsOpen
+              className={`p-2 rounded-xl border transition-colors duration-150 ${settingsOpen
                   ? 'bg-brand-50 dark:bg-brand-950 border-brand-300 dark:border-brand-700 text-brand-600 dark:text-brand-400'
                   : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600'
-              }`}
+                }`}
             >
               <Settings size={16} />
             </button>
@@ -670,15 +668,14 @@ export default function PomodoroPage() {
         {/* Cycle indicator */}
         <div className="flex items-center gap-2" aria-label="Session cycle progress">
           {CYCLE.map((type, i) => {
-            const isDone    = i < cycleIdx;
+            const isDone = i < cycleIdx;
             const isCurrent = i === cycleIdx;
             return (
               <span
                 key={i}
                 style={{ color: isCurrent || isDone ? SESSION_META[type].color : undefined }}
-                className={`text-xl leading-none transition-all duration-200 ${
-                  isCurrent ? 'scale-125' : isDone ? 'opacity-50' : 'text-gray-300 dark:text-gray-700'
-                }`}
+                className={`text-xl leading-none transition-all duration-200 ${isCurrent ? 'scale-125' : isDone ? 'opacity-50' : 'text-gray-300 dark:text-gray-700'
+                  }`}
                 aria-hidden="true"
               >
                 {isCurrent || isDone ? '●' : '○'}
@@ -734,11 +731,10 @@ export default function PomodoroPage() {
               <button
                 key={p.label}
                 onClick={() => handlePresetClick(p)}
-                className={`py-3 text-xs font-medium rounded-xl border transition-all ${
-                  matchesPreset(config, p)
+                className={`py-3 text-xs font-medium rounded-xl border transition-all ${matchesPreset(config, p)
                     ? 'bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 border-transparent'
                     : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-300 dark:hover:border-gray-600'
-                }`}
+                  }`}
               >
                 <span className="block">{p.label}</span>
                 <span className="block text-[10px] opacity-60 mt-0.5">
@@ -755,15 +751,14 @@ export default function PomodoroPage() {
         <p className="label mb-3">Session Cycle</p>
         <div className="space-y-2">
           {CYCLE.map((type, i) => {
-            const m         = SESSION_META[type];
-            const dur       = durationFor(type, config);
+            const m = SESSION_META[type];
+            const dur = durationFor(type, config);
             const isCurrent = i === cycleIdx;
             return (
               <div
                 key={i}
-                className={`flex items-center justify-between px-3 py-2 rounded-lg transition-colors duration-300 ${
-                  isCurrent ? 'bg-gray-100 dark:bg-gray-800' : ''
-                }`}
+                className={`flex items-center justify-between px-3 py-2 rounded-lg transition-colors duration-300 ${isCurrent ? 'bg-gray-100 dark:bg-gray-800' : ''
+                  }`}
               >
                 <div className="flex items-center gap-2.5">
                   <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: m.color }} />
@@ -867,7 +862,7 @@ export default function PomodoroPage() {
 
       <ToastContainer toasts={toasts} dismiss={dismiss} />
 
-      
+
       <RelatedToolsBlock currentPath="/pomodoro" />
     </div>
   );

@@ -1,0 +1,333 @@
+import { Link } from 'react-router-dom';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind, CalendarClock, Paintbrush } from 'lucide-react';
+
+const posts = [
+  {
+    slug: '/blog/favicons-in-the-wild',
+    title: 'Favicons in the Wild: 7 Real Situations Where Your Site’s Icon Quietly Matters',
+    excerpt:
+      'A practical guide to favicons for modern browsers, mobile home screens, and PWAs — with real scenarios, common mistakes, and a faster way to generate favicon.ico, PNG sizes, and an Apple Touch Icon from one image.',
+    date: 'August 3, 2026',
+    readTime: '8 min read',
+    icon: ImageIcon, // import { Image as ImageIcon } from lucide-react; or reuse your existing icon choice
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/color-palettes-in-the-wild',
+    title: 'Color Palettes in the Wild: 8 Real Projects Where Choosing Colors Actually Hurts',
+    excerpt:
+      'A no‑fluff guide to picking Tailwind‑friendly color palettes for dashboards, landing pages, dark mode UIs, and more — with real examples, common traps, and a fast way to generate accessible, consistent colors without guesswork.',
+    date: 'August 3, 2026', // or your actual publish date
+    readTime: '10 min read',
+    icon: Paintbrush, // or Sparkles / Paintbrush if you prefer; import from lucide-react
+    tag: 'Design & Frontend',
+  },
+  {
+    slug: '/blog/timestamps-in-the-wild',
+    title: 'Timestamps in the Wild: 7 Real Situations Where Epoch Time Breaks Your Brain',
+    excerpt:
+      'A no‑fluff guide to decoding Unix timestamps in logs, APIs, databases, and analytics — with real examples, common traps, and a fast way to turn numbers like 1753617627 into dates you can actually use.',
+    date: 'August 2, 2026',
+    readTime: '9 min read',
+    icon: CalendarClock, // or Terminal / Clock if you prefer
+    tag: 'Developer Workflows',
+  },
+  {
+    slug: '/blog/youtube-thumbnail-generator',
+    title: 'Stop Fighting Canva. Make Better YouTube Thumbnails in Under a Minute.',
+    excerpt:
+      'Create high‑CTR thumbnails in under 60 seconds with a focused, private tool. Learn a simple 6‑step cheat sheet to make attractive YouTube thumbnails without fighting Canva or Photoshop.',
+    date: 'August 2, 2026',
+    readTime: '6 min read',
+    icon: ImageIcon,
+    tag: 'Creator Tools',
+  },
+  {
+    slug: '/blog/writer-diff-checker',
+    title: 'The Writer Diff Checker I Actually Needed (Not Another Developer Diff Tool in Disguise)',
+    excerpt:
+      'A word-level, privacy-first diff tool built for writers and editors — see exactly what changed between drafts, filter out noise, and review AI-assisted copy safely.',
+    date: 'August 2, 2026',
+    readTime: '8 min read',
+    icon: FileText,
+    tag: 'Text Tools',
+  },
+  {
+    slug: '/blog/breathing-timer-focus-stress-sleep',
+    title: 'How a Simple Breathing Timer Quietly Fixes Your Focus, Stress, and Sleep',
+    excerpt:
+      'Four science-backed breathing patterns, real workday use cases, and a simple way to stack them with your Pomodoro timer for better focus, less stress, and easier sleep.',
+    date: 'August 1, 2026',
+    readTime: '8 min read',
+    icon: Wind,
+    tag: 'Productivity',
+  },
+  {
+    slug: '/blog/css-effects-generator',
+    title:
+      'I Was Tired of Fighting Gradients and Box Shadows — So I Built a CSS Effects Generator',
+    excerpt:
+      'Build hero gradients, glassmorphism cards, and soft box shadows from your brand palette. A free CSS effects generator that feels like design, not guesswork.',
+    date: 'July 31, 2026',
+    readTime: '8 min read',
+    icon: Sparkles,
+    tag: 'Design Tools',
+  },
+  {
+    slug: '/blog/uuid-generator',
+    title: 'Fast UUID Generator for API Testing, Database Seeding, and Local Dev',
+    excerpt:
+      'Generate UUID v4 and v7 in bulk for API testing, database seeding, and local dev. Export in plain text, CSV, JSON, and SQL-ready format — 100% browser-based and privacy-first.',
+    date: 'July 30, 2026',
+    readTime: '8 min read',
+    icon: Code2,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/unix-timestamp-converter-guide',
+    title: 'Convert Unix Timestamp to Date Online (Free, No Sign-Up)',
+    excerpt:
+      'A practical guide to converting Unix timestamps to human-readable dates and back — covering seconds vs milliseconds, timezones, ISO 8601, RFC 2822, and common debugging scenarios.',
+    date: 'July 28, 2026',
+    readTime: '6 min read',
+    icon: Clock,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/15-tools-18-posts-milestone',
+    title: '18 Blog Posts, 15 Tools, and Everything I Learned Building EverydayUtils',
+    excerpt:
+      "A behind-the-scenes recap of building EverydayUtils — what worked, what broke, and the real lessons from shipping 15 privacy-first tools and 18 guides.",
+    date: 'July 25, 2026',
+    readTime: '9 min read',
+    icon: Sparkles,
+    tag: 'Site Update',
+  },
+  {
+    slug: '/blog/url-encoder',
+    title: 'Free URL Encoder / Decoder — Fix Broken Links and Query Strings Instantly',
+    excerpt:
+      "Encode or decode URLs and query strings the moment you paste them in, with proper error messages when something's actually broken — all running privately in your browser.",
+    date: 'July 23, 2026',
+    readTime: '5 min read',
+    icon: ArrowRightLeft,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/favicon-generator',
+    title: 'Free Favicon Generator — Create Every Size You Need From One Image',
+    excerpt: 'Turn any logo into a complete favicon set — all standard sizes plus apple-touch-icon and a favicon.ico fallback. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
+    date: 'July 23, 2026',
+    readTime: '6 min read',
+    icon: ImageIcon,
+    tag: 'Design Tools',
+  },
+  {
+    slug: '/blog/color-palette-generator-tailwind',
+    title: 'I Kept Rebuilding the Same Tailwind Color Config — So I Built a Tool With Real Color Theory Behind It',
+    excerpt:
+      'Five real color-harmony algorithms, live WCAG 2.2 contrast checking, swatch locking, and one-click Tailwind config export — all computed locally in your browser with no sign-up needed.',
+    date: 'July 23, 2026',
+    readTime: '6 min read',
+    icon: Palette,
+    tag: 'Design Tools',
+  },
+  {
+    title: "Every Good Username I Wanted Was Taken — So I Built a Generator That Actually Fixes That",
+    date: "July 23, 2026",
+    readTime: "7 min",
+    category: "Gaming & Social",
+    slug: "/blog/best-free-username-generator-2026",
+    excerpt: "Instantly generate Gaming, Kawaii, Fantasy, Professional, or Random-style usernames for Roblox, Discord, Instagram, and more — or seed your own keywords. Free, private, no sign-up required.",
+    icon: User,
+    tag: "Gaming & Social",
+  },
+  {
+    slug: '/blog/pomodoro-timer-free-online',
+    title: "I Couldn't Focus for More Than 12 Minutes — This Simple Timer Changed Everything",
+    excerpt:
+      "Distraction wasn't a discipline problem — it was a structure problem. Here's the simple, private Pomodoro timer setup that finally fixed my focus.",
+    date: 'July 23, 2026',
+    readTime: '8 min read',
+    icon: Timer,
+    tag: 'Productivity',
+  },
+  {
+    slug: '/blog/wifi-qr-code-guide',
+    title: 'I Was Embarrassed Every Time Guests Asked for My WiFi Password — Until I Did This',
+    excerpt: 'Sharing WiFi passwords is awkward and error-prone. Here’s the simple solution I now use every time — generate a scannable QR code in seconds.',
+    date: 'July 23, 2026',
+    readTime: '7 min read',
+    icon: QrCode,
+    tag: 'QR Codes',
+  },
+  {
+    title: "Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)",
+    date: "July 22, 2026",
+    readTime: "7 min",
+    category: "Utility Tools",
+    slug: "/blog/image-converter",
+    excerpt: "Convert images instantly between JPG, PNG, and WebP directly in your browser. 100% private, no uploads, no sign-up. Fast and secure local image conversion.",
+    icon: ImageIcon,
+    tag: "Utility Tools",
+  },
+  {
+    slug: '/blog/json-formatter-guide',
+    title: 'The Best Free Online JSON Formatter & Validator in 2026 (Tested + Privacy First)',
+    excerpt:
+      'Tired of JSON tools that upload your data, show intrusive ads, or freeze on larger payloads? Here is an honest look at what a great JSON formatter needs in 2026 — and why this one is worth bookmarking.',
+    date: 'July 22, 2026',
+    readTime: '7 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/best-free-password-generator-2026',
+    title: 'The Best Free Password Generator in 2026 (Tested + Truly Private)',
+    excerpt:
+      'Looking for a truly private password generator in 2026? Built for privacy from the ground up. Discover why EverydayUtils stands out with zero tracking and strong security.',
+    date: 'July 22, 2026',
+    readTime: '8 min read',
+    icon: KeyRound,
+    tag: 'Security',
+  },
+  {
+    slug: '/blog/lorem-ipsum-generator-free-private',
+    title: 'Why I Built a Free, Private Lorem Ipsum Generator (No Ads, No Signup)',
+    excerpt:
+      'Generate realistic placeholder text instantly with live preview, HTML output, and real-time stats. 100% client-side, no ads, no tracking, no sign-up — built for designers and developers.',
+    date: 'July 22, 2026',
+    readTime: '6 min read',
+    icon: AlignLeft,
+    tag: 'Text Tools',
+  },
+  {
+    slug: '/blog/word-counter-text-sanitizer-guide',
+    title: 'The Word Counter & Text Sanitizer I Actually Use Every Day (Especially for Chinese + English)',
+    excerpt:
+      'Most free word counters fall apart with Chinese or mixed-language content. Here\'s a practical guide to a bilingual-friendly tool that handles English, Traditional Chinese, and everything in between.',
+    date: 'July 22, 2026',
+    readTime: '8 min read',
+    icon: Type,
+    tag: 'Text Tools',
+  },
+  {
+    slug: '/blog/who-is-json',
+    title: 'Who Is JSON! What It Is, Why Developers Use It, and How to Work With It',
+    excerpt:
+      'What is JSON and how is it used in development? A practical, human-friendly guide to JSON in APIs, config files, frontend work, and debugging — plus how to format and validate it more easily.',
+    date: 'July 14, 2026',
+    readTime: '6 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
+    slug: '/blog/free-developer-utilities',
+    title: 'Free Developer Utilities That Save Time: JSON Formatter, Base64, URL Encoder, and Lorem Ipsum',
+    excerpt:
+      'Small repetitive tasks break development flow more than they should. Here are four free browser-based utilities I use often — JSON formatting with precise error locations, Base64 encoding, URL encoding, and placeholder text generation.',
+    date: 'July 8, 2026',
+    readTime: '5 min read',
+    icon: Braces,
+    tag: 'Developer Tools',
+  },
+  {
+    title: "Stop Wasting Time with Generic AI Prompts: Meet PromptForge, the Private AI Prompt Generator That Actually Works",
+    date: "June 30, 2026",
+    readTime: "8 min",
+    category: "AI Tools",
+    slug: "/blog/promptforge-launch",
+    excerpt: "Tired of vague AI responses? PromptForge is a free, 100% private AI prompt generator. Build high-quality prompts for ChatGPT, Claude, Gemini, and Grok using proven frameworks — all in your browser.",
+    icon: Wand2,
+    tag: "AI Tools",
+  },
+  {
+    slug: '/blog/percentage-calculator',
+    title: 'Free Percentage Calculator for Discounts, Tax, Tips & More',
+    excerpt:
+      'Stop doing mental math at the checkout counter. Calculate discounts, tax, tips, and markups instantly — 100% private, no sign-up, works on mobile.',
+    date: 'June 24, 2026',
+    readTime: '3 min read',
+    icon: Percent,
+    tag: 'Calculators',
+  },
+  {
+    slug: '/blog/pdf-copy-paste-fixer',
+    title: 'The PDF Copy-Paste Fixer: How to Clean Messy Text from PDFs in Seconds (2026 Guide)',
+    excerpt:
+      "Copied text from a PDF and ended up with a mess of broken lines, extra spaces, and stray hyphens? Here's the fastest way to clean it up — no software required.",
+    date: 'June 7, 2026',
+    readTime: '4 min read',
+    icon: FileText,
+    tag: 'Text Tools',
+  },
+  {
+    slug: '/blog/how-to-create-strong-passwords',
+    title: "How to Create Strong Passwords in 2026 (That You Don't Have to Memorize)",
+    excerpt:
+      "Weak passwords remain one of the easiest ways hackers gain access to accounts. This guide shows you how to create truly strong passwords the smart way — and manage them without memorizing anything.",
+    date: 'June 5, 2026',
+    readTime: '4 min read',
+    icon: KeyRound,
+    tag: 'Security',
+  },
+];
+
+export default function BlogIndexPage() {
+  return (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
+      <div className="mb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="p-2 rounded-xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white">
+            <BookOpen size={20} />
+          </div>
+          <span className="label">Blog</span>
+        </div>
+        <h1 className="page-title mb-2">Guides &amp; Articles</h1>
+        <p className="page-subtitle">
+          Practical how-to guides for the tools you use every day.
+        </p>
+      </div>
+
+      <div className="space-y-5">
+        {posts.map((post) => {
+          const Icon = post.icon;
+          return (
+            <Link
+              key={post.slug}
+              to={post.slug}
+              className="card group flex flex-col sm:flex-row gap-5 p-6 hover:border-brand-500/40 transition-colors duration-200"
+            >
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500/10 to-cyan-500/10 dark:from-brand-500/20 dark:to-cyan-500/20 flex items-center justify-center text-brand-500 group-hover:from-brand-500/20 group-hover:to-cyan-500/20 transition-colors duration-200">
+                  <Icon size={22} />
+                </div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-500 dark:bg-brand-500/20">
+                    {post.tag}
+                  </span>
+                  <span className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500">
+                    <Clock size={11} />
+                    {post.readTime}
+                  </span>
+                  <span className="text-xs text-gray-400 dark:text-gray-500">{post.date}</span>
+                </div>
+                <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1.5 group-hover:text-brand-500 transition-colors duration-200 leading-snug">
+                  {post.title}
+                </h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-brand-500 group-hover:gap-2 transition-all duration-200">
+                  Read article <ArrowRight size={14} />
+                </span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
