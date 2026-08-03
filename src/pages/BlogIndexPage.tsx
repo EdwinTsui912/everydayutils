@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind, CalendarClock } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind, CalendarClock, Paintbrush } from 'lucide-react';
 
 const posts = [
+  {
+    slug: '/blog/color-palettes-in-the-wild',
+    title: 'Color Palettes in the Wild: 8 Real Projects Where Choosing Colors Actually Hurts',
+    excerpt:
+      'A no‑fluff guide to picking Tailwind‑friendly color palettes for dashboards, landing pages, dark mode UIs, and more — with real examples, common traps, and a fast way to generate accessible, consistent colors without guesswork.',
+    date: 'August 3, 2026', // or your actual publish date
+    readTime: '10 min read',
+    icon: Paintbrush, // or Sparkles / Paintbrush if you prefer; import from lucide-react
+    tag: 'Design & Frontend',
+  },
   {
     slug: '/blog/timestamps-in-the-wild',
     title: 'Timestamps in the Wild: 7 Real Situations Where Epoch Time Breaks Your Brain',
