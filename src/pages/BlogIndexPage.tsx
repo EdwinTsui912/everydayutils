@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/favicons-in-the-wild',
+    title: 'Favicons in the Wild: 7 Real Situations Where Your Site’s Icon Quietly Matters',
+    excerpt:
+      'A practical guide to favicons for modern browsers, mobile home screens, and PWAs — with real scenarios, common mistakes, and a faster way to generate favicon.ico, PNG sizes, and an Apple Touch Icon from one image.',
+    date: 'August 3, 2026',
+    readTime: '8 min read',
+    icon: ImageIcon, // import { Image as ImageIcon } from lucide-react; or reuse your existing icon choice
+    tag: 'Developer Tools',
+  },
+  {
     slug: '/blog/color-palettes-in-the-wild',
     title: 'Color Palettes in the Wild: 8 Real Projects Where Choosing Colors Actually Hurts',
     excerpt:

@@ -60,6 +60,7 @@ import WriterDiffCheckerBlogPost from './pages/WriterDiffCheckerBlogPost';
 import YouTubeThumbnailCheatSheet from './pages/YouTubeThumbnailCheatSheet';
 import TimestampsInWildBlogPost from './pages/TimestampsInWildBlogPost';
 import ColorPalettesInWildBlogPost from './pages/ColorPalettesInWildBlogPost';
+import FaviconInWildBlogPost from './pages/FaviconInWildBlogPost';
 
 
 // NEW IMPORT
@@ -188,6 +189,7 @@ export default function App() {
           <Route path="/blog/writer-diff-checker" element={<WriterDiffCheckerBlogPost />} />
           <Route path="/blog/timestamps-in-the-wild" element={<TimestampsInWildBlogPost />} />
           <Route path="/blog/color-palettes-in-the-wild" element={<ColorPalettesInWildBlogPost />} />
+          <Route path='/blog/favicons-in-the-wild' element={<FaviconInWildBlogPost />} />
 
 
 
