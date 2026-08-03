@@ -67,6 +67,7 @@ export default defineConfig({
         '/blog/writer-diff-checker',
         '/blog/timestamps-in-the-wild',
         '/blog/color-palettes-in-the-wild',
+        '/blog/favicons-in-the-wild',
         
       ],
       changefreq: 'weekly',
