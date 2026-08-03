@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind } from 'lucide-react';
+import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind, CalendarClock } from 'lucide-react';
 
 const posts = [
+  {
+    slug: '/blog/timestamps-in-the-wild',
+    title: 'Timestamps in the Wild: 7 Real Situations Where Epoch Time Breaks Your Brain',
+    excerpt:
+      'A no‑fluff guide to decoding Unix timestamps in logs, APIs, databases, and analytics — with real examples, common traps, and a fast way to turn numbers like 1753617627 into dates you can actually use.',
+    date: 'August 2, 2026',
+    readTime: '9 min read',
+    icon: CalendarClock, // or Terminal / Clock if you prefer
+    tag: 'Developer Workflows',
+  },
   {
     slug: '/blog/youtube-thumbnail-generator',
     title: 'Stop Fighting Canva. Make Better YouTube Thumbnails in Under a Minute.',

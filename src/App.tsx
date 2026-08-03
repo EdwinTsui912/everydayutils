@@ -57,7 +57,8 @@ import BreathingTimerPage from './pages/BreathingTimerPage';
 import BreathingTimerBlogPage from './pages/BreathingTimerBlogPage';
 import WriterDiffCheckerPage from './pages/WriterDiffCheckerPage';
 import WriterDiffCheckerBlogPost from './pages/WriterDiffCheckerBlogPost';
-import YouTubeThumbnailCheatSheet from './pages/YouTubeThumbnailCheatSheet'
+import YouTubeThumbnailCheatSheet from './pages/YouTubeThumbnailCheatSheet';
+import TimestampsInWildBlogPost from './pages/TimestampsInWildBlogPost';
 
 
 // NEW IMPORT
@@ -184,6 +185,7 @@ export default function App() {
           <Route path="/blog/breathing-timer-focus-stress-sleep" element={<BreathingTimerBlogPage />} />
           <Route path="/writer-diff-checker" element={<WriterDiffCheckerPage />} />
           <Route path="/blog/writer-diff-checker" element={<WriterDiffCheckerBlogPost />} />
+          <Route path="/blog/timestamps-in-the-wild" element={<TimestampsInWildBlogPost />} />
 
 
 

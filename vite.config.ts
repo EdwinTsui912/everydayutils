@@ -65,6 +65,7 @@ export default defineConfig({
         '/blog/css-effects-generator',
         '/blog/breathing-timer-focus-stress-sleep',
         '/blog/writer-diff-checker',
+        '/blog/timestamps-in-the-wild',
         
       ],
       changefreq: 'weekly',

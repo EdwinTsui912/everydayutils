@@ -52,6 +52,12 @@ const USE_CASES = [
 
 const RELATED_POSTS = [
   {
+    slug: '/blog/timestamps-in-the-wild',
+    title: 'Timestamps in the Wild: 7 Real Situations Where Epoch Time Breaks Your Brain',
+    icon: Calendar, // or Clock if you prefer
+    tag: 'Developer Workflows',
+  },
+  {
     slug: '/blog/json-formatter-guide',
     title: 'The Best Free Online JSON Formatter & Validator in 2026',
     icon: Braces,
