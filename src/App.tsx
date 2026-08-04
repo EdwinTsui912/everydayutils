@@ -61,7 +61,7 @@ import YouTubeThumbnailCheatSheet from './pages/YouTubeThumbnailCheatSheet';
 import TimestampsInWildBlogPost from './pages/TimestampsInWildBlogPost';
 import ColorPalettesInWildBlogPost from './pages/ColorPalettesInWildBlogPost';
 import FaviconInWildBlogPost from './pages/FaviconInWildBlogPost';
-
+import PomodoroTimerRoutineBlogPost from './pages/PomodoroTimerRoutineBlogPost';
 
 // NEW IMPORT
 import PromptForge from './components/PromptForge/PromptForge';
@@ -190,7 +190,7 @@ export default function App() {
           <Route path="/blog/timestamps-in-the-wild" element={<TimestampsInWildBlogPost />} />
           <Route path="/blog/color-palettes-in-the-wild" element={<ColorPalettesInWildBlogPost />} />
           <Route path='/blog/favicons-in-the-wild' element={<FaviconInWildBlogPost />} />
-
+          <Route path="/blog/pomodoro-timer-routine" element={<PomodoroTimerRoutineBlogPost />} />
 
 
 

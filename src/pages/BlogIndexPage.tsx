@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/pomodoro-timer-routine',
+    title: 'How I Use a Pomodoro Online Timer Every Day (Without Burning Out)',
+    excerpt:
+      'A practical Pomodoro routine for writers, developers, and remote workers. Learn how to structure deep work using a privacy-first online Pomodoro timer with short breaks, long resets, and no tracking.',
+    date: 'August 4, 2026',
+    readTime: '9 min read',
+    icon: Timer,
+    tag: 'Productivity',
+  },
+  {
     slug: '/blog/favicons-in-the-wild',
     title: 'Favicons in the Wild: 7 Real Situations Where Your Site’s Icon Quietly Matters',
     excerpt:
