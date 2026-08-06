@@ -3,6 +3,16 @@ import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLef
 
 const posts = [
   {
+    slug: '/blog/regex-tester-debugger-guide',
+    title: 'The Regex Tester I Reach For When My Pattern Makes No Sense',
+    excerpt:
+      'A human guide to EverydayUtils’ Regex Tester & Debugger — see exactly what your regex matches in real text, with capture groups, flags, presets, and zero tracking, all in your browser.',
+    date: 'August 6, 2026',
+    readTime: '8 min read',
+    icon: Code2,
+    tag: 'Developer Tools',
+  },
+  {
     slug: '/blog/pomodoro-timer-routine',
     title: 'How I Use a Pomodoro Online Timer Every Day (Without Burning Out)',
     excerpt:

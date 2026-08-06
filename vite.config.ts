@@ -69,7 +69,7 @@ export default defineConfig({
         '/blog/timestamps-in-the-wild',
         '/blog/color-palettes-in-the-wild',
         '/blog/favicons-in-the-wild',
-        
+        '/blog/regex-tester-debugger-guide',
       ],
       changefreq: 'weekly',
       priority: 0.8,
