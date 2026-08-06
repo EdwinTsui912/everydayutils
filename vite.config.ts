@@ -31,6 +31,7 @@ export default defineConfig({
         '/css-effects',
         '/breathing-timer',
         '/writer-diff-checker',
+        '/regex-tester',
 
 
         // Legal / Info
