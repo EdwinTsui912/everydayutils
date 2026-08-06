@@ -19,6 +19,7 @@ const TOOL_GROUPS = [
       { label: 'JSON Formatter', path: '/json-formatter', icon: FileJson },
       { label: 'Timestamp Converter', path: '/timestamp-converter', icon: Clock },
       { label: 'UUID Generator', path: '/uuid-generator', icon: Code2 },
+      { label: 'Regex Tester', path: '/regex-tester', icon: Code2 },
     ],
   },
   {

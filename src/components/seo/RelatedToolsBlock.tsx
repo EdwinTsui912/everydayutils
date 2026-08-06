@@ -1,3 +1,4 @@
+// components/RelatedTools/RelatedToolsBlock.tsx
 import { Link } from 'react-router-dom';
 import { relatedToolsMap, type RelatedToolItem } from '../../data/relatedToolsMap';
 
@@ -18,39 +19,29 @@ export default function RelatedToolsBlock({
 
   return (
     <section
-      aria-labelledby="related-tools-heading"
-      className={`mx-auto mt-12 max-w-7xl ${className}`}
+      className={`border border-slate-200 dark:border-slate-800 rounded-xl bg-white/70 dark:bg-slate-900/60 shadow-sm px-4 py-4 md:px-6 md:py-5 ${className}`}
     >
-      <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900 sm:p-8">
-        <div className="mb-6">
-          <h2
-            id="related-tools-heading"
-            className="text-2xl font-bold tracking-tight"
+      <h2 className="text-sm md:text-base font-semibold text-slate-900 dark:text-slate-50 mb-2">
+        {title}
+      </h2>
+      <p className="text-xs text-slate-600 dark:text-slate-300 mb-3">
+        Continue with the next tool that fits your workflow.
+      </p>
+      <div className="grid gap-3 md:grid-cols-3 text-sm">
+        {items.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            className="group rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/70 px-3 py-3 hover:border-sky-400 hover:bg-sky-50/70 dark:hover:border-sky-500 dark:hover:bg-sky-950/50 transition-colors"
           >
-            {title}
-          </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-            Continue with the next tool that fits your workflow.
-          </p>
-        </div>
-
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {items.map((item) => (
-            <li key={item.to}>
-              <Link
-                to={item.to}
-                className="block h-full rounded-2xl border border-gray-200 bg-gray-50 p-5 transition hover:border-gray-300 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600 dark:hover:bg-gray-700"
-              >
-                <span className="block text-base font-semibold text-gray-900 dark:text-white">
-                  {item.title}
-                </span>
-                <span className="mt-2 block text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                  {item.description}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+            <p className="text-sm font-medium text-slate-900 dark:text-slate-50">
+              {item.title}
+            </p>
+            <p className="mt-1 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              {item.description}
+            </p>
+          </Link>
+        ))}
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 
 ## Summary
 
-- Blog files found: 24
+- Blog files found: 28
 - Source directory: `src/pages`
 - App routes file scanned: `src/App.tsx`
 
@@ -189,7 +189,7 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 
 - Component: `ColorPaletteBlogPost`
 - Source file: `src\pages\ColorPaletteBlogPost.tsx`
-- Internal links found: 5
+- Internal links found: 2
 
 ### Headings
 
@@ -199,13 +199,13 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 - H2: What Makes This Generator Different
 - H2: How I Actually Use It
 - H2: Frequently Asked Questions
-- H2: Related Articles
+- H2: You May Also Like
 
 ### Paragraphs
 
-- Picking colors that actually work together, checking they're readable, then hand-typing them into a Tailwind config — this free tool handles all three steps at once.
+- Picking colors that actually work together, checking they are readable, then hand-typing them into a Tailwind config — this free tool handles all three steps at once.
 - No account needed. Runs 100% in your browser.
-- Every time I started a new side project, I hit the same wall. I'd try random hex codes next to each other, unsure whether they were actually harmonious or just accidentally not clashing, then separately worry about whether the text on top would even be readable. Once I landed on something, I still had to manually type every shade into a tailwind.config.js file by hand.
+- Every time I started a new side project, I hit the same wall. I would try random hex codes next to each other, unsure whether they were actually harmonious or just accidentally not clashing, then separately worry about whether the text on top would even be readable. Once I landed on something, I still had to manually type every shade into a tailwind.config.js file by hand.
 - So I built a tool that treats color choice as actual color theory rather than guesswork — pick a harmony rule, get a mathematically consistent palette, see instantly whether it passes accessibility standards, and export it in whatever format the project needs.
 - The core of the tool is a harmony selector, and each option follows a distinct rule on the 360-degree color wheel rather than picking colors arbitrarily:
 - Privacy Note: All palette generation and contrast math happens entirely in your browser. No color data, no settings, and no usage is ever sent to any server.
@@ -214,9 +214,58 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 
 - /blog
 - /palette-generator
-- /blog/json-formatter-guide
-- /blog/lorem-ipsum-generator-free-private
-- /blog/best-free-password-generator-2026
+
+## /blog/color-palettes-in-the-wild
+
+- Component: `ColorPalettesInWildBlogPost`
+- Source file: `src\pages\ColorPalettesInWildBlogPost.tsx`
+- Internal links found: 1
+
+### Headings
+
+- H1: Color Palettes in the Wild: 8 Real Projects Where Choosing Colors Gets Hard
+- H2: Why palettes feel easy in theory but difficult in real projects
+- H2: Where this guide is most useful
+- H2: 1. SaaS landing page: balancing a distinct brand color with readable content
+- H2: 2. Admin dashboard: keeping surfaces and status states clear
+- H2: 3. Content-heavy site: keeping headings and body text readable
+- H2: 4. Dark mode: avoiding low-contrast, muddy interfaces
+- H2: 5. Mobile UI: keeping actions and icons clear on small screens
+- H2: 6. Data-heavy tables and charts: separating series without visual noise
+- H2: 7. E-commerce and product pages: clear CTAs without aggressive styling
+- H2: 8. Design systems and component libraries: one source of truth for colors
+- H2: How the palette generator fits into this workflow
+- H2: Privacy and local-only processing
+- H2: Frequently Asked Questions
+- H2: You May Also Like
+- H3: Ready to refine your palette?
+
+### Paragraphs
+
+- Color decisions are rarely made in isolation. This guide looks at eight common interface scenarios and shows how to use a palette generator to move from trial-and-error to consistent, accessible choices.
+- Reading about color theory is straightforward: pick a base hue, choose supporting colors on the wheel, and adjust contrast. The difficulty appears when those colors have to support real screens — hero sections, dashboards, charts, and light/dark modes — all at once.
+- The goal of this guide is to keep the theory in the background and focus on the situations you are likely to face. In each case, a small, repeatable workflow with the palette generator can save time and reduce guesswork.
+- The generator is built around harmony rules, WCAG contrast checks, and export formats that match typical frontend stacks. It is most helpful in scenarios like:
+- A typical SaaS homepage needs one clear brand color, accents for buttons and badges, and neutrals for backgrounds and text. The common failure mode is a strong primary color combined with neutrals that are too close together in brightness, which makes sections blend into each other.
+- A practical workflow is to start from the brand color, use complementary or triadic harmony to generate supporting accents, then use the generator’s saturation and lightness sliders to adjust intensity. From there, the WCAG badges help confirm that headings, body text, and key buttons stay readable before anything is wired into Tailwind.
+- Dashboards compress a lot of information into cards, tables, and charts. If the palette does not separate surfaces clearly — page background, card background, borders, and text — the interface starts to feel flat and tiring to scan.
+- One approach is to build the neutral scale first using the generator’s monochromatic option, then add status colors using complementary or triadic harmony. The WCAG table in the advanced panel shows contrast values against white and black, which is useful when testing card headers, small labels, and status badges side by side.
+- Documentation and long-form articles rely on a quiet palette that still supports clear hierarchy. Light gray text on off-white backgrounds may look minimal in a design tool but often fails contrast checks in practice, especially for small text and captions.
+- With the generator, you can select a base neutral, use monochromatic harmony to produce a ladder of lightness values, and verify contrast for headings, body text, and muted details. Once the neutrals are stable, link and button colors can be added from an analogous or complementary set without undermining readability.
+- Dark mode is more than inverting colors. Pure black backgrounds combined with lightly adjusted brand colors can produce a low-contrast, hazy effect where text and icons never fully stand out.
+- A better pattern starts with a dark neutral that is slightly off-black, then uses the generator to derive lighter text shades and adjusted accent colors. The contrast badges show how each candidate color performs against white and near-black, which helps confirm that headings, links, and controls remain legible before exporting the palette.
+- Colors that feel balanced on a desktop display can lose separation on small mobile screens. Subtle differences in hue and lightness may be harder to see, especially outdoors or under different brightness settings.
+- When tuning a palette for mobile, it can help to increase contrast slightly for primary actions, navigation elements, and error states. The generator’s sliders make those adjustments quick, and the WCAG ratios act as a useful check for small text and icons.
+- Data views often require multiple series colors that need to be distinct but still feel related. Using many saturated colors quickly leads to visual noise, while using colors that are too similar makes rows and chart lines hard to distinguish.
+- A triadic palette generated from a chosen base hue can provide three strong anchors, with lighter or darker variations derived using the saturation and lightness controls. The resulting data colors can stay separate from the main UI palette while still fitting the same system.
+- Checkout and product pages depend on clear actions and trust signals. If the primary action color is too close to surrounding elements, important buttons blend in. If it is too strong, the page can feel harsh or distracting next to product imagery.
+- Using complementary harmony to define a CTA color that contrasts cleanly with the background, and then testing its contrast with the generator’s badges, gives a more measured starting point. From there, muted tones can be used for secondary actions and informational labels without competing with the main CTA.
+- Without a central palette, each component or page tends to introduce new hex codes. Over time, this creates multiple primary colors and inconsistent neutral scales, which are difficult to maintain.
+- Defining the palette once in the generator — with explicit roles for primary, accent, neutral, and status colors — and then exporting it as Tailwind config or CSS variables provides a practical source of truth. Components can refer to named tokens rather than raw hex values, making it easier to revise the system later without touching every file.
+
+### Internal Links
+
+- /palette-generator
 
 ## /blog/css-effects-generator
 
@@ -290,6 +339,7 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 - H2: A Quick Note on the .ico File
 - H2: How to Use the Favicon Generator
 - H2: Frequently Asked Questions
+- H2: You May Also Like
 
 ### Paragraphs
 
@@ -547,7 +597,7 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 - H2: Presets and Custom Durations
 - H2: Where the Pomodoro Technique Comes From
 - H2: Frequently Asked Questions
-- H2: Related Reading
+- H2: You May Also Like
 
 ### Paragraphs
 
@@ -570,6 +620,64 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 
 - /blog
 - /pomodoro
+
+## /blog/pomodoro-timer-routine
+
+- Component: `PomodoroTimerRoutineBlogPost`
+- Source file: `src\pages\PomodoroTimerRoutineBlogPost.tsx`
+- Internal links found: 3
+
+### Headings
+
+- H1: How I Use a Pomodoro Online Timer Every Day (Without Burning Out)
+- H2: Why I Needed Structure, Not More Willpower
+- H2: The Pomodoro Timer I Use Every Day
+- H2: How I Structure a Working Day Around the Timer
+- H2: Who This Routine Helps Most
+- H2: How to Try This Pomodoro Routine Yourself
+- H2: You May Also Like
+
+### Paragraphs
+
+- Try the routine with the actual timer
+- Open the free Pomodoro Timer in a new tab and follow along with the steps below.
+- Most productivity advice acts like focus is a moral trait: if you cared enough, you’d just concentrate. But if you’ve ever sat down to work, opened your laptop, and watched your attention quietly slip away after 10–15 minutes, you know it’s not that simple. You start with real intentions, and then one notification, one “quick” check, one new tab later, you look up and realize you’re off track again.
+- The problem isn’t laziness, and it isn’t that the work doesn’t matter. It’s that the session has no structure . There’s no clear start, no defined end, and no built‑in reset. Every moment becomes a quiet negotiation about whether to keep going or take a break.
+- That’s why I now work with a Pomodoro online timer open in my browser every day — specifically, the privacy‑first Pomodoro Timer on EverydayUtils that runs entirely client‑side, with no account and no tracking. This guide is about the routine that stuck, not just the tool itself.
+- When I tracked my own focus, a pattern kept repeating: around the 10–12 minute mark, my attention would drift. My brain started looking for micro breaks — checking something, switching tabs, scanning notifications. Without a framework, those micro breaks turned into full context switches.
+- On top of that, there was an invisible tax. Every few minutes, I’d ask myself, “Is this a good time to stop?” That question sounds harmless, but it slowly drains energy and makes it easy to justify quitting early. A Pomodoro routine — defined work intervals followed by short breaks — solves both problems by design: you work in modest blocks, you don’t spend energy deciding when to stop, and you take real breaks instead of letting small distractions blur into more work.
+- The goal isn’t to turn you into a machine. It’s to give your attention something solid to hold onto.
+- There are endless Pomodoro apps, but I wanted something simple, private, and browser‑based. That’s why I use the EverydayUtils Pomodoro Timer .
+- The specifics will change day to day, but this basic script — blocks of deep work, real short breaks, and a longer reset — is what keeps my attention from slowly dissolving over time.
+- Different people use the same timer in different ways. Here are a few practical scenarios where this routine and timer combination shines.
+- Writers and content creators: I use the Extended preset (50/10/30) for deep writing and pair sessions with a word count target. It works especially well alongside the Word Counter & Text Sanitizer guide .
+- Developers and students: When you’re debugging or studying, context is everything. Dedicating one session to a single bug or concept, and using the short break to recap what you learned, keeps the next block sharper.
+- Remote workers and freelancers: When home and work share the same space, it’s easy to feel like you’re “kind of working” all day. A Pomodoro routine gives you a defined start, a defined stop, and a visible record of sessions completed.
+- Privacy Note: The Pomodoro Timer runs locally in your browser. No account, no tracking, and no data about your sessions is ever collected or sent anywhere — the same privacy-first approach used across other EverydayUtils tools.
+- You don’t need a huge system to get started. Here’s a simple experiment to see whether this Pomodoro routine helps:
+- If even one of those answers feels different in a good way, you’ve found a structure that can support you beyond today.
+- Ready to turn scattered intention into structured focus?
+- Free, private, and works offline once loaded.
+
+### List Items
+
+- Runs completely in your browser. The timer logic and settings live locally — no sign‑up, no account, no session data sent to a server.
+- Works offline once loaded. If your internet connection drops mid‑session, the timer keeps counting down.
+- Classic 25/5/20 and Extended 50/10/30 presets, plus fully custom work, short break, and long break durations in Settings.
+- A gentle chime at the end of each session with a mute toggle, so you can keep things quiet in shared spaces.
+- Optional auto‑start for the next session if you want the timer to roll into the next block without manually pressing Start.
+- A visual progress ring and a row of dots for each session in the cycle, so progress feels visible instead of abstract.
+- Pick one task that’s been nagging you — writing, studying, coding, planning. Be specific enough that you can imagine finishing a meaningful chunk in one or two sessions.
+- Open the Pomodoro Timer on EverydayUtils in your browser and choose Classic or Extended.
+- Commit to two sessions today: one in the morning and one in the afternoon.
+- During each session, focus on just that task, let the timer decide when you stop, and take the full break when the chime plays.
+- Afterwards, notice what changed — was it easier to start, did you think less about “when to stop,” and did the breaks help you come back with more attention?
+
+### Internal Links
+
+- /blog
+- /pomodoro
+- /blog/word-counter-text-sanitizer-guide
 
 ## /blog/promptforge-launch
 
@@ -623,6 +731,86 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 
 - /blog
 - /promptforge
+
+## /blog/timestamps-in-the-wild
+
+- Component: `TimestampsInWildBlogPost`
+- Source file: `src\pages\TimestampsInWildBlogPost.tsx`
+- Internal links found: 6
+
+### Headings
+
+- H1: Timestamps in the Wild: 7 Real Situations Where Epoch Time Breaks Your Brain
+- H2: 1. Server logs that make no sense until you convert the timestamp
+- H2: 2. JWT tokens and auth logs: “When did this user actually log in?”
+- H2: 3. Analytics and event tracking: “What time did this event really happen?”
+- H2: 4. Database exports: “Is this column seconds or milliseconds?”
+- H2: 5. API debugging: “Why is this webhook event ‘in the future’?”
+- H2: 6. A/B tests and experiments: “When did this user actually enter the experiment?”
+- H2: 7. “Before 1970?” Negative timestamps and edge cases
+- H2: The tiny tool I use for all of this
+- H2: Frequently Asked Questions
+- H2: You May Also Like
+
+### Paragraphs
+
+- A no‑fluff guide to decoding Unix timestamps in logs, APIs, databases, and analytics — with real examples, common traps, and a fast way to turn numbers like 1753617627 into dates you can actually use.
+- Convert timestamps fast — Free & Private
+- No account needed. Runs 100% in your browser.
+- You’re staring at a log line, an API response, or a database export. There’s a number like 1753617627 where a date should be. You know it’s “some kind of timestamp,” but you don’t have time to remember if it’s seconds or milliseconds, UTC or local, or why everything looks three hours off.
+- This isn’t a “what is a Unix timestamp” article. You can find that in our detailed guide. This is a field guide for the real situations where epoch time shows up in your day-to-day work — and how to quickly make sense of it without timezone headaches or guesswork.
+- Below are seven situations I keep running into, the exact pain points, and the fast workflow I use to decode timestamps safely and privately. [524]
+- You’re debugging an incident and see a log line like:
+- [1753617627] ERROR Payment failed for user_id=12345 gateway_timeout [1753617632] INFO Retrying payment for user_id=12345 You need to know: did this happen at 2am, 10am, or yesterday? Manually calculating from “seconds since 1970” is not practical in the middle of an outage.
+- Fast workflow: copy the timestamp, paste it into a private converter, and instantly see local time, ISO 8601, and a relative string like “2 hours ago”. That alone tells you if the error was during a deployment window, a traffic spike, or some random cron job.
+- You decode a JWT and see fields like:
+- `} You need to answer questions like:
+- Convert iat , exp , and auth_time side by side. Compare them to your current time and your server logs. This quickly shows whether a “token expired” error is legitimate or a red herring caused by a clock skew or wrong timezone assumption.
+- You export events from an analytics tool and get a CSV with columns like:
+- user_id,event,timestamp And the timestamp column is just numbers. You’re trying to align events with:
+- The pain: some tools store timestamps in UTC, others in local time, and some mix seconds and milliseconds across different endpoints.
+- Fast workflow: pick a few representative rows, convert their timestamps, and spot the pattern (e.g., “all times are UTC” or “this endpoint uses milliseconds”). Then you can confidently adjust your queries or dashboards instead of guessing.
+- You get a CSV or SQL dump with a created_at column that looks like:
+- 1753617627, 1753617632, 1753617640 You need to know:
+- A good converter will auto-detect seconds vs milliseconds and show you a human-readable date immediately. If it flags “unusually distant date,” that’s often a hint you accidentally treated milliseconds as seconds (or vice versa).
+- You receive a webhook payload with:
+
+### List Items
+
+- • Assuming the timestamp is in your local time when it’s actually UTC.
+- • Not noticing it’s seconds vs milliseconds (10 vs 13 digits).
+- • Trying to mentally map the number to a date and getting it wrong.
+- • Did this token expire before the error happened?
+- • When did the user actually authenticate?
+- • Is this token still valid right now?
+- • A marketing campaign launch time.
+- • An email send timestamp.
+- • A feature flag rollout.
+- • Are these seconds (10 digits) or milliseconds (13 digits)?
+- • Do they represent dates in 2025, 2026, or some random era?
+- • Are they consistent across tables?
+- • The provider uses milliseconds; you treated it as seconds.
+- • Timezone confusion: you’re comparing UTC to local without adjusting.
+- • Your server clock is off (less common, but it happens).
+- • Did this user enroll before or after we changed the pricing page?
+- • Were they exposed to variant B before the email campaign?
+- • Does the timeline match our internal notes?
+- • Legacy systems with old reference dates.
+- • Test data designed to check edge cases.
+- • Bug reports where someone’s code mis-handled dates.
+- • Auto-detection of seconds vs milliseconds so I don’t have to guess.
+- • Clear error messages when I paste something malformed.
+- • Local time plus ISO 8601 and RFC 2822 side by side, so I can see both “my time” and “machine time.”
+- • Support for negative timestamps for edge-case testing.
+
+### Internal Links
+
+- /blog
+- /timestamp-converter
+- /blog/unix-timestamp-converter-guide
+- /blog/json-formatter-guide
+- /blog/url-encoder
+- /blog/word-counter-text-sanitizer-guide
 
 ## /blog/unix-timestamp-converter-guide
 
@@ -962,7 +1150,58 @@ Generated from the local React/Vite codebase. This document lists detected blog 
 
 - /writer-diff-checker
 
-## /blog/youtube-thumbnail-generator
+## FaviconInWildBlogPost
+
+- Component: `FaviconInWildBlogPost`
+- Source file: `src\pages\FaviconInWildBlogPost.tsx`
+- Internal links found: 1
+
+### Headings
+
+- H1: Favicons in the Wild: 7 Real Situations Where Your Site’s Icon Quietly Matters
+- H2: Why a small icon still carries real weight
+- H2: Where this guide is most useful
+- H2: 1. Browser tabs and bookmarks: spotting your site in a crowded row
+- H2: 2. Mobile home screens: avoiding stretched and blurry icons
+- H2: 3. CMS “site icon” settings: keeping branding consistent
+- H2: 4. PWAs and installable sites: icons for prompts and splash screens
+- H2: 5. Design handoffs: avoiding last‑minute, inconsistent icons
+- H2: 6. Rebrands and logo refreshes: clearing out old icons
+- H2: 7. Privacy and client work: generating icons without uploads
+- H2: How the favicon generator fits into this workflow
+- H2: Privacy note
+- H2: Frequently Asked Questions
+- H2: You May Also Like
+- H3: Ready to generate a complete favicon set?
+
+### Paragraphs
+
+- Favicons are one of the first things people see — in tabs, bookmarks, home screens, and install prompts. This guide looks at real scenarios where your icon matters and how to generate a complete, consistent set from one image.
+- A favicon is a small image, but it shows up in high‑traffic places: browser tabs, search results, bookmark lists, and mobile home screens. When it is missing or blurry, your site looks unfinished. When it works, users can recognise and return to your site quickly, even with dozens of tabs open.
+- This article does not redefine what a favicon is from scratch. The main favicon generator guide already covers formats and basic setup. Here, the focus is on specific situations where icons cause problems, common mistakes in each case, and a practical way to use a browser‑based generator to fix them with one upload.
+- Modern setups expect more than one 16×16 icon. The generator produces a set of PNG sizes, an Apple Touch Icon, and a favicon.ico fallback, which is especially helpful in scenarios like:
+- When users have many tabs open, page titles are often truncated or hidden. At that point the favicon becomes the main way to find your site again. A missing icon falls back to the browser’s default, and a complex logo can collapse into noise at 16×16.
+- A simple process is to start from a square mark that reads cleanly at small sizes, use the generator to produce 16×16, 32×32, and 48×48 PNGs plus favicon.ico, upload them to your site root, and then drop the generated &lt;link&gt; tags into the &lt;head&gt; so browsers can pick the right size automatically.
+- On iOS and Android, saving a site to the home screen uses larger icons like 180×180 and 192×192. If you only provide a 16×16 favicon, the system will stretch it, often creating a soft, low‑quality result on high‑density screens.
+- With the generator, you can upload a square logo, choose a background colour for transparent images, generate 180×180 and 192×192 PNGs, and have an apple-touch-icon.png alias created automatically. Adding the recommended &lt;link rel="apple-touch-icon" ...&gt; and PNG tags to &lt;head&gt; ensures home screens use the right assets instead of a scaled favicon.
+- Many CMS platforms have a single site icon or logo setting that drives favicons, touch icons, and app icons. It is easy to upload a full logo with small text there and forget that it will be used at very small sizes.
+- A better approach is to design one square mark, generate a full set of icons from it using the tool, and either upload the largest PNG to the CMS or explicitly place the generated files in your root with matching &lt;link&gt; tags. This keeps the icon consistent across tabs, bookmarks, and home screens.
+- Progressive Web Apps rely on larger icons, especially 192×192 and 512×512, for install prompts and splash screens. If those sizes are missing, browsers may upscale smaller icons and produce a soft or pixelated result.
+- Using the generator, you can produce the usual favicon sizes and the PWA icons from a single upload. The README HTML gives a starting point for &lt;head&gt; tags, and you can reference the 192×192 and 512×512 files in your manifest so install prompts show a crisp, on‑brand icon.
+- Favicons are small enough that they are often handled at the end of a project. By that stage, there may be little time left, and icons end up as whatever assets are easiest to export in the moment.
+- Making the generator part of your design system workflow — “once the logo is approved, generate all favicons” — gives you consistent assets and a simple HTML snippet to hand off with the design. Because the tool runs entirely in the browser, designers can iterate quickly without setting up heavy export pipelines.
+- When brands change, favicons are easy to forget. It is common to see new headers and footers paired with an old tab icon that quietly shows the previous logo for months.
+- With a generator that outputs all sizes and filenames in one batch, you can replace older favicon and touch icon files in a single step, update &lt;link&gt; tags to point to the new assets, and test on a few browsers and phones to confirm caching has cleared.
+- Many online favicon generators require uploading images to remote servers. For client work, internal brands, or unreleased products, that may not be acceptable.
+- The favicon generator described in this guide uses browser‑side canvas rendering to create icons, compile a ZIP, and trigger a download. The logo and generated files stay on your device, which is safer for client and internal projects than uploading assets to third‑party tools.
+- The generator turns a single uploaded image into a set of PNG icons (16×16, 32×32, 48×48, 180×180, 192×192, 512×512), plus an apple-touch-icon.png and a favicon.ico fallback based on the 32×32 size. It can also produce a ZIP with a simple README HTML file that includes recommended &lt;link&gt; tags for your &lt;head&gt; section.
+- Because everything runs locally in the browser, you can generate icons repeatedly for different brands without uploading any assets. That makes it a practical tool for agencies, freelancers, and internal teams as well as individual site owners.
+
+### Internal Links
+
+- /favicon-generator
+
+## YoutubeThumbnailBlogPost
 
 - Component: `YoutubeThumbnailBlogPost`
 - Source file: `src\pages\YoutubeThumbnailBlogPost.tsx`

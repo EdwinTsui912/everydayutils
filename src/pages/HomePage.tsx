@@ -1,8 +1,28 @@
 import { Link } from 'react-router-dom';
-import { Type, KeyRound, Palette, Percent, QrCode, AlignLeft, FileJson, Timer, ArrowRight, Shield, Zap, Globe, Code2, ImageIcon, ArrowRightLeft, Wand2, Clock, Sliders, Wind } from 'lucide-react';
+import {
+  Type,
+  KeyRound,
+  Palette,
+  Percent,
+  QrCode,
+  AlignLeft,
+  FileJson,
+  Timer,
+  ArrowRight,
+  Shield,
+  Zap,
+  Globe,
+  Code2,
+  ImageIcon,
+  ArrowRightLeft,
+  Wand2,
+  Clock,
+  Sliders,
+  Wind,
+  GitCompare,
+} from 'lucide-react';
 import SEO from '../components/SEO';
 import { Helmet } from 'react-helmet-async';
-
 
 const TOOL_GROUPS = [
   {
@@ -36,7 +56,8 @@ const TOOL_GROUPS = [
         path: '/timestamp-converter',
         icon: Clock,
         label: 'Timestamp Converter',
-        description: 'Convert Unix timestamps to human-readable dates and back — supports ISO 8601, RFC 2822, and relative time.',
+        description:
+          'Convert Unix timestamps to human-readable dates and back — supports ISO 8601, RFC 2822, and relative time.',
         bg: 'bg-sky-50 dark:bg-sky-950/40',
         iconColor: 'text-sky-600 dark:text-sky-400',
       },
@@ -44,9 +65,19 @@ const TOOL_GROUPS = [
         path: '/uuid-generator',
         icon: Code2,
         label: 'UUID Generator',
-        description: 'Generate UUID v4 and v7 in bulk and export in plain text, CSV, JSON, or SQL-ready format — 100% browser-based.',
+        description:
+          'Generate UUID v4 and v7 in bulk and export in plain text, CSV, JSON, or SQL-ready format — 100% browser-based.',
         bg: 'bg-emerald-50 dark:bg-emerald-950/40',
         iconColor: 'text-emerald-600 dark:text-emerald-400',
+      },
+      {
+        path: '/regex-tester',
+        icon: Code2, // or Braces if you import it; Code2 keeps it consistent with dev tools
+        label: 'Regex Tester & Debugger',
+        description:
+          'Test regex against real text, inspect capture groups, and debug flags — all in your browser, no uploads.',
+        bg: 'bg-slate-50 dark:bg-slate-950/40',
+        iconColor: 'text-slate-600 dark:text-slate-400',
       },
     ],
   },
@@ -108,7 +139,7 @@ const TOOL_GROUPS = [
       },
       {
         path: '/writer-diff-checker',
-        icon: FileJson, // or FileText if you prefer; update icon import accordingly
+        icon: GitCompare,
         label: 'Writer Diff Checker',
         description: 'Compare draft vs edited copy, see inline changes, and track similarity — all in your browser.',
         bg: 'bg-teal-50 dark:bg-teal-950/40',
@@ -182,7 +213,7 @@ const TOOL_GROUPS = [
       },
       {
         path: '/breathing-timer',
-        icon: Wind, 
+        icon: Wind,
         label: 'Breathing Timer',
         description: 'Guided 4-7-8, box, coherent, and focus breathing patterns to reset your mind between tasks.',
         bg: 'bg-slate-50 dark:bg-slate-950/40',
@@ -192,13 +223,11 @@ const TOOL_GROUPS = [
   },
 ];
 
-
 const FEATURES = [
-  { icon: Zap,    label: 'Instant & Fast',  desc: 'All tools process data instantly with no loading spinners.' },
-  { icon: Shield, label: '100% Private',    desc: 'Nothing ever leaves your browser. Zero tracking, zero data collection.' },
-  { icon: Globe,  label: 'Works Offline',   desc: 'Once loaded, all tools work without an internet connection.' },
+  { icon: Zap, label: 'Instant & Fast', desc: 'All tools process data instantly with no loading spinners.' },
+  { icon: Shield, label: '100% Private', desc: 'Nothing ever leaves your browser. Zero tracking, zero data collection.' },
+  { icon: Globe, label: 'Works Offline', desc: 'Once loaded, all tools work without an internet connection.' },
 ];
-
 
 export default function HomePage() {
   return (
@@ -207,14 +236,12 @@ export default function HomePage() {
         <title>EverydayUtils - Free Privacy-First Online Tools</title>
       </Helmet>
 
-
-      <SEO 
+      <SEO
         title="EverydayUtils - Free Privacy-First Online Tools"
-        description="Fast, private, client-side web utilities: UUID Generator,Password Generator, Username Generator, QR Code, Color Palette, Text Tools, JSON Formatter and more. No tracking, no sign-up."
+        description="Fast, private, client-side web utilities: UUID Generator, Password Generator, Username Generator, QR Code, Color Palette, Text Tools, JSON Formatter and more. No tracking, no sign-up."
         keywords="free online tools, password generator, username generator, qr code, color palette, json formatter, text tools, privacy first tools"
         url="https://everydayutils.com"
       />
-
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-14 animate-fade-in">
         {/* Hero Section */}
@@ -224,17 +251,14 @@ export default function HomePage() {
             Privacy-first · Client-side only
           </div>
 
-
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-50 tracking-tight leading-tight">
             Free Online Web Utilities & Privacy-First Browser Tools
           </h1>
-
 
           <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
             Fast, useful tools that run 100% in your browser — no sign-up, no tracking, no nonsense.
           </p>
         </div>
-
 
         {/* Tools grid, grouped by category */}
         {TOOL_GROUPS.map((group, idx) => (
@@ -253,11 +277,18 @@ export default function HomePage() {
                     <div className={`p-2.5 rounded-xl shrink-0 ${tool.bg}`}>
                       <tool.icon size={20} className={tool.iconColor} />
                     </div>
-                    <ArrowRight size={15} className="text-gray-300 dark:text-gray-600 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all mt-1 shrink-0" />
+                    <ArrowRight
+                      size={15}
+                      className="text-gray-300 dark:text-gray-600 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all mt-1 shrink-0"
+                    />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1 break-words">{tool.label}</h3>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed break-words">{tool.description}</p>
+                    <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1 break-words">
+                      {tool.label}
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed break-words">
+                      {tool.description}
+                    </p>
                   </div>
                 </Link>
               ))}
@@ -265,11 +296,13 @@ export default function HomePage() {
           </section>
         ))}
 
-
         {/* Features */}
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {FEATURES.map(f => (
-            <div key={f.label} className="card p-5 text-center space-y-2.5 hover:shadow-md transition-shadow duration-200">
+          {FEATURES.map((f) => (
+            <div
+              key={f.label}
+              className="card p-5 text-center space-y-2.5 hover:shadow-md transition-shadow duration-200"
+            >
               <div className="w-10 h-10 bg-brand-50 dark:bg-brand-950/60 rounded-xl flex items-center justify-center mx-auto">
                 <f.icon size={18} className="text-brand-600 dark:text-brand-400" />
               </div>

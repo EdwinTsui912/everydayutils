@@ -465,4 +465,31 @@ export const relatedToolsMap: Record<string, RelatedToolItem[]> = {
       description: 'Use timed focus sessions while iterating on drafts and copy.',
     },
   ],
+
+  '/regex-tester': [
+    {
+      to: '/json-formatter',
+      title: 'JSON Formatter & Validator',
+      description:
+        'Format and inspect JSON payloads after using regex to extract or clean data.',
+    },
+    {
+      to: '/url-encoder',
+      title: 'URL Encoder / Decoder',
+      description:
+        'Encode regex-based filters, query parameters, and route segments safely.',
+    },
+    {
+      to: '/timestamp-converter',
+      title: 'Unix Timestamp Converter',
+      description:
+        'Turn raw timestamps from logs into readable dates while debugging text-based issues.',
+    },
+    {
+      to: '/text-tools',
+      title: 'Text Tools Suite',
+      description:
+        'Clean, normalize, and inspect text before running more complex regex patterns.',
+    },
+  ],
 };
