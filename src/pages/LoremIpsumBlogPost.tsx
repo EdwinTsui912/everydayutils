@@ -1,6 +1,43 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, ChevronRight, Clock, AlignLeft } from 'lucide-react';
+import {
+  ArrowLeft,
+  CheckCircle,
+  ChevronRight,
+  Clock,
+  AlignLeft,
+  BookOpen,
+  Palette,
+  Sliders,
+  FileJson,
+} from 'lucide-react';
 import SEO from '../components/SEO';
+
+const RELATED_POSTS = [
+  {
+    slug: '/blog/lorem-ipsum-use-cases',
+    title: 'Lorem Ipsum Generator: Real Use Cases, Pro Tips, and Why Ours Is Different',
+    icon: BookOpen,
+    tag: 'Text Tools',
+  },
+  {
+    slug: '/blog/color-palette-generator-tailwind',
+    title: 'I Kept Rebuilding the Same Tailwind Color Config So I Built a Tool With Real Color Theory Behind It',
+    icon: Palette,
+    tag: 'Design Tools',
+  },
+  {
+    slug: '/blog/css-effects-generator',
+    title: 'I Was Tired of Fighting Gradients and Box Shadows So I Built a CSS Effects Generator That Actually Feels Like Design',
+    icon: Sliders,
+    tag: 'Design Tools',
+  },
+  {
+    slug: '/blog/json-formatter-guide',
+    title: 'The Best Free Online JSON Formatter & Validator in 2026 — Tested, Privacy-First',
+    icon: FileJson,
+    tag: 'Developer Tools',
+  },
+];
 
 export default function LoremIpsumBlogPost() {
   return (
@@ -126,6 +163,35 @@ export default function LoremIpsumBlogPost() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.a}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* You may also like */}
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-5">
+            You May Also Like
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {RELATED_POSTS.map((post) => {
+              const Icon = post.icon;
+              return (
+                <Link
+                  key={post.slug}
+                  to={post.slug}
+                  className="card group flex items-start gap-3 p-4 hover:border-brand-500/40 transition-colors duration-200"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500/10 to-cyan-500/10 dark:from-brand-500/20 dark:to-cyan-500/20 flex items-center justify-center text-brand-500 flex-shrink-0 group-hover:from-brand-500/20 group-hover:to-cyan-500/20 transition-colors duration-200">
+                    <Icon size={17} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-xs font-medium text-brand-500">{post.tag}</span>
+                    <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mt-0.5 leading-snug group-hover:text-brand-500 transition-colors duration-200">
+                      {post.title}
+                    </h3>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 

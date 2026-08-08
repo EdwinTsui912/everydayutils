@@ -1,7 +1,63 @@
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, QrCode, KeyRound, FileText, Type, Clock, ArrowRight, AlignLeft, Braces, Timer, Palette, Percent, ArrowRightLeft, User, Image as ImageIcon, Wand2, Sparkles, Code2, Wind, CalendarClock, Paintbrush } from 'lucide-react';
+import {
+  BookOpen,
+  QrCode,
+  KeyRound,
+  FileText,
+  Type,
+  Clock,
+  ArrowRight,
+  AlignLeft,
+  Braces,
+  Timer,
+  Palette,
+  Percent,
+  ArrowRightLeft,
+  User,
+  Image as ImageIcon,
+  Wand2,
+  Sparkles,
+  Code2,
+  Wind,
+  CalendarClock,
+  Paintbrush,
+  BookOpen as BookOpenIcon,
+} from 'lucide-react';
+
+type Category =
+  | 'Developer Tools'
+  | 'Design & Creative Tools'
+  | 'Text & Writing Tools'
+  | 'Productivity & Focus'
+  | 'Security & Privacy'
+  | 'Everyday Utilities'
+  | 'AI Tools'
+  | 'Site Updates';
+
+const CATEGORIES: Category[] = [
+  'Developer Tools',
+  'Design & Creative Tools',
+  'Text & Writing Tools',
+  'Productivity & Focus',
+  'Security & Privacy',
+  'Everyday Utilities',
+  'AI Tools',
+  'Site Updates',
+];
 
 const posts = [
+  {
+    slug: '/blog/lorem-ipsum-use-cases',
+    title: 'Lorem Ipsum Generator: Real Use Cases, Pro Tips, and Why Ours Is Different',
+    excerpt:
+      'A practical, day-to-day guide to using a Lorem Ipsum generator well — real design and dev use cases, pro tips for paragraph length and HTML output, and how it fits into a real workflow.',
+    date: 'August 8, 2026',
+    readTime: '6 min read',
+    icon: BookOpenIcon,
+    tag: 'Text Tools',
+    category: 'Text & Writing Tools' as Category,
+  },
   {
     slug: '/blog/regex-tester-debugger-guide',
     title: 'The Regex Tester I Reach For When My Pattern Makes No Sense',
@@ -11,6 +67,7 @@ const posts = [
     readTime: '8 min read',
     icon: Code2,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/pomodoro-timer-routine',
@@ -21,6 +78,7 @@ const posts = [
     readTime: '9 min read',
     icon: Timer,
     tag: 'Productivity',
+    category: 'Productivity & Focus' as Category,
   },
   {
     slug: '/blog/favicons-in-the-wild',
@@ -29,18 +87,20 @@ const posts = [
       'A practical guide to favicons for modern browsers, mobile home screens, and PWAs — with real scenarios, common mistakes, and a faster way to generate favicon.ico, PNG sizes, and an Apple Touch Icon from one image.',
     date: 'August 3, 2026',
     readTime: '8 min read',
-    icon: ImageIcon, // import { Image as ImageIcon } from lucide-react; or reuse your existing icon choice
-    tag: 'Developer Tools',
+    icon: ImageIcon,
+    tag: 'Design Tools',
+    category: 'Design & Creative Tools' as Category,
   },
   {
     slug: '/blog/color-palettes-in-the-wild',
     title: 'Color Palettes in the Wild: 8 Real Projects Where Choosing Colors Actually Hurts',
     excerpt:
       'A no‑fluff guide to picking Tailwind‑friendly color palettes for dashboards, landing pages, dark mode UIs, and more — with real examples, common traps, and a fast way to generate accessible, consistent colors without guesswork.',
-    date: 'August 3, 2026', // or your actual publish date
+    date: 'August 3, 2026',
     readTime: '10 min read',
-    icon: Paintbrush, // or Sparkles / Paintbrush if you prefer; import from lucide-react
+    icon: Paintbrush,
     tag: 'Design & Frontend',
+    category: 'Design & Creative Tools' as Category,
   },
   {
     slug: '/blog/timestamps-in-the-wild',
@@ -49,8 +109,9 @@ const posts = [
       'A no‑fluff guide to decoding Unix timestamps in logs, APIs, databases, and analytics — with real examples, common traps, and a fast way to turn numbers like 1753617627 into dates you can actually use.',
     date: 'August 2, 2026',
     readTime: '9 min read',
-    icon: CalendarClock, // or Terminal / Clock if you prefer
+    icon: CalendarClock,
     tag: 'Developer Workflows',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/youtube-thumbnail-generator',
@@ -61,6 +122,7 @@ const posts = [
     readTime: '6 min read',
     icon: ImageIcon,
     tag: 'Creator Tools',
+    category: 'Design & Creative Tools' as Category,
   },
   {
     slug: '/blog/writer-diff-checker',
@@ -71,6 +133,7 @@ const posts = [
     readTime: '8 min read',
     icon: FileText,
     tag: 'Text Tools',
+    category: 'Text & Writing Tools' as Category,
   },
   {
     slug: '/blog/breathing-timer-focus-stress-sleep',
@@ -81,17 +144,18 @@ const posts = [
     readTime: '8 min read',
     icon: Wind,
     tag: 'Productivity',
+    category: 'Productivity & Focus' as Category,
   },
   {
     slug: '/blog/css-effects-generator',
-    title:
-      'I Was Tired of Fighting Gradients and Box Shadows — So I Built a CSS Effects Generator',
+    title: 'I Was Tired of Fighting Gradients and Box Shadows — So I Built a CSS Effects Generator',
     excerpt:
       'Build hero gradients, glassmorphism cards, and soft box shadows from your brand palette. A free CSS effects generator that feels like design, not guesswork.',
     date: 'July 31, 2026',
     readTime: '8 min read',
     icon: Sparkles,
     tag: 'Design Tools',
+    category: 'Design & Creative Tools' as Category,
   },
   {
     slug: '/blog/uuid-generator',
@@ -102,6 +166,7 @@ const posts = [
     readTime: '8 min read',
     icon: Code2,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/unix-timestamp-converter-guide',
@@ -112,6 +177,7 @@ const posts = [
     readTime: '6 min read',
     icon: Clock,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/15-tools-18-posts-milestone',
@@ -122,6 +188,7 @@ const posts = [
     readTime: '9 min read',
     icon: Sparkles,
     tag: 'Site Update',
+    category: 'Site Updates' as Category,
   },
   {
     slug: '/blog/url-encoder',
@@ -132,15 +199,18 @@ const posts = [
     readTime: '5 min read',
     icon: ArrowRightLeft,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/favicon-generator',
     title: 'Free Favicon Generator — Create Every Size You Need From One Image',
-    excerpt: 'Turn any logo into a complete favicon set — all standard sizes plus apple-touch-icon and a favicon.ico fallback. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
+    excerpt:
+      'Turn any logo into a complete favicon set — all standard sizes plus apple-touch-icon and a favicon.ico fallback. Supports transparent PNG with custom background. Download as ZIP with installation guide.',
     date: 'July 23, 2026',
     readTime: '6 min read',
     icon: ImageIcon,
     tag: 'Design Tools',
+    category: 'Design & Creative Tools' as Category,
   },
   {
     slug: '/blog/color-palette-generator-tailwind',
@@ -151,16 +221,18 @@ const posts = [
     readTime: '6 min read',
     icon: Palette,
     tag: 'Design Tools',
+    category: 'Design & Creative Tools' as Category,
   },
   {
-    title: "Every Good Username I Wanted Was Taken — So I Built a Generator That Actually Fixes That",
-    date: "July 23, 2026",
-    readTime: "7 min",
-    category: "Gaming & Social",
-    slug: "/blog/best-free-username-generator-2026",
-    excerpt: "Instantly generate Gaming, Kawaii, Fantasy, Professional, or Random-style usernames for Roblox, Discord, Instagram, and more — or seed your own keywords. Free, private, no sign-up required.",
+    slug: '/blog/best-free-username-generator-2026',
+    title: 'Every Good Username I Wanted Was Taken — So I Built a Generator That Actually Fixes That',
+    excerpt:
+      'Instantly generate Gaming, Kawaii, Fantasy, Professional, or Random-style usernames for Roblox, Discord, Instagram, and more — or seed your own keywords. Free, private, no sign-up required.',
+    date: 'July 23, 2026',
+    readTime: '7 min read',
     icon: User,
-    tag: "Gaming & Social",
+    tag: 'Gaming & Social',
+    category: 'Everyday Utilities' as Category,
   },
   {
     slug: '/blog/pomodoro-timer-free-online',
@@ -171,25 +243,29 @@ const posts = [
     readTime: '8 min read',
     icon: Timer,
     tag: 'Productivity',
+    category: 'Productivity & Focus' as Category,
   },
   {
     slug: '/blog/wifi-qr-code-guide',
     title: 'I Was Embarrassed Every Time Guests Asked for My WiFi Password — Until I Did This',
-    excerpt: 'Sharing WiFi passwords is awkward and error-prone. Here’s the simple solution I now use every time — generate a scannable QR code in seconds.',
+    excerpt:
+      'Sharing WiFi passwords is awkward and error-prone. Here’s the simple solution I now use every time — generate a scannable QR code in seconds.',
     date: 'July 23, 2026',
     readTime: '7 min read',
     icon: QrCode,
     tag: 'QR Codes',
+    category: 'Everyday Utilities' as Category,
   },
   {
-    title: "Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)",
-    date: "July 22, 2026",
-    readTime: "7 min",
-    category: "Utility Tools",
-    slug: "/blog/image-converter",
-    excerpt: "Convert images instantly between JPG, PNG, and WebP directly in your browser. 100% private, no uploads, no sign-up. Fast and secure local image conversion.",
+    slug: '/blog/image-converter',
+    title: 'Free Private Image Converter: Convert JPG, PNG & WebP Locally (No Upload)',
+    excerpt:
+      'Convert images instantly between JPG, PNG, and WebP directly in your browser. 100% private, no uploads, no sign-up. Fast and secure local image conversion.',
+    date: 'July 22, 2026',
+    readTime: '7 min read',
     icon: ImageIcon,
-    tag: "Utility Tools",
+    tag: 'Utility Tools',
+    category: 'Design & Creative Tools' as Category,
   },
   {
     slug: '/blog/json-formatter-guide',
@@ -200,6 +276,7 @@ const posts = [
     readTime: '7 min read',
     icon: Braces,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/best-free-password-generator-2026',
@@ -210,6 +287,7 @@ const posts = [
     readTime: '8 min read',
     icon: KeyRound,
     tag: 'Security',
+    category: 'Security & Privacy' as Category,
   },
   {
     slug: '/blog/lorem-ipsum-generator-free-private',
@@ -220,16 +298,18 @@ const posts = [
     readTime: '6 min read',
     icon: AlignLeft,
     tag: 'Text Tools',
+    category: 'Text & Writing Tools' as Category,
   },
   {
     slug: '/blog/word-counter-text-sanitizer-guide',
     title: 'The Word Counter & Text Sanitizer I Actually Use Every Day (Especially for Chinese + English)',
     excerpt:
-      'Most free word counters fall apart with Chinese or mixed-language content. Here\'s a practical guide to a bilingual-friendly tool that handles English, Traditional Chinese, and everything in between.',
+      "Most free word counters fall apart with Chinese or mixed-language content. Here's a practical guide to a bilingual-friendly tool that handles English, Traditional Chinese, and everything in between.",
     date: 'July 22, 2026',
     readTime: '8 min read',
     icon: Type,
     tag: 'Text Tools',
+    category: 'Text & Writing Tools' as Category,
   },
   {
     slug: '/blog/who-is-json',
@@ -240,6 +320,7 @@ const posts = [
     readTime: '6 min read',
     icon: Braces,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
     slug: '/blog/free-developer-utilities',
@@ -250,16 +331,18 @@ const posts = [
     readTime: '5 min read',
     icon: Braces,
     tag: 'Developer Tools',
+    category: 'Developer Tools' as Category,
   },
   {
-    title: "Stop Wasting Time with Generic AI Prompts: Meet PromptForge, the Private AI Prompt Generator That Actually Works",
-    date: "June 30, 2026",
-    readTime: "8 min",
-    category: "AI Tools",
-    slug: "/blog/promptforge-launch",
-    excerpt: "Tired of vague AI responses? PromptForge is a free, 100% private AI prompt generator. Build high-quality prompts for ChatGPT, Claude, Gemini, and Grok using proven frameworks — all in your browser.",
+    slug: '/blog/promptforge-launch',
+    title: 'Stop Wasting Time with Generic AI Prompts: Meet PromptForge, the Private AI Prompt Generator That Actually Works',
+    excerpt:
+      'Tired of vague AI responses? PromptForge is a free, 100% private AI prompt generator. Build high-quality prompts for ChatGPT, Claude, Gemini, and Grok using proven frameworks — all in your browser.',
+    date: 'June 30, 2026',
+    readTime: '8 min read',
     icon: Wand2,
-    tag: "AI Tools",
+    tag: 'AI Tools',
+    category: 'AI Tools' as Category,
   },
   {
     slug: '/blog/percentage-calculator',
@@ -270,6 +353,7 @@ const posts = [
     readTime: '3 min read',
     icon: Percent,
     tag: 'Calculators',
+    category: 'Everyday Utilities' as Category,
   },
   {
     slug: '/blog/pdf-copy-paste-fixer',
@@ -280,6 +364,7 @@ const posts = [
     readTime: '4 min read',
     icon: FileText,
     tag: 'Text Tools',
+    category: 'Text & Writing Tools' as Category,
   },
   {
     slug: '/blog/how-to-create-strong-passwords',
@@ -290,13 +375,23 @@ const posts = [
     readTime: '4 min read',
     icon: KeyRound,
     tag: 'Security',
+    category: 'Security & Privacy' as Category,
   },
 ];
 
 export default function BlogIndexPage() {
+  const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
+
+  const filteredPosts = useMemo(() => {
+    if (activeCategory === 'All') return posts;
+    return posts.filter((p) => p.category === activeCategory);
+  }, [activeCategory]);
+
+  const countFor = (cat: Category) => posts.filter((p) => p.category === cat).length;
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 animate-fade-in">
-      <div className="mb-10">
+      <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
           <div className="p-2 rounded-xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white">
             <BookOpen size={20} />
@@ -309,8 +404,37 @@ export default function BlogIndexPage() {
         </p>
       </div>
 
+      {/* Category filter pills */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        <button
+          type="button"
+          onClick={() => setActiveCategory('All')}
+          className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors duration-150 ${
+            activeCategory === 'All'
+              ? 'bg-brand-500 text-white'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+          }`}
+        >
+          All ({posts.length})
+        </button>
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat}
+            type="button"
+            onClick={() => setActiveCategory(cat)}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors duration-150 ${
+              activeCategory === cat
+                ? 'bg-brand-500 text-white'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+            }`}
+          >
+            {cat} ({countFor(cat)})
+          </button>
+        ))}
+      </div>
+
       <div className="space-y-5">
-        {posts.map((post) => {
+        {filteredPosts.map((post) => {
           const Icon = post.icon;
           return (
             <Link
@@ -347,6 +471,12 @@ export default function BlogIndexPage() {
             </Link>
           );
         })}
+
+        {filteredPosts.length === 0 && (
+          <div className="text-center py-16 text-gray-400 dark:text-gray-500 text-sm">
+            No posts in this category yet.
+          </div>
+        )}
       </div>
     </div>
   );

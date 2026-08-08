@@ -70,6 +70,7 @@ export default defineConfig({
         '/blog/color-palettes-in-the-wild',
         '/blog/favicons-in-the-wild',
         '/blog/regex-tester-debugger-guide',
+        '/blog/lorem-ipsum-use-cases',
       ],
       changefreq: 'weekly',
       priority: 0.8,

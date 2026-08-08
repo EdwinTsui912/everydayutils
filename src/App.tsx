@@ -63,6 +63,7 @@ import FaviconInWildBlogPost from './pages/FaviconInWildBlogPost';
 import PomodoroTimerRoutineBlogPost from './pages/PomodoroTimerRoutineBlogPost';
 import RegexTesterPage from './pages/RegexTesterPage';
 import RegexTesterBlogPost from './pages/RegexTesterBlogPost';
+import LoremIpsumUseCasesBlogPost from './pages/LoremIpsumUseCasesBlogPost';
 
 
 
@@ -196,7 +197,10 @@ export default function App() {
           <Route path="/blog/pomodoro-timer-routine" element={<PomodoroTimerRoutineBlogPost />} />
           <Route path="/regex-tester" element={<RegexTesterPage />} />
           <Route path="/blog/regex-tester-debugger-guide" element={<RegexTesterBlogPost />} />
+          <Route path="/blog/lorem-ipsum-use-cases" element={<LoremIpsumUseCasesBlogPost />} />
 
+
+        
 
 
           {/* Milestone post — 15 tools, 18 posts recap */}
