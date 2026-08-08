@@ -58,7 +58,7 @@ export default function BestFreeUsernameGenerator2026() {
         title="Free Username Generator for Gaming, Discord & Instagram | EverydayUtils"
         description="Every good username taken? Generate unique gaming, kawaii, fantasy, and professional usernames instantly. 100% free and private — no sign-up required."
         keywords="username generator, discord username generator, gaming usernames, roblox username ideas, instagram username generator"
-        url="https://everydayutils.com/blog/best-free-username-generator-2026"
+        url="https://www.everydayutils.com/blog/best-free-username-generator-2026"
       />
 
 

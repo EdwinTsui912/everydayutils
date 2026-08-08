@@ -13,7 +13,7 @@ export default function TextToolsPage() {
         title="Free Text Tools Suite Online — No Sign-Up | EverydayUtils"
         description="Word counter, case converter, and more text utilities in one place. Fast, free, and 100% private — all processing happens directly in your browser."
         keywords="text tools, word counter, case converter, character counter, text utilities online"
-        url="https://everydayutils.com/text-tools"
+        url="https://www.everydayutils.com/text-tools"
       />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 mb-0">
         <div className="mb-6">

@@ -12,7 +12,7 @@ export default function PercentageCalculatorPage() {
         title="Free Percentage Calculator Online — No Sign-Up | EverydayUtils"
         description="Calculate percentages, percentage change, and increase or decrease instantly. Fast, accurate, and 100% free — all processing happens in your browser."
         keywords="percentage calculator, percent change calculator, percentage increase decrease, calculate percentage online"
-        url="https://everydayutils.com/percentage-calculator"
+        url="https://www.everydayutils.com/percentage-calculator"
       />
       <div className="max-w-5xl mx-auto px-4 pt-6">
         <div className="mb-6">

@@ -48,7 +48,7 @@ export default function URLEncoderBlogPost() {
         title="Free URL Encoder / Decoder — Fix Query Strings Instantly | EverydayUtils"
         description="Encode or decode URLs and query strings instantly with clear error messages, prettify formatting, and plus-as-space handling. 100% private and client-side."
         keywords="url encoder decoder, percent encoding tool, encode url online, decode url online, query string decoder"
-        url="https://everydayutils.com/blog/free-url-encoder-decoder"
+        url="https://www.everydayutils.com/blog/free-url-encoder-decoder"
       />
 
 

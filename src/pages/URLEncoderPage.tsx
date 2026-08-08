@@ -96,7 +96,7 @@ function URLEncoderPage() {
         title="Free URL Encoder & Decoder Online — No Sign-Up | EverydayUtils"
         description="Encode or decode URLs, query strings, and special characters instantly in your browser. 100% free and private — no data is ever sent to a server."
         keywords="url encoder, url decoder, percent encoding, query string encoder, encode decode url online"
-        url="https://everydayutils.com/url-encoder"
+        url="https://www.everydayutils.com/url-encoder"
       />
       <div className="mb-6">
         <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">

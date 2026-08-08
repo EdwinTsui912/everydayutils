@@ -17,7 +17,7 @@ export default function WifiQRCodeBlogPost() {
         title="How to Create a WiFi QR Code for Guests | EverydayUtils"
         description="Stop reading out WiFi passwords. Generate a free, private WiFi QR code so guests can scan and connect instantly — no typing, no mistakes."
         keywords="wifi qr code generator, wifi qr code, share wifi password qr code, create wifi qr code, wifi qr code airbnb"
-        url="https://everydayutils.com/blog/how-to-create-wifi-qr-code"
+        url="https://www.everydayutils.com/blog/how-to-create-wifi-qr-code"
       />
 
 

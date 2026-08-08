@@ -12,7 +12,7 @@ export default function JSONFormatterPage() {
         title="Free JSON Formatter & Validator Online — No Sign-Up | EverydayUtils"
         description="Format, validate, and minify JSON instantly in your browser. Sort keys, syntax highlighting, and real-time error detection — 100% private, no data leaves your device."
         keywords="json formatter, json validator, json minifier, format json online, validate json free"
-        url="https://everydayutils.com/json-formatter"
+        url="https://www.everydayutils.com/json-formatter"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
         <div className="mb-6">

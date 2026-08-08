@@ -309,7 +309,7 @@ export default function TimestampConverterPage() {
         title="Free Unix Timestamp Converter — Epoch to Date & Back (2026)"
         description="Convert Unix timestamps to human-readable dates and back, instantly. Auto-detects seconds vs milliseconds, supports timezones, and runs 100% in your browser."
         keywords="unix timestamp converter, epoch converter, timestamp to date, convert unix time, epoch time converter"
-        url="https://everydayutils.com/timestamp-converter"
+        url="https://www.everydayutils.com/timestamp-converter"
       />
 
 

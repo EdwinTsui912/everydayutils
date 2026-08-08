@@ -50,7 +50,7 @@ export default function YoutubeThumbnailBlogPost() {
         title="Free YouTube Thumbnail Generator — No Sign-Up, No Watermark | EverydayUtils"
         description="Create clickable YouTube thumbnails at the exact 1280x720 size, with drag-and-drop text layers, templates, and full privacy. Free, fast, no watermark."
         keywords="youtube thumbnail generator, youtube thumbnail maker, free thumbnail creator, thumbnail maker no watermark, 1280x720 thumbnail"
-        url="https://everydayutils.com/blog/youtube-thumbnail-generator"
+        url="https://www.everydayutils.com/blog/youtube-thumbnail-generator"
       />
 
 

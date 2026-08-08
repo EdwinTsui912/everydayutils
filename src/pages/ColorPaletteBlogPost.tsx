@@ -113,7 +113,7 @@ export default function ColorPaletteBlogPost() {
         title="Free Color Palette Generator with Color Theory | EverydayUtils"
         description="Generate harmonious color palettes using real color theory — five harmony types, WCAG contrast checks, and instant Tailwind CSS export. 100% free and private."
         keywords="color palette generator, tailwind color palette, color harmony generator, wcag contrast checker, css color palette export"
-        url="https://everydayutils.com/blog/color-palette-generator-tailwind"
+        url="https://www.everydayutils.com/blog/color-palette-generator-tailwind"
       />
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">

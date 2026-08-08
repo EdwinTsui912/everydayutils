@@ -89,7 +89,7 @@ export default function WhoIsJsonBlogPost() {
         title="What Is JSON? A Plain-English Guide for Developers | EverydayUtils"
         description="Learn what JSON is, why developers use it, and how formatting and validation help you work with API responses and config files more easily."
         keywords="what is json, json explained, json for beginners, javascript object notation, json use cases"
-        url="https://everydayutils.com/blog/what-is-json-explained"
+        url="https://www.everydayutils.com/blog/what-is-json-explained"
       />
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <Link

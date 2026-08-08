@@ -9,7 +9,7 @@ export default function PercentageCalculatorBlogPost() {
         title="Free Percentage Calculator for Discounts, Tax & Tips | EverydayUtils"
         description="Instant, private percentage calculations for discounts, sales tax, tips, and markups. No sign-up, no ads — 100% client-side and free."
         keywords="percentage calculator, discount calculator, tax calculator, tip calculator, percentage off calculator"
-        url="https://everydayutils.com/blog/percentage-calculator"
+        url="https://www.everydayutils.com/blog/percentage-calculator"
       />
 
       <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">

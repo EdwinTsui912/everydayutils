@@ -558,7 +558,7 @@ export default function PomodoroPage() {
         title="Pomodoro Online Timer — Free, Works Offline, No Sign-Up | EverydayUtils"
         description="Free pomodoro online timer with Classic 25/5 and Extended 50/10/30 presets. Runs entirely in your browser with keyboard shortcuts, wake-lock support, offline mode, and zero tracking. No sign-up, no accounts."
         keywords="pomodoro online, pomodoro online timer, free pomodoro timer, focus timer, productivity timer, pomodoro technique"
-        url="https://everydayutils.com/pomodoro"
+        url="https://www.everydayutils.com/pomodoro"
       />
 
       {/* Back link */}

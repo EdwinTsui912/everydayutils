@@ -71,7 +71,7 @@ export default function PdfCopyPasteFixerBlogPost() {
         title="PDF Copy-Paste Fixer: Clean Messy Text in Seconds | EverydayUtils"
         description="Fix broken line breaks, extra spaces, and encoding issues from PDF copy-paste instantly. Free, private, and works great with Chinese and mixed-language text."
         keywords="fix pdf copy paste text, clean pdf text online, remove line breaks from text, pdf text sanitizer, remove extra spaces text"
-        url="https://everydayutils.com/blog/pdf-copy-paste-fixer"
+        url="https://www.everydayutils.com/blog/pdf-copy-paste-fixer"
       />
 
       <header className="mb-8">

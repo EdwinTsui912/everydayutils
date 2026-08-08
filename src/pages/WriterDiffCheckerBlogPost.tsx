@@ -72,7 +72,7 @@ export default function WriterDiffCheckerBlogPost() {
         title="The Writer Diff Checker I Actually Needed (Not Another Developer Diff Tool)"
         description="A privacy-first, word-level diff tool built for writers. Compare drafts, review AI edits, and see real changes with similarity score, filters, and clean inline highlighting — 100% in your browser."
         keywords="writer diff checker, text diff, word level diff, compare drafts, AI rewrite review, writing tools, privacy first, client side diff, similarity score"
-        url="https://everydayutils.com/blog/writer-diff-checker"
+        url="https://www.everydayutils.com/blog/writer-diff-checker"
       />
 
       <Helmet>

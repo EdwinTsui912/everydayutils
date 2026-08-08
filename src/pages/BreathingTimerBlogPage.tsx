@@ -59,7 +59,7 @@ export default function BreathingTimerBlogPage() {
         title="How a Simple Breathing Timer Quietly Fixes Your Focus, Stress, and Sleep"
         description="Use a free breathing timer for focus and stress with 4-7-8, box breathing, coherent breathing, and 4-6 patterns. Pair it with Pomodoro for work, meetings, and evening wind-downs—private and client-side."
         keywords="breathing timer for focus and stress, 4-7-8 breathing timer for sleep, box breathing for work stress, how to use a breathing timer with a Pomodoro timer, coherent breathing, guided breathing timer"
-        url="https://everydayutils.com/blog/breathing-timer-focus-stress-sleep"
+        url="https://www.everydayutils.com/blog/breathing-timer-focus-stress-sleep"
       />
 
       <Helmet>

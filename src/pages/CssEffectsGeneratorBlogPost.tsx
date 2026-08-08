@@ -64,7 +64,7 @@ export default function CssEffectsGeneratorBlogPost() {
         title="Free CSS Effects Generator — Gradients, Glassmorphism & Soft Shadows"
         description="Build hero gradients, glassmorphism cards, and soft box shadows from your brand palette. Free CSS gradient and glassmorphism generator for designers — private, browser-based, copy-ready CSS."
         keywords="css effects generator, free css gradient generator, glassmorphism generator, box shadow generator, brand color palette css, hero gradient css, soft card shadow"
-        url="https://everydayutils.com/blog/css-effects-generator"
+        url="https://www.everydayutils.com/blog/css-effects-generator"
       />
 
       <Helmet>

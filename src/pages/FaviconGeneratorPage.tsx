@@ -201,7 +201,7 @@ export default function FaviconGeneratorPage() {
         title="Free Favicon Generator from Image — All Sizes Instantly | EverydayUtils"
         description="Generate a complete set of favicons including favicon.ico and apple-touch-icon.png from one image. Private, browser-based, no upload to any server required."
         keywords="favicon generator, favicon.ico generator, apple touch icon generator, image to favicon, free favicon maker"
-        url="https://everydayutils.com/favicon-generator"
+        url="https://www.everydayutils.com/favicon-generator"
       />
 
       <div className="text-center mb-10">

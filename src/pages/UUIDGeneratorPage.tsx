@@ -183,7 +183,7 @@ export default function UUIDGeneratorPage() {
         title="Free UUID / GUID Generator — Bulk UUID v4 & v7 Online | EverydayUtils"
         description="Generate UUIDs and GUIDs instantly in your browser. Supports UUID v4 and v7, bulk copy, JSON/CSV/SQL output, and private client-side generation."
         keywords="uuid generator, guid generator, bulk uuid generator, uuid v4 generator, uuid v7 generator"
-        url="https://everydayutils.com/uuid-generator"
+        url="https://www.everydayutils.com/uuid-generator"
       />
 
       <Helmet>

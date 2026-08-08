@@ -58,7 +58,7 @@ export default function UuidGeneratorBlogPost() {
         title="Fast UUID Generator for Developers — v4, v7, CSV, JSON, SQL"
         description="Generate UUID v4 and v7 in bulk for API testing, database seeding, and local dev. Export in plain text, CSV, JSON, and SQL-ready format. Private, browser-based tool for developers."
         keywords="uuid generator, bulk uuid, uuid v4, uuid v7, sql uuid, csv uuid, json uuid, developer tools, api testing, database seeding, local development"
-        url="https://everydayutils.com/blog/uuid-generator"
+        url="https://www.everydayutils.com/blog/uuid-generator"
       />
 
       <Helmet>

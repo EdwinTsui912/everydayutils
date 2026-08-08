@@ -11,7 +11,7 @@ export default function MilestoneBlogPost() {
           description="Behind the scenes of EverydayUtils.com — 15 privacy-first, client-side tools and 18 blog posts in, here's everything I learned about building, shipping, and growing a no-sign-up tools site."
           keywords="privacy-first browser tools, client-side web tools, no sign-up tools, building a tools website, indie SaaS lessons"
           image="https://everydayutils.com/images/milestone-post-hero.jpg"
-          url="https://everydayutils.com/blog/15-tools-18-posts-milestone"
+          url="https://www.everydayutils.com/blog/15-tools-18-posts-milestone"
         />
 
         <div className="mb-6">

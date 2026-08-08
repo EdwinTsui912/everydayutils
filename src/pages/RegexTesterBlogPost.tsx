@@ -72,7 +72,7 @@ export default function RegexTesterBlogPost() {
         title="Regex Tester & Debugger — See Every Match and Capture Group | EverydayUtils"
         description="A free, private regex tester that shows live matches, capture groups, flags, and presets in your browser. Debug email, URL, log, and SEO patterns with no sign-up and no tracking."
         keywords="regex tester, regex debugger, online regex tester, javascript regex, capture groups, regex flags, free regex tool, private regex tester"
-        url="https://everydayutils.com/blog/regex-tester-debugger"
+        url="https://www.everydayutils.com/blog/regex-tester-debugger"
       />
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">

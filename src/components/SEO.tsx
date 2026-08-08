@@ -12,14 +12,15 @@ export default function SEO({
   title = "EverydayUtils - Free Privacy-First Online Tools",
   description = "Free privacy-first online tools: Password Generator, Username Generator, QR Code, Text Tools, Color Palette and more.",
   keywords = "free online tools, password generator, username generator, qr code generator",
-  image = "https://everydayutils.com/og-image.jpg", // you can change later
-  url = "https://everydayutils.com",
+  image = "https://www.everydayutils.com/og-image.jpg",
+  url = "https://www.everydayutils.com/",
 }: SEOProps) {
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      <link rel="canonical" href={url} />
 
       {/* Open Graph / Social Media */}
       <meta property="og:title" content={title} />

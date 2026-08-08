@@ -10,7 +10,7 @@ export default function BestFreePasswordGenerator2026BlogPost() {
         title="Best Free Password Generator in 2026 (Tested & Private) | EverydayUtils"
         description="Weak passwords are still the easiest way hackers get in. See why a truly private, cryptographically secure password generator beats every other free tool in 2026."
         keywords="best password generator 2026, free password generator, secure password generator, strong password generator online, private password tool"
-        url="https://everydayutils.com/blog/best-free-password-generator-2026"
+        url="https://www.everydayutils.com/blog/best-free-password-generator-2026"
       />
 
 

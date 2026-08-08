@@ -119,7 +119,7 @@ export default function ImageConverterPage() {
         title="Free Image Format Converter — JPG, PNG, WebP Online | EverydayUtils"
         description="Convert between JPG, PNG, and WebP instantly in your browser. No sign-up, no data upload, and complete privacy — perfect for optimizing images for the web."
         keywords="image converter, jpg to png, png to webp, image format converter online, convert images free"
-        url="https://everydayutils.com/image-converter"
+        url="https://www.everydayutils.com/image-converter"
       />
 
       <div className="text-center mb-12">

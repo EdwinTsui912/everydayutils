@@ -9,7 +9,7 @@ export default function ImageConverterBlogPost() {
         title="Free Private Image Converter: JPG, PNG & WebP (No Upload) | EverydayUtils"
         description="Convert images between JPG, PNG, and WebP instantly in your browser. No sign-up, no uploads, no data collection — everything stays on your device."
         keywords="image converter, jpg to webp, png to jpg, webp converter online, free image format converter"
-        url="https://everydayutils.com/blog/free-private-image-converter"
+        url="https://www.everydayutils.com/blog/free-private-image-converter"
       />
 
       {/* Breadcrumb */}

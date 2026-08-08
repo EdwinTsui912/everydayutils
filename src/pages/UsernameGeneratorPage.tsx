@@ -116,7 +116,7 @@ export default function UsernameGeneratorPage() {
         title="Best Free Username Generator 2026 - Gaming & Aesthetic Names"
         description="Generate cool, unique, and creative usernames instantly for Roblox, Discord, Instagram, TikTok, Minecraft, Twitch and more. 100% free & private."
         keywords="username generator, gaming usernames, roblox usernames, aesthetic usernames, discord names, free username generator 2026"
-        url="https://everydayutils.com/username-generator"
+        url="https://www.everydayutils.com/username-generator"
       />
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
       {/* SEO Header */}

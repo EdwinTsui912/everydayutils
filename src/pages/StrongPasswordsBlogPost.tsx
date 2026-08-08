@@ -39,7 +39,7 @@ export default function StrongPasswordsBlogPost() {
         title="How to Create Strong Passwords in 2026 | EverydayUtils"
         description="Learn what makes a password truly strong in 2026, common mistakes to avoid, and how to generate and manage secure passwords without memorizing them."
         keywords="strong password guide, how to create strong password, password best practices 2026, password manager tips, secure password generator"
-        url="https://everydayutils.com/blog/how-to-create-strong-passwords"
+        url="https://www.everydayutils.com/blog/how-to-create-strong-passwords"
       />
 
 

@@ -9,7 +9,7 @@ export default function PromptForgeBlogPost() {
         title="PromptForge: The Private AI Prompt Generator | EverydayUtils Blog"
         description="Stop wasting time with generic AI prompts. PromptForge is a free, 100% private AI prompt generator using proven frameworks for ChatGPT, Claude, Gemini, and Grok."
         keywords="ai prompt generator, promptforge, chatgpt prompts, claude prompts, prompt engineering tool, private ai tools"
-        url="https://everydayutils.com/blog/promptforge-launch"
+        url="https://www.everydayutils.com/blog/promptforge-launch"
       />
 
       {/* Breadcrumb */}

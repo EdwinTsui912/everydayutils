@@ -62,7 +62,7 @@ export default function FaviconGeneratorBlogPost() {
         title="Free Favicon Generator — Create All Sizes Instantly | EverydayUtils"
         description="Turn any logo into a complete favicon package in seconds. Generates all standard sizes, apple-touch-icon, and favicon.ico with no sign-up required."
         keywords="favicon generator, free favicon generator, favicon.ico generator, apple touch icon generator, website icon maker"
-        url="https://everydayutils.com/blog/free-favicon-generator"
+        url="https://www.everydayutils.com/blog/free-favicon-generator"
       />
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">

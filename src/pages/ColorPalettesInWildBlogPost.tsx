@@ -71,7 +71,7 @@ export default function ColorPalettesInWildBlogPost() {
         title="Color Palettes in the Wild: 8 Real Projects Where Choosing Colors Gets Hard — 2026 Guide"
         description="A practical guide to choosing Tailwind-friendly color palettes for dashboards, landing pages, dark mode UIs, and more — with real scenarios, common mistakes, and a faster way to build accessible colors."
         keywords="color palette generator, Tailwind color palette, accessible color palette, WCAG color contrast, dark mode palette, SaaS UI colors, dashboard color scheme"
-        url="https://everydayutils.com/blog/color-palettes-in-the-wild"
+        url="https://www.everydayutils.com/blog/color-palettes-in-the-wild"
       />
 
       <Helmet>

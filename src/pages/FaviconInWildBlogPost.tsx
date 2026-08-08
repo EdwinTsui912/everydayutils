@@ -64,7 +64,7 @@ export default function FaviconInWildBlogPost() {
         title="Favicons in the Wild: 7 Real Situations Where Your Site’s Icon Quietly Matters — 2026 Guide"
         description="A practical guide to favicons for modern browsers, mobile home screens, and PWAs — with real examples, common mistakes, and a faster way to generate favicon.ico, PNG sizes, and an Apple Touch Icon from one image."
         keywords="favicon generator, favicon.ico, apple touch icon, site icon, PWA icons, browser tab icon, bookmark icon"
-        url="https://everydayutils.com/blog/favicons-in-the-wild"
+        url="https://www.everydayutils.com/blog/favicons-in-the-wild"
       />
 
       <Helmet>

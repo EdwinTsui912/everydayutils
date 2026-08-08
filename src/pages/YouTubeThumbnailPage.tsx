@@ -13,7 +13,7 @@ export default function YouTubeThumbnailPage() {
         title="Free YouTube Thumbnail Generator Online — No Sign-Up | EverydayUtils"
         description="Design professional YouTube thumbnails instantly. Upload an image, add bold text and templates, then export as PNG or JPG — 100% free and private in your browser."
         keywords="youtube thumbnail generator, youtube thumbnail maker, custom youtube thumbnail, thumbnail creator online"
-        url="https://everydayutils.com/youtube-thumbnail"
+        url="https://www.everydayutils.com/youtube-thumbnail"
       />
       <YouTubeThumbnail />
 

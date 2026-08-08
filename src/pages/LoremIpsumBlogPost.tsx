@@ -9,7 +9,7 @@ export default function LoremIpsumBlogPost() {
         title="Free Private Lorem Ipsum Generator — No Ads, No Signup | EverydayUtils"
         description="Generate clean placeholder text instantly. Live preview, HTML or plain text output, and 100% client-side privacy — no ads, no tracking, no signup."
         keywords="lorem ipsum generator, placeholder text generator, free lorem ipsum, lorem ipsum html, dummy text generator"
-        url="https://everydayutils.com/blog/free-private-lorem-ipsum-generator"
+        url="https://www.everydayutils.com/blog/free-private-lorem-ipsum-generator"
       />
 
       {/* Breadcrumb */}

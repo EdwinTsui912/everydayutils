@@ -113,7 +113,7 @@ export default function Base64Page() {
         title="Free Base64 Encoder & Decoder Online — Private, No Sign-Up | EverydayUtils"
         description="Encode and decode Base64 strings instantly in your browser. Supports file uploads, real-time conversion, and 100% client-side privacy — no data leaves your device."
         keywords="base64 encoder, base64 decoder, base64 converter online, encode base64, decode base64"
-        url="https://everydayutils.com/base64"
+        url="https://www.everydayutils.com/base64"
       />
 
       {/* Centered Header with Icon */}

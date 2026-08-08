@@ -10,7 +10,7 @@ export default function JsonFormatterGuideBlogPost() {
         title="Best Free JSON Formatter & Validator in 2026 | EverydayUtils"
         description="Format, validate, and minify JSON with real-time error reporting and full privacy. No sign-up, no data uploads, no ads — 100% client-side."
         keywords="json formatter, json validator, json minifier online, free json formatter, json pretty print"
-        url="https://everydayutils.com/blog/best-free-json-formatter-2026"
+        url="https://www.everydayutils.com/blog/best-free-json-formatter-2026"
       />
 
 

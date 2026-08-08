@@ -12,7 +12,7 @@ export default function QRGeneratorPage() {
         title="Free QR Code Generator Online — No Sign-Up | EverydayUtils"
         description="Generate high-quality QR codes instantly for URLs, text, WiFi, and vCard. Customize colors, size, and error correction — 100% free and private in your browser."
         keywords="qr code generator, free qr code, wifi qr code, vcard qr code, qr code maker online"
-        url="https://everydayutils.com/qr-code-generator"
+        url="https://www.everydayutils.com/qr-code-generator"
       />
       <div className="max-w-4xl mx-auto px-4 pt-6">
         <div className="mb-6">

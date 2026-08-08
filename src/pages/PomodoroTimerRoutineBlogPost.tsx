@@ -41,7 +41,7 @@ export default function PomodoroTimerRoutineBlogPost() {
         title="How I Use a Pomodoro Online Timer for Deep Work (My Daily Routine) | EverydayUtils"
         description="A practical Pomodoro routine for writers, developers, and remote workers. Learn how to structure deep work using a privacy-first online Pomodoro timer with short breaks, long resets, and no tracking."
         keywords="pomodoro online timer routine, deep work pomodoro, structured focus sessions, free pomodoro timer, browser-based pomodoro, productivity timer workflow"
-        url="https://everydayutils.com/blog/pomodoro-timer-routine"
+        url="https://www.everydayutils.com/blog/pomodoro-timer-routine"
       />
 
       {/* Breadcrumb */}

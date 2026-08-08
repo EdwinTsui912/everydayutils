@@ -389,7 +389,7 @@ export default function ImageCompressorPage() {
         title="Free Image Compressor — Reduce JPG, PNG & WebP Size Privately"
         description="Compress images in your browser with no uploads. Reduce JPG, PNG, and WebP file size with quality controls, resizing, batch processing, and ZIP download."
         keywords="image compressor, compress image online, reduce image size, jpg compressor, webp compressor, png compressor, batch image compressor"
-        url="https://everydayutils.com/image-compressor"
+        url="https://www.everydayutils.com/image-compressor"
       />
 
       <Helmet>

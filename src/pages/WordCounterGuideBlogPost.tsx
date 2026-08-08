@@ -57,7 +57,7 @@ export default function WordCounterGuideBlogPost() {
         title="Word Counter & Text Sanitizer for Chinese + English | EverydayUtils"
         description="A word counter that actually understands mixed Chinese and English text, plus a text sanitizer and case converter — all free, private, and browser-based."
         keywords="word counter chinese english, cjk word counter, text sanitizer online, case converter tool, character counter mixed language"
-        url="https://everydayutils.com/blog/word-counter-text-sanitizer-guide"
+        url="https://www.everydayutils.com/blog/word-counter-text-sanitizer-guide"
       />
 
       <nav className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mb-8">

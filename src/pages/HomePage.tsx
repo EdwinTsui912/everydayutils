@@ -22,7 +22,6 @@ import {
   GitCompare,
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import { Helmet } from 'react-helmet-async';
 
 const TOOL_GROUPS = [
   {
@@ -72,7 +71,7 @@ const TOOL_GROUPS = [
       },
       {
         path: '/regex-tester',
-        icon: Code2, // or Braces if you import it; Code2 keeps it consistent with dev tools
+        icon: Code2,
         label: 'Regex Tester & Debugger',
         description:
           'Test regex against real text, inspect capture groups, and debug flags — all in your browser, no uploads.',
@@ -232,15 +231,11 @@ const FEATURES = [
 export default function HomePage() {
   return (
     <>
-      <Helmet>
-        <title>EverydayUtils - Free Privacy-First Online Tools</title>
-      </Helmet>
-
       <SEO
         title="EverydayUtils - Free Privacy-First Online Tools"
         description="Fast, private, client-side web utilities: UUID Generator, Password Generator, Username Generator, QR Code, Color Palette, Text Tools, JSON Formatter and more. No tracking, no sign-up."
         keywords="free online tools, password generator, username generator, qr code, color palette, json formatter, text tools, privacy first tools"
-        url="https://everydayutils.com"
+        url="https://www.everydayutils.com/"
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-14 animate-fade-in">

@@ -34,7 +34,7 @@ export default function DeveloperUtilitiesBlogPost() {
         title="Free Developer Utilities: JSON, Base64, URL Encoder & More | EverydayUtils"
         description="Four free browser-based developer tools that remove daily friction: JSON Formatter, Base64 Encoder/Decoder, URL Encoder/Decoder, and Lorem Ipsum Generator."
         keywords="developer utilities, json formatter, base64 encoder decoder, url encoder decoder, lorem ipsum generator, free dev tools"
-        url="https://everydayutils.com/blog/free-developer-utilities"
+        url="https://www.everydayutils.com/blog/free-developer-utilities"
       />
 
 
