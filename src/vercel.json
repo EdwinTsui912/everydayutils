@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      { "source": "/palette-generator", "destination": "/color-palette-generator", "permanent": true },
+      { "source": "/qr-code-generator", "destination": "/qr-generator", "permanent": true },
+      { "source": "/wifi-qr-guide", "destination": "/blog/wifi-qr-code-guide", "permanent": true },
+      { "source": "/blog/how-to-create-wifi-qr-code", "destination": "/blog/wifi-qr-code-guide", "permanent": true },
+      { "source": "/blog/free-qr-code-generator-wifi-url-text", "destination": "/blog/wifi-qr-code-guide", "permanent": true }
+    ]
+  }

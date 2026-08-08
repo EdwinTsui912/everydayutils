@@ -41,7 +41,6 @@ import YouTubeThumbnailPage from './pages/YouTubeThumbnailPage';
 import BestFreeUsernameGenerator2026 from './pages/best-free-username-generator-2026';
 import { Toaster } from 'react-hot-toast';
 import PromptForgeBlogPost from './pages/PromptForgeBlogPost';
-import YoutubeThumbnailBlogPost from './pages/YoutubeThumbnailBlogPost';
 import DeveloperUtilitiesBlogPost from './pages/DeveloperUtilitiesBlogPost';
 import FaviconGeneratorPage from "./pages/FaviconGeneratorPage";
 import FaviconGeneratorBlogPost from './pages/FaviconGeneratorBlogPost';
